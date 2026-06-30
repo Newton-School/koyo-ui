@@ -49,11 +49,12 @@ jobs:
         run: pnpm build
         env:
           GITHUB_PAGES: 'true'
-          BASEPATH: /koyo-ui
-          NEXT_PUBLIC_APP_URL: https://newton-school.github.io/koyo-ui
+          NEXT_PUBLIC_APP_URL: https://koyo-ui.newtonschool.co
 
       - name: Preserve static assets
-        run: touch out/.nojekyll
+        run: |
+          touch out/.nojekyll
+          echo "koyo-ui.newtonschool.co" > out/CNAME
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
