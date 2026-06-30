@@ -1,0 +1,21 @@
+packages:
+  - "."
+
+autoInstallPeers: true
+shamefullyHoist: true
+
+onlyBuiltDependencies:
+  - "@tailwindcss/oxide"
+  - "sharp"
+  - "unrs-resolver"
+
+ignoredBuiltDependencies:
+  - "@scarf/scarf"
+  - "msw"
+
+allowBuilds:
+  '@scarf/scarf': false
+  '@tailwindcss/oxide': true
+  msw: false
+  sharp: true
+  unrs-resolver: true
