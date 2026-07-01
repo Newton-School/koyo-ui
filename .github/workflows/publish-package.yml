@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   release:
     types:
-      - published
+      - created
 
 permissions:
   contents: read
@@ -39,6 +39,9 @@ jobs:
         run: pnpm check-types
 
       - name: Publish to npm
-        run: npm publish packages/koyo-ui --access public --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        uses: JS-DevTools/npm-publish@v4
+        with:
+          token: ${{ secrets.KOYO_UI_PUBLISHING_NPM_TOKEN }}
+          package: packages/koyo-ui
+          access: public
+          provenance: true

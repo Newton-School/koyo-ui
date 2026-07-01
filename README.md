@@ -58,11 +58,13 @@ pnpm publish:lib
 ```
 
 The repository also includes a manual/release GitHub Actions workflow named
-`Publish Koyo UI Package`. Add an npm automation token with publish access to
-the `@newtonschool` scope as a repository secret named `NPM_TOKEN`, then run the
-workflow from GitHub Actions or publish a GitHub release. The workflow verifies
-the library boundary, type-checks the docs against the package, and publishes
-`packages/koyo-ui` to npm with provenance.
+`Publish Koyo UI Package`. It follows the same Newton pattern used by
+`Newton-School/grauity`: add an npm automation token with publish access to the
+`@newtonschool` scope as a repository secret named
+`KOYO_UI_PUBLISHING_NPM_TOKEN`, then run the workflow from GitHub Actions or
+create a GitHub release. The workflow verifies the library boundary, type-checks
+the docs against the package, and publishes `packages/koyo-ui` to npm with
+provenance.
 
 ## Attribution
 
