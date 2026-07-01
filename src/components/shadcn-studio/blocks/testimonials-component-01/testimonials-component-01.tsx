@@ -28,7 +28,7 @@ const TestimonialsComponent = ({ testimonials }: TestimonialsComponentProps) => 
       >
         {/* Left Content */}
         <div className='space-y-4 sm:w-1/2 lg:w-1/3'>
-          <p className='text-primary text-sm font-medium uppercase'>Real customers</p>
+          <p className='text-koyo-brand text-sm font-medium uppercase'>Real customers</p>
 
           <h2 className='text-2xl font-semibold sm:text-3xl lg:text-4xl'>Customers Feedback</h2>
 
@@ -39,11 +39,11 @@ const TestimonialsComponent = ({ testimonials }: TestimonialsComponentProps) => 
           <div className='flex items-center gap-4'>
             <CarouselPrevious
               variant='default'
-              className='disabled:bg-primary/10 disabled:text-primary static translate-y-0 rounded-md disabled:opacity-100'
+              className='disabled:bg-koyo-brand/10 disabled:text-koyo-brand static translate-y-0 rounded-md disabled:opacity-100'
             />
             <CarouselNext
               variant='default'
-              className='disabled:bg-primary/10 disabled:text-primary static translate-y-0 rounded-md disabled:opacity-100'
+              className='disabled:bg-koyo-brand/10 disabled:text-koyo-brand static translate-y-0 rounded-md disabled:opacity-100'
             />
           </div>
         </div>
@@ -53,7 +53,7 @@ const TestimonialsComponent = ({ testimonials }: TestimonialsComponentProps) => 
           <CarouselContent className='sm:-ml-6'>
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index} className='sm:pl-6 lg:basis-1/2'>
-                <Card className='hover:border-primary h-full transition-colors duration-300'>
+                <Card className='hover:border-koyo-brand h-full transition-colors duration-300'>
                   <CardContent className='space-y-5'>
                     <div className='flex items-center gap-3'>
                       <Avatar className='size-10 rounded-full'>

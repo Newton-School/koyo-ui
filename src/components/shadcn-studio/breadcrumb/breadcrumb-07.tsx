@@ -23,7 +23,7 @@ const BreadcrumbWithIconDemo = () => {
         <BreadcrumbItem>
           <BreadcrumbLink href='#'>
             <HomeIcon className='size-4' />
-            <span className='sr-only'>Home</span>
+            <span className='sr-only'>Workspace</span>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator>
@@ -36,9 +36,9 @@ const BreadcrumbWithIconDemo = () => {
               <span className='sr-only'>{open ? 'Open' : 'Close'}</span>
             </DropdownMenuTrigger>
             <DropdownMenuContent align='start'>
-              <DropdownMenuItem>Documentation</DropdownMenuItem>
-              <DropdownMenuItem>Themes</DropdownMenuItem>
-              <DropdownMenuItem>GitHub</DropdownMenuItem>
+              <DropdownMenuItem>Cohorts</DropdownMenuItem>
+              <DropdownMenuItem>Mentors</DropdownMenuItem>
+              <DropdownMenuItem>Reports</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </BreadcrumbItem>
@@ -46,7 +46,7 @@ const BreadcrumbWithIconDemo = () => {
           <ChevronsRightIcon />
         </BreadcrumbSeparator>
         <BreadcrumbItem>
-          <BreadcrumbPage>Add Document</BreadcrumbPage>
+          <BreadcrumbPage>Interview prep</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

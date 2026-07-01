@@ -36,41 +36,41 @@ declare module '@tanstack/react-table' {
 const initialData: Person[] = [
   {
     id: '1',
-    firstName: 'John',
-    lastName: 'Doe',
-    email: 'john.doe@example.com',
+    firstName: 'Aarav',
+    lastName: 'Mehta',
+    email: 'aarav@koyo-ui.com',
     status: 'active',
     progress: 75
   },
   {
     id: '2',
-    firstName: 'Jane',
-    lastName: 'Smith',
-    email: 'jane.smith@example.com',
+    firstName: 'Maya',
+    lastName: 'Kapoor',
+    email: 'maya@koyo-ui.com',
     status: 'inactive',
     progress: 45
   },
   {
     id: '3',
-    firstName: 'Bob',
-    lastName: 'Johnson',
-    email: 'bob.johnson@example.com',
+    firstName: 'Kabir',
+    lastName: 'Rao',
+    email: 'kabir@koyo-ui.com',
     status: 'active',
     progress: 90
   },
   {
     id: '4',
-    firstName: 'Alice',
-    lastName: 'Brown',
-    email: 'alice.brown@example.com',
+    firstName: 'Anika',
+    lastName: 'Shah',
+    email: 'anika@koyo-ui.com',
     status: 'pending',
     progress: 60
   },
   {
     id: '5',
-    firstName: 'Charlie',
-    lastName: 'Wilson',
-    email: 'charlie.wilson@example.com',
+    firstName: 'Dev',
+    lastName: 'Iyer',
+    email: 'dev@koyo-ui.com',
     status: 'active',
     progress: 80
   }
@@ -103,7 +103,7 @@ const EditableTextCell = ({ getValue, row: { index }, column: { id }, table }: C
       value={value}
       onChange={e => setValue(e.target.value)}
       onBlur={onBlur}
-      className='focus-visible:ring-ring h-8 w-full border-0 bg-transparent p-1 focus-visible:ring-1'
+      className='focus-visible:ring-koyo-brand-ring h-8 w-full border-0 bg-transparent p-1 focus-visible:ring-[3px]'
       aria-label='editable-text-input'
     />
   )
@@ -120,7 +120,7 @@ const EditableSelectCell = ({ getValue, row: { index }, column: { id }, table }:
   return (
     <Select value={initialValue} onValueChange={handleValueChange}>
       <SelectTrigger
-        className='focus:ring-ring h-8 w-full border-0 bg-transparent p-1 focus:ring-1'
+        className='focus:ring-koyo-brand-ring h-8 w-full border-0 bg-transparent p-1 focus:ring-[3px]'
         aria-label={`select-status-${id}`}
       >
         <SelectValue />
@@ -159,7 +159,7 @@ const EditableProgressCell = ({ getValue, row: { index }, column: { id }, table 
         value={value}
         onChange={e => setValue(e.target.value)}
         onBlur={onBlur}
-        className='focus-visible:ring-ring h-8 w-20 border-0 bg-transparent p-1 focus-visible:ring-1'
+        className='focus-visible:ring-koyo-brand-ring h-8 w-20 border-0 bg-transparent p-1 focus-visible:ring-[3px]'
         aria-label='editable-progress-input'
       />
       <span className='text-muted-foreground text-sm'>%</span>

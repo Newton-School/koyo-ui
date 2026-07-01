@@ -80,7 +80,7 @@ const PopoverSearchDemo = () => {
       <PopoverTrigger asChild>
         <Button variant='outline' size='icon'>
           <SearchIcon />
-          <span className='sr-only'>Search users</span>
+          <span className='sr-only'>Search candidates</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent className='w-80'>
@@ -92,7 +92,7 @@ const PopoverSearchDemo = () => {
             </div>
             <Input
               type='search'
-              placeholder='Search users'
+              placeholder='Search candidates'
               value={inputValue}
               onChange={e => setInputValue(e.target.value)}
               className='peer px-9 [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none [&::-webkit-search-results-button]:appearance-none [&::-webkit-search-results-decoration]:appearance-none'
@@ -114,12 +114,12 @@ const PopoverSearchDemo = () => {
                   </Avatar>
                   <div className='flex-1 text-sm font-medium'>{user.name}</div>
                   {user.notifications && (
-                    <span className='text-muted-foreground text-xs'>{`${user.notifications} Notification${user.notifications > 1 ? 's' : ''}`}</span>
+                    <span className='text-muted-foreground text-xs'>{`${user.notifications} pending review${user.notifications > 1 ? 's' : ''}`}</span>
                   )}
                 </li>
               ))
             ) : (
-              <li className='py-2 text-center text-sm'>No users found</li>
+              <li className='py-2 text-center text-sm'>No candidates found</li>
             )}
           </ul>
         </div>

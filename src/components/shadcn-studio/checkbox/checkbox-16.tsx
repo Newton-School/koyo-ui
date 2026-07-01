@@ -12,16 +12,16 @@ const CheckboxFormDemo = () => {
       <Checkbox id={id} defaultChecked />
       <div className='grid gap-2'>
         <Label htmlFor={id} className='gap-1 leading-4'>
-          Accept terms and conditions
+          Confirm candidate consent
         </Label>
         <p className='text-muted-foreground text-xs'>
-          By clicking this checkbox, you agree to the terms and conditions.
+          Candidate has agreed to share interview feedback with mentors.
         </p>
         <div className='flex flex-wrap gap-2'>
           <Button variant='outline' size='sm'>
             Reset
           </Button>
-          <Button size='sm'>Submit</Button>
+          <Button size='sm'>Save consent</Button>
         </div>
       </div>
     </div>

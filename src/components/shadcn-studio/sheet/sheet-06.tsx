@@ -153,7 +153,7 @@ const NavigationMenu = ({ item, level }: { level: number; item: NavigationItem }
   if (item.type === 'page') {
     return (
       <div
-        className='focus-visible:ring-ring/50 flex items-center gap-2 rounded-md p-1 outline-none focus-visible:ring-[3px]'
+        className='focus-visible:ring-koyo-button-primary-ring flex items-center gap-2 rounded-md p-1 outline-none focus-visible:ring-[3px]'
         style={{ paddingLeft: `${level === 0 ? 0.25 : 1.75}rem` }}
       >
         {level === 0 ? <item.icon className='size-4 shrink-0' /> : <CircleSmallIcon className='size-4 shrink-0' />}
@@ -164,7 +164,7 @@ const NavigationMenu = ({ item, level }: { level: number; item: NavigationItem }
 
   return (
     <Collapsible className='flex flex-col gap-1.5' style={{ paddingLeft: `${level === 0 ? 0 : 1.5}rem` }}>
-      <CollapsibleTrigger className='focus-visible:ring-ring/50 flex items-center gap-2 rounded-md p-1 outline-none focus-visible:ring-[3px]'>
+      <CollapsibleTrigger className='focus-visible:ring-koyo-button-primary-ring flex items-center gap-2 rounded-md p-1 outline-none focus-visible:ring-[3px]'>
         {level === 0 ? <item.icon className='size-4 shrink-0' /> : <CircleSmallIcon className='size-4 shrink-0' />}
         <span className='flex-1 text-start text-sm'>{item.name}</span>
         <ChevronRightIcon className='size-4 shrink-0 transition-transform [[data-state="open"]>&]:rotate-90' />

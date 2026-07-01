@@ -8,7 +8,7 @@ const InputOTPGroupedDemo = () => {
 
   return (
     <div className='space-y-3'>
-      <Label htmlFor={id}>Input OTP Grouped</Label>
+      <Label htmlFor={id}>Grouped cohort code</Label>
       <InputOTP id={id} maxLength={6}>
         <InputOTPGroup>
           <InputOTPSlot index={0} />

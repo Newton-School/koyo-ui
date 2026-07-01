@@ -6,7 +6,7 @@ const SelectWithInsetLabelDemo = () => {
   const id = useId()
 
   return (
-    <div className='border-input group bg-background focus-within:border-ring focus-within:ring-ring/50 has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40 has-aria-invalid:border-destructive relative w-full max-w-xs rounded-md border shadow-xs transition-[color,box-shadow] outline-none focus-within:ring-[3px] has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50 has-[input:is(:disabled)]:*:pointer-events-none'>
+    <div className='border-border group bg-background focus-within:border-koyo-brand focus-within:ring-koyo-brand-ring has-aria-invalid:ring-koyo-focus-error/30 has-aria-invalid:border-destructive relative w-full max-w-xs rounded-lg border shadow-xs transition-[color,box-shadow] outline-none focus-within:ring-[3px] has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50 has-[input:is(:disabled)]:*:pointer-events-none'>
       <label
         htmlFor={id}
         className='text-foreground dark:bg-input/30 dark:group-hover:bg-input/50 block px-3 pt-1 text-xs font-medium'

@@ -61,7 +61,7 @@ const PlanDialog = ({ defaultOpen = false, trigger, data, className }: Props) =>
           {data.map(planData => (
             <div
               key={planData.id}
-              className='border-input has-data-[state=checked]:border-primary relative flex w-full flex-col gap-4 rounded-md border px-5 py-6 outline-none'
+              className='border-border has-data-[state=checked]:border-koyo-brand relative flex w-full flex-col gap-4 rounded-md border px-5 py-6 outline-none'
             >
               <div className='flex flex-col gap-1'>
                 <div className='flex items-center justify-between gap-2'>
@@ -95,7 +95,7 @@ const PlanDialog = ({ defaultOpen = false, trigger, data, className }: Props) =>
         </RadioGroup>
 
         <DialogFooter className='gap-4 max-sm:flex-col sm:justify-between'>
-          <Button size='lg' className='bg-primary/10 text-primary hover:bg-primary/20'>
+          <Button size='lg' className='bg-koyo-brand/10 text-koyo-brand hover:bg-koyo-brand/20'>
             <MessageSquareTextIcon />
             Chat with us
           </Button>

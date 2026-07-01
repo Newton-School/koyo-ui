@@ -29,7 +29,7 @@ function Checkbox({ className, onCheckedChange, ...props }: CheckboxProps) {
       <motion.button
         data-slot='checkbox'
         className={cn(
-          'peer border-input dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-colors duration-500 outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50',
+          'peer border-border bg-background dark:bg-input/30 data-[state=checked]:border-koyo-brand data-[state=checked]:bg-koyo-brand data-[state=checked]:text-koyo-button-primary-foreground data-[state=checked]:hover:border-koyo-brand-hover data-[state=checked]:hover:bg-koyo-brand-hover data-[state=indeterminate]:border-koyo-brand data-[state=indeterminate]:bg-koyo-brand data-[state=indeterminate]:text-koyo-button-primary-foreground focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring aria-invalid:border-destructive aria-invalid:ring-koyo-focus-error/30 size-4 shrink-0 rounded-sm border shadow-xs transition-[color,box-shadow,background-color,border-color] duration-500 outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:border-border disabled:bg-secondary disabled:text-muted-foreground disabled:opacity-70',
           className
         )}
         whileTap={{ scale: 0.95 }}

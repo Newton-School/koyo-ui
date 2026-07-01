@@ -47,9 +47,9 @@ const AvatarGroupDropdownDemo = () => {
       ))}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className='bg-muted has-focus-visible:ring-ring/50 ring-background flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-full ring-2'>
+          <button className='bg-secondary has-focus-visible:border-koyo-brand has-focus-visible:ring-koyo-brand-ring ring-background flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-full ring-2 has-focus-visible:ring-[3px]'>
             <PlusIcon className='size-4' />
-            <span className='sr-only'>Add</span>
+            <span className='sr-only'>Add teammate</span>
           </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>

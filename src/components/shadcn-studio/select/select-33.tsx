@@ -88,7 +88,7 @@ const MultipleSelectWithPlaceholderDemo = () => {
         Inspired by{' '}
         <a
           href='https://shadcnui-expansions.typeart.cc/docs/multiple-selector'
-          className='hover:text-primary underline'
+          className='hover:text-koyo-brand underline'
           target='_blank'
         >
           shadcn/ui expressions

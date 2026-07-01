@@ -56,7 +56,7 @@ const DialogOTPVerificationDemo = () => {
         <div className='flex flex-col items-center gap-2'>
           <div
             className={cn(
-              'flex size-10 shrink-0 items-center justify-center rounded-full bg-sky-600/10 dark:bg-sky-400/100',
+              'flex size-10 shrink-0 items-center justify-center rounded-full bg-koyo-brand/10',
               { 'bg-green-600/10 dark:bg-green-400/10': hasGuessed }
             )}
             aria-hidden='true'
@@ -64,7 +64,7 @@ const DialogOTPVerificationDemo = () => {
             {hasGuessed ? (
               <CheckIcon className='text-green-600 dark:text-green-400' strokeWidth={1} />
             ) : (
-              <MailIcon className='text-sky-600 dark:text-sky-400' strokeWidth={1} />
+              <MailIcon className='text-koyo-brand' strokeWidth={1} />
             )}
           </div>
           <DialogHeader>
@@ -74,12 +74,12 @@ const DialogOTPVerificationDemo = () => {
             <DialogDescription className='sm:text-center'>
               {hasGuessed ? (
                 <span>
-                  Congratulations! your email account <strong>exa**le@gmail.com</strong> has been verified
+                  Your Koyo UI workspace email <strong>he**o@koyo-ui.com</strong> has been verified.
                 </span>
               ) : (
                 <span>
-                  We have sent a verification code to <strong>exa**le@gmail.com</strong>. Please check your inbox and
-                  input the code below to activate your account. Try {CORRECT_CODE}
+                  We sent a verification code to <strong>he**o@koyo-ui.com</strong>. Enter it below to activate your
+                  workspace. Try {CORRECT_CODE}
                 </span>
               )}
             </DialogDescription>
@@ -122,7 +122,7 @@ const DialogOTPVerificationDemo = () => {
             )}
             <p className='text-center text-sm'>
               Didn&apos;t get a code?{' '}
-              <a className='text-sky-600 hover:underline dark:text-sky-400' href='#'>
+              <a className='text-koyo-brand hover:underline' href='#'>
                 Resend
               </a>
             </p>
@@ -137,8 +137,8 @@ function Slot(props: SlotProps) {
   return (
     <div
       className={cn(
-        'border-input bg-background text-foreground flex size-9 items-center justify-center rounded-md border font-medium shadow-xs transition-[color,box-shadow]',
-        { 'border-ring ring-ring/50 z-10 ring-[3px]': props.isActive }
+        'border-border bg-background text-foreground flex size-9 items-center justify-center rounded-md border font-medium shadow-xs transition-[color,box-shadow]',
+        { 'border-koyo-brand ring-koyo-brand-ring z-10 ring-[3px]': props.isActive }
       )}
     >
       {props.char !== null && <div>{props.char}</div>}

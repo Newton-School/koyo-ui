@@ -6,7 +6,7 @@ const ButtonDiscardDemo = () => {
   return (
     <Button
       variant='outline'
-      className='hover:bg-destructive/10! text-destructive! border-destructive! focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40'
+      className='border-koyo-button-error! text-koyo-button-error! hover:bg-koyo-button-error/10! focus-visible:ring-koyo-button-error-ring'
     >
       <Trash2Icon />
       Discard

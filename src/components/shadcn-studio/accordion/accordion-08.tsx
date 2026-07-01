@@ -1,4 +1,4 @@
-import { HeadsetIcon, PackageIcon, PlusIcon, RefreshCwIcon } from 'lucide-react'
+import { GraduationCapIcon, MessageSquareTextIcon, PlusIcon, UserRoundCheckIcon } from 'lucide-react'
 
 import * as AccordionPrimitive from '@radix-ui/react-accordion'
 
@@ -6,24 +6,25 @@ import { Accordion, AccordionContent, AccordionItem } from '@/components/ui/acco
 
 const items = [
   {
-    icon: PackageIcon,
-    title: 'How do I track my order?',
-    subtitle: 'Shipping & Delivery',
-    content: `You can track your order by logging into your account and visiting the "Orders" section. You'll receive tracking information via email once your order ships. For real-time updates, you can also use the tracking number provided in your shipping confirmation email.`
+    icon: UserRoundCheckIcon,
+    title: 'How do I review a candidate timeline?',
+    subtitle: 'Candidate review',
+    content:
+      'Open the candidate profile and use the interview timeline to scan stage changes, scorecard updates, and mentor notes from the most recent round.'
   },
   {
-    icon: RefreshCwIcon,
-    title: 'What is your return policy?',
-    subtitle: 'Returns & Refunds',
+    icon: GraduationCapIcon,
+    title: 'When should a learner be nudged?',
+    subtitle: 'Cohort progress',
     content:
-      'We offer a 30-day return policy for most items. Products must be unused and in their original packaging. To initiate a return, please contact our customer service team or use the return portal in your account dashboard.'
+      'Nudge learners when cohort progress stalls, an assignment deadline is near, or a mentor flags repeated blockers during review.'
   },
   {
-    icon: HeadsetIcon,
-    title: 'How can I contact customer support?',
-    subtitle: 'Help & Support',
+    icon: MessageSquareTextIcon,
+    title: 'How do mentors share interview feedback?',
+    subtitle: 'Mentor notes',
     content:
-      'Our customer support team is available 24/7. You can reach us via live chat, email at support@example.com, or by phone at 1-800-123-4567. For faster service, please have your order number ready when contacting us.'
+      'Mentors can submit structured feedback from the interview workspace. The summary is attached to the candidate profile for the hiring team.'
   }
 ]
 
@@ -35,11 +36,11 @@ const AccordionIconSubtitleDemo = () => {
           <AccordionPrimitive.Header className='flex'>
             <AccordionPrimitive.Trigger
               data-slot='accordion-trigger'
-              className='focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-center justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg>path:last-child]:rotate-90 [&[data-state=open]>svg>path:last-child]:opacity-0'
+              className='focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring hover:text-koyo-brand flex flex-1 items-center justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg>path:last-child]:rotate-90 [&[data-state=open]>svg>path:last-child]:opacity-0'
             >
               <span className='flex items-center gap-4'>
                 <span
-                  className='flex size-10 shrink-0 items-center justify-center rounded-full border'
+                  className='border-koyo-brand bg-koyo-brand/10 text-koyo-brand flex size-10 shrink-0 items-center justify-center rounded-full border'
                   aria-hidden='true'
                 >
                   <item.icon className='size-4' />

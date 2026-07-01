@@ -18,7 +18,7 @@ const PaginationUnderlineDemo = () => {
           <PaginationLink
             href='#'
             isActive
-            className='border-primary! rounded-none border-0 border-b-2 bg-transparent! !shadow-none'
+            className='border-koyo-button-primary! text-koyo-button-primary rounded-none border-0 border-b-2 bg-transparent! !shadow-none'
           >
             1
           </PaginationLink>

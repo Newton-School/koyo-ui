@@ -8,7 +8,7 @@ const InputOTPOutlinedDemo = () => {
 
   return (
     <div className='space-y-3'>
-      <Label htmlFor={id}>Input OTP outlined</Label>
+      <Label htmlFor={id}>Outlined access code</Label>
       <InputOTP id={id} maxLength={4}>
         <InputOTPGroup className='gap-2 *:data-[slot=input-otp-slot]:rounded-md *:data-[slot=input-otp-slot]:border'>
           <InputOTPSlot index={0} />

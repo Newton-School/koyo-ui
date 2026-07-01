@@ -52,7 +52,7 @@ const PricingCards = ({ pricingData }: { pricingData: PricingPlan }) => {
                     </div>
                     <div className='flex flex-col items-end sm:hidden'>
                       <div className='flex items-end'>
-                        <span className='text-primary text-5xl font-bold'>${price}</span>
+                        <span className='text-koyo-brand text-5xl font-bold'>${price}</span>
                         <span className='text-muted-foreground ml-1 text-lg'>/{period}</span>
                       </div>
                       {savings && (
@@ -69,7 +69,7 @@ const PricingCards = ({ pricingData }: { pricingData: PricingPlan }) => {
                   <div className='flex items-end justify-end max-sm:hidden'>
                     <div className='flex flex-col items-end'>
                       <div className='flex items-end'>
-                        <span className='text-primary text-5xl font-bold'>${price}</span>
+                        <span className='text-koyo-brand text-5xl font-bold'>${price}</span>
                         <span className='text-muted-foreground ml-1 text-lg'>/{period}</span>
                       </div>
                       {savings && (

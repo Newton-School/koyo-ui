@@ -25,7 +25,7 @@ const BreadcrumbChevronsSeparatorDemo = () => {
         <BreadcrumbItem>
           <BreadcrumbLink href='#' className='flex items-center gap-2'>
             <FolderIcon className='size-4' />
-            Documents
+            Cohorts
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator>
@@ -34,7 +34,7 @@ const BreadcrumbChevronsSeparatorDemo = () => {
         <BreadcrumbItem>
           <BreadcrumbPage className='flex items-center gap-2'>
             <FileIcon className='inline size-4' />
-            Add Document
+            Interview prep
           </BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>

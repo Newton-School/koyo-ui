@@ -75,7 +75,7 @@ export const columns: ColumnDef<Item>[] = [
     accessorKey: 'status',
     header: 'Status',
     cell: ({ row }) => (
-      <Badge className='bg-primary/10 text-primary rounded-sm px-1.5 capitalize'>{row.getValue('status')}</Badge>
+      <Badge className='bg-koyo-brand/10 text-koyo-brand rounded-sm px-1.5 capitalize'>{row.getValue('status')}</Badge>
     )
   },
   {
@@ -214,7 +214,7 @@ const TransactionDatatable = ({ data }: { data: Item[] }) => {
                   <PaginationItem key={page}>
                     <Button
                       size='icon'
-                      className={`${!isActive && 'bg-primary/10 text-primary hover:bg-primary/20 focus-visible:ring-primary/20 dark:focus-visible:ring-primary/40'}`}
+                      className={`${!isActive && 'bg-koyo-brand/10 text-koyo-brand hover:bg-koyo-brand/20 focus-visible:ring-koyo-brand-ring'}`}
                       onClick={() => table.setPageIndex(page - 1)}
                       aria-current={isActive ? 'page' : undefined}
                     >

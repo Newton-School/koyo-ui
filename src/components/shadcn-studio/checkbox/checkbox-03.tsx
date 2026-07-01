@@ -8,8 +8,8 @@ const CheckboxDashedDemo = () => {
 
   return (
     <div className='flex items-center gap-2'>
-      <Checkbox id={id} className='border-primary border-dashed' />
-      <Label htmlFor={id}>Accept terms and conditions</Label>
+      <Checkbox id={id} className='border-koyo-brand border-dashed focus-visible:border-koyo-brand' />
+      <Label htmlFor={id}>Require mentor review</Label>
     </div>
   )
 }

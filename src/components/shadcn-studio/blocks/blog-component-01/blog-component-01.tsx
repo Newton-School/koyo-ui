@@ -17,10 +17,10 @@ const Blog = ({ blogCards }: { blogCards: BlogCard }) => {
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         {/* Header */}
         <div className='mb-12 space-y-4 text-center sm:mb-16 lg:mb-24'>
-          <p className='text-primary text-sm font-medium uppercase'>Blog list</p>
-          <h2 className='text-2xl font-semibold md:text-3xl lg:text-4xl'>Plan your upcoming journey.</h2>
+          <p className='text-koyo-brand text-sm font-medium uppercase'>Koyo notes</p>
+          <h2 className='text-2xl font-semibold md:text-3xl lg:text-4xl'>Build launch-ready interfaces.</h2>
           <p className='text-muted-foreground text-xl'>
-            Explore new destinations, indulge in local cuisines, and immerse yourself in diverse cultures.
+            Practical patterns for product teams shipping dashboards, forms, and landing surfaces with Koyo UI.
           </p>
         </div>
 

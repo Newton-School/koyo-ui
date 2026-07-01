@@ -67,7 +67,7 @@ const TotalEarningCard = ({ earningData, title, earning, trend, percentage, comp
             <div key={index} className='flex items-center justify-between gap-2.5'>
               <div className='flex items-center justify-between gap-2.5'>
                 <Avatar className='size-11 rounded-sm'>
-                  <AvatarFallback className='bg-primary/10 shrink-0 rounded-sm'>
+                  <AvatarFallback className='bg-koyo-brand/10 shrink-0 rounded-sm'>
                     <img src={earning.img} alt={earning.platform} className='size-6' />
                   </AvatarFallback>
                 </Avatar>

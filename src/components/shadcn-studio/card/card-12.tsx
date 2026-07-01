@@ -18,42 +18,41 @@ const CardProductDemo = () => {
       <div className='flex h-60 items-center justify-center'>
         <img
           src='https://cdn.shadcnstudio.com/ss-assets/components/card/image-11.png?width=300&format=auto'
-          alt='Shoes'
+          alt='Candidate workspace preview'
           className='w-75'
         />
       </div>
       <Button
         size='icon'
         onClick={() => setLiked(!liked)}
-        className='bg-primary/10 hover:bg-primary/20 absolute top-4 right-4 rounded-full'
+        className='bg-koyo-button-primary/10 hover:bg-koyo-button-primary/20 absolute top-4 right-4 rounded-full'
       >
         <HeartIcon className={cn(liked ? 'fill-destructive stroke-destructive' : 'stroke-white')} />
         <span className='sr-only'>Like</span>
       </Button>
       <Card className='border-none'>
         <CardHeader>
-          <CardTitle>Nike Jordan Air Rev</CardTitle>
+          <CardTitle>Frontend Interview Kit</CardTitle>
           <CardDescription className='flex items-center gap-2'>
             <Badge variant='outline' className='rounded-sm'>
-              EU38
+              React
             </Badge>
             <Badge variant='outline' className='rounded-sm'>
-              Black and White
+              Senior cohort
             </Badge>
           </CardDescription>
         </CardHeader>
         <CardContent>
           <p>
-            Crossing hardwood comfort with off-court flair. &apos;80s-Inspired construction, bold details and
-            nothin&apos;-but-net style.
+            A reusable round plan with starter prompts, mentor rubric, and candidate-facing instructions.
           </p>
         </CardContent>
         <CardFooter className='justify-between gap-3 max-sm:flex-col max-sm:items-stretch'>
           <div className='flex flex-col'>
-            <span className='text-sm font-medium uppercase'>Price</span>
-            <span className='text-xl font-semibold'>$69.99</span>
+            <span className='text-sm font-medium uppercase'>Rounds</span>
+            <span className='text-xl font-semibold'>3</span>
           </div>
-          <Button size='lg'>Add to cart</Button>
+          <Button size='lg'>Use kit</Button>
         </CardFooter>
       </Card>
     </div>

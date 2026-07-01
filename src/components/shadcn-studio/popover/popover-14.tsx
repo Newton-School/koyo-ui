@@ -12,19 +12,19 @@ const members = [
     image: 'https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-3.png',
     fallback: 'HL',
     name: 'Howard Lloyd',
-    designation: 'Product Manager'
+    designation: 'Product mentor'
   },
   {
     image: 'https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-6.png',
     fallback: 'OS',
     name: 'Olivia Sparks',
-    designation: 'Software Engineer'
+    designation: 'Engineering mentor'
   },
   {
     image: 'https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-5.png',
     fallback: 'HR',
     name: 'Hallie Richards',
-    designation: 'UI/UX Designer'
+    designation: 'Design mentor'
   }
 ]
 
@@ -39,24 +39,24 @@ const PopoverSlideInBottomDemo = () => {
       <PopoverContent className='data-[state=open]:slide-in-from-bottom-20 data-[state=closed]:slide-out-to-bottom-20 data-[state=closed]:zoom-out-100 data-[state=open]:zoom-in-100 w-80 duration-400'>
         <div className='grid gap-4'>
           <div className='space-y-1'>
-            <div className='font-medium'>Share to team members</div>
+            <div className='font-medium'>Share with mentors</div>
             <p className='text-muted-foreground text-sm'>
-              Give your team members access to this project and start collaborating in real time
+              Give mentors access to this cohort and coordinate interview feedback in real time.
             </p>
           </div>
           <div className='w-full space-y-1.5'>
             <Label htmlFor={id} className='text-muted-foreground text-xs font-normal'>
-              Email address
+              Mentor email
             </Label>
             <div className='flex gap-2'>
-              <Input id={id} type='email' placeholder='example@xyz.com' className='h-8' />
+              <Input id={id} type='email' placeholder='mentor@koyo.example' className='h-8' />
               <Button type='submit' size='sm'>
                 Share invite
               </Button>
             </div>
           </div>
           <div className='space-y-1.5'>
-            <Label className='text-muted-foreground text-xs font-normal'>Team members</Label>
+            <Label className='text-muted-foreground text-xs font-normal'>Mentors</Label>
             <ul className='grid gap-2'>
               {members.map((member, index) => (
                 <li key={index} className='flex items-center gap-3'>

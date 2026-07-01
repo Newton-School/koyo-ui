@@ -26,8 +26,8 @@ const AlertFileUploadDemo = () => {
       <UploadIcon />
       <div className='flex flex-1 flex-col gap-4'>
         <div className='flex-1 flex-col justify-center gap-1'>
-          <AlertTitle>Uploading your &apos;Img-234.png&apos;</AlertTitle>
-          <AlertDescription>Please wait while we upload your image.</AlertDescription>
+          <AlertTitle>Uploading candidate portfolio.pdf</AlertTitle>
+          <AlertDescription>Please wait while the profile attachment is added.</AlertDescription>
         </div>
         <Progress value={progress} aria-label='Upload Progress' />
         <div className='flex items-center gap-4'>
@@ -37,9 +37,9 @@ const AlertFileUploadDemo = () => {
           <Button
             variant='ghost'
             disabled
-            className='text-primary hover:bg-secondary hover:text-secondary-foreground h-7 cursor-pointer rounded-lg px-2'
+            className='text-koyo-brand hover:bg-koyo-brand/10 h-7 cursor-pointer rounded-lg px-2'
           >
-            Upload another
+            Add another file
           </Button>
         </div>
       </div>

@@ -6,27 +6,27 @@ const RadioGroupDashedDemo = () => {
     <RadioGroup defaultValue='standard'>
       <div className='flex items-center gap-2'>
         <RadioGroupItem
-          value='standard'
-          id='standard'
-          className='border-primary focus-visible:border-primary border-dashed'
+          value='screening'
+          id='screening'
+          className='border-koyo-brand border-dashed focus-visible:border-koyo-brand'
         />
-        <Label htmlFor='standard'>Standard Shipping</Label>
+        <Label htmlFor='screening'>Screening round</Label>
       </div>
       <div className='flex items-center gap-2'>
         <RadioGroupItem
-          value='express'
-          id='express'
-          className='border-primary focus-visible:border-primary border-dashed'
+          value='technical'
+          id='technical'
+          className='border-koyo-brand border-dashed focus-visible:border-koyo-brand'
         />
-        <Label htmlFor='express'>Express Delivery</Label>
+        <Label htmlFor='technical'>Technical interview</Label>
       </div>
       <div className='flex items-center gap-2'>
         <RadioGroupItem
-          value='overnight'
-          id='overnight'
-          className='border-primary focus-visible:border-primary border-dashed'
+          value='mentor'
+          id='mentor'
+          className='border-koyo-brand border-dashed focus-visible:border-koyo-brand'
         />
-        <Label htmlFor='overnight'>Overnight Shipping</Label>
+        <Label htmlFor='mentor'>Mentor review</Label>
       </div>
     </RadioGroup>
   )

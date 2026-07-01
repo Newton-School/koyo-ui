@@ -6,7 +6,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const badgeVariants = cva(
-  'focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-koyo-focus-error/30 aria-invalid:border-destructive inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden border px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] [&>svg]:pointer-events-none [&>svg]:size-3',
+  'focus-visible:border-koyo-button-primary focus-visible:ring-koyo-button-primary-ring aria-invalid:ring-koyo-focus-error/30 aria-invalid:border-destructive inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden border px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-[color,box-shadow,background-color,border-color] focus-visible:ring-[3px] [&>svg]:pointer-events-none [&>svg]:size-3',
   {
     variants: {
       variant: {
@@ -26,8 +26,8 @@ const badgeVariants = cva(
         secondary: 'bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90 border-transparent',
         destructive:
           'bg-destructive [a&]:hover:bg-destructive/90 focus-visible:ring-koyo-focus-error/30 border-transparent text-white',
-        outline: 'border-border text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground',
-        ghost: 'text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground border-transparent'
+        outline: 'border-border text-foreground [a&]:hover:border-koyo-button-primary [a&]:hover:bg-koyo-button-primary/10',
+        ghost: 'text-foreground [a&]:hover:bg-koyo-button-primary/10 border-transparent'
       },
       shape: {
         default: 'rounded-lg',

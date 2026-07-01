@@ -2,18 +2,19 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 
 const items = [
   {
-    title: 'How do I track my order?',
-    content: `You can track your order by logging into your account and visiting the "Orders" section. You'll receive tracking information via email once your order ships. For real-time updates, you can also use the tracking number provided in your shipping confirmation email.`
+    title: 'How do I review a candidate timeline?',
+    content:
+      'Open the candidate profile and use the interview timeline to scan stage changes, scorecard updates, and mentor notes from the most recent round.'
   },
   {
-    title: 'What is your return policy?',
+    title: 'When should a learner be nudged?',
     content:
-      'We offer a 30-day return policy for most items. Products must be unused and in their original packaging. To initiate a return, please contact our customer service team or use the return portal in your account dashboard.'
+      'Nudge learners when cohort progress stalls, an assignment deadline is near, or a mentor flags repeated blockers during review.'
   },
   {
-    title: 'How can I contact customer support?',
+    title: 'How do mentors share interview feedback?',
     content:
-      'Our customer support team is available 24/7. You can reach us via live chat, email at support@example.com, or by phone at 1-800-123-4567. For faster service, please have your order number ready when contacting us.'
+      'Mentors can submit structured feedback from the interview workspace. The summary is attached to the candidate profile for the hiring team.'
   }
 ]
 

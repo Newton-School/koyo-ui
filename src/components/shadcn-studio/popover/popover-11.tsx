@@ -13,21 +13,21 @@ const notifications = [
   {
     id: 1,
     image: 'https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-3.png',
-    message: 'Harry assigned you task of New API implementation',
+    message: 'Aarav moved to technical interview',
     fallback: 'HL',
     time: '15 Minutes'
   },
   {
     id: 2,
     image: 'https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-6.png',
-    message: 'Jerry joined team',
+    message: 'Meera joined the July cohort',
     fallback: 'OS',
     time: '35 Minutes'
   },
   {
     id: 3,
     image: 'https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-5.png',
-    message: 'Congratulate ruby for married life',
+    message: 'Riya completed her mentor review',
     fallback: 'HR',
     time: '3 days'
   }
@@ -53,7 +53,7 @@ const PopoverNotificationsDemo = () => {
               className='h-7 rounded-full px-2 py-1 text-xs'
               onClick={() => setReadMessages(notifications.map(item => item.id))}
             >
-              Mark as all read
+              Mark all read
             </Button>
           </div>
           <Separator className='' />
@@ -61,7 +61,7 @@ const PopoverNotificationsDemo = () => {
             {notifications.map(item => (
               <li
                 key={item.id}
-                className='hover:bg-accent flex items-start gap-2 rounded-lg px-2 py-1.5'
+                className='hover:bg-koyo-button-primary-ring/20 flex items-start gap-2 rounded-lg px-2 py-1.5'
                 onClick={() => setReadMessages([...readMessages, item.id])}
               >
                 <Avatar className='rounded-lg'>
@@ -73,7 +73,7 @@ const PopoverNotificationsDemo = () => {
                   <p className='text-muted-foreground text-xs'>{`${item.time} ago`}</p>
                 </div>
                 {!readMessages.includes(item.id) && (
-                  <CircleIcon className='fill-primary text-primary size-2 self-center' />
+                  <CircleIcon className='fill-koyo-button-primary text-koyo-button-primary size-2 self-center' />
                 )}
               </li>
             ))}

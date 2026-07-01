@@ -25,21 +25,21 @@ const CardTweetDemo = () => {
     <Card className='max-w-md'>
       <CardHeader className='flex items-center justify-between gap-3'>
         <div className='flex items-center gap-3'>
-          <Avatar className='ring-ring ring-2'>
-            <AvatarImage src='https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-5.png' alt='Hallie Richards' />
+          <Avatar className='ring-koyo-brand-ring ring-2'>
+            <AvatarImage src='https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-5.png' alt='Priya George' />
             <AvatarFallback className='text-xs'>PG</AvatarFallback>
           </Avatar>
           <div className='flex flex-col gap-0.5'>
             <CardTitle className='flex items-center gap-1 text-sm'>
-              Philip George <BadgeCheckIcon className='size-4 fill-sky-600 stroke-white dark:fill-sky-400' />
+              Priya George <BadgeCheckIcon className='size-4 fill-koyo-brand stroke-white' />
             </CardTitle>
-            <CardDescription>@philip20</CardDescription>
+            <CardDescription>@mentor-priya</CardDescription>
           </div>
         </div>
         <div className='flex items-center gap-2'>
           <Button variant='outline' size='sm'>
             <UserPlusIcon />
-            Follow
+            Assign
           </Button>
           <Button variant='ghost' size='icon' aria-label='Toggle menu'>
             <EllipsisIcon />
@@ -53,15 +53,16 @@ const CardTweetDemo = () => {
           className='aspect-video w-full rounded-md object-cover'
         />
         <p>
-          Lost in the colors of the night 🌌✨ Sometimes the blur reveals more than clarity.{' '}
-          <a href='#' className='text-sky-600 dark:text-sky-400'>
-            #AbstractVibes
+          Strong candidate signal from the system design round. Recommending a focused follow-up on API ownership and
+          incident debugging.{' '}
+          <a href='#' className='text-koyo-brand'>
+            #InterviewNotes
           </a>{' '}
-          <a href='#' className='text-sky-600 dark:text-sky-400'>
-            #Dreamscape
+          <a href='#' className='text-koyo-brand'>
+            #BackendRole
           </a>{' '}
-          <a href='#' className='text-sky-600 dark:text-sky-400'>
-            #VisualPoetry
+          <a href='#' className='text-koyo-brand'>
+            #MentorReview
           </a>
         </p>
       </CardContent>

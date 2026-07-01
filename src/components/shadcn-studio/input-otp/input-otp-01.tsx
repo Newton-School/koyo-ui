@@ -12,7 +12,7 @@ const InputOTPNumberDemo = () => {
 
   return (
     <div className='space-y-3'>
-      <Label htmlFor={id}>Input OTP number</Label>
+      <Label htmlFor={id}>Candidate verification code</Label>
       <InputOTP id={id} maxLength={4} pattern={REGEXP_ONLY_DIGITS}>
         <InputOTPGroup>
           <InputOTPSlot index={0} />

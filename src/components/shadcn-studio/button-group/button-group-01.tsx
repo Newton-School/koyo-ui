@@ -9,7 +9,7 @@ const ButtonGroupDownloadDemo = () => {
         <DownloadIcon />
         Download
       </Button>
-      <span className='bg-background dark:border-input dark:bg-input/30 flex items-center rounded-r-md border px-3 text-sm font-medium'>
+      <span className='bg-background dark:border-border dark:bg-input/30 flex items-center rounded-r-md border px-3 text-sm font-medium'>
         15k
       </span>
     </div>

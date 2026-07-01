@@ -3,30 +3,30 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 
 const RadioGroupSolidDemo = () => {
   return (
-    <RadioGroup defaultValue='light'>
+    <RadioGroup defaultValue='live'>
       <div className='flex items-center gap-2'>
         <RadioGroupItem
-          value='light'
-          id='theme-light'
-          className='text-primary-foreground data-[state=checked]:bg-primary! data-[state=checked]:border-primary data-[state=checked]:[&_svg]:fill-primary-foreground'
+          value='live'
+          id='cohort-live'
+          className='text-koyo-button-primary-foreground data-[state=checked]:border-koyo-brand data-[state=checked]:bg-koyo-brand! data-[state=checked]:hover:border-koyo-brand-hover data-[state=checked]:hover:bg-koyo-brand-hover data-[state=checked]:[&_svg]:fill-koyo-button-primary-foreground'
         />
-        <Label htmlFor='theme-light'>Light Theme</Label>
+        <Label htmlFor='cohort-live'>Live cohort</Label>
       </div>
       <div className='flex items-center gap-2'>
         <RadioGroupItem
-          value='dark'
-          id='theme-dark'
-          className='text-primary-foreground data-[state=checked]:bg-primary! data-[state=checked]:border-primary data-[state=checked]:[&_svg]:fill-primary-foreground'
+          value='practice'
+          id='cohort-practice'
+          className='text-koyo-button-primary-foreground data-[state=checked]:border-koyo-brand data-[state=checked]:bg-koyo-brand! data-[state=checked]:hover:border-koyo-brand-hover data-[state=checked]:hover:bg-koyo-brand-hover data-[state=checked]:[&_svg]:fill-koyo-button-primary-foreground'
         />
-        <Label htmlFor='theme-dark'>Dark Theme</Label>
+        <Label htmlFor='cohort-practice'>Practice cohort</Label>
       </div>
       <div className='flex items-center gap-2'>
         <RadioGroupItem
-          value='system'
-          id='theme-system'
-          className='text-primary-foreground data-[state=checked]:bg-primary! data-[state=checked]:border-primary data-[state=checked]:[&_svg]:fill-primary-foreground'
+          value='archived'
+          id='cohort-archived'
+          className='text-koyo-button-primary-foreground data-[state=checked]:border-koyo-brand data-[state=checked]:bg-koyo-brand! data-[state=checked]:hover:border-koyo-brand-hover data-[state=checked]:hover:bg-koyo-brand-hover data-[state=checked]:[&_svg]:fill-koyo-button-primary-foreground'
         />
-        <Label htmlFor='theme-system'>System Default</Label>
+        <Label htmlFor='cohort-archived'>Archived cohort</Label>
       </div>
     </RadioGroup>
   )

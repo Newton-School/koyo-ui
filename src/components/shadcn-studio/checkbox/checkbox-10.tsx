@@ -4,18 +4,18 @@ const CheckboxColorsDemo = () => {
   return (
     <div className='flex items-center gap-2'>
       <Checkbox
-        className='data-[state=checked]:bg-destructive! data-[state=checked]:border-destructive focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:text-white'
-        aria-label='Color destructive'
+        className='data-[state=checked]:border-destructive data-[state=checked]:bg-destructive! focus-visible:border-destructive focus-visible:ring-koyo-focus-error/30 dark:text-white'
+        aria-label='Flag candidate risk'
         defaultChecked
       />
       <Checkbox
-        className='focus-visible:ring-sky-600/20 data-[state=checked]:border-sky-600 data-[state=checked]:bg-sky-600 dark:text-white dark:focus-visible:ring-sky-400/40 dark:data-[state=checked]:border-sky-400 dark:data-[state=checked]:bg-sky-400'
-        aria-label='Color info'
+        className='focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring data-[state=checked]:border-koyo-brand data-[state=checked]:bg-koyo-brand data-[state=checked]:hover:border-koyo-brand-hover data-[state=checked]:hover:bg-koyo-brand-hover dark:text-white'
+        aria-label='Mark candidate ready'
         defaultChecked
       />
       <Checkbox
-        className='focus-visible:ring-green-600/20 data-[state=checked]:border-green-600 data-[state=checked]:bg-green-600 dark:text-white dark:focus-visible:ring-green-400/40 dark:data-[state=checked]:border-green-400 dark:data-[state=checked]:bg-green-400'
-        aria-label='Color success'
+        className='focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring data-[state=checked]:border-koyo-brand data-[state=checked]:bg-koyo-brand data-[state=checked]:hover:border-koyo-brand-hover data-[state=checked]:hover:bg-koyo-brand-hover dark:text-white'
+        aria-label='Assign mentor follow-up'
         defaultChecked
       />
     </div>

@@ -17,7 +17,7 @@ const StatisticsCard = ({ icon, value, title, changePercentage, className }: Sta
   return (
     <Card className={cn('gap-4', className)}>
       <CardHeader className='flex items-center'>
-        <div className='bg-primary/10 text-primary flex size-8 shrink-0 items-center justify-center rounded-md'>
+        <div className='bg-koyo-brand/10 text-koyo-brand flex size-8 shrink-0 items-center justify-center rounded-md'>
           {icon}
         </div>
         <span className='text-2xl'>{value}</span>

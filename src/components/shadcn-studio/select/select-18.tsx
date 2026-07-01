@@ -18,7 +18,7 @@ const SelectGhostDemo = () => {
     <div className='w-full max-w-xs space-y-2'>
       <Label htmlFor={id}>Ghost Select</Label>
       <Select defaultValue='apple'>
-        <SelectTrigger className='hover:bg-accent w-full border-none shadow-none dark:bg-transparent'>
+        <SelectTrigger className='hover:bg-koyo-brand/10 w-full border-none shadow-none dark:bg-transparent'>
           <SelectValue placeholder='Select a fruit' />
         </SelectTrigger>
         <SelectContent>

@@ -8,7 +8,7 @@ const InputOTPMinimalDemo = () => {
 
   return (
     <div className='space-y-3'>
-      <Label htmlFor={id}>Input OTP minimal</Label>
+      <Label htmlFor={id}>Minimal candidate code</Label>
       <InputOTP id={id} maxLength={4}>
         <InputOTPGroup className='gap-2 *:data-[active=true]:ring-0 *:data-[slot=input-otp-slot]:rounded-none *:data-[slot=input-otp-slot]:border-0 *:data-[slot=input-otp-slot]:border-b-2 *:data-[slot=input-otp-slot]:shadow-none *:dark:data-[slot=input-otp-slot]:bg-transparent'>
           <InputOTPSlot index={0} />

@@ -21,7 +21,7 @@ const ButtonGroupNumberDemo = () => {
         <MinusIcon />
         <span className='sr-only'>Minus</span>
       </Button>
-      <span className='bg-primary text-primary-foreground inline-flex items-center px-3 py-2 text-sm font-medium'>
+      <span className='bg-koyo-button-primary text-koyo-button-primary-foreground inline-flex items-center px-3 py-2 text-sm font-medium'>
         {`${value}px`}
       </span>
       <Button

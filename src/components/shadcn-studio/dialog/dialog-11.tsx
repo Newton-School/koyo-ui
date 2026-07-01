@@ -45,7 +45,7 @@ const DialogRatingDemo = () => {
                 {ratings.map(rating => (
                   <label
                     key={`${id}-${rating.value}`}
-                    className='border-input relative flex size-9 cursor-pointer flex-col items-center justify-center rounded-full border text-center text-xl shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:border-sky-600 has-focus-visible:ring-[3px] has-focus-visible:ring-sky-600/50 has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-[state=checked]:border-sky-600 has-data-[state=checked]:bg-sky-600/10 dark:has-focus-visible:border-sky-400 dark:has-focus-visible:ring-sky-600/50 dark:has-data-[state=checked]:border-sky-400 dark:has-data-[state=checked]:bg-sky-400/10'
+                    className='border-border relative flex size-9 cursor-pointer flex-col items-center justify-center rounded-full border text-center text-xl shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:border-koyo-brand has-focus-visible:ring-[3px] has-focus-visible:ring-koyo-brand-ring has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-[state=checked]:border-koyo-brand has-data-[state=checked]:bg-koyo-brand/10'
                   >
                     <RadioGroupItem
                       id={`${id}-${rating.value}`}
@@ -58,12 +58,12 @@ const DialogRatingDemo = () => {
               </RadioGroup>
             </fieldset>
             <div className='grid grow-1 gap-3'>
-              <Textarea placeholder='Type your message here.' id='message-2' required />
+              <Textarea placeholder='Share what would make this Koyo UI flow better.' id='message-2' required />
               <p className='text-muted-foreground text-sm'>500/500 characters left</p>
             </div>
             <div className='flex gap-3'>
               <Checkbox id='terms' />
-              <Label htmlFor='terms'>I consent to Shadcn Studio contacting me based on my feedback</Label>
+              <Label htmlFor='terms'>I consent to Koyo UI contacting me based on my feedback</Label>
             </div>
 
             <DialogFooter className='sm:justify-end'>

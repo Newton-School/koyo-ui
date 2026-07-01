@@ -11,13 +11,13 @@ const CheckboxAnimatedTodoListDemo = () => {
       <Checkbox
         id={id}
         defaultChecked
-        className='rounded-full focus-visible:border-blue-500 focus-visible:ring-blue-500/20 data-[state=checked]:border-blue-500 data-[state=checked]:bg-blue-500! dark:text-white dark:focus-visible:ring-blue-500/40'
+        className='rounded-full focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring data-[state=checked]:border-koyo-brand data-[state=checked]:bg-koyo-brand! data-[state=checked]:hover:border-koyo-brand-hover data-[state=checked]:hover:bg-koyo-brand-hover dark:text-white'
       />
       <Label
         htmlFor={id}
-        className='after:bg-primary peer-data-[state=checked]:text-primary relative after:absolute after:top-1/2 after:left-0 after:h-px after:w-full after:origin-bottom after:scale-x-0 after:transition-transform after:duration-500 after:ease-in-out peer-data-[state=checked]:after:origin-bottom peer-data-[state=checked]:after:scale-x-100'
+        className='after:bg-koyo-brand peer-data-[state=checked]:text-koyo-brand relative after:absolute after:top-1/2 after:left-0 after:h-px after:w-full after:origin-bottom after:scale-x-0 after:transition-transform after:duration-500 after:ease-in-out peer-data-[state=checked]:after:origin-bottom peer-data-[state=checked]:after:scale-x-100'
       >
-        Animated todo list item
+        Complete learner follow-up
       </Label>
     </div>
   )

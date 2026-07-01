@@ -11,10 +11,10 @@ const CheckboxDescriptionDemo = () => {
       <Checkbox id={id} defaultChecked />
       <div className='grid gap-2'>
         <Label htmlFor={id} className='leading-4'>
-          Accept terms and conditions
+          Share interview scorecard
         </Label>
         <p className='text-muted-foreground text-xs'>
-          By clicking this checkbox, you agree to the terms and conditions.
+          Let mentors and cohort owners view this candidate&apos;s latest scorecard.
         </p>
       </div>
     </div>

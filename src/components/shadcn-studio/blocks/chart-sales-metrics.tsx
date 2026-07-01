@@ -102,8 +102,8 @@ const SalesMetricsCard = ({ className }: { className?: string }) => {
                 alt='logo'
               />
               <div className='flex flex-col gap-0.5'>
-                <span className='text-xl font-medium'>Sandy&apos; Company</span>
-                <span className='text-muted-foreground text-sm'>sandy@company.com</span>
+                <span className='text-xl font-medium'>Koyo Studio</span>
+                <span className='text-muted-foreground text-sm'>hello@koyo-ui.com</span>
               </div>
             </div>
 
@@ -111,7 +111,7 @@ const SalesMetricsCard = ({ className }: { className?: string }) => {
               {MetricsData.map((metric, index) => (
                 <div key={index} className='flex items-center gap-3 rounded-md border px-4 py-2'>
                   <Avatar className='size-8.5 rounded-sm'>
-                    <AvatarFallback className='bg-primary/10 text-primary shrink-0 rounded-sm'>
+                    <AvatarFallback className='bg-koyo-brand/10 text-koyo-brand shrink-0 rounded-sm'>
                       {metric.icons}
                     </AvatarFallback>
                   </Avatar>

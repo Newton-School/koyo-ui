@@ -5,16 +5,16 @@ import { Button } from '@/components/ui/button'
 
 const AlertWithLinkDemo = () => {
   return (
-    <Alert className='border-primary text-primary flex items-center justify-between [&>svg]:translate-y-0'>
+    <Alert className='border-koyo-brand text-koyo-brand flex items-center justify-between [&>svg]:translate-y-0'>
       <CircleAlertIcon />
-      <AlertTitle className='flex-1'>New message!</AlertTitle>
+      <AlertTitle className='flex-1'>Candidate reply received</AlertTitle>
       <Button
         variant='outline'
-        className='border-primary text-primary! hover:bg-secondary hover:text-secondary-foreground h-7 cursor-pointer rounded-lg px-2'
+        className='border-koyo-brand text-koyo-brand! hover:bg-koyo-brand/10 h-7 cursor-pointer rounded-lg px-2'
         asChild
       >
         <a href='#'>
-          Link
+          View
           <ArrowRightIcon />
         </a>
       </Button>

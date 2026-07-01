@@ -18,13 +18,13 @@ const Gallery = ({ sections }: { sections: GallerySection[] }) => {
         <div className='mb-12 space-y-4 text-center sm:mb-16 lg:mb-24'>
           <h2 className='text-2xl font-semibold md:text-3xl lg:text-4xl'>
             <span className='relative z-1'>
-              Explore our
-              <span className='bg-primary absolute bottom-1 left-0 -z-1 h-px w-full' aria-hidden='true'></span>
+              Explore Koyo
+              <span className='bg-koyo-brand absolute bottom-1 left-0 -z-1 h-px w-full' aria-hidden='true'></span>
             </span>{' '}
-            Gallery
+            patterns
           </h2>
           <p className='text-muted-foreground text-xl'>
-            Explore our gallery to learn more about our amazing products and their features.
+            Browse interface examples tuned for Koyo UI forms, dashboards, and marketing pages.
           </p>
         </div>
 

@@ -44,11 +44,11 @@ const PopoverDownloadDemo = () => {
   }, [open, isPaused, isCanceled, hasStarted])
 
   const getText = () => {
-    if (isCanceled) return 'Download Canceled'
-    if (isPaused) return 'Download Paused'
-    if (value === 100) return 'Download Complete'
+    if (isCanceled) return 'Export Canceled'
+    if (isPaused) return 'Export Paused'
+    if (value === 100) return 'Export Complete'
 
-    return 'Downloading File'
+    return 'Exporting Report'
   }
 
   return (
@@ -56,7 +56,7 @@ const PopoverDownloadDemo = () => {
       <PopoverTrigger asChild>
         <Button variant='outline' size='icon'>
           <DownloadIcon />
-          <span className='sr-only'>Download File</span>
+          <span className='sr-only'>Export Report</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent className='w-80'>
@@ -64,7 +64,7 @@ const PopoverDownloadDemo = () => {
           <div className='flex items-center gap-2'>
             <div className='relative flex size-6 items-center justify-center'>
               <span
-                className={cn('border-primary absolute inset-0 rounded-full border border-dashed', {
+                className={cn('border-koyo-button-primary absolute inset-0 rounded-full border border-dashed', {
                   'animate-spin [animation-duration:3s]': value < 100 && !isPaused && !isCanceled
                 })}
               />

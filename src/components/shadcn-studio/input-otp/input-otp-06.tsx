@@ -8,7 +8,7 @@ const InputOTPFilledDemo = () => {
 
   return (
     <div className='space-y-3'>
-      <Label htmlFor={id}>Input OTP filled</Label>
+      <Label htmlFor={id}>Filled learner code</Label>
       <InputOTP id={id} maxLength={4}>
         <InputOTPGroup className='*:data-[slot=input-otp-slot]:bg-muted gap-2 *:data-[slot=input-otp-slot]:rounded-md *:data-[slot=input-otp-slot]:border *:data-[slot=input-otp-slot]:border-transparent *:data-[slot=input-otp-slot]:shadow-none'>
           <InputOTPSlot index={0} />

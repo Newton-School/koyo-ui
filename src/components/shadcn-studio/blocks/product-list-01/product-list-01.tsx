@@ -37,7 +37,7 @@ const ProductList = ({ products }: ProductProps) => {
             <Card key={index} className={cn('border-none shadow-none', product.salePrice && 'relative')}>
               {/* Sale Badge */}
               {product.salePrice && (
-                <Badge className='bg-destructive/10 [a&]:hover:bg-destructive/5 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 text-destructive absolute top-6 left-6 rounded-sm px-3 py-1 uppercase focus-visible:outline-none'>
+                <Badge className='bg-destructive/10 [a&]:hover:bg-destructive/5 focus-visible:ring-koyo-focus-error/30 text-destructive absolute top-6 left-6 rounded-sm px-3 py-1 uppercase focus-visible:outline-none'>
                   Sale
                 </Badge>
               )}
@@ -83,7 +83,7 @@ const ProductList = ({ products }: ProductProps) => {
                     <div>
                       <CheckboxPrimitive.Root
                         data-slot='checkbox'
-                        className='group focus-visible:ring-ring/50 rounded-sm p-2.5 outline-none focus-visible:ring-3'
+                        className='group focus-visible:ring-koyo-brand-ring rounded-sm p-2.5 outline-none focus-visible:ring-[3px]'
                         aria-label='Heart icon'
                       >
                         <span className='group-data-[state=checked]:hidden'>

@@ -12,9 +12,9 @@ const RadioGroupAnimatedInsetDemo = () => {
           value='english'
           id='lang-english'
           data-slot='radio-group-item'
-          className='border-input focus-visible:border-ring focus-visible:ring-ring/50 text-primary-foreground [&_svg]:fill-primary-foreground data-[state=checked]:border-primary data-[state=checked]:bg-primary! relative aspect-square size-4 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow,border] outline-none focus-visible:ring-[3px] [&_svg]:size-4 data-[state=checked]:[&_svg]:size-2'
+          className='border-border bg-background focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring text-koyo-button-primary-foreground [&_svg]:fill-koyo-button-primary-foreground data-[state=checked]:border-koyo-brand data-[state=checked]:bg-koyo-brand! relative aspect-square size-4 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow,border,background-color] outline-none focus-visible:ring-[3px] [&_svg]:size-4 data-[state=checked]:[&_svg]:size-2'
         >
-          <CircleIcon className='fill-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500' />
+          <CircleIcon className='fill-koyo-brand absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500' />
         </RadioGroupPrimitive.Item>
         <Label htmlFor='lang-english'>English</Label>
       </div>
@@ -23,9 +23,9 @@ const RadioGroupAnimatedInsetDemo = () => {
           value='spanish'
           id='lang-spanish'
           data-slot='radio-group-item'
-          className='border-input focus-visible:border-ring focus-visible:ring-ring/50 text-primary-foreground [&_svg]:fill-primary-foreground data-[state=checked]:border-primary data-[state=checked]:bg-primary! relative aspect-square size-4 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow,border] outline-none focus-visible:ring-[3px] [&_svg]:size-4 data-[state=checked]:[&_svg]:size-2'
+          className='border-border bg-background focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring text-koyo-button-primary-foreground [&_svg]:fill-koyo-button-primary-foreground data-[state=checked]:border-koyo-brand data-[state=checked]:bg-koyo-brand! relative aspect-square size-4 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow,border,background-color] outline-none focus-visible:ring-[3px] [&_svg]:size-4 data-[state=checked]:[&_svg]:size-2'
         >
-          <CircleIcon className='fill-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500' />
+          <CircleIcon className='fill-koyo-brand absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500' />
         </RadioGroupPrimitive.Item>
         <Label htmlFor='lang-spanish'>Español</Label>
       </div>
@@ -34,9 +34,9 @@ const RadioGroupAnimatedInsetDemo = () => {
           value='french'
           id='lang-french'
           data-slot='radio-group-item'
-          className='border-input focus-visible:border-ring focus-visible:ring-ring/50 text-primary-foreground [&_svg]:fill-primary-foreground data-[state=checked]:border-primary data-[state=checked]:bg-primary! relative aspect-square size-4 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow,border] outline-none focus-visible:ring-[3px] [&_svg]:size-4 data-[state=checked]:[&_svg]:size-2'
+          className='border-border bg-background focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring text-koyo-button-primary-foreground [&_svg]:fill-koyo-button-primary-foreground data-[state=checked]:border-koyo-brand data-[state=checked]:bg-koyo-brand! relative aspect-square size-4 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow,border,background-color] outline-none focus-visible:ring-[3px] [&_svg]:size-4 data-[state=checked]:[&_svg]:size-2'
         >
-          <CircleIcon className='fill-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500' />
+          <CircleIcon className='fill-koyo-brand absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500' />
         </RadioGroupPrimitive.Item>
         <Label htmlFor='lang-french'>Français</Label>
       </div>

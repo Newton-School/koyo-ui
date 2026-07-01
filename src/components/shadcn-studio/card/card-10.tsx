@@ -3,22 +3,22 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 const tabs = [
   {
-    name: 'Home',
-    value: 'home',
+    name: 'Candidate',
+    value: 'candidate',
     content:
-      'Welcome to the Home tab! Here, you can explore the latest updates, news, and highlights. Stay informed about what&apos;s happening and never miss out on important announcements.'
+      'Review the candidate summary, active stage, and the most recent interview signal before moving the profile forward.'
   },
   {
-    name: 'Profile',
-    value: 'profile',
+    name: 'Cohort',
+    value: 'cohort',
     content:
-      'This is your Profile tab. Manage your personal information, update your account details, and customize your settings to make your experience unique.'
+      'Scan learner progress, mentor coverage, and pending assignments for the selected cohort.'
   },
   {
-    name: 'Messages',
-    value: 'messages',
+    name: 'Mentors',
+    value: 'mentors',
     content:
-      'Messages: Check your recent messages, start new conversations, and stay connected with your friends and contacts. Manage your chat history and keep the communication flowing.'
+      'Coordinate mentor notes, availability, and review ownership from the same workspace.'
   }
 ]
 
@@ -32,7 +32,7 @@ const CardWithTabsDemo = () => {
               <TabsTrigger
                 key={tab.value}
                 value={tab.value}
-                className='bg-background data-[state=active]:border-b-primary h-full rounded-none border-b-2 border-transparent data-[state=active]:shadow-none'
+                className='bg-background data-[state=active]:border-b-koyo-brand data-[state=active]:text-koyo-brand h-full rounded-none border-b-2 border-transparent data-[state=active]:shadow-none'
               >
                 {tab.name}
               </TabsTrigger>

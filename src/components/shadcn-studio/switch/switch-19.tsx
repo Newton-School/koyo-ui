@@ -5,16 +5,16 @@ const SwitchAnimatedDemo = () => {
   return (
     <div className='flex flex-col gap-3'>
       <div className='flex items-center space-x-2'>
-        <Switch aria-label='Animated small switch' size='sm' id='small-switch' />
-        <Label htmlFor='small-switch'>Small switch</Label>
+        <Switch aria-label='Animated learner switch' size='sm' id='learner-switch' />
+        <Label htmlFor='learner-switch'>Learner alerts</Label>
       </div>
       <div className='flex items-center space-x-2'>
-        <Switch aria-label='Animated medium switch' size='md' id='medium-switch' />
-        <Label htmlFor='medium-switch'>Medium switch</Label>
+        <Switch aria-label='Animated mentor switch' size='md' id='mentor-switch' />
+        <Label htmlFor='mentor-switch'>Mentor alerts</Label>
       </div>
       <div className='flex items-center space-x-2'>
-        <Switch aria-label='Animated large switch' size='lg' id='large-switch' />
-        <Label htmlFor='large-switch'>Large switch</Label>
+        <Switch aria-label='Animated cohort switch' size='lg' id='cohort-switch' />
+        <Label htmlFor='cohort-switch'>Cohort alerts</Label>
       </div>
     </div>
   )

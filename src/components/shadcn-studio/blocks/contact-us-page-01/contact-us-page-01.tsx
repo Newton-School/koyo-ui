@@ -16,7 +16,7 @@ const ContactUs = ({ contactInfo }: { contactInfo: ContactInfo }) => {
         {/* Header */}
         <div className='relative mx-auto mb-12 w-fit sm:mb-16 lg:mb-24'>
           <h2 className='text-2xl font-semibold md:text-3xl lg:text-4xl'>Contact Us</h2>
-          <span className='bg-primary absolute top-9 left-0 h-px w-full'></span>
+          <span className='bg-koyo-brand absolute top-9 left-0 h-px w-full'></span>
         </div>
 
         <div className='grid items-center gap-12 lg:grid-cols-2'>

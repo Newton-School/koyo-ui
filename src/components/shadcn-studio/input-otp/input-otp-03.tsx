@@ -8,7 +8,7 @@ const InputOTPWithResendDemo = () => {
 
   return (
     <div className='space-y-3'>
-      <Label htmlFor={id}>Input OTP with resend</Label>
+      <Label htmlFor={id}>Interview login code</Label>
       <InputOTP id={id} maxLength={4}>
         <InputOTPGroup>
           <InputOTPSlot index={0} />
@@ -19,7 +19,7 @@ const InputOTPWithResendDemo = () => {
       </InputOTP>
       <p className='text-muted-foreground text-xs'>
         Didn&apos;t get the code?{' '}
-        <a href='#' className='text-primary hover:underline'>
+        <a href='#' className='text-koyo-button-primary hover:underline'>
           Resend code
         </a>
       </p>

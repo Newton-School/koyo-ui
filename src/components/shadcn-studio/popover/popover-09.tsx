@@ -10,10 +10,10 @@ import { Label } from '@/components/ui/label'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Slider } from '@/components/ui/slider'
 
-const filters = ['Most liked', 'Highest reviewed', 'Newest', 'Most popular']
+const filters = ['Needs review', 'Highest score', 'Newest', 'Mentor assigned']
 
 const PopoverFilterDemo = () => {
-  const [selected, setSelected] = useState(['Most liked', 'Newest'])
+  const [selected, setSelected] = useState(['Needs review', 'Newest'])
   const [price, setPrice] = useState([450])
 
   return (
@@ -21,18 +21,18 @@ const PopoverFilterDemo = () => {
       <PopoverTrigger asChild>
         <Button variant='outline' size='icon'>
           <FunnelPlusIcon />
-          <span className='sr-only'>Filter</span>
+          <span className='sr-only'>Filter candidates</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent>
         <div className='grid gap-4'>
           <div className='flex items-center justify-between gap-2'>
-            <span className='font-medium'>Filter</span>
+            <span className='font-medium'>Filter candidates</span>
             <Button
               variant='secondary'
               className='h-7 rounded-full px-2 py-1 text-xs'
               onClick={() => {
-                setSelected(['Most liked', 'Newest'])
+                setSelected(['Needs review', 'Newest'])
                 setPrice([450])
               }}
             >
@@ -54,9 +54,9 @@ const PopoverFilterDemo = () => {
             ))}
           </div>
           <div className='grid gap-3'>
-            <Label>Price range</Label>
+            <Label>Score range</Label>
             <div className='space-y-2'>
-              <Slider value={price} onValueChange={setPrice} step={50} max={1000} aria-label='Price range' />
+              <Slider value={price} onValueChange={setPrice} step={50} max={1000} aria-label='Score range' />
               <span className='text-muted-foreground flex w-full items-center justify-between gap-1 text-xs font-medium'>
                 <span>0</span>
                 <span>500</span>

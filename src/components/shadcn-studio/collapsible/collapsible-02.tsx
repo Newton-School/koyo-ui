@@ -52,7 +52,7 @@ const FileTree = ({ item, level }: { level: number; item: FileTreeItem }) => {
   if (item.type === 'file') {
     return (
       <div
-        className='focus-visible:ring-ring/50 flex items-center gap-2 rounded-md p-1 outline-none focus-visible:ring-[3px]'
+        className='focus-visible:ring-koyo-button-primary-ring flex items-center gap-2 rounded-md p-1 outline-none focus-visible:ring-[3px]'
         style={{ paddingLeft: `${level === 0 ? 1.75 : 3.25}rem` }}
       >
         <FileIcon className='size-4 shrink-0' />
@@ -63,7 +63,7 @@ const FileTree = ({ item, level }: { level: number; item: FileTreeItem }) => {
 
   return (
     <Collapsible className='flex flex-col gap-1.5' style={{ paddingLeft: `${level === 0 ? 0 : 1.5}rem` }}>
-      <CollapsibleTrigger className='focus-visible:ring-ring/50 flex items-center gap-2 rounded-md p-1 outline-none focus-visible:ring-[3px]'>
+      <CollapsibleTrigger className='focus-visible:ring-koyo-button-primary-ring flex items-center gap-2 rounded-md p-1 outline-none focus-visible:ring-[3px]'>
         <ChevronRightIcon className='size-4 shrink-0 transition-transform [[data-state="open"]>&]:rotate-90' />
         <FolderIcon className='size-4 shrink-0 [[data-state=open]>&]:hidden' />
         <FolderOpenIcon className='size-4 shrink-0 [[data-state=closed]>&]:hidden' />

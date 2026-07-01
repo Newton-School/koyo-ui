@@ -237,7 +237,7 @@ function MotionHighlight<T extends string>({ ref, ...props }: MotionHighlightPro
                     }
                   }}
                   transition={transition}
-                  className={cn('bg-muted absolute z-0', className, activeClassNameState)}
+                  className={cn('bg-secondary absolute z-0', className, activeClassNameState)}
                 />
               )}
             </AnimatePresence>
@@ -463,7 +463,7 @@ function MotionHighlightItem({
               <motion.div
                 layoutId={`transition-background-${contextId}`}
                 data-slot='motion-highlight'
-                className={cn('bg-muted absolute inset-0 z-0', contextClassName, activeClassName)}
+                className={cn('bg-secondary absolute inset-0 z-0', contextClassName, activeClassName)}
                 transition={itemTransition}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -512,7 +512,7 @@ function MotionHighlightItem({
             <motion.div
               layoutId={`transition-background-${contextId}`}
               data-slot='motion-highlight'
-              className={cn('bg-muted absolute inset-0 z-0', contextClassName, activeClassName)}
+              className={cn('bg-secondary absolute inset-0 z-0', contextClassName, activeClassName)}
               transition={itemTransition}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

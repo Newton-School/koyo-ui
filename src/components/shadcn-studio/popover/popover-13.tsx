@@ -16,7 +16,7 @@ const PopoverSlideInLeftDemo = () => {
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText('SUMMER25OFF')
+      await navigator.clipboard.writeText('KOYO20')
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
     } catch (err) {
@@ -32,26 +32,26 @@ const PopoverSlideInLeftDemo = () => {
       <PopoverContent className='data-[state=open]:slide-in-from-left-20 data-[state=closed]:slide-out-to-left-20 data-[state=open]:slide-in-from-top-0 data-[state=closed]:slide-out-to-top-0 data-[state=closed]:zoom-out-100 data-[state=open]:zoom-in-100 w-80 duration-400'>
         <div className='flex flex-col items-center gap-4'>
           <div className='space-y-1 text-center'>
-            <div className='text-lg font-semibold'>Summer Sale Discount</div>
-            <p className='text-sm'>Scan this code at checkout for 25% off</p>
+            <div className='text-lg font-semibold'>Koyo cohort credit</div>
+            <p className='text-sm'>Scan this code to apply a 20% cohort credit</p>
           </div>
           <div className='aspect-square rounded-xl border p-2'>
             <img
               src='https://cdn.shadcnstudio.com/ss-assets/components/popover/qr-code.png?height=152'
-              alt='Discount QR Code'
+              alt='Koyo cohort credit QR Code'
               className='size-38 rounded-md'
             />
           </div>
           <div className='flex w-full items-center gap-1.5'>
             <Separator className='flex-1' />
-            <span className='text-muted-foreground text-xs'>or use coupon code</span>
+            <span className='text-muted-foreground text-xs'>or use credit code</span>
             <Separator className='flex-1' />
           </div>
           <div className='flex w-full gap-2'>
             <Input
               type='text'
-              placeholder='Discount code'
-              defaultValue='SUMMER25OFF'
+              placeholder='Credit code'
+              defaultValue='KOYO20'
               className='disabled:bg-muted'
               disabled
             />

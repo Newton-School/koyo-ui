@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 
 const ButtonDeleteDemo = () => {
   return (
-    <Button className='from-destructive via-destructive/60 to-destructive focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 bg-transparent bg-gradient-to-r [background-size:200%_auto] text-white hover:bg-transparent hover:bg-[99%_center]'>
+    <Button className='from-koyo-button-error via-koyo-button-error/70 to-koyo-button-error focus-visible:ring-koyo-button-error-ring bg-transparent bg-gradient-to-r [background-size:200%_auto] text-white hover:bg-transparent hover:bg-[99%_center]'>
       <TrashIcon />
       Delete
     </Button>

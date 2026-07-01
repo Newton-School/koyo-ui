@@ -2,12 +2,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const CardSoftDemo = () => {
   return (
-    <Card className='bg-primary/20 max-w-md gap-0'>
+    <Card className='bg-koyo-brand/10 max-w-md gap-0'>
       <CardHeader>
-        <CardTitle>Design Throwdown</CardTitle>
+        <CardTitle>Cohort Health Check</CardTitle>
       </CardHeader>
       <CardContent>
-        Where passion, pressure, and pixels collide—push your creativity to the edge and show what you are made of.
+        Review attendance, assignments, and mentor notes before sending the weekly learner progress update.
       </CardContent>
     </Card>
   )

@@ -10,7 +10,7 @@ const InputStartSelectDemo = () => {
   return (
     <div className='w-full max-w-xs space-y-2'>
       <Label htmlFor={id}>Input with start select</Label>
-      <div className='flex rounded-md shadow-xs'>
+      <div className='flex rounded-lg shadow-xs'>
         <Select defaultValue='https://'>
           <SelectTrigger id={id} className='rounded-r-none shadow-none focus-visible:z-1'>
             <SelectValue />

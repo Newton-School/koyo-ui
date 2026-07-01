@@ -8,8 +8,8 @@ const CheckboxFilledIconDemo = () => {
       <CheckboxPrimitive.Root
         data-slot='checkbox'
         defaultChecked
-        className='peer bg-destructive data-[state=checked]:text-destructive focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 size-7 shrink-0 rounded-full shadow-xs transition-shadow outline-none focus-visible:ring-[3px]'
-        aria-label='Color destructive'
+        className='peer size-7 shrink-0 rounded-full bg-destructive shadow-xs transition-shadow outline-none focus-visible:border-destructive focus-visible:ring-[3px] focus-visible:ring-koyo-focus-error/30 data-[state=checked]:text-destructive'
+        aria-label='Reject candidate'
       >
         <CheckboxPrimitive.Indicator
           data-slot='checkbox-indicator'
@@ -21,8 +21,8 @@ const CheckboxFilledIconDemo = () => {
       <CheckboxPrimitive.Root
         data-slot='checkbox'
         defaultChecked
-        className='peer size-7 shrink-0 rounded-full bg-sky-600 shadow-xs transition-shadow outline-none focus-visible:ring-[3px] focus-visible:ring-sky-600/20 data-[state=checked]:text-sky-600 dark:bg-sky-400 dark:focus-visible:ring-sky-400/40 dark:data-[state=checked]:text-sky-400'
-        aria-label='Color info'
+        className='peer size-7 shrink-0 rounded-full bg-koyo-brand shadow-xs transition-shadow outline-none focus-visible:border-koyo-brand focus-visible:ring-[3px] focus-visible:ring-koyo-brand-ring data-[state=checked]:text-koyo-brand'
+        aria-label='Approve candidate'
       >
         <CheckboxPrimitive.Indicator
           data-slot='checkbox-indicator'
@@ -34,8 +34,8 @@ const CheckboxFilledIconDemo = () => {
       <CheckboxPrimitive.Root
         data-slot='checkbox'
         defaultChecked
-        className='peer size-7 shrink-0 rounded-full bg-green-600 shadow-xs transition-shadow outline-none focus-visible:ring-[3px] focus-visible:ring-green-600/20 data-[state=checked]:text-green-600 dark:bg-green-400 dark:focus-visible:ring-green-400/40 dark:data-[state=checked]:text-green-400'
-        aria-label='Color success'
+        className='peer size-7 shrink-0 rounded-full bg-koyo-brand shadow-xs transition-shadow outline-none focus-visible:border-koyo-brand focus-visible:ring-[3px] focus-visible:ring-koyo-brand-ring data-[state=checked]:text-koyo-brand'
+        aria-label='Complete learner onboarding'
       >
         <CheckboxPrimitive.Indicator
           data-slot='checkbox-indicator'

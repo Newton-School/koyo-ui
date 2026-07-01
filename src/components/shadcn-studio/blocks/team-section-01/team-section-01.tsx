@@ -33,7 +33,7 @@ const Team = ({ teamMembers }: { teamMembers: TeamMember }) => {
           {teamMembers.map((member, index) => (
             <Card
               key={index}
-              className='hover:border-primary overflow-hidden py-0 shadow-none transition-colors duration-300'
+              className='hover:border-koyo-brand overflow-hidden py-0 shadow-none transition-colors duration-300'
             >
               <CardContent className='px-0'>
                 <div className='bg-muted pt-10'>

@@ -18,8 +18,8 @@ const VerifyEmail = () => {
           <div>
             <CardTitle className='mb-1.5 text-2xl'>Verify your email</CardTitle>
             <CardDescription className='text-base'>
-              An activation link has been sent to your email address: hello@example.com. Please check your inbox and
-              click on the link to complete the activation process.
+              An activation link has been sent to hello@koyo-ui.com. Please check your inbox and click the link to
+              finish setting up your Koyo UI workspace.
             </CardDescription>
           </div>
         </CardHeader>

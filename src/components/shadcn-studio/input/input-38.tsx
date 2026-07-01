@@ -26,7 +26,7 @@ const InputSearchIconDemo = () => {
         <Button
           variant='ghost'
           size='icon'
-          className='text-muted-foreground focus-visible:ring-ring/50 absolute inset-y-0 right-0 rounded-l-none hover:bg-transparent'
+          className='text-muted-foreground focus-visible:ring-koyo-brand-ring absolute inset-y-0 right-0 rounded-l-none hover:bg-transparent'
         >
           <MicIcon />
           <span className='sr-only'>Press to speak</span>

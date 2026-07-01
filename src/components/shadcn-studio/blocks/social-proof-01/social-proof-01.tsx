@@ -12,11 +12,10 @@ const SocialProof = ({ features }: { features: Feature[] }) => {
         <div className='flex items-center gap-20 max-lg:flex-col'>
           <div>
             <div className='space-y-4'>
-              <p className='text-primary text-sm font-medium uppercase'>Social Proof</p>
-              <h2 className='text-2xl font-semibold md:text-3xl lg:text-4xl'>Create Impactful White Label Reports</h2>
+              <p className='text-koyo-brand text-sm font-medium uppercase'>Social proof</p>
+              <h2 className='text-2xl font-semibold md:text-3xl lg:text-4xl'>Ship polished product surfaces</h2>
               <p className='text-muted-foreground text-lg'>
-                Craft customizable reports that showcase your campaign&apos;s success, align with your brand, and
-                simplify sharing insights with stakeholders while enabling data export and ROI analysis.
+                Compose Koyo UI blocks into dashboards and workflows that feel consistent from the first interaction.
               </p>
             </div>
 

@@ -10,39 +10,39 @@ const RadioGroupCardVerticalRadioDemo = () => {
 
   return (
     <RadioGroup className='w-full max-w-96 justify-items-center sm:grid-cols-2' defaultValue='1'>
-      <div className='border-input has-data-[state=checked]:border-primary/50 relative flex w-full max-w-50 flex-col items-center gap-3 rounded-md border p-4 shadow-xs outline-none'>
+      <div className='border-border bg-background has-data-[state=checked]:border-koyo-brand relative flex w-full max-w-50 flex-col items-center gap-3 rounded-md border p-4 shadow-xs outline-none'>
         <RadioGroupItem
           value='1'
           id={`${id}-1`}
           className='order-1 size-5 after:absolute after:inset-0 [&_svg]:size-3'
           aria-describedby={`${id}-1-description`}
-          aria-label='plan-radio-basic'
+          aria-label='learner-profile-radio'
         />
         <div className='grid grow justify-items-center gap-2'>
           <UserIcon />
           <Label htmlFor={`${id}-1`} className='justify-center'>
-            Basic
+            Learner
           </Label>
           <p id={`${id}-1-description`} className='text-muted-foreground text-center text-xs'>
-            Get 1 project with 1 teams members.
+            Focus on personal interview practice and feedback.
           </p>
         </div>
       </div>
-      <div className='border-input has-data-[state=checked]:border-primary/50 relative flex w-full max-w-50 flex-col items-center gap-3 rounded-md border p-4 shadow-xs outline-none'>
+      <div className='border-border bg-background has-data-[state=checked]:border-koyo-brand relative flex w-full max-w-50 flex-col items-center gap-3 rounded-md border p-4 shadow-xs outline-none'>
         <RadioGroupItem
           value='2'
           id={`${id}-2`}
           className='order-1 size-5 after:absolute after:inset-0 [&_svg]:size-3'
           aria-describedby={`${id}-2-description`}
-          aria-label='plan-radio-premium'
+          aria-label='mentor-profile-radio'
         />
         <div className='grid grow justify-items-center gap-2'>
           <CrownIcon />
           <Label htmlFor={`${id}-2`} className='justify-center'>
-            Premium
+            Mentor
           </Label>
           <p id={`${id}-2-description`} className='text-muted-foreground text-center text-xs'>
-            Get 5 projects with 5 team members.
+            Review candidates and guide cohort readiness.
           </p>
         </div>
       </div>

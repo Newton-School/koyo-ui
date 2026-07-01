@@ -9,26 +9,26 @@ const SwitchAnimatedGradientDemo = () => {
           aria-label='Animated gradient small switch'
           size='sm'
           id='small-gradient-switch'
-          className='focus-visible:border-destructive to-destructive/60 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 border-none bg-gradient-to-r from-amber-500 data-[state=checked]:from-sky-400 data-[state=checked]:to-indigo-700 [&_span]:size-5 [&_span]:!translate-x-0.25'
+          className='border-koyo-brand bg-secondary focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring data-[state=checked]:border-koyo-brand data-[state=checked]:bg-koyo-brand data-[state=checked]:hover:border-koyo-brand-hover data-[state=checked]:hover:bg-koyo-brand-hover [&_span]:size-5 [&_span]:!translate-x-0.25'
         />
-        <Label htmlFor='small-gradient-switch'>Small switch</Label>
+        <Label htmlFor='small-gradient-switch'>Learner alerts</Label>
       </div>
       <div className='flex items-center space-x-2'>
         <Switch
           aria-label='Animated gradient medium switch'
           id='medium-gradient-switch'
-          className='focus-visible:border-destructive to-destructive/60 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 border-none bg-gradient-to-r from-amber-500 data-[state=checked]:from-sky-400 data-[state=checked]:to-indigo-700 [&_span]:size-5 [&_span]:!translate-x-0.25'
+          className='border-koyo-brand bg-secondary focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring data-[state=checked]:border-koyo-brand data-[state=checked]:bg-koyo-brand data-[state=checked]:hover:border-koyo-brand-hover data-[state=checked]:hover:bg-koyo-brand-hover [&_span]:size-5 [&_span]:!translate-x-0.25'
         />
-        <Label htmlFor='medium-gradient-switch'>Medium switch</Label>
+        <Label htmlFor='medium-gradient-switch'>Mentor alerts</Label>
       </div>
       <div className='flex items-center space-x-2'>
         <Switch
           aria-label='Animated gradient large switch'
           size='lg'
           id='large-gradient-switch'
-          className='focus-visible:border-destructive to-destructive/60 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 border-none bg-gradient-to-r from-amber-500 data-[state=checked]:from-sky-400 data-[state=checked]:to-indigo-700 [&_span]:size-5 [&_span]:!translate-x-0.25'
+          className='border-koyo-brand bg-secondary focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring data-[state=checked]:border-koyo-brand data-[state=checked]:bg-koyo-brand data-[state=checked]:hover:border-koyo-brand-hover data-[state=checked]:hover:bg-koyo-brand-hover [&_span]:size-5 [&_span]:!translate-x-0.25'
         />
-        <Label htmlFor='large-gradient-switch'>Large switch</Label>
+        <Label htmlFor='large-gradient-switch'>Cohort alerts</Label>
       </div>
     </div>
   )

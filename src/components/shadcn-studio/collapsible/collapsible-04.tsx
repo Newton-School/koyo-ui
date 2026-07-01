@@ -9,26 +9,26 @@ const users = [
     image: 'https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-3.png',
     fallback: 'HL',
     name: 'Howard Lloyd',
-    bio: 'Senior Product Manager with 8+ years of experience in SaaS product development and team leadership.',
+    bio: 'Senior mentor reviewing product and systems interviews for the July cohort.',
     projects: 5,
-    followers: 120
+    reviews: 120
   },
   {
     image: 'https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-6.png',
     fallback: 'OS',
     name: 'Olivia Sparks',
-    bio: 'Full-stack Software Engineer specializing in React, Node.js, and cloud architecture solutions.',
+    bio: 'Interview coach focused on React, Node.js, and cloud architecture practice.',
     projects: 3,
-    followers: 95,
+    reviews: 95,
     followed: true
   },
   {
     image: 'https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-5.png',
     fallback: 'HR',
     name: 'Hallie Richards',
-    bio: 'Creative UI/UX Designer with expertise in user research, wireframing, and accessible interface design.',
+    bio: 'Design mentor helping learners prepare portfolio walkthroughs and UX critiques.',
     projects: 4,
-    followers: 80
+    reviews: 80
   }
 ]
 
@@ -55,7 +55,7 @@ const CollapsibleProfileDemo = () => {
                   <div className='flex items-center gap-4'>
                     <span className='flex items-center gap-2'>
                       <UserIcon className='size-4' />
-                      <span className='text-sm'>{user.followers}</span>
+                      <span className='text-sm'>{user.reviews}</span>
                     </span>
                     <span className='flex items-center gap-2'>
                       <PanelsTopLeftIcon className='size-4' />
@@ -64,11 +64,11 @@ const CollapsibleProfileDemo = () => {
                   </div>
                   {user.followed ? (
                     <Button variant='outline' className='h-7 rounded-full px-3 py-1 text-xs'>
-                      Following
+                      Assigned
                     </Button>
                   ) : (
                     <Button className='h-7 rounded-full px-3 py-1 text-xs'>
-                      Follow
+                      Assign
                       <PlusIcon />
                     </Button>
                   )}

@@ -1,24 +1,24 @@
-import { HeadsetIcon, PackageIcon, RefreshCwIcon } from 'lucide-react'
+import { GraduationCapIcon, MessageSquareTextIcon, UserRoundCheckIcon } from 'lucide-react'
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
 const items = [
   {
-    icon: PackageIcon,
-    title: 'How do I track my order?',
-    content: "You'll receive tracking information via email once your order ships.",
+    icon: UserRoundCheckIcon,
+    title: 'How do I review a candidate timeline?',
+    content: 'Scan stage changes, scorecards, and mentor notes from the candidate profile.',
     media: 'https://cdn.shadcnstudio.com/ss-assets/components/accordion/image-1.jpg?width=520&format=auto'
   },
   {
-    icon: RefreshCwIcon,
-    title: 'What is your return policy?',
-    content: 'We offer a 30-day return policy for most items.',
+    icon: GraduationCapIcon,
+    title: 'When should a learner be nudged?',
+    content: 'Nudge learners when cohort progress stalls or a mentor flags repeated blockers.',
     media: 'https://cdn.shadcnstudio.com/ss-assets/components/accordion/image-2.jpg?width=520&format=auto'
   },
   {
-    icon: HeadsetIcon,
-    title: 'How can I contact customer support?',
-    content: 'You can reach us via live chat, email at support@example.com, or by phone at 1-800-123-4567.',
+    icon: MessageSquareTextIcon,
+    title: 'How do mentors share interview feedback?',
+    content: 'Mentor feedback is attached to the candidate profile for the hiring team.',
     media: 'https://cdn.shadcnstudio.com/ss-assets/components/accordion/image-3.jpg?width=520&format=auto'
   }
 ]

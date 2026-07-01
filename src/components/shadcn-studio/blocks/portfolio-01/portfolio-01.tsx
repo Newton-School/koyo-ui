@@ -72,7 +72,7 @@ const Portfolio = ({ images }: { images: string[] }) => {
                   <InstagramIcon className='text-destructive size-5.5' />
                 </a>
                 <a href='#'>
-                  <GithubIcon className='text-primary size-5.5' />
+                  <GithubIcon className='text-koyo-brand size-5.5' />
                 </a>
                 <a href='#'>
                   <TwitterIcon className='size-5.5 text-sky-600' />

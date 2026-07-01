@@ -12,7 +12,7 @@ const InputOTPAlphanumericDemo = () => {
 
   return (
     <div className='space-y-3'>
-      <Label htmlFor={id}>Input OTP Alphanumeric</Label>
+      <Label htmlFor={id}>Invite access code</Label>
       <InputOTP id={id} maxLength={4} pattern={REGEXP_ONLY_DIGITS_AND_CHARS}>
         <InputOTPGroup>
           <InputOTPSlot index={0} />

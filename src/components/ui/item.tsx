@@ -17,13 +17,13 @@ function ItemSeparator({ className, ...props }: React.ComponentProps<typeof Sepa
 }
 
 const itemVariants = cva(
-  'group/item [a]:hover:bg-accent/50 focus-visible:border-ring focus-visible:ring-ring/50 flex flex-wrap items-center rounded-md border border-transparent text-sm transition-colors duration-100 outline-none focus-visible:ring-[3px] [a]:transition-colors',
+  'group/item [a]:hover:bg-koyo-brand/10 focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring flex flex-wrap items-center rounded-lg border border-transparent text-sm transition-colors duration-100 outline-none focus-visible:ring-[3px] [a]:transition-colors',
   {
     variants: {
       variant: {
         default: 'bg-transparent',
         outline: 'border-border',
-        muted: 'bg-muted/50'
+        muted: 'bg-secondary/70'
       },
       size: {
         default: 'gap-4 p-4',
@@ -114,7 +114,7 @@ function ItemDescription({ className, ...props }: React.ComponentProps<'p'>) {
       data-slot='item-description'
       className={cn(
         'text-muted-foreground line-clamp-2 text-sm leading-normal font-normal text-balance',
-        '[&>a:hover]:text-primary [&>a]:underline [&>a]:underline-offset-4',
+        '[&>a:hover]:text-koyo-brand [&>a]:underline [&>a]:underline-offset-4',
         className
       )}
       {...props}

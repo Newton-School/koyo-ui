@@ -15,8 +15,8 @@ const AlertClosableDemo = () => {
     <Alert className='flex justify-between'>
       <CircleAlertIcon />
       <div className='flex-1 flex-col justify-center gap-1'>
-        <AlertTitle>New message!</AlertTitle>
-        <AlertDescription>12 unread messages. Tap to see.</AlertDescription>
+        <AlertTitle>Candidate reply received</AlertTitle>
+        <AlertDescription>12 unread candidate updates. Tap to review.</AlertDescription>
       </div>
       <button className='cursor-pointer' onClick={() => setIsActive(false)}>
         <XIcon className='size-5' />

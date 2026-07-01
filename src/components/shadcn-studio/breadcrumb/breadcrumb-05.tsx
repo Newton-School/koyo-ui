@@ -15,7 +15,7 @@ const BreadcrumbTabsOutlineDemo = () => {
         <BreadcrumbItem>
           <BreadcrumbLink href='#'>
             <Badge variant='outline' className='text-muted-foreground hover:text-foreground'>
-              Home
+              Workspace
             </Badge>
           </BreadcrumbLink>
         </BreadcrumbItem>
@@ -23,15 +23,15 @@ const BreadcrumbTabsOutlineDemo = () => {
         <BreadcrumbItem>
           <BreadcrumbLink href='#'>
             <Badge variant='outline' className='text-muted-foreground hover:text-foreground'>
-              Documents
+              Cohorts
             </Badge>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <BreadcrumbPage>
-            <Badge variant='outline' className='border-primary text-primary'>
-              Add Document
+            <Badge variant='koyo' className='ring-koyo-button-primary-ring/60 ring-[3px]'>
+              Interview prep
             </Badge>
           </BreadcrumbPage>
         </BreadcrumbItem>

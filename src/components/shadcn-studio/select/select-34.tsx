@@ -9,7 +9,7 @@ const SelectNativeMultipleDemo = () => {
   return (
     <div className='w-full max-w-xs space-y-2'>
       <Label htmlFor={id}>Native multiple select</Label>
-      <div className='border-input overflow-hidden rounded-md border'>
+      <div className='border-border overflow-hidden rounded-lg border'>
         <SelectNative id={id} multiple className='rounded-none border-none'>
           <option value='1'>Vegetarian</option>
           <option value='2'>Vegan</option>

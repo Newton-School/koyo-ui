@@ -6,7 +6,7 @@ const NativeSelectWithInsetLabelDemo = () => {
   const id = useId()
 
   return (
-    <div className='border-input bg-background focus-within:border-ring focus-within:ring-ring/50 has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40 has-aria-invalid:border-destructive relative w-full max-w-xs rounded-md border shadow-xs transition-[color,box-shadow] outline-none focus-within:ring-[3px] has-[select:disabled]:cursor-not-allowed has-[select:disabled]:opacity-50 has-[select:is(:disabled)_*]:pointer-events-none'>
+    <div className='border-border bg-background focus-within:border-koyo-brand focus-within:ring-koyo-brand-ring has-aria-invalid:ring-koyo-focus-error/30 has-aria-invalid:border-destructive relative w-full max-w-xs rounded-lg border shadow-xs transition-[color,box-shadow] outline-none focus-within:ring-[3px] has-[select:disabled]:cursor-not-allowed has-[select:disabled]:opacity-50 has-[select:is(:disabled)_*]:pointer-events-none'>
       <label htmlFor={id} className='text-foreground block px-3 pt-1 text-xs font-medium'>
         Native select with inset label
       </label>

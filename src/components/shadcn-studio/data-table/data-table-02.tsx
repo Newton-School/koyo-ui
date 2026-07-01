@@ -222,16 +222,7 @@ const DataTableDensityDemo = () => {
           </TableBody>
         </Table>
       </div>
-      <p className='text-muted-foreground mt-4 text-center text-sm'>
-        Density data table{' '}
-        <a
-          href='https://www.shadcnui-blocks.com/components/table'
-          className='hover:text-primary underline'
-          target='_blank'
-        >
-          Shadcn UI Blocks
-        </a>
-      </p>
+      <p className='text-muted-foreground mt-4 text-center text-sm'>Koyo density table pattern</p>
     </div>
   )
 }

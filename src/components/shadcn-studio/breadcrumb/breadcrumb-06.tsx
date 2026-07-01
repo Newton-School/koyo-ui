@@ -19,7 +19,7 @@ const BreadcrumbWithDropdownDemo = () => {
           <BreadcrumbLink href='#'>
             <Badge variant='outline' className='text-muted-foreground hover:text-foreground'>
               <HomeIcon className='size-3' />
-              Home
+              Workspace
             </Badge>
           </BreadcrumbLink>
         </BreadcrumbItem>
@@ -27,7 +27,7 @@ const BreadcrumbWithDropdownDemo = () => {
         <BreadcrumbItem>
           <BreadcrumbLink href='#'>
             <Badge variant='outline' className='text-muted-foreground hover:text-foreground'>
-              Documents
+              Cohorts
             </Badge>
           </BreadcrumbLink>
         </BreadcrumbItem>
@@ -36,13 +36,13 @@ const BreadcrumbWithDropdownDemo = () => {
           <BreadcrumbPage>
             <DropdownMenu>
               <DropdownMenuTrigger className='flex items-center gap-1'>
-                Add Document
+                Interview prep
                 <ChevronDownIcon className='size-4' />
               </DropdownMenuTrigger>
               <DropdownMenuContent align='start'>
-                <DropdownMenuItem>Documentation</DropdownMenuItem>
-                <DropdownMenuItem>Themes</DropdownMenuItem>
-                <DropdownMenuItem>GitHub</DropdownMenuItem>
+                <DropdownMenuItem>Assignments</DropdownMenuItem>
+                <DropdownMenuItem>Mentors</DropdownMenuItem>
+                <DropdownMenuItem>Reports</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </BreadcrumbPage>

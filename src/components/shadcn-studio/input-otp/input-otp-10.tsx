@@ -10,7 +10,7 @@ const InputOTPCustomSeparatorDemo = () => {
 
   return (
     <div className='space-y-3'>
-      <Label htmlFor={id}>Input OTP Custom Separator</Label>
+      <Label htmlFor={id}>Segmented mentor code</Label>
       <InputOTP id={id} maxLength={6}>
         <InputOTPGroup>
           <InputOTPSlot index={0} />

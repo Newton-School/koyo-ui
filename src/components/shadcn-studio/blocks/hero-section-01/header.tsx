@@ -39,7 +39,7 @@ const Header = ({ navigationData, className }: HeaderProps) => {
               <NavigationMenuItem key={navItem.title}>
                 <NavigationMenuLink
                   href={navItem.href}
-                  className='text-muted-foreground hover:text-primary px-3 py-1.5 text-base! font-medium hover:bg-transparent'
+                  className='text-muted-foreground hover:text-koyo-brand px-3 py-1.5 text-base! font-medium hover:bg-transparent'
                 >
                   {navItem.title}
                 </NavigationMenuLink>

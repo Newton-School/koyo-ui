@@ -27,7 +27,7 @@ function RadioGroupItem({
       <motion.button
         data-slot='radio-group-item'
         className={cn(
-          'border-input text-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 aspect-square size-5 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50',
+          'border-border bg-background text-koyo-brand focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring aria-invalid:border-destructive aria-invalid:ring-koyo-focus-error/30 dark:bg-input/30 data-[state=checked]:border-koyo-brand aspect-square size-5 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow,background-color,border-color] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:border-border disabled:bg-secondary disabled:text-muted-foreground disabled:opacity-70',
           className
         )}
         whileHover={{ scale: 1.05 }}

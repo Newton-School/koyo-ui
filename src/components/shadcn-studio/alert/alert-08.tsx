@@ -13,21 +13,21 @@ const AlertMultipleActionDemo = () => {
   if (!isActive) return null
 
   return (
-    <Alert className='bg-primary text-primary-foreground flex justify-between border-none'>
+    <Alert className='bg-koyo-button-primary text-koyo-button-primary-foreground flex justify-between border-none'>
       <CircleAlertIcon />
       <div className='flex flex-1 flex-col gap-4'>
         <div className='flex-1 flex-col justify-center gap-1'>
-          <AlertTitle>A new update is available</AlertTitle>
-          <AlertDescription className='text-primary-foreground/80'>
-            Includes the new dashboard view. Pages and exports now load faster.
+          <AlertTitle>Interview automation is ready</AlertTitle>
+          <AlertDescription className='text-koyo-button-primary-foreground/80'>
+            Publish the updated round plan to notify mentors and candidates.
           </AlertDescription>
         </div>
         <div className='flex items-center gap-4'>
-          <Button className='bg-primary-foreground/10 hover:bg-primary-foreground/20 focus-visible:bg-primary-foreground/20 text-primary-foreground h-7 cursor-pointer rounded-lg px-2'>
-            Skip this update
+          <Button className='bg-koyo-button-primary-foreground/10 hover:bg-koyo-button-primary-foreground/20 focus-visible:bg-koyo-button-primary-foreground/20 text-koyo-button-primary-foreground h-7 cursor-pointer rounded-lg px-2'>
+            Review later
           </Button>
           <Button variant='secondary' className='h-7 cursor-pointer rounded-lg px-2'>
-            Install now
+            Publish now
           </Button>
         </div>
       </div>

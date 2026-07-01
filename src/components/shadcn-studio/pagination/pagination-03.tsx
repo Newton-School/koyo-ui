@@ -29,7 +29,7 @@ const PaginationWithPrimaryButtonDemo = () => {
                 variant: 'default',
                 size: 'icon'
               }),
-              'hover:!text-primary-foreground dark:bg-primary dark:text-primary-foreground dark:hover:text-primary-foreground dark:hover:bg-primary/90 !shadow-none dark:border-transparent'
+              'hover:!text-koyo-button-primary-foreground !shadow-none dark:border-transparent'
             )}
           >
             2

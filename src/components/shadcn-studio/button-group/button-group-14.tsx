@@ -14,7 +14,7 @@ const ButtonGroupRevealDemo = () => {
       </Button>
       <Button
         variant='outline'
-        className='hover:bg-destructive/10! group hover:text-destructive w-24.5 justify-end gap-3 overflow-hidden rounded-none rounded-r-md shadow-none transition-all duration-200 not-hover:w-10 focus-visible:z-10'
+        className='hover:bg-koyo-button-error-ring/30! group hover:text-koyo-button-error w-24.5 justify-end gap-3 overflow-hidden rounded-none rounded-r-md shadow-none transition-all duration-200 not-hover:w-10 focus-visible:z-10'
       >
         Dislike
         <ThumbsDownIcon />

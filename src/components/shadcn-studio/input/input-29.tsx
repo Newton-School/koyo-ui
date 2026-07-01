@@ -10,7 +10,7 @@ const InputEndSelectDemo = () => {
   return (
     <div className='w-full max-w-xs space-y-2'>
       <Label htmlFor={id}>Input with end select</Label>
-      <div className='flex rounded-md shadow-xs'>
+      <div className='flex rounded-lg shadow-xs'>
         <Input
           id={id}
           type='text'

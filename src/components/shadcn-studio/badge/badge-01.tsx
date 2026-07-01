@@ -19,7 +19,7 @@ const BadgeDemo = () => {
       <Badge variant='brand' shape='round'>
         Brand Round
       </Badge>
-      <Badge className='ring-ring/50 ring-[3px]'>Focus</Badge>
+      <Badge className='ring-koyo-button-primary-ring ring-[3px]'>Focus</Badge>
       <Badge variant='koyo' className='ring-koyo-button-primary-ring ring-[3px]'>
         Koyo Focus
       </Badge>

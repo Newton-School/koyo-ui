@@ -9,12 +9,12 @@ const InputAddOnsDemo = () => {
   return (
     <div className='w-full max-w-xs space-y-2'>
       <Label htmlFor={id}>Input with add-ons</Label>
-      <div className='flex rounded-md shadow-xs'>
-        <span className='border-input bg-background text-muted-foreground -z-1 inline-flex items-center rounded-l-md border px-3 text-sm'>
+      <div className='flex rounded-lg shadow-xs'>
+        <span className='border-border bg-background text-muted-foreground -z-1 inline-flex items-center rounded-l-md border px-3 text-sm'>
           https://
         </span>
         <Input id={id} type='text' placeholder='shadcnstudio' className='-mx-px rounded-none shadow-none' />
-        <span className='border-input bg-background text-muted-foreground -z-1 inline-flex items-center rounded-r-md border px-3 text-sm'>
+        <span className='border-border bg-background text-muted-foreground -z-1 inline-flex items-center rounded-r-md border px-3 text-sm'>
           .com
         </span>
       </div>

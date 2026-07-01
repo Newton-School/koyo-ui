@@ -21,11 +21,11 @@ const BreadcrumbOutlineDemo = () => {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href='#'>Documents</BreadcrumbLink>
+          <BreadcrumbLink href='#'>Cohorts</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>Add Document</BreadcrumbPage>
+          <BreadcrumbPage>Interview prep</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

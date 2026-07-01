@@ -53,7 +53,7 @@ const ComboboxWithSearchAndButtonDemo = () => {
             variant='outline'
             role='combobox'
             aria-expanded={open}
-            className='bg-background hover:bg-background border-input w-full justify-between px-3 font-normal outline-offset-0 outline-none focus-visible:outline-[3px]'
+            className='bg-background hover:bg-background border-border w-full justify-between px-3 font-normal outline-offset-0 outline-none focus-visible:outline-[3px] focus-visible:outline-koyo-brand-ring'
           >
             <span className={cn('truncate', !value && 'text-muted-foreground')}>
               {value ? (
@@ -65,7 +65,7 @@ const ComboboxWithSearchAndButtonDemo = () => {
             <ChevronsUpDownIcon className='text-muted-foreground/80 shrink-0' aria-hidden='true' />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className='border-input w-full min-w-[var(--radix-popper-anchor-width)] p-0' align='start'>
+        <PopoverContent className='border-border w-full min-w-[var(--radix-popper-anchor-width)] p-0' align='start'>
           <Command>
             <CommandInput placeholder='Find university' />
             <CommandList>

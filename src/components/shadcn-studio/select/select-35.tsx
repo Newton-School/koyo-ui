@@ -15,7 +15,7 @@ const ListboxSingleOptionDemo = () => {
   return (
     <div className='w-full max-w-xs space-y-2'>
       <Label>Listbox with single option selectable</Label>
-      <div className='border-input overflow-hidden rounded-md border'>
+      <div className='border-border overflow-hidden rounded-lg border'>
         <ListBox
           className='bg-background space-y-1 p-1 text-sm shadow-xs transition-[color,box-shadow]'
           aria-label='Select framework'
@@ -38,7 +38,7 @@ const ListboxSingleOptionDemo = () => {
         Built using{' '}
         <a
           href='https://react-spectrum.adobe.com/react-aria/ListBox.html'
-          className='hover:text-primary underline'
+          className='hover:text-koyo-brand underline'
           target='_blank'
         >
           React Aria

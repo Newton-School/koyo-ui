@@ -30,8 +30,7 @@ const BorderedPaginationDemo = () => {
                   {
                     [buttonVariants({
                       variant: 'default',
-                      className:
-                        'hover:!text-primary-foreground dark:bg-primary dark:text-primary-foreground dark:hover:text-primary-foreground dark:hover:bg-primary/90 dark:border-transparent'
+                      className: 'hover:!text-koyo-button-primary-foreground dark:border-transparent'
                     })]: isActive
                   },
                   'rounded-none border-none'

@@ -13,7 +13,7 @@ const ButtonCopyStateDemo = () => {
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText('Thank you for using Shadcn Studio!')
+      await navigator.clipboard.writeText('Thank you for using Koyo UI!')
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
     } catch (err) {

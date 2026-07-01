@@ -20,9 +20,9 @@ const CollapsibleFormDemo = () => {
   const { meta, getCardNumberProps, getExpiryDateProps, getCVCProps, getCardImageProps } = usePaymentInputs()
 
   const items = [
-    { value: '1', label: 'Standard 3-5 Days', description: 'Friday, 15 June - Tuesday, 19 June', price: 'Free' },
-    { value: '2', label: 'Express', description: 'Friday, 15 June - Sunday, 17 June', price: '$5.00' },
-    { value: '3', label: 'Overnight', description: 'Tomorrow', price: '$10.00' }
+    { value: '1', label: 'Self-paced review', description: 'Friday, 15 June - Tuesday, 19 June', price: 'Free' },
+    { value: '2', label: 'Mentor review', description: 'Friday, 15 June - Sunday, 17 June', price: '$5.00' },
+    { value: '3', label: 'Priority mentor review', description: 'Tomorrow', price: '$10.00' }
   ]
 
   return (
@@ -30,7 +30,7 @@ const CollapsibleFormDemo = () => {
       <div className='w-full max-w-md space-y-3 rounded-md border py-4'>
         <Collapsible className='flex flex-col gap-2'>
           <div className='flex items-center justify-between gap-4 px-4'>
-            <div className='text-sm font-semibold'>Delivery Address</div>
+            <div className='text-sm font-semibold'>Learner Details</div>
             <CollapsibleTrigger asChild className='group'>
               <Button variant='ghost' size='icon-sm'>
                 <ChevronDownIcon className='text-muted-foreground transition-transform group-data-[state=open]:rotate-180' />
@@ -44,16 +44,16 @@ const CollapsibleFormDemo = () => {
                 htmlFor='full-name'
                 className='origin-start text-muted-foreground group-focus-within:text-foreground has-[+input:not(:placeholder-shown)]:text-foreground absolute top-1/2 block -translate-y-1/2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium'
               >
-                <span className='bg-background inline-flex px-1'>Full Name</span>
+                <span className='bg-background inline-flex px-1'>Learner Name</span>
               </label>
               <Input id='full-name' type='text' placeholder=' ' className='dark:bg-background' />
             </div>
             <div className='group relative w-full space-y-2'>
               <label
                 htmlFor='address'
-                className='origin-start text-muted-foreground group-focus-within:text-foreground has-[+textarea:not(:placeholder-shown)]:text-foreground has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40 has-aria-invalid:border-destructive absolute top-0 block translate-y-2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:-translate-y-1/2 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+textarea:not(:placeholder-shown)]:pointer-events-none has-[+textarea:not(:placeholder-shown)]:-translate-y-1/2 has-[+textarea:not(:placeholder-shown)]:cursor-default has-[+textarea:not(:placeholder-shown)]:text-xs has-[+textarea:not(:placeholder-shown)]:font-medium'
+                className='origin-start text-muted-foreground group-focus-within:text-foreground has-[+textarea:not(:placeholder-shown)]:text-foreground has-aria-invalid:ring-koyo-focus-error/30 has-aria-invalid:border-koyo-button-error absolute top-0 block translate-y-2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:-translate-y-1/2 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+textarea:not(:placeholder-shown)]:pointer-events-none has-[+textarea:not(:placeholder-shown)]:-translate-y-1/2 has-[+textarea:not(:placeholder-shown)]:cursor-default has-[+textarea:not(:placeholder-shown)]:text-xs has-[+textarea:not(:placeholder-shown)]:font-medium'
               >
-                <span className='bg-background inline-flex px-1'>Address</span>
+                <span className='bg-background inline-flex px-1'>Preparation Notes</span>
               </label>
               <Textarea id='address' placeholder=' ' className='!bg-background' />
             </div>
@@ -62,7 +62,7 @@ const CollapsibleFormDemo = () => {
                 htmlFor='pin-code'
                 className='origin-start text-muted-foreground group-focus-within:text-foreground has-[+input:not(:placeholder-shown)]:text-foreground absolute top-1/2 block -translate-y-1/2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium'
               >
-                <span className='bg-background inline-flex px-1'>Pin Code</span>
+                <span className='bg-background inline-flex px-1'>Cohort ID</span>
               </label>
               <Input id='pin-code' type='number' placeholder=' ' className='dark:bg-background' />
             </div>
@@ -71,7 +71,7 @@ const CollapsibleFormDemo = () => {
                 htmlFor='city-name'
                 className='origin-start text-muted-foreground group-focus-within:text-foreground has-[+input:not(:placeholder-shown)]:text-foreground absolute top-1/2 block -translate-y-1/2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium'
               >
-                <span className='bg-background inline-flex px-1'>City</span>
+                <span className='bg-background inline-flex px-1'>Campus</span>
               </label>
               <Input id='city-name' type='text' placeholder=' ' className='dark:bg-background' />
             </div>
@@ -80,7 +80,7 @@ const CollapsibleFormDemo = () => {
                 htmlFor='landmark'
                 className='origin-start text-muted-foreground group-focus-within:text-foreground has-[+input:not(:placeholder-shown)]:text-foreground absolute top-1/2 block -translate-y-1/2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium'
               >
-                <span className='bg-background inline-flex px-1'>Landmark</span>
+                <span className='bg-background inline-flex px-1'>Mentor</span>
               </label>
               <Input id='landmark' type='text' placeholder=' ' className='dark:bg-background' />
             </div>
@@ -89,7 +89,7 @@ const CollapsibleFormDemo = () => {
         <Separator />
         <Collapsible className='flex flex-col gap-2'>
           <div className='flex items-center justify-between gap-4 px-4'>
-            <div className='text-sm font-semibold'>Delivery Options</div>
+            <div className='text-sm font-semibold'>Review Options</div>
             <CollapsibleTrigger asChild className='group'>
               <Button variant='ghost' size='icon-sm'>
                 <ChevronDownIcon className='text-muted-foreground transition-transform group-data-[state=open]:rotate-180' />
@@ -102,7 +102,7 @@ const CollapsibleFormDemo = () => {
               {items.map(item => (
                 <div
                   key={`${id}-${item.value}`}
-                  className='border-input has-data-[state=checked]:border-primary/50 has-data-[state=checked]:bg-accent relative flex flex-col gap-4 border p-4 outline-none first:rounded-t-md last:rounded-b-md has-data-[state=checked]:z-10'
+                  className='border-border has-data-[state=checked]:border-koyo-button-primary/50 has-data-[state=checked]:bg-koyo-button-primary-ring/20 relative flex flex-col gap-4 border p-4 outline-none first:rounded-t-md last:rounded-b-md has-data-[state=checked]:z-10'
                 >
                   <div className='flex items-center justify-between gap-1.5'>
                     <div className='flex items-center gap-2'>

@@ -32,7 +32,7 @@ const InputOTPWithResendTimerDemo = () => {
 
   return (
     <div className='space-y-3'>
-      <Label htmlFor={id}>Input OTP with resend timer</Label>
+      <Label htmlFor={id}>Mentor approval code</Label>
       <InputOTP id={id} maxLength={4}>
         <InputOTPGroup>
           <InputOTPSlot index={0} />
@@ -51,7 +51,7 @@ const InputOTPWithResendTimerDemo = () => {
               e.preventDefault()
               handleResend()
             }}
-            className='hover:text-primary underline'
+            className='hover:text-koyo-button-primary underline'
           >
             Resend code
           </a>

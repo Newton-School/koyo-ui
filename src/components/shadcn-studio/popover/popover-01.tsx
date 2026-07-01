@@ -8,10 +8,10 @@ import { Separator } from '@/components/ui/separator'
 
 const ratings = {
   1: 0,
-  2: 15,
-  3: 30,
-  4: 30,
-  5: 225
+  2: 4,
+  3: 18,
+  4: 42,
+  5: 156
 }
 
 const PopoverRatingsDemo = () => {
@@ -24,7 +24,7 @@ const PopoverRatingsDemo = () => {
       <PopoverTrigger asChild>
         <Button variant='outline' size='icon'>
           <StarIcon />
-          <span className='sr-only'>Ratings & reviews</span>
+          <span className='sr-only'>Interview ratings</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent className='w-80'>
@@ -35,7 +35,7 @@ const PopoverRatingsDemo = () => {
               <StarIcon className='size-5 fill-amber-500 stroke-amber-500 dark:fill-amber-400 dark:stroke-amber-400' />
             </div>
             <div className='text-sm font-medium'>Total {totalReviews} reviews</div>
-            <p className='text-muted-foreground text-sm'>All reviews are from genuine customers.</p>
+            <p className='text-muted-foreground text-sm'>All reviews are from completed Koyo interviews.</p>
           </div>
           <div className='grid'>
             <div className='flex items-center justify-between'>
@@ -43,7 +43,7 @@ const PopoverRatingsDemo = () => {
                 +6 this week
               </Badge>
               <a href='#' className='text-sm hover:underline'>
-                See all
+                View reports
               </a>
             </div>
             <Separator className='my-2' />

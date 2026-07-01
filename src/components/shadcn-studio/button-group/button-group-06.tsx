@@ -33,7 +33,7 @@ const ButtonGroupZoomDemo = () => {
         <ZoomOutIcon />
         <span className='sr-only'>Zoom out</span>
       </Button>
-      <span className='bg-background dark:border-input dark:bg-input/30 flex items-center border px-3 text-sm font-medium'>
+      <span className='bg-background dark:border-border dark:bg-input/30 flex items-center border px-3 text-sm font-medium'>
         {`${zoom}%`}
       </span>
       <Button

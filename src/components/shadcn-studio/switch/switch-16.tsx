@@ -7,7 +7,7 @@ const SwitchCardDemo = () => {
   const id = useId()
 
   return (
-    <div className='border-input has-data-[state=checked]:border-primary/50 relative flex w-full items-start gap-2 rounded-md border p-4 shadow-xs outline-none'>
+    <div className='border-border bg-background has-data-[state=checked]:border-koyo-brand relative flex w-full items-start gap-2 rounded-md border p-4 shadow-xs outline-none'>
       <Switch
         id={id}
         className='order-1 h-4 w-6 after:absolute after:inset-0 [&_span]:size-3 data-[state=checked]:[&_span]:translate-x-2.5 data-[state=checked]:[&_span]:rtl:-translate-x-2.5'
@@ -16,13 +16,13 @@ const SwitchCardDemo = () => {
       <div className='flex grow gap-3'>
         <img
           src='https://cdn.shadcnstudio.com/ss-assets/brand-logo/google-icon.png?width=20&height=20&format=auto'
-          alt='Google Icon'
+          alt='Google Calendar icon'
           className='size-5'
         />
         <div className='grid grow gap-2'>
-          <Label htmlFor={id}>Google Cloud Backup</Label>
+          <Label htmlFor={id}>Sync mentor calendar</Label>
           <p id={`${id}-description`} className='text-muted-foreground text-xs'>
-            Backup every picture, video and PDFs.
+            Add interview slots and learner reviews to the mentor calendar.
           </p>
         </div>
       </div>

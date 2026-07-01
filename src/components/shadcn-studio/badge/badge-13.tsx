@@ -14,9 +14,9 @@ const BadgeSelectableDemo = () => {
 
   return (
     <Badge
-      variant={selected ? 'secondary' : 'outline'}
+      variant={selected ? 'koyo' : 'outline'}
       shape='round'
-      className='has-focus-visible:border-ring has-focus-visible:ring-ring/50 relative cursor-pointer outline-none has-focus-visible:ring-[3px]'
+      className='has-focus-visible:border-koyo-button-primary has-focus-visible:ring-koyo-button-primary-ring relative cursor-pointer outline-none has-focus-visible:ring-[3px]'
     >
       <Checkbox
         id={id}
@@ -29,7 +29,7 @@ const BadgeSelectableDemo = () => {
         aria-hidden='true'
       />
       <label htmlFor={id} className='cursor-pointer select-none after:absolute after:inset-0'>
-        {selected ? 'Selected' : 'Selectable'}
+        {selected ? 'Mentor assigned' : 'Assign mentor'}
       </label>
     </Badge>
   )

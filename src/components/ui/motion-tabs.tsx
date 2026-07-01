@@ -121,7 +121,7 @@ function TabsList({
   return (
     <MotionHighlight
       controlledItems
-      className={cn('bg-background rounded-sm shadow-sm', activeClassName)}
+      className={cn('bg-koyo-button-primary rounded-[var(--koyo-button-radius)] shadow-sm', activeClassName)}
       value={activeValue}
       transition={transition}
     >
@@ -129,7 +129,7 @@ function TabsList({
         role='tablist'
         data-slot='tabs-list'
         className={cn(
-          'bg-muted text-muted-foreground inline-flex h-10 w-fit items-center justify-center rounded-lg p-[4px]',
+          'border-border bg-secondary text-secondary-foreground inline-flex h-10 w-fit items-center justify-center rounded-[var(--koyo-button-radius)] border p-[4px]',
           className
         )}
         {...props}
@@ -167,7 +167,7 @@ function TabsTrigger({ ref, value, children, className, ...props }: TabsTriggerP
         onClick={() => handleValueChange(value)}
         data-state={activeValue === value ? 'active' : 'inactive'}
         className={cn(
-          'ring-offset-background focus-visible:ring-ring data-[state=active]:text-foreground z-[1] inline-flex size-full cursor-pointer items-center justify-center rounded-sm px-2 py-1 text-sm font-medium whitespace-nowrap transition-transform focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50',
+          'focus-visible:border-koyo-button-primary focus-visible:ring-koyo-button-primary-ring data-[state=active]:text-koyo-button-primary-foreground data-[state=inactive]:hover:bg-koyo-button-primary/10 data-[state=inactive]:hover:text-foreground z-[1] inline-flex size-full cursor-pointer items-center justify-center rounded-[var(--koyo-button-radius)] border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow,background-color,border-color,transform] outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50',
           className
         )}
         {...props}

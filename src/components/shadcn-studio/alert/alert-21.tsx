@@ -4,10 +4,10 @@ import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
 
 const AlertSoftDemo = () => {
   return (
-    <Alert className='bg-primary/10 border-none'>
+    <Alert className='bg-koyo-brand/10 border-none'>
       <CircleAlertIcon />
-      <AlertTitle>File Should be PDF,DOCX,JPG, or PNG.</AlertTitle>
-      <AlertDescription>If the file type is not one of this than we can&apos;t get your files</AlertDescription>
+      <AlertTitle>Upload a PDF, DOCX, JPG, or PNG.</AlertTitle>
+      <AlertDescription>Use one of these formats so the candidate profile can process the attachment.</AlertDescription>
     </Alert>
   )
 }

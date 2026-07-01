@@ -1,4 +1,4 @@
-import { ChevronDownIcon, HeadsetIcon, PackageIcon, PlusIcon, RefreshCwIcon } from 'lucide-react'
+import { ChevronDownIcon, GraduationCapIcon, MessageSquareTextIcon, PlusIcon, UserRoundCheckIcon } from 'lucide-react'
 
 import * as AccordionPrimitive from '@radix-ui/react-accordion'
 
@@ -7,64 +7,65 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 
 const items = [
   {
-    category: 'Shipping & Delivery',
-    icon: PackageIcon,
+    category: 'Candidate review',
+    icon: UserRoundCheckIcon,
     faqs: [
       {
-        title: 'How do I track my order?',
-        content: `You can track your order by logging into your account and visiting the "Orders" section. You'll receive tracking information via email once your order ships. For real-time updates, you can also use the tracking number provided in your shipping confirmation email.`
+        title: 'How do I review a candidate timeline?',
+        content:
+          'Open the candidate profile and use the interview timeline to scan stage changes, scorecard updates, and mentor notes from the most recent round.'
       },
       {
-        title: 'What are your shipping options?',
+        title: 'Where do scorecards show up?',
         content:
-          'We offer standard shipping (3-5 business days), express shipping (1-2 business days), and overnight shipping. International shipping is also available to select countries. Shipping costs vary based on the destination and selected method.'
+          'Scorecards appear in the interview summary once the assigned mentor submits feedback for the round.'
       },
       {
-        title: 'Do you ship internationally?',
+        title: 'Can a candidate move cohorts?',
         content:
-          'Yes, we ship to most countries worldwide. International shipping typically takes 7-14 business days, depending on the destination. Please note that customs duties and taxes may apply and are the responsibility of the recipient.'
+          'Candidates can be moved when the new cohort has capacity and the learning team confirms the updated start date.'
       }
     ]
   },
   {
-    category: 'Returns & Refunds',
-    icon: RefreshCwIcon,
+    category: 'Learner progress',
+    icon: GraduationCapIcon,
     faqs: [
       {
-        title: 'What is your return policy?',
+        title: 'When should a learner be nudged?',
         content:
-          'We offer a 30-day return policy for most items. Products must be unused and in their original packaging. To initiate a return, please contact our customer service team or use the return portal in your account dashboard.'
+          'Nudge learners when cohort progress stalls, an assignment deadline is near, or a mentor flags repeated blockers during review.'
       },
       {
-        title: 'How long do refunds take to process?',
+        title: 'How are cohort risks flagged?',
         content:
-          'Once we receive your returned item, refunds are typically processed within 5-7 business days. The refund will be issued to your original payment method. Please note that it may take additional time for your bank or credit card company to reflect the refund in your account.'
+          'Risk indicators combine attendance, assignment completion, and mentor feedback so coordinators can prioritize outreach.'
       },
       {
-        title: 'Do you offer exchanges?',
+        title: 'Can mentors update learner notes?',
         content:
-          'Yes, we offer exchanges for different sizes, colors, or styles. You can request an exchange through our return portal or by contacting customer service. The exchange process typically takes 7-10 business days from when we receive your return.'
+          'Mentors can update notes after every checkpoint. The latest note is shown first in the learner activity feed.'
       }
     ]
   },
   {
-    category: 'Help & Support',
-    icon: HeadsetIcon,
+    category: 'Mentor feedback',
+    icon: MessageSquareTextIcon,
     faqs: [
       {
-        title: 'How can I contact customer support?',
+        title: 'How do mentors share interview feedback?',
         content:
-          'Our customer support team is available 24/7. You can reach us via live chat, email at support@example.com, or by phone at 1-800-123-4567. For faster service, please have your order number ready when contacting us.'
+          'Mentors can submit structured feedback from the interview workspace. The summary is attached to the candidate profile for the hiring team.'
       },
       {
-        title: 'What are your business hours?',
+        title: 'Who sees private mentor notes?',
         content:
-          'Our customer service team is available 24/7 for online support. Our physical stores are open Monday through Saturday from 9 AM to 9 PM, and Sunday from 10 AM to 6 PM. Store hours may vary during holidays.'
+          'Private notes stay visible to the mentor group and program owners, while public feedback is shared with the learner or candidate.'
       },
       {
-        title: 'How do I report a problem with my order?',
+        title: 'How do I flag an interview issue?',
         content:
-          'If you encounter any issues with your order, please contact our customer service team immediately. You can report problems through our website, email, or phone. Please include your order number and a detailed description of the issue for faster resolution.'
+          'Use the issue flag from the interview workspace and include the round, candidate, and a short note for the operations team.'
       }
     ]
   }
@@ -77,7 +78,7 @@ const AccordionMultilevelDemo = () => {
         <AccordionItem
           key={index}
           value={`item-${index + 1}`}
-          className='has-focus-visible:border-ring has-focus-visible:ring-ring/50 outline-none first:rounded-t-lg last:rounded-b-lg has-focus-visible:z-10 has-focus-visible:ring-[3px]'
+          className='has-focus-visible:border-koyo-brand has-focus-visible:ring-koyo-brand-ring outline-none first:rounded-t-lg last:rounded-b-lg has-focus-visible:z-10 has-focus-visible:ring-[3px]'
         >
           <AccordionPrimitive.Trigger
             data-slot='accordion-trigger'
@@ -91,8 +92,8 @@ const AccordionMultilevelDemo = () => {
           </AccordionPrimitive.Trigger>
           <AccordionContent className='pb-0'>
             {item.faqs.map((faq, i) => (
-              <Collapsible key={i} className='bg-accent border-t px-5' defaultOpen={i === 0}>
-                <CollapsibleTrigger className='focus-visible:ring-ring/50 flex w-full items-center gap-4 rounded-lg py-4 font-medium outline-none focus-visible:z-10 focus-visible:ring-[3px] [&[data-state=open]>svg]:rotate-180'>
+              <Collapsible key={i} className='bg-secondary border-t px-5' defaultOpen={i === 0}>
+                <CollapsibleTrigger className='focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring hover:text-koyo-brand flex w-full items-center gap-4 rounded-lg py-4 font-medium outline-none focus-visible:z-10 focus-visible:ring-[3px] [&[data-state=open]>svg]:rotate-180'>
                   <ChevronDownIcon className='text-muted-foreground pointer-events-none size-4 shrink-0' />
                   {faq.title}
                 </CollapsibleTrigger>

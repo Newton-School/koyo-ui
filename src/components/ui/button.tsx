@@ -6,7 +6,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  "focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-koyo-focus-error/30 aria-invalid:border-destructive inline-flex shrink-0 items-center justify-center gap-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "focus-visible:border-koyo-button-primary focus-visible:ring-koyo-button-primary-ring aria-invalid:ring-koyo-focus-error/30 aria-invalid:border-destructive inline-flex shrink-0 items-center justify-center gap-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
@@ -25,9 +25,9 @@ const buttonVariants = cva(
           'bg-koyo-button-error hover:bg-koyo-button-error-hover focus-visible:ring-koyo-button-error-ring text-white',
         destructive: 'bg-destructive hover:bg-destructive/90 focus-visible:ring-koyo-focus-error/30 text-white',
         outline:
-          'border-border bg-background hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:hover:bg-input/50 border shadow-xs',
+          'border-border bg-background hover:border-koyo-button-primary hover:bg-koyo-button-primary/10 hover:text-foreground dark:bg-input/30 dark:hover:bg-koyo-button-primary/15 border shadow-xs',
         secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        ghost: 'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
+        ghost: 'hover:bg-koyo-button-primary/10 hover:text-foreground dark:hover:bg-koyo-button-primary/15',
         link: 'text-koyo-brand underline-offset-4 hover:underline'
       },
       size: {

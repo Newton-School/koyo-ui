@@ -52,7 +52,7 @@ function Switch({ className, size = 'md', ...props }: SwitchProps) {
     <SwitchPrimitive.Root
       data-slot='switch'
       className={cn(
-        `peer data-[state=checked]:bg-primary data-[state=unchecked]:bg-input focus-visible:border-ring focus-visible:ring-ring/50 dark:data-[state=unchecked]:bg-input/80 relative inline-flex shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50`,
+        `peer border-border bg-secondary focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring data-[state=checked]:border-koyo-brand data-[state=checked]:bg-koyo-brand data-[state=checked]:hover:border-koyo-brand-hover data-[state=checked]:hover:bg-koyo-brand-hover data-[state=unchecked]:bg-secondary data-[state=unchecked]:hover:border-ring aria-invalid:border-destructive aria-invalid:ring-koyo-focus-error/30 relative inline-flex shrink-0 items-center rounded-full border shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:border-border disabled:bg-secondary disabled:opacity-70`,
 
         // Dynamic width/height
         size === 'sm' ? 'h-4 w-6.5' : size === 'lg' ? 'h-7 w-12' : 'h-[1.15rem] w-8',
@@ -66,7 +66,7 @@ function Switch({ className, size = 'md', ...props }: SwitchProps) {
         <motion.span
           data-slot='switch-thumb'
           className={cn(
-            'bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground pointer-events-none absolute block rounded-full ring-0'
+            'bg-background data-[state=checked]:bg-koyo-button-primary-foreground dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-koyo-button-primary-foreground pointer-events-none absolute block rounded-full ring-0'
           )}
           animate={{
             width: thumbWidth,
