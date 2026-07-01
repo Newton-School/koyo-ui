@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/button/button-27.tsx",
-      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport { Button } from '@/components/ui/button'\n\nconst ButtonAvatarDemo = () => {\n  return (\n    <Button className='rounded-full pl-2'>\n      <Avatar className='size-6'>\n        <AvatarImage src='https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-5.png' alt='Hallie Richards' />\n        <AvatarFallback className='text-foreground text-xs'>HR</AvatarFallback>\n      </Avatar>\n      @hallierichards\n    </Button>\n  )\n}\n\nexport default ButtonAvatarDemo\n",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@newtonschool/koyo-ui/avatar'\nimport { Button } from '@newtonschool/koyo-ui/button'\n\nconst ButtonAvatarDemo = () => {\n  return (\n    <Button className='rounded-full pl-2'>\n      <Avatar className='size-6'>\n        <AvatarImage src='https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-5.png' alt='Hallie Richards' />\n        <AvatarFallback className='text-foreground text-xs'>HR</AvatarFallback>\n      </Avatar>\n      @hallierichards\n    </Button>\n  )\n}\n\nexport default ButtonAvatarDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/button/button-27.tsx"
     }

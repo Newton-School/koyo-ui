@@ -7,8 +7,8 @@ import { CreditCardIcon } from 'lucide-react'
 import { usePaymentInputs } from 'react-payment-inputs'
 import images, { type CardImages } from 'react-payment-inputs/images'
 
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 const InputCardNumberDemo = () => {
   const id = useId()

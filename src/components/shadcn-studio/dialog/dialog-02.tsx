@@ -10,8 +10,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger
-} from '@/components/ui/alert-dialog'
-import { Button } from '@/components/ui/button'
+} from '@newtonschool/koyo-ui/alert-dialog'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const AlertDialogWithIconDemo = () => {
   return (

@@ -1,4 +1,4 @@
-import { Checkbox } from '@/components/ui/checkbox'
+import { Checkbox } from '@newtonschool/koyo-ui/checkbox'
 
 const CheckboxSizesDemo = () => {
   return (

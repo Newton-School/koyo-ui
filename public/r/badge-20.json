@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/badge/badge-20.tsx",
-      "content": "import { BanIcon } from 'lucide-react'\n\nimport { Badge } from '@/components/ui/badge'\n\nconst BadgeFailedDemo = () => {\n  return (\n    <Badge\n      variant='outline'\n      className='text-destructive [a&]:hover:bg-destructive/10 [a&]:hover:text-destructive/90 border-destructive rounded-sm'\n    >\n      <BanIcon className='size-3' />\n      Failed\n    </Badge>\n  )\n}\n\nexport default BadgeFailedDemo\n",
+      "content": "import { BanIcon } from 'lucide-react'\n\nimport { Badge } from '@newtonschool/koyo-ui/badge'\n\nconst BadgeFailedDemo = () => {\n  return (\n    <Badge\n      variant='outline'\n      className='text-destructive [a&]:hover:bg-destructive/10 [a&]:hover:text-destructive/90 border-destructive rounded-sm'\n    >\n      <BanIcon className='size-3' />\n      Failed\n    </Badge>\n  )\n}\n\nexport default BadgeFailedDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/badge/badge-20.tsx"
     }

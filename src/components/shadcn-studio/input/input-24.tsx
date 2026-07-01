@@ -1,6 +1,6 @@
 import { useId } from 'react'
 
-import { Input } from '@/components/ui/input'
+import { Input } from '@newtonschool/koyo-ui/input'
 
 const InputFloatingLabelDemo = () => {
   const id = useId()

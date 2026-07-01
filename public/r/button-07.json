@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/button/button-07.tsx",
-      "content": "import { Button } from '@/components/ui/button'\n\nconst ButtonLargeDemo = () => {\n  return <Button size='lg'>Large</Button>\n}\n\nexport default ButtonLargeDemo\n",
+      "content": "import { Button } from '@newtonschool/koyo-ui/button'\n\nconst ButtonLargeDemo = () => {\n  return <Button size='lg'>Large</Button>\n}\n\nexport default ButtonLargeDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/button/button-07.tsx"
     }

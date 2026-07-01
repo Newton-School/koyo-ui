@@ -1,4 +1,4 @@
-import { Slider } from '@/components/ui/slider'
+import { Slider } from '@newtonschool/koyo-ui/slider'
 
 const Slider02 = () => {
   return (

@@ -1,7 +1,7 @@
 // Component Imports
 import SliderWithInput from './SliderWithInput'
 import { ColorSwatch } from './ThemeColorPanel'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@newtonschool/koyo-ui/accordion'
 
 type ShadowControlProps = {
   shadowColor: string

@@ -5,8 +5,8 @@ import type { HTMLAttributes } from 'react'
 import type { Playlist } from '../data/Playlists'
 
 // Component Imports
-import { Button } from '@/components/ui/button'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { ScrollArea } from '@newtonschool/koyo-ui/scroll-area'
 
 // Util Imports
 import { cn } from '@/lib/utils'

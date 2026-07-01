@@ -6,9 +6,9 @@ import type { Metadata } from 'next'
 import { ArrowRightIcon, InfoIcon } from 'lucide-react'
 
 // Component Imports
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Alert, AlertDescription, AlertTitle } from '@newtonschool/koyo-ui/alert'
+import { Badge } from '@newtonschool/koyo-ui/badge'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
 import DocsNavigation from '@/components/DocsNavigation'
 
 // Config Imports

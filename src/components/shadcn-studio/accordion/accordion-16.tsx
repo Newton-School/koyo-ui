@@ -1,7 +1,7 @@
 import { PlusIcon } from 'lucide-react'
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@newtonschool/koyo-ui/accordion'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@newtonschool/koyo-ui/collapsible'
 
 const items = [
   {

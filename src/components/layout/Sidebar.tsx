@@ -12,9 +12,9 @@ import { BookOpenText, ChevronRightIcon, Component, Figma, LayoutPanelTop, Menu,
 import { useMedia } from 'react-use'
 
 // Component Imports
-import { Button } from '@/components/ui/button'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@newtonschool/koyo-ui/collapsible'
+import { ScrollArea } from '@newtonschool/koyo-ui/scroll-area'
 import {
   Sidebar,
   SidebarContent,
@@ -28,7 +28,7 @@ import {
   SidebarMenuButton,
   SidebarMenu,
   useSidebar
-} from '@/components/ui/sidebar'
+} from '@newtonschool/koyo-ui/sidebar'
 import Logo from '@/components/layout/logo'
 
 // Util Imports

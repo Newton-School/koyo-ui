@@ -2,7 +2,7 @@
 import type { CSSProperties, ReactNode } from 'react'
 
 // Component Imports
-import { SidebarProvider } from '@/components/ui/sidebar'
+import { SidebarProvider } from '@newtonschool/koyo-ui/sidebar'
 import PagesLayout from '@/components/layout/PagesLayout'
 
 const Layout = ({ children }: { children: ReactNode }) => {

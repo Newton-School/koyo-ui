@@ -15,9 +15,9 @@ import {
 } from 'date-fns'
 import type { DateRange } from 'react-day-picker'
 
-import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
-import { Card, CardContent, CardFooter } from '@/components/ui/card'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Calendar } from '@newtonschool/koyo-ui/calendar'
+import { Card, CardContent, CardFooter } from '@newtonschool/koyo-ui/card'
 
 const CalendarWithRangePresetsDemo = () => {
   const today = new Date()

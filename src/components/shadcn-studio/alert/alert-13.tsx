@@ -1,7 +1,7 @@
 import { CircleAlertIcon } from 'lucide-react'
 
-import { Alert, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
+import { Alert, AlertTitle } from '@newtonschool/koyo-ui/alert'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const AlertWithActionDemo = () => {
   return (

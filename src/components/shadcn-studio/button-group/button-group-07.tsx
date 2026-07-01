@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { MinusIcon, PlusIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const ButtonGroupNumberDemo = () => {
   const [value, setValue] = useState(216)

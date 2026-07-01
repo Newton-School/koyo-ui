@@ -2,8 +2,8 @@
 
 import * as React from 'react'
 
-import { Label } from '@/components/ui/label'
-import { Slider } from '@/components/ui/slider'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { Slider } from '@newtonschool/koyo-ui/slider'
 
 export function SliderDemo() {
   return (

@@ -17,9 +17,9 @@ import {
   type LucideProps
 } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@newtonschool/koyo-ui/collapsible'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@newtonschool/koyo-ui/sheet'
 
 type NavigationItem = {
   name: string

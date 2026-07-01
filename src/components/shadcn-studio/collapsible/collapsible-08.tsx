@@ -2,15 +2,15 @@
 
 import { ChevronRightIcon, CircleSmallIcon, LogOutIcon, SettingsIcon, UserIcon, UsersIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@newtonschool/koyo-ui/collapsible'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuGroup,
   DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
+} from '@newtonschool/koyo-ui/dropdown-menu'
 
 const CollapsibleDropdownMenuDemo = () => {
   return (

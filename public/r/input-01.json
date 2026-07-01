@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/input/input-01.tsx",
-      "content": "import { Input } from '@/components/ui/input'\n\nconst InputDemo = () => {\n  return <Input type='email' placeholder='Email address' className='max-w-xs' />\n}\n\nexport default InputDemo\n",
+      "content": "import { Input } from '@newtonschool/koyo-ui/input'\n\nconst InputDemo = () => {\n  return <Input type='email' placeholder='Email address' className='max-w-xs' />\n}\n\nexport default InputDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/input/input-01.tsx"
     }

@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { MenuIcon, XIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const IconButtonToggleDemo = () => {
   const [isOpen, setIsOpen] = useState(false)

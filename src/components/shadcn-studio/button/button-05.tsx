@@ -1,6 +1,6 @@
 import { Redo2Icon, Undo2Icon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const ButtonIconDemo = () => {
   return (

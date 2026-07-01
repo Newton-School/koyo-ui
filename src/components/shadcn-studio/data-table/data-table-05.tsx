@@ -14,8 +14,8 @@ import {
   useReactTable
 } from '@tanstack/react-table'
 
-import { Checkbox } from '@/components/ui/checkbox'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Checkbox } from '@newtonschool/koyo-ui/checkbox'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@newtonschool/koyo-ui/table'
 
 import { cn } from '@/lib/utils'
 

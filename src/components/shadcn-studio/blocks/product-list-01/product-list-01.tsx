@@ -2,10 +2,10 @@ import { HeartIcon, ShoppingCartIcon } from 'lucide-react'
 
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
+import { Badge } from '@newtonschool/koyo-ui/badge'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Card, CardContent } from '@newtonschool/koyo-ui/card'
+import { Separator } from '@newtonschool/koyo-ui/separator'
 
 import { cn } from '@/lib/utils'
 

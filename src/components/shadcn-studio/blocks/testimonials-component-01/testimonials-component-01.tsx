@@ -1,7 +1,7 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Card, CardContent } from '@/components/ui/card'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
-import { Rating } from '@/components/ui/rating'
+import { Avatar, AvatarFallback, AvatarImage } from '@newtonschool/koyo-ui/avatar'
+import { Card, CardContent } from '@newtonschool/koyo-ui/card'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@newtonschool/koyo-ui/carousel'
+import { Rating } from '@newtonschool/koyo-ui/rating'
 
 export type TestimonialItem = {
   name: string

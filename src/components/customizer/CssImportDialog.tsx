@@ -12,10 +12,10 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle
-} from '@/components/ui/dialog'
-import { Button } from '@/components/ui/button'
-import { Textarea } from '@/components/ui/textarea'
-import { Alert, AlertDescription } from '@/components/ui/alert'
+} from '@newtonschool/koyo-ui/dialog'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Textarea } from '@newtonschool/koyo-ui/textarea'
+import { Alert, AlertDescription } from '@newtonschool/koyo-ui/alert'
 
 type CssImportDialogProps = {
   open: boolean

@@ -1,11 +1,11 @@
 // Component Imports
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Separator } from '@newtonschool/koyo-ui/separator'
+import { Avatar, AvatarFallback, AvatarImage } from '@newtonschool/koyo-ui/avatar'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@newtonschool/koyo-ui/select'
 
 export function CardsShare() {
   return (

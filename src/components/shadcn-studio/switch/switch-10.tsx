@@ -4,8 +4,8 @@ import { useState } from 'react'
 
 import { MoonIcon, SunIcon } from 'lucide-react'
 
-import { Label } from '@/components/ui/label'
-import { Switch } from '@/components/ui/switch'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { Switch } from '@newtonschool/koyo-ui/switch'
 
 const SwitchIconLabelDemo = () => {
   const [checked, setChecked] = useState<boolean>(true)

@@ -1,4 +1,4 @@
-const GITHUB_PAGES_BASE_PATH = '/koyo-ui'
+const GITHUB_PAGES_BASE_PATH = '@newtonschool/koyo-ui'
 
 const isExternalHref = (href: string) => /^[a-z][a-z\d+.-]*:/i.test(href)
 

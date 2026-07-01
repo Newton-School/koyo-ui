@@ -1,5 +1,5 @@
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { Badge } from '@newtonschool/koyo-ui/badge'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const HeroSection = () => {
   return (

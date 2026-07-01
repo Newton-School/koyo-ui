@@ -4,8 +4,8 @@ import * as React from 'react'
 
 import { ChevronsUpDown } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@newtonschool/koyo-ui/collapsible'
 
 export function CollapsibleDemo() {
   const [isOpen, setIsOpen] = React.useState(false)

@@ -1,6 +1,6 @@
 import * as motion from 'motion/react-client'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const ButtonTapAnimationDemo = () => {
   return (

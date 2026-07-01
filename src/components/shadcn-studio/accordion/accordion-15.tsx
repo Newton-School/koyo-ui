@@ -2,8 +2,8 @@ import { ChevronDownIcon, GraduationCapIcon, MessageSquareTextIcon, PlusIcon, Us
 
 import * as AccordionPrimitive from '@radix-ui/react-accordion'
 
-import { Accordion, AccordionContent, AccordionItem } from '@/components/ui/accordion'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import { Accordion, AccordionContent, AccordionItem } from '@newtonschool/koyo-ui/accordion'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@newtonschool/koyo-ui/collapsible'
 
 const items = [
   {

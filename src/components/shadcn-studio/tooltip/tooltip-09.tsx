@@ -1,6 +1,6 @@
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { Badge } from '@newtonschool/koyo-ui/badge'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@newtonschool/koyo-ui/tooltip'
 
 const TooltipBadgeDemo = () => {
   return (

@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
+import { Card, CardContent, CardHeader } from '@newtonschool/koyo-ui/card'
+import { Skeleton } from '@newtonschool/koyo-ui/skeleton'
 
 export function SkeletonDemo() {
   return (

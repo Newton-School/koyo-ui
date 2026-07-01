@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { ScrollArea } from '@newtonschool/koyo-ui/scroll-area'
 import {
   Sheet,
   SheetClose,
@@ -9,7 +9,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger
-} from '@/components/ui/sheet'
+} from '@newtonschool/koyo-ui/sheet'
 
 const SheetWithScrollableContentDemo = () => {
   return (

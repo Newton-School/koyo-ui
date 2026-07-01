@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/alert/alert-29.tsx",
-      "content": "import { CircleAlertIcon } from 'lucide-react'\n\nimport { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'\n\nconst AlertSolidInfoDemo = () => {\n  return (\n    <Alert className='border-none bg-sky-600 text-white dark:bg-sky-400'>\n      <CircleAlertIcon />\n      <AlertTitle>Your profile is visible</AlertTitle>\n      <AlertDescription className='text-white/80'>Anyone can view your basic information.</AlertDescription>\n    </Alert>\n  )\n}\n\nexport default AlertSolidInfoDemo\n",
+      "content": "import { CircleAlertIcon } from 'lucide-react'\n\nimport { Alert, AlertTitle, AlertDescription } from '@newtonschool/koyo-ui/alert'\n\nconst AlertSolidInfoDemo = () => {\n  return (\n    <Alert className='border-none bg-sky-600 text-white dark:bg-sky-400'>\n      <CircleAlertIcon />\n      <AlertTitle>Your profile is visible</AlertTitle>\n      <AlertDescription className='text-white/80'>Anyone can view your basic information.</AlertDescription>\n    </Alert>\n  )\n}\n\nexport default AlertSolidInfoDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/alert/alert-29.tsx"
     }

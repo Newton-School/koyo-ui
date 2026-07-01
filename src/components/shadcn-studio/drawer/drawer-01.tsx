@@ -1,8 +1,8 @@
 import { CalendarClockIcon, MailIcon, StarIcon } from 'lucide-react'
 
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { Avatar, AvatarFallback } from '@newtonschool/koyo-ui/avatar'
+import { Badge } from '@newtonschool/koyo-ui/badge'
+import { Button } from '@newtonschool/koyo-ui/button'
 import {
   Drawer,
   DrawerClose,
@@ -12,8 +12,8 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger
-} from '@/components/ui/drawer'
-import { Separator } from '@/components/ui/separator'
+} from '@newtonschool/koyo-ui/drawer'
+import { Separator } from '@newtonschool/koyo-ui/separator'
 
 const DrawerDemo = () => {
   return (

@@ -10,7 +10,7 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
+} from '@newtonschool/koyo-ui/dropdown-menu'
 import CommandMenu from '@/components/layout/CommandMenu'
 import Logo from '@/components/layout/logo'
 import ModeToggle from '@/components/layout/ModeToggle'

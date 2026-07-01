@@ -4,8 +4,8 @@
 import { addDays } from 'date-fns'
 
 // Component Imports
-import { Calendar } from '@/components/ui/calendar'
-import { Card, CardContent } from '@/components/ui/card'
+import { Calendar } from '@newtonschool/koyo-ui/calendar'
+import { Card, CardContent } from '@newtonschool/koyo-ui/card'
 
 const start = new Date(2023, 5, 5)
 

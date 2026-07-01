@@ -1,7 +1,7 @@
 import { useId } from 'react'
 
-import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from '@/components/ui/input-otp'
-import { Label } from '@/components/ui/label'
+import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from '@newtonschool/koyo-ui/input-otp'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 const InputOTPOutlinedGroupedDemo = () => {
   const id = useId()

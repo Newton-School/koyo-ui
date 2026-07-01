@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/badge/badge-04.tsx",
-      "content": "import { Badge } from '@/components/ui/badge'\n\nconst BadgeOutlineDemo = () => {\n  return <Badge variant='outline'>Outline</Badge>\n}\n\nexport default BadgeOutlineDemo\n",
+      "content": "import { Badge } from '@newtonschool/koyo-ui/badge'\n\nconst BadgeOutlineDemo = () => {\n  return <Badge variant='outline'>Outline</Badge>\n}\n\nexport default BadgeOutlineDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/badge/badge-04.tsx"
     }

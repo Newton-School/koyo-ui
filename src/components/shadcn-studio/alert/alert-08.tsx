@@ -4,8 +4,8 @@ import { useState } from 'react'
 
 import { CircleAlertIcon, XIcon } from 'lucide-react'
 
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
+import { Alert, AlertDescription, AlertTitle } from '@newtonschool/koyo-ui/alert'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const AlertMultipleActionDemo = () => {
   const [isActive, setIsActive] = useState(true)

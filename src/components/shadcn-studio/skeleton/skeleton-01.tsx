@@ -1,4 +1,4 @@
-import { Skeleton } from '@/components/ui/skeleton'
+import { Skeleton } from '@newtonschool/koyo-ui/skeleton'
 
 const Skeleton01 = () => {
   return (

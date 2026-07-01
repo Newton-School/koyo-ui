@@ -1,7 +1,7 @@
 import { FileWarningIcon } from 'lucide-react'
 
-import { Alert, AlertTitle } from '@/components/ui/alert'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { Alert, AlertTitle } from '@newtonschool/koyo-ui/alert'
+import { Avatar, AvatarFallback } from '@newtonschool/koyo-ui/avatar'
 
 const AlertFocusedIconDemo = () => {
   return (

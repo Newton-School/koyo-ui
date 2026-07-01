@@ -5,8 +5,8 @@ import * as React from 'react'
 import { CheckIcon, ChevronDownIcon, ChevronsUpDown, PlusCircleIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Button } from '@/components/ui/button'
+import { Avatar, AvatarFallback, AvatarImage } from '@newtonschool/koyo-ui/avatar'
+import { Button } from '@newtonschool/koyo-ui/button'
 import {
   Command,
   CommandEmpty,
@@ -15,8 +15,8 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator
-} from '@/components/ui/command'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+} from '@newtonschool/koyo-ui/command'
+import { Popover, PopoverContent, PopoverTrigger } from '@newtonschool/koyo-ui/popover'
 
 const frameworks = [
   {

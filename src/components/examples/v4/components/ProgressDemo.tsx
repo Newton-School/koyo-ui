@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { Progress } from '@/components/ui/progress'
+import { Progress } from '@newtonschool/koyo-ui/progress'
 
 export function ProgressDemo() {
   const [progress, setProgress] = React.useState(13)

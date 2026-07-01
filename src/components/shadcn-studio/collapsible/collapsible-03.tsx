@@ -1,8 +1,8 @@
 import { ChevronUpIcon } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Button } from '@/components/ui/button'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import { Avatar, AvatarFallback, AvatarImage } from '@newtonschool/koyo-ui/avatar'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@newtonschool/koyo-ui/collapsible'
 
 const tasks = [
   {

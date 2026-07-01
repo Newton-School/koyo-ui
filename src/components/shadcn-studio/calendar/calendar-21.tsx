@@ -6,10 +6,10 @@ import { eachMonthOfInterval, eachYearOfInterval, endOfYear, format, isAfter, is
 import { ChevronDownIcon } from 'lucide-react'
 import type { CaptionLabelProps, MonthGridProps } from 'react-day-picker'
 
-import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Calendar } from '@newtonschool/koyo-ui/calendar'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@newtonschool/koyo-ui/collapsible'
+import { ScrollArea } from '@newtonschool/koyo-ui/scroll-area'
 
 const CalendarWithAdvanceSelectionDemo = () => {
   const today = new Date()

@@ -1,6 +1,6 @@
 import { ChevronLeftIcon } from 'lucide-react'
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
 
 import ForgotPasswordForm from '@/components/shadcn-studio/blocks/forgot-password-01/forgot-password-form'
 import AuthBackgroundShape from '@/assets/svg/auth-background-shape'

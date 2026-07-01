@@ -1,7 +1,7 @@
 import { CircleFadingPlusIcon } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Avatar, AvatarFallback, AvatarImage } from '@newtonschool/koyo-ui/avatar'
+import { Card, CardContent, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
 
 const CardInviteCardDemo = () => {
   return (

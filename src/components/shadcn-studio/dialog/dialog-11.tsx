@@ -1,7 +1,7 @@
 import { useId } from 'react'
 
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Checkbox } from '@newtonschool/koyo-ui/checkbox'
 import {
   Dialog,
   DialogClose,
@@ -10,10 +10,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from '@/components/ui/dialog'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Textarea } from '@/components/ui/textarea'
+} from '@newtonschool/koyo-ui/dialog'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { RadioGroup, RadioGroupItem } from '@newtonschool/koyo-ui/radio-group'
+import { Textarea } from '@newtonschool/koyo-ui/textarea'
 
 const DialogRatingDemo = () => {
   const id = useId()

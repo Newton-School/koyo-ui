@@ -10,7 +10,7 @@ import {
   MenubarRadioItem,
   MenubarSeparator,
   MenubarTrigger
-} from '@/components/ui/menubar'
+} from '@newtonschool/koyo-ui/menubar'
 
 const MenubarDemo = () => {
   return (

@@ -1,7 +1,7 @@
 import { useId } from 'react'
 
-import { Checkbox } from '@/components/ui/checkbox'
-import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Checkbox } from '@newtonschool/koyo-ui/checkbox'
+import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@newtonschool/koyo-ui/table'
 
 const items = [
   {

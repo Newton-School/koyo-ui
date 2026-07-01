@@ -4,14 +4,14 @@ import { useState } from 'react'
 
 import { ChevronDownIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
+} from '@newtonschool/koyo-ui/dropdown-menu'
 
 const options = [
   {

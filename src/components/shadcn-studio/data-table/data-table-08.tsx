@@ -21,8 +21,8 @@ import { CSS } from '@dnd-kit/utilities'
 import type { Cell, ColumnDef, Header, SortingState } from '@tanstack/react-table'
 import { flexRender, getCoreRowModel, getSortedRowModel, useReactTable } from '@tanstack/react-table'
 
-import { Button } from '@/components/ui/button'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@newtonschool/koyo-ui/table'
 
 type Employee = {
   employeeId: number

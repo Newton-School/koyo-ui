@@ -7,9 +7,9 @@ import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
 import type { ColumnDef } from '@tanstack/react-table'
 import { flexRender, getCoreRowModel, getExpandedRowModel, useReactTable } from '@tanstack/react-table'
 
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Checkbox } from '@newtonschool/koyo-ui/checkbox'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@newtonschool/koyo-ui/table'
 
 type Member = {
   name: string

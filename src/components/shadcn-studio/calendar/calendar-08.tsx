@@ -5,9 +5,9 @@ import { useState } from 'react'
 import { type DateRange } from 'react-day-picker'
 import { enUS, hi } from 'react-day-picker/locale'
 
-import { Calendar } from '@/components/ui/calendar'
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Calendar } from '@newtonschool/koyo-ui/calendar'
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@newtonschool/koyo-ui/select'
 
 const localizedStrings = {
   en: {

@@ -31,20 +31,31 @@ pnpm build
 
 ## Library Package
 
-The repo also builds a minimal reusable package entrypoint for Koyo UI primitives:
+The repo contains a workspace package for Koyo UI primitives at `packages/koyo-ui`.
 
 ```bash
 pnpm build:lib
 ```
 
-Consumers can import components and the Koyo token stylesheet from the package:
+Once published, consumers can install the public Newton package and import component subpaths plus the Koyo token stylesheet:
 
-```tsx
-import { Badge, Button } from 'koyo-ui'
-import 'koyo-ui/styles.css'
+```bash
+pnpm add @newtonschool/koyo-ui
 ```
 
-The package build emits ESM, CommonJS, TypeScript declarations, and `styles.css` into `dist`. The docs catalog and larger example blocks remain source/catalog content rather than packaged components.
+```tsx
+import { Badge } from '@newtonschool/koyo-ui/badge'
+import { Button } from '@newtonschool/koyo-ui/button'
+import '@newtonschool/koyo-ui/styles.css'
+```
+
+The package build emits ESM, CommonJS, TypeScript declarations, component subpath exports, and `styles.css` into `packages/koyo-ui/dist`. The docs catalog consumes `@newtonschool/koyo-ui` through the pnpm workspace so the site exercises the same package surface that will be published.
+
+Publishing requires npm auth for the Newton scope:
+
+```bash
+pnpm publish:lib
+```
 
 ## Attribution
 

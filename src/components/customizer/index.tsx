@@ -11,8 +11,8 @@ import 'shepherd.js/dist/css/shepherd.css'
 
 // Component Imports
 import ThemeControlPanel from './ThemeControlPanel'
-import { RainbowButton } from '@/components/ui/rainbow-button'
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from '@/components/ui/sheet'
+import { RainbowButton } from '@newtonschool/koyo-ui/rainbow-button'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from '@newtonschool/koyo-ui/sheet'
 
 // Styles Imports
 import './shepherd.css'

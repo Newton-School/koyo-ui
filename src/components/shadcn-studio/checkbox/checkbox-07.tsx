@@ -1,7 +1,7 @@
 import { useId } from 'react'
 
-import { Checkbox } from '@/components/ui/checkbox'
-import { Label } from '@/components/ui/label'
+import { Checkbox } from '@newtonschool/koyo-ui/checkbox'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 const CheckboxDescriptionDemo = () => {
   const id = useId()

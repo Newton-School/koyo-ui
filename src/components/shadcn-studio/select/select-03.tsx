@@ -2,8 +2,8 @@ import { useId } from 'react'
 
 import { FilmIcon } from 'lucide-react'
 
-import { Label } from '@/components/ui/label'
-import { SelectNative } from '@/components/ui/select-native'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { SelectNative } from '@newtonschool/koyo-ui/select-native'
 
 const NativeSelectWithIconDemo = () => {
   const id = useId()

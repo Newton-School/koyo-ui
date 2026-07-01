@@ -15,7 +15,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/checkbox/checkbox-17.tsx",
-      "content": "import { useId } from 'react'\n\nimport { Checkbox } from '@/components/ui/motion-checkbox'\nimport { Label } from '@/components/ui/label'\n\nconst CheckboxAnimatedDemo = () => {\n  const id = useId()\n\n  return (\n    <div className='flex items-center gap-2'>\n      <Checkbox id={id} defaultChecked />\n      <Label htmlFor={id}>Animated checkbox</Label>\n    </div>\n  )\n}\n\nexport default CheckboxAnimatedDemo\n",
+      "content": "import { useId } from 'react'\n\nimport { Checkbox } from '@newtonschool/koyo-ui/motion-checkbox'\nimport { Label } from '@newtonschool/koyo-ui/label'\n\nconst CheckboxAnimatedDemo = () => {\n  const id = useId()\n\n  return (\n    <div className='flex items-center gap-2'>\n      <Checkbox id={id} defaultChecked />\n      <Label htmlFor={id}>Animated checkbox</Label>\n    </div>\n  )\n}\n\nexport default CheckboxAnimatedDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/checkbox/checkbox-17.tsx"
     },

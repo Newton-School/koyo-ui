@@ -21,8 +21,8 @@ import {
   SidebarMenuItem,
   SidebarMenuSub,
   SidebarProvider
-} from '@/components/ui/sidebar'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+} from '@newtonschool/koyo-ui/sidebar'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@newtonschool/koyo-ui/collapsible'
 import CopyButton from '@/components/CopyButton'
 import CodeBlock from '@/components/CodeBlock'
 

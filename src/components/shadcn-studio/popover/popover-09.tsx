@@ -4,11 +4,11 @@ import { useState } from 'react'
 
 import { FunnelPlusIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Label } from '@/components/ui/label'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { Slider } from '@/components/ui/slider'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Checkbox } from '@newtonschool/koyo-ui/checkbox'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { Popover, PopoverContent, PopoverTrigger } from '@newtonschool/koyo-ui/popover'
+import { Slider } from '@newtonschool/koyo-ui/slider'
 
 const filters = ['Needs review', 'Highest score', 'Newest', 'Mentor assigned']
 

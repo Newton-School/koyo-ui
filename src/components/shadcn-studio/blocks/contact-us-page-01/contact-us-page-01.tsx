@@ -1,7 +1,7 @@
 import type { ComponentType } from 'react'
 
-import { Card, CardContent } from '@/components/ui/card'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { Card, CardContent } from '@newtonschool/koyo-ui/card'
+import { Avatar, AvatarFallback } from '@newtonschool/koyo-ui/avatar'
 
 type ContactInfo = {
   title: string

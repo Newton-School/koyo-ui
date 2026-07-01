@@ -1,6 +1,6 @@
 import { useId } from 'react'
 
-import { SelectNative } from '@/components/ui/select-native'
+import { SelectNative } from '@newtonschool/koyo-ui/select-native'
 
 const NativeSelectWithInsetLabelDemo = () => {
   const id = useId()

@@ -6,7 +6,7 @@ import type { InputHTMLAttributes } from 'react'
 import type { ThemePreset, ThemeStyleProps } from '@/types/theme'
 
 // Component Imports
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@newtonschool/koyo-ui/accordion'
 
 // Hook Imports
 import { useSettings } from '@/hooks/useSettings'

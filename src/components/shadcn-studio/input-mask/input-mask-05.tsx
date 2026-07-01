@@ -4,8 +4,8 @@ import { useId } from 'react'
 
 import { usePaymentInputs } from 'react-payment-inputs'
 
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 const InputCVCCodeDemo = () => {
   const id = useId()

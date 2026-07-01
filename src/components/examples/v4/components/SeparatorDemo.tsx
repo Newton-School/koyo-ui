@@ -1,4 +1,4 @@
-import { Separator } from '@/components/ui/separator'
+import { Separator } from '@newtonschool/koyo-ui/separator'
 
 export function SeparatorDemo() {
   return (

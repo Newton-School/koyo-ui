@@ -1,6 +1,6 @@
 import { BoldIcon, BookmarkIcon, ItalicIcon, UnderlineIcon } from 'lucide-react'
 
-import { Toggle } from '@/components/ui/toggle'
+import { Toggle } from '@newtonschool/koyo-ui/toggle'
 
 export function ToggleDemo() {
   return (

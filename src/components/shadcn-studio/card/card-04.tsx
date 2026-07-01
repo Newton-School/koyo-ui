@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardDescription, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardDescription, CardTitle } from '@newtonschool/koyo-ui/card'
 
 const CardBottomImageDemo = () => {
   return (

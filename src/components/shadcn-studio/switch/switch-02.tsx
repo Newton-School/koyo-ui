@@ -1,4 +1,4 @@
-import { Switch } from '@/components/ui/switch'
+import { Switch } from '@newtonschool/koyo-ui/switch'
 
 const SwitchSquareDemo = () => {
   return <Switch aria-label='Square switch' className='rounded-xs [&_span]:rounded-xs' />

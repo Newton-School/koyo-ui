@@ -4,10 +4,10 @@ import { useState } from 'react'
 
 import { EyeIcon, EyeOffIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Checkbox } from '@newtonschool/koyo-ui/checkbox'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 const LoginForm = () => {
   const [isVisible, setIsVisible] = useState(false)

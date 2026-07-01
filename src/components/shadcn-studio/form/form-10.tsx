@@ -7,14 +7,14 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
 
-import { Alert, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Textarea } from '@/components/ui/textarea'
+import { Alert, AlertTitle } from '@newtonschool/koyo-ui/alert'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@newtonschool/koyo-ui/form'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { RadioGroup, RadioGroupItem } from '@newtonschool/koyo-ui/radio-group'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@newtonschool/koyo-ui/select'
+import { Textarea } from '@newtonschool/koyo-ui/textarea'
 
 const ContactUSFormDemo = () => {
   const FormSchema = z.object({

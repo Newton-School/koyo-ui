@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, CardDescription, CardTitle, CardFooter } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardDescription, CardTitle, CardFooter } from '@newtonschool/koyo-ui/card'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const CardHorizontalDemo = () => {
   return (

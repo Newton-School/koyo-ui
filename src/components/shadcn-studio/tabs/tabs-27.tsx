@@ -1,4 +1,4 @@
-import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/components/ui/motion-tabs'
+import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@newtonschool/koyo-ui/motion-tabs'
 
 const tabs = [
   {

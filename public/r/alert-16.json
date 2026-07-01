@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/alert/alert-16.tsx",
-      "content": "import { Alert, AlertTitle } from '@/components/ui/alert'\n\nconst AlertWithoutIconDemo = () => {\n  return (\n    <Alert>\n      <AlertTitle>New message!</AlertTitle>\n    </Alert>\n  )\n}\n\nexport default AlertWithoutIconDemo\n",
+      "content": "import { Alert, AlertTitle } from '@newtonschool/koyo-ui/alert'\n\nconst AlertWithoutIconDemo = () => {\n  return (\n    <Alert>\n      <AlertTitle>New message!</AlertTitle>\n    </Alert>\n  )\n}\n\nexport default AlertWithoutIconDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/alert/alert-16.tsx"
     }

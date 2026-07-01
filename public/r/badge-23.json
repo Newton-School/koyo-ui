@@ -14,7 +14,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/badge/badge-23.tsx",
-      "content": "import { ShoppingCartIcon } from 'lucide-react'\n\nimport { Avatar, AvatarFallback } from '@/components/ui/avatar'\nimport { Badge } from '@/components/ui/badge'\n\nconst BadgeCartDemo = () => {\n  return (\n    <div className='relative w-fit'>\n      <Avatar className='size-9 rounded-sm'>\n        <AvatarFallback className='rounded-sm'>\n          <ShoppingCartIcon className='size-5' />\n        </AvatarFallback>\n      </Avatar>\n      <Badge className='absolute -top-2.5 -right-2.5 h-5 min-w-5 px-1 tabular-nums'>8</Badge>\n    </div>\n  )\n}\n\nexport default BadgeCartDemo\n",
+      "content": "import { ShoppingCartIcon } from 'lucide-react'\n\nimport { Avatar, AvatarFallback } from '@newtonschool/koyo-ui/avatar'\nimport { Badge } from '@newtonschool/koyo-ui/badge'\n\nconst BadgeCartDemo = () => {\n  return (\n    <div className='relative w-fit'>\n      <Avatar className='size-9 rounded-sm'>\n        <AvatarFallback className='rounded-sm'>\n          <ShoppingCartIcon className='size-5' />\n        </AvatarFallback>\n      </Avatar>\n      <Badge className='absolute -top-2.5 -right-2.5 h-5 min-w-5 px-1 tabular-nums'>8</Badge>\n    </div>\n  )\n}\n\nexport default BadgeCartDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/badge/badge-23.tsx"
     }

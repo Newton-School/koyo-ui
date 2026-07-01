@@ -1,7 +1,7 @@
 'use client'
 
 import { useThemeConfig } from './ActiveTheme'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@newtonschool/koyo-ui/select'
 
 export const THEMES = [
   {

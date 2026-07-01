@@ -8,7 +8,7 @@ import Link from 'next/link'
 import { CircleAlertIcon } from 'lucide-react'
 
 // Component Imports
-import { Alert, AlertDescription } from '@/components/ui/alert'
+import { Alert, AlertDescription } from '@newtonschool/koyo-ui/alert'
 
 // SGV Imports
 import AccordionSVG from '@/assets/svg/accordion'

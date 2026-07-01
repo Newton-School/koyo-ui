@@ -2,7 +2,7 @@
 import Link from 'next/link'
 
 // Component Imports
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 // SVG Imports
 import Icon404 from '@/assets/svg/404'

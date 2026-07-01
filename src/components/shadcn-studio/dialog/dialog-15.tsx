@@ -1,10 +1,10 @@
 import { UserPlusIcon } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Button } from '@/components/ui/button'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { Avatar, AvatarFallback, AvatarImage } from '@newtonschool/koyo-ui/avatar'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@newtonschool/koyo-ui/dialog'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 const friends = [
   {

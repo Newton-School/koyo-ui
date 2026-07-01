@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardTitle } from '@/components/ui/card'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Card, CardContent, CardDescription, CardTitle } from '@newtonschool/koyo-ui/card'
 
 type Integration = {
   name: string

@@ -1,6 +1,6 @@
 import { PencilLineIcon, UploadIcon, Trash2Icon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,7 +8,7 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
+} from '@newtonschool/koyo-ui/dropdown-menu'
 
 const DropdownMenuAlignStartDemo = () => {
   return (

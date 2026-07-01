@@ -13,7 +13,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut
-} from '@/components/ui/command'
+} from '@newtonschool/koyo-ui/command'
 
 export function CommandDemo() {
   const [open, setOpen] = React.useState(false)

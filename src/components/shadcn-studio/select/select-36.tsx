@@ -2,7 +2,7 @@
 
 import { Header, ListBox, ListBoxItem, ListBoxSection, Separator } from 'react-aria-components'
 
-import { Label } from '@/components/ui/label'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 const ListBoxWithOptionGroupsDemo = () => {
   return (

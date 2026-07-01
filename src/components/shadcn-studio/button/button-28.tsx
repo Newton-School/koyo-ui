@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { CheckIcon, CopyIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 import { cn } from '@/lib/utils'
 

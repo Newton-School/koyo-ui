@@ -22,7 +22,7 @@ import {
   UsersIcon
 } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '@newtonschool/koyo-ui/avatar'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -30,10 +30,10 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator
-} from '@/components/ui/breadcrumb'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
+} from '@newtonschool/koyo-ui/breadcrumb'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Card } from '@newtonschool/koyo-ui/card'
+import { Separator } from '@newtonschool/koyo-ui/separator'
 import {
   Sidebar,
   SidebarContent,
@@ -46,7 +46,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger
-} from '@/components/ui/sidebar'
+} from '@newtonschool/koyo-ui/sidebar'
 
 import LanguageDropdown from '@/components/shadcn-studio/blocks/dropdown-language'
 import ProductInsightsCard from '@/components/shadcn-studio/blocks/widget-product-insights'

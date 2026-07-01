@@ -1,7 +1,7 @@
 import { StarIcon } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Card, CardFooter, CardContent, CardTitle, CardDescription } from '@/components/ui/card'
+import { Avatar, AvatarFallback, AvatarImage } from '@newtonschool/koyo-ui/avatar'
+import { Card, CardFooter, CardContent, CardTitle, CardDescription } from '@newtonschool/koyo-ui/card'
 
 const CardTestimonialDemo = () => {
   return (

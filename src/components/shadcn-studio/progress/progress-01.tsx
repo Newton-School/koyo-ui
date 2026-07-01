@@ -1,4 +1,4 @@
-import { Progress } from '@/components/ui/progress'
+import { Progress } from '@newtonschool/koyo-ui/progress'
 
 const Progress01 = () => {
   return (

@@ -1,7 +1,7 @@
 import { ChevronFirstIcon, ChevronLastIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 
-import { Pagination, PaginationContent, PaginationItem, PaginationLink } from '@/components/ui/pagination'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Pagination, PaginationContent, PaginationItem, PaginationLink } from '@newtonschool/koyo-ui/pagination'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@newtonschool/koyo-ui/select'
 
 const PaginationWithSelectDemo = () => {
   return (

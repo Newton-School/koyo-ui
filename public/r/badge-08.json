@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/badge/badge-08.tsx",
-      "content": "import { Badge } from '@/components/ui/badge'\n\nconst BadgeLargeDemo = () => {\n  return <Badge className='px-3 py-1'>Large</Badge>\n}\n\nexport default BadgeLargeDemo\n",
+      "content": "import { Badge } from '@newtonschool/koyo-ui/badge'\n\nconst BadgeLargeDemo = () => {\n  return <Badge className='px-3 py-1'>Large</Badge>\n}\n\nexport default BadgeLargeDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/badge/badge-08.tsx"
     }

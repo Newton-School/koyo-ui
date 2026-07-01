@@ -1,6 +1,6 @@
 import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from 'lucide-react'
 
-import { Separator } from '@/components/ui/separator'
+import { Separator } from '@newtonschool/koyo-ui/separator'
 
 import Logo from '@/components/layout/logo'
 

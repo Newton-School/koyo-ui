@@ -1,6 +1,6 @@
 import { UserRoundIcon } from 'lucide-react'
 
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { Avatar, AvatarFallback } from '@newtonschool/koyo-ui/avatar'
 
 const AvatarIconDemo = () => {
   return (

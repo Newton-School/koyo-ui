@@ -7,13 +7,13 @@ import { ChevronDownIcon, CreditCardIcon } from 'lucide-react'
 import { usePaymentInputs } from 'react-payment-inputs'
 import images, { type CardImages } from 'react-payment-inputs/images'
 
-import { Button } from '@/components/ui/button'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Separator } from '@/components/ui/separator'
-import { Textarea } from '@/components/ui/textarea'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@newtonschool/koyo-ui/collapsible'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { RadioGroup, RadioGroupItem } from '@newtonschool/koyo-ui/radio-group'
+import { Separator } from '@newtonschool/koyo-ui/separator'
+import { Textarea } from '@newtonschool/koyo-ui/textarea'
 
 const CollapsibleFormDemo = () => {
   const id = useId()

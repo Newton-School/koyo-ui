@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/button/button-14.tsx",
-      "content": "import { DownloadIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nconst ButtonDownloadDemo = () => {\n  return (\n    <Button variant='outline' className='border-primary border-dashed shadow-none'>\n      <DownloadIcon />\n      Download\n    </Button>\n  )\n}\n\nexport default ButtonDownloadDemo\n",
+      "content": "import { DownloadIcon } from 'lucide-react'\n\nimport { Button } from '@newtonschool/koyo-ui/button'\n\nconst ButtonDownloadDemo = () => {\n  return (\n    <Button variant='outline' className='border-primary border-dashed shadow-none'>\n      <DownloadIcon />\n      Download\n    </Button>\n  )\n}\n\nexport default ButtonDownloadDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/button/button-14.tsx"
     }

@@ -1,6 +1,6 @@
 import { BellIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const IconButtonNotificationDotDemo = () => {
   return (

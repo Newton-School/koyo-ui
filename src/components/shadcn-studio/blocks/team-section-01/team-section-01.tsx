@@ -1,7 +1,7 @@
 import { FacebookIcon, GithubIcon, InstagramIcon, TwitterIcon } from 'lucide-react'
 
-import { Card, CardContent, CardTitle } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
+import { Card, CardContent, CardTitle } from '@newtonschool/koyo-ui/card'
+import { Separator } from '@newtonschool/koyo-ui/separator'
 
 type TeamMember = {
   image: string

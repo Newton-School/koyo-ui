@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
 
 import Logo from '@/components/layout/logo'
 import AuthBackgroundShape from '@/assets/svg/auth-background-shape'

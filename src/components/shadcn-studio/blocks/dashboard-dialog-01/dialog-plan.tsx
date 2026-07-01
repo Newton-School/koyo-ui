@@ -4,8 +4,8 @@ import { useState, type ReactNode } from 'react'
 
 import { CircleCheckIcon, DollarSignIcon, MessageSquareTextIcon } from 'lucide-react'
 
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Button } from '@/components/ui/button'
+import { Avatar, AvatarFallback } from '@newtonschool/koyo-ui/avatar'
+import { Button } from '@newtonschool/koyo-ui/button'
 import {
   Dialog,
   DialogClose,
@@ -15,9 +15,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from '@/components/ui/dialog'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+} from '@newtonschool/koyo-ui/dialog'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { RadioGroup, RadioGroupItem } from '@newtonschool/koyo-ui/radio-group'
 
 import { cn } from '@/lib/utils'
 

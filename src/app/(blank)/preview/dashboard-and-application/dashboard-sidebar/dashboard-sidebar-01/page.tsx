@@ -14,7 +14,7 @@ import {
   UsersIcon
 } from 'lucide-react'
 
-import { Card, CardContent } from '@/components/ui/card'
+import { Card, CardContent } from '@newtonschool/koyo-ui/card'
 import {
   Sidebar,
   SidebarContent,
@@ -27,7 +27,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger
-} from '@/components/ui/sidebar'
+} from '@newtonschool/koyo-ui/sidebar'
 
 const SidebarPage = () => {
   return (

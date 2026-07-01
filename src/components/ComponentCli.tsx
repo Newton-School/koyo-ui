@@ -1,7 +1,7 @@
 'use client'
 
 // Component Imports
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@newtonschool/koyo-ui/tabs'
 import CopyButton from '@/components/CopyButton'
 import CodeBlock from '@/components/CodeBlock'
 

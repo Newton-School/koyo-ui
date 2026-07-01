@@ -8,7 +8,7 @@ import { MoonStar, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 // Component Imports
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 // Hook Imports
 import { useSettings } from '@/hooks/useSettings'

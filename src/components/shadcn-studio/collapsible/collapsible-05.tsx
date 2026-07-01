@@ -1,11 +1,11 @@
 import { ChevronDownIcon, StarIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
-import { Label } from '@/components/ui/label'
-import { Input } from '@/components/ui/input'
-import { Separator } from '@/components/ui/separator'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Checkbox } from '@newtonschool/koyo-ui/checkbox'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@newtonschool/koyo-ui/collapsible'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Separator } from '@newtonschool/koyo-ui/separator'
 
 const CollapsibleFilterDemo = () => {
   return (

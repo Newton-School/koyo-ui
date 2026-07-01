@@ -1,4 +1,4 @@
-import { Badge } from '@/components/ui/badge'
+import { Badge } from '@newtonschool/koyo-ui/badge'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,7 +6,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator
-} from '@/components/ui/breadcrumb'
+} from '@newtonschool/koyo-ui/breadcrumb'
 
 const BreadcrumbTabsOutlineDemo = () => {
   return (

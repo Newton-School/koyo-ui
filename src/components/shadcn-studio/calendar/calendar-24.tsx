@@ -4,10 +4,10 @@ import { useState } from 'react'
 
 import { CircleCheckIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Calendar } from '@newtonschool/koyo-ui/calendar'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
+import { ScrollArea } from '@newtonschool/koyo-ui/scroll-area'
 
 const CalendarAppointmentBookingDemo = () => {
   const [date, setDate] = useState<Date | undefined>(new Date(2025, 5, 20))

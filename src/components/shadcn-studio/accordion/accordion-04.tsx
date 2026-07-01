@@ -2,7 +2,7 @@ import { PlusIcon } from 'lucide-react'
 
 import * as AccordionPrimitive from '@radix-ui/react-accordion'
 
-import { Accordion, AccordionContent, AccordionItem } from '@/components/ui/accordion'
+import { Accordion, AccordionContent, AccordionItem } from '@newtonschool/koyo-ui/accordion'
 
 const items = [
   {

@@ -4,9 +4,9 @@ import { useState } from 'react'
 
 import { HeartIcon } from 'lucide-react'
 
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Card, CardHeader, CardDescription, CardTitle, CardFooter, CardContent } from '@/components/ui/card'
+import { Badge } from '@newtonschool/koyo-ui/badge'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Card, CardHeader, CardDescription, CardTitle, CardFooter, CardContent } from '@newtonschool/koyo-ui/card'
 
 import { cn } from '@/lib/utils'
 

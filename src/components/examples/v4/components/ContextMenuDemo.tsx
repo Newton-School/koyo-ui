@@ -14,7 +14,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger
-} from '@/components/ui/context-menu'
+} from '@newtonschool/koyo-ui/context-menu'
 
 export function ContextMenuDemo() {
   return (

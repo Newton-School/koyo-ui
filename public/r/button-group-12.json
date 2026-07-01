@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/button-group/button-group-12.tsx",
-      "content": "import { BoxIcon, ChartBarBigIcon, SettingsIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nconst ButtonGroupGhostDemo = () => {\n  return (\n    <div className='inline-flex w-fit rounded-md rtl:space-x-reverse'>\n      <Button variant='ghost' className='rounded-none rounded-l-md focus-visible:z-10'>\n        <SettingsIcon />\n        Settings\n      </Button>\n      <Button variant='ghost' className='rounded-none focus-visible:z-10'>\n        <BoxIcon />\n        Dashboard\n      </Button>\n      <Button variant='ghost' className='rounded-none rounded-r-md focus-visible:z-10'>\n        <ChartBarBigIcon />\n        Analytics\n      </Button>\n    </div>\n  )\n}\n\nexport default ButtonGroupGhostDemo\n",
+      "content": "import { BoxIcon, ChartBarBigIcon, SettingsIcon } from 'lucide-react'\n\nimport { Button } from '@newtonschool/koyo-ui/button'\n\nconst ButtonGroupGhostDemo = () => {\n  return (\n    <div className='inline-flex w-fit rounded-md rtl:space-x-reverse'>\n      <Button variant='ghost' className='rounded-none rounded-l-md focus-visible:z-10'>\n        <SettingsIcon />\n        Settings\n      </Button>\n      <Button variant='ghost' className='rounded-none focus-visible:z-10'>\n        <BoxIcon />\n        Dashboard\n      </Button>\n      <Button variant='ghost' className='rounded-none rounded-r-md focus-visible:z-10'>\n        <ChartBarBigIcon />\n        Analytics\n      </Button>\n    </div>\n  )\n}\n\nexport default ButtonGroupGhostDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/button-group/button-group-12.tsx"
     }

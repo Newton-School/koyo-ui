@@ -10,8 +10,8 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
-import { Button } from '@/components/ui/button'
+} from '@newtonschool/koyo-ui/dropdown-menu'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const FrontMenuToggle = () => {
   return (

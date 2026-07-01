@@ -1,6 +1,6 @@
 import { CheckCheckIcon } from 'lucide-react'
 
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
+import { Alert, AlertTitle, AlertDescription } from '@newtonschool/koyo-ui/alert'
 
 const AlertSolidSuccessDemo = () => {
   return (

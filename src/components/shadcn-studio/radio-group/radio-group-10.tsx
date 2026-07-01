@@ -1,8 +1,8 @@
 import { useId } from 'react'
 
-import { Badge } from '@/components/ui/badge'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Badge } from '@newtonschool/koyo-ui/badge'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { RadioGroup, RadioGroupItem } from '@newtonschool/koyo-ui/radio-group'
 
 const RadioGroupSplitListGroupDemo = () => {
   const id = useId()

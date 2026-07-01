@@ -8,7 +8,7 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList
-} from '@/components/ui/navigation-menu'
+} from '@newtonschool/koyo-ui/navigation-menu'
 
 export function NavHeader() {
   const pathname = usePathname()

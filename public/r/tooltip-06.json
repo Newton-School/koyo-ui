@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/tooltip/tooltip-06.tsx",
-      "content": "import { Button } from '@/components/ui/button'\nimport { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'\n\nconst TooltipRoundedDemo = () => {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button variant='outline' size='sm'>\n          Rounded\n        </Button>\n      </TooltipTrigger>\n      <TooltipContent className='rounded-full'>\n        <p>This tooltip is rounded</p>\n      </TooltipContent>\n    </Tooltip>\n  )\n}\n\nexport default TooltipRoundedDemo\n",
+      "content": "import { Button } from '@newtonschool/koyo-ui/button'\nimport { Tooltip, TooltipContent, TooltipTrigger } from '@newtonschool/koyo-ui/tooltip'\n\nconst TooltipRoundedDemo = () => {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button variant='outline' size='sm'>\n          Rounded\n        </Button>\n      </TooltipTrigger>\n      <TooltipContent className='rounded-full'>\n        <p>This tooltip is rounded</p>\n      </TooltipContent>\n    </Tooltip>\n  )\n}\n\nexport default TooltipRoundedDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/tooltip/tooltip-06.tsx"
     }

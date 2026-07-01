@@ -4,10 +4,10 @@ import { useState } from 'react'
 
 import { Volume2Icon, VolumeXIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Label } from '@/components/ui/label'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { Slider } from '@/components/ui/slider'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { Popover, PopoverContent, PopoverTrigger } from '@newtonschool/koyo-ui/popover'
+import { Slider } from '@newtonschool/koyo-ui/slider'
 
 const PopoverVolumeDemo = () => {
   const [value, setValue] = useState([45])

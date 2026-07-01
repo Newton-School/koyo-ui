@@ -1,8 +1,8 @@
 import { ChevronUpIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Card, CardAction, CardContent, CardTitle } from '@/components/ui/card'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Card, CardAction, CardContent, CardTitle } from '@newtonschool/koyo-ui/card'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@newtonschool/koyo-ui/collapsible'
 
 const CollapsibleCardDemo = () => {
   return (

@@ -1,10 +1,10 @@
 import { StarIcon } from 'lucide-react'
 
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { Progress } from '@/components/ui/progress'
-import { Separator } from '@/components/ui/separator'
+import { Badge } from '@newtonschool/koyo-ui/badge'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@newtonschool/koyo-ui/popover'
+import { Progress } from '@newtonschool/koyo-ui/progress'
+import { Separator } from '@newtonschool/koyo-ui/separator'
 
 const ratings = {
   1: 0,

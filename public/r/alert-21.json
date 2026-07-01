@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/alert/alert-21.tsx",
-      "content": "import { CircleAlertIcon } from 'lucide-react'\n\nimport { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'\n\nconst AlertSoftDemo = () => {\n  return (\n    <Alert className='bg-primary/10 border-none'>\n      <CircleAlertIcon />\n      <AlertTitle>File Should be PDF,DOCX,JPG, or PNG.</AlertTitle>\n      <AlertDescription>If the file type is not one of this than we can&apos;t get your files</AlertDescription>\n    </Alert>\n  )\n}\n\nexport default AlertSoftDemo\n",
+      "content": "import { CircleAlertIcon } from 'lucide-react'\n\nimport { Alert, AlertTitle, AlertDescription } from '@newtonschool/koyo-ui/alert'\n\nconst AlertSoftDemo = () => {\n  return (\n    <Alert className='bg-primary/10 border-none'>\n      <CircleAlertIcon />\n      <AlertTitle>File Should be PDF,DOCX,JPG, or PNG.</AlertTitle>\n      <AlertDescription>If the file type is not one of this than we can&apos;t get your files</AlertDescription>\n    </Alert>\n  )\n}\n\nexport default AlertSoftDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/alert/alert-21.tsx"
     }

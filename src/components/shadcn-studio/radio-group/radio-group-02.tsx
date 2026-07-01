@@ -1,5 +1,5 @@
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { RadioGroup, RadioGroupItem } from '@newtonschool/koyo-ui/radio-group'
 
 const RadioGroupHorizontalDemo = () => {
   return (

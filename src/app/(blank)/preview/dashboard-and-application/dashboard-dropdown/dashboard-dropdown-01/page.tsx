@@ -1,6 +1,6 @@
 import { LanguagesIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 import LanguageDropdown from '@/components/shadcn-studio/blocks/dropdown-language'
 

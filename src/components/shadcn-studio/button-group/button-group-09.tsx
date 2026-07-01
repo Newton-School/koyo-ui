@@ -1,6 +1,6 @@
 import { CopyIcon, SquarePenIcon, Trash2Icon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const ButtonGroupActionsDemo = () => {
   return (

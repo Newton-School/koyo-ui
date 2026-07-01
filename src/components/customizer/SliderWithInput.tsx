@@ -2,9 +2,9 @@
 import { useEffect, useState } from 'react'
 
 // Component Imports
-import { Label } from '@/components/ui/label'
-import { Input } from '@/components/ui/input'
-import { Slider } from '@/components/ui/slider'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Slider } from '@newtonschool/koyo-ui/slider'
 
 type SliderWithInputProps = {
   value: number

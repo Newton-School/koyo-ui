@@ -2,7 +2,7 @@
 
 import { ListBox, ListBoxItem } from 'react-aria-components'
 
-import { Label } from '@/components/ui/label'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 const listitems = [
   { id: 'usd', label: 'USD (United States Dollar)' },

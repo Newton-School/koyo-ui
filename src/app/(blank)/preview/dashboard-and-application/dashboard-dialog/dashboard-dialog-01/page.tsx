@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 import PlanDialog from '@/components/shadcn-studio/blocks/dashboard-dialog-01/dialog-plan'
 
 const plansData = [

@@ -1,8 +1,8 @@
 import { CalendarIcon } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Button } from '@/components/ui/button'
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
+import { Avatar, AvatarFallback, AvatarImage } from '@newtonschool/koyo-ui/avatar'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@newtonschool/koyo-ui/hover-card'
 
 export function HoverCardDemo() {
   return (

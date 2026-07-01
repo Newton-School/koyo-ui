@@ -7,7 +7,7 @@ import {
   TableHead,
   TableHeader,
   TableRow
-} from '@/components/ui/table'
+} from '@newtonschool/koyo-ui/table'
 
 const invoices = [
   {

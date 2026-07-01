@@ -7,10 +7,10 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
 
-import { Alert, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+import { Alert, AlertTitle } from '@newtonschool/koyo-ui/alert'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@newtonschool/koyo-ui/form'
+import { Input } from '@newtonschool/koyo-ui/input'
 import {
   Sheet,
   SheetClose,
@@ -19,7 +19,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger
-} from '@/components/ui/sheet'
+} from '@newtonschool/koyo-ui/sheet'
 
 const SheetWithFormDemo = () => {
   const FormSchema = z.object({

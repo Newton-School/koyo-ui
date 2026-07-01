@@ -1,6 +1,6 @@
 import { DownloadIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const ButtonGroupDownloadDemo = () => {
   return (

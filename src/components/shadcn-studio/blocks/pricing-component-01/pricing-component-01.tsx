@@ -2,10 +2,10 @@
 
 import { useState } from 'react'
 
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { Switch } from '@/components/ui/switch'
-import { Separator } from '@/components/ui/separator'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Card, CardContent } from '@newtonschool/koyo-ui/card'
+import { Switch } from '@newtonschool/koyo-ui/switch'
+import { Separator } from '@newtonschool/koyo-ui/separator'
 
 type PricingPlan = {
   id: string

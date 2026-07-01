@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/avatar/avatar-03.tsx",
-      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\n\nconst AvatarRoundedDemo = () => {\n  return (\n    <Avatar className='rounded-sm'>\n      <AvatarImage\n        src='https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-5.png'\n        alt='Hallie Richards'\n        className='rounded-sm'\n      />\n      <AvatarFallback className='text-xs'>HR</AvatarFallback>\n    </Avatar>\n  )\n}\n\nexport default AvatarRoundedDemo\n",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@newtonschool/koyo-ui/avatar'\n\nconst AvatarRoundedDemo = () => {\n  return (\n    <Avatar className='rounded-sm'>\n      <AvatarImage\n        src='https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-5.png'\n        alt='Hallie Richards'\n        className='rounded-sm'\n      />\n      <AvatarFallback className='text-xs'>HR</AvatarFallback>\n    </Avatar>\n  )\n}\n\nexport default AvatarRoundedDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/avatar/avatar-03.tsx"
     }

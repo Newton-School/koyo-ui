@@ -16,10 +16,10 @@ import {
   ZapIcon
 } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
-import { Label } from '@/components/ui/label'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@newtonschool/koyo-ui/command'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { Popover, PopoverContent, PopoverTrigger } from '@newtonschool/koyo-ui/popover'
 
 const industries = [
   {

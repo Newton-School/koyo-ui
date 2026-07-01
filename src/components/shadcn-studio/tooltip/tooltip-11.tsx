@@ -1,7 +1,7 @@
 import { ChevronRightIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@newtonschool/koyo-ui/hover-card'
 
 const HoverCardMediaDemo = () => {
   return (

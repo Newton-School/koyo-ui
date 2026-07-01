@@ -11,9 +11,9 @@ import {
 
 import { Bar, BarChart, Label, Pie, PieChart } from 'recharts'
 
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart'
+import { Avatar, AvatarFallback } from '@newtonschool/koyo-ui/avatar'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
+import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@newtonschool/koyo-ui/chart'
 
 const salesPlanPercentage = 54
 const totalBars = 24

@@ -1,6 +1,6 @@
 import { useId } from 'react'
 
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { RadioGroup, RadioGroupItem } from '@newtonschool/koyo-ui/radio-group'
 
 const RadioGroupChipDemo = () => {
   const id = useId()

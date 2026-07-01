@@ -1,16 +1,16 @@
 import { ChevronDownIcon, ChevronUpIcon, EllipsisVerticalIcon } from 'lucide-react'
 
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Avatar, AvatarFallback } from '@newtonschool/koyo-ui/avatar'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Card, CardContent, CardHeader } from '@newtonschool/koyo-ui/card'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
-import { Progress } from '@/components/ui/progress'
+} from '@newtonschool/koyo-ui/dropdown-menu'
+import { Progress } from '@newtonschool/koyo-ui/progress'
 
 const listItems = ['Share', 'Update', 'Refresh']
 

@@ -7,10 +7,10 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
 
-import { Alert, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
-import { Switch } from '@/components/ui/switch'
+import { Alert, AlertTitle } from '@newtonschool/koyo-ui/alert'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@newtonschool/koyo-ui/form'
+import { Switch } from '@newtonschool/koyo-ui/switch'
 
 const SwitchFormDemo = () => {
   const FormSchema = z.object({

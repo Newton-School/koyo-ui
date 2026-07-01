@@ -4,8 +4,8 @@ import { useId, useState } from 'react'
 
 import { motion, AnimatePresence, easeOut } from 'motion/react'
 
-import { Checkbox } from '@/components/ui/checkbox'
-import { Label } from '@/components/ui/label'
+import { Checkbox } from '@newtonschool/koyo-ui/checkbox'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 const particleAnimation = (index: number) => {
   const angle = Math.random() * Math.PI * 2

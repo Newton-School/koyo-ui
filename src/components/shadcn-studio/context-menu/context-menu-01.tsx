@@ -1,6 +1,6 @@
 import { ArchiveIcon, CalendarPlusIcon, ClipboardCheckIcon, MailIcon, UserRoundIcon } from 'lucide-react'
 
-import { Badge } from '@/components/ui/badge'
+import { Badge } from '@newtonschool/koyo-ui/badge'
 import {
   ContextMenu,
   ContextMenuContent,
@@ -9,7 +9,7 @@ import {
   ContextMenuSeparator,
   ContextMenuShortcut,
   ContextMenuTrigger
-} from '@/components/ui/context-menu'
+} from '@newtonschool/koyo-ui/context-menu'
 
 const ContextMenuDemo = () => {
   return (

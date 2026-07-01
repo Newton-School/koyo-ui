@@ -1,4 +1,4 @@
-import { Input } from '@/components/ui/input'
+import { Input } from '@newtonschool/koyo-ui/input'
 
 export function InputDemo() {
   return (

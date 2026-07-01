@@ -4,11 +4,11 @@ import { useState } from 'react'
 
 import { ChevronDownIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Calendar } from '@newtonschool/koyo-ui/calendar'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { Popover, PopoverContent, PopoverTrigger } from '@newtonschool/koyo-ui/popover'
 
 const DatePickerAndTimePickerDemo = () => {
   const [open, setOpen] = useState(false)

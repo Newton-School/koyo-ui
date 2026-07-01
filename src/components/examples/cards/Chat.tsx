@@ -7,10 +7,10 @@ import { useState } from 'react'
 import { Check, Plus, Send } from 'lucide-react'
 
 // Component Imports
-import { Button } from '@/components/ui/button'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Avatar, AvatarFallback, AvatarImage } from '@newtonschool/koyo-ui/avatar'
+import { Card, CardContent, CardFooter, CardHeader } from '@newtonschool/koyo-ui/card'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@newtonschool/koyo-ui/command'
 import {
   Dialog,
   DialogContent,
@@ -18,9 +18,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle
-} from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+} from '@newtonschool/koyo-ui/dialog'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@newtonschool/koyo-ui/tooltip'
 
 // Util Imports
 import { cn } from '@/lib/utils'

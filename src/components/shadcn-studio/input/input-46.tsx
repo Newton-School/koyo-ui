@@ -4,9 +4,9 @@ import { useId, useMemo, useState } from 'react'
 
 import { CheckIcon, EyeIcon, EyeOffIcon, XIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 import { cn } from '@/lib/utils'
 

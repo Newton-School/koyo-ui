@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { XIcon } from 'lucide-react'
 
-import { Badge } from '@/components/ui/badge'
+import { Badge } from '@newtonschool/koyo-ui/badge'
 
 const BadgeClosableDemo = () => {
   const [isActive, setIsActive] = useState(true)

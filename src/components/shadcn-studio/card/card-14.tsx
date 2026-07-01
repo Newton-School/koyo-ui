@@ -4,8 +4,8 @@ import { useState } from 'react'
 
 import { XIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
 
 const CardActionDemo = () => {
   const [isActive, setIsActive] = useState(true)

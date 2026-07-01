@@ -1,4 +1,4 @@
-import { Switch } from '@/components/ui/switch'
+import { Switch } from '@newtonschool/koyo-ui/switch'
 
 const SwitchMiniDemo = () => {
   return (

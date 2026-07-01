@@ -11,8 +11,8 @@ import Link from 'next/link'
 import { clsx } from 'clsx'
 
 // Component Imports
-import { Card, CardContent, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardTitle } from '@newtonschool/koyo-ui/card'
+import { Badge } from '@newtonschool/koyo-ui/badge'
 
 // Util Imports
 import { getSectionData } from '@/utils/blocks'

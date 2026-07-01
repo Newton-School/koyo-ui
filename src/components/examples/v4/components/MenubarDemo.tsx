@@ -15,7 +15,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger
-} from '@/components/ui/menubar'
+} from '@newtonschool/koyo-ui/menubar'
 
 export function MenubarDemo() {
   return (

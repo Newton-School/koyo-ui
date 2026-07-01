@@ -14,8 +14,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from '@/components/ui/dialog'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+} from '@newtonschool/koyo-ui/dialog'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@newtonschool/koyo-ui/select'
 import ComponentCli from '@/components/ComponentCli'
 import CodeBlock from '@/components/CodeBlock'
 import CopyButton from '@/components/CopyButton'

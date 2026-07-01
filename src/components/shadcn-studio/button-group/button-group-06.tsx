@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { ZoomInIcon, ZoomOutIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const ButtonGroupZoomDemo = () => {
   const [zoom, setZoom] = useState(95)

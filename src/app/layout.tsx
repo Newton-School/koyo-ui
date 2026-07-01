@@ -9,7 +9,7 @@ import type { Metadata } from 'next'
 import NextProvider from '@/providers/NextProvider'
 import { SettingsProvider } from '@/contexts/settingsContext'
 import { ThemeProvider } from '@/providers/ThemesProvider'
-import { Toaster } from '@/components/ui/sonner'
+import { Toaster } from '@newtonschool/koyo-ui/sonner'
 
 // Util Imports
 import { getSettingsFromCookie } from '@/utils/serverHelpers'

@@ -1,6 +1,6 @@
 import { EyeIcon } from 'lucide-react'
 
-import { Toggle } from '@/components/ui/toggle'
+import { Toggle } from '@newtonschool/koyo-ui/toggle'
 
 const Toggle02 = () => {
   return (

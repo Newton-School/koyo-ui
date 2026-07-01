@@ -1,4 +1,4 @@
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
+import { Avatar, AvatarImage, AvatarFallback } from '@newtonschool/koyo-ui/avatar'
 
 import ProfileDropdown from '@/components/shadcn-studio/blocks/dropdown-profile'
 

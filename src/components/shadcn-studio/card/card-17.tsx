@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
 
 interface CardTransform {
   rotateX: number

@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { ArrowUp } from 'lucide-react'
 
 // Component Imports
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 // Util Imports
 import { cn } from '@/lib/utils'

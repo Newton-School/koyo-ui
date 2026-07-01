@@ -8,8 +8,8 @@ import { formatDistanceToNow } from 'date-fns'
 import type { Mail } from '../Data'
 
 // Component Imports
-import { Badge } from '@/components/ui/badge'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { Badge } from '@newtonschool/koyo-ui/badge'
+import { ScrollArea } from '@newtonschool/koyo-ui/scroll-area'
 import { useMail } from '../MailContext'
 
 // Util Imports

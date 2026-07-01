@@ -7,7 +7,7 @@ import { PlusIcon } from 'lucide-react'
 import * as AccordionPrimitive from '@radix-ui/react-accordion'
 
 // Component Imports
-import { Accordion, AccordionContent, AccordionItem } from '@/components/ui/accordion'
+import { Accordion, AccordionContent, AccordionItem } from '@newtonschool/koyo-ui/accordion'
 import DocsNavigation from '@/components/DocsNavigation'
 
 // Data Imports

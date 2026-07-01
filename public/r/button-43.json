@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/button/button-43.tsx",
-      "content": "import { ShimmerButton } from '@/components/ui/shimmer-button'\n\nconst ButtonShimmerEffectDemo = () => {\n  return <ShimmerButton>Shimmer Button</ShimmerButton>\n}\n\nexport default ButtonShimmerEffectDemo\n",
+      "content": "import { ShimmerButton } from '@newtonschool/koyo-ui/shimmer-button'\n\nconst ButtonShimmerEffectDemo = () => {\n  return <ShimmerButton>Shimmer Button</ShimmerButton>\n}\n\nexport default ButtonShimmerEffectDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/button/button-43.tsx"
     },

@@ -1,6 +1,6 @@
 import { GraduationCapIcon, HandshakeIcon, TargetIcon } from 'lucide-react'
 
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
+import { ToggleGroup, ToggleGroupItem } from '@newtonschool/koyo-ui/toggle-group'
 
 const ToggleGroup03 = () => {
   return (

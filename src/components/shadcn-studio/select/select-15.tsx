@@ -6,7 +6,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue
-} from '@/components/ui/select'
+} from '@newtonschool/koyo-ui/select'
 
 const SelectSizesDemo = () => {
   return (

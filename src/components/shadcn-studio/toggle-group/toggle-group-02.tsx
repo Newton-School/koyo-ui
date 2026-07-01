@@ -1,6 +1,6 @@
 import { Code2Icon, MessageCircleIcon, SparklesIcon } from 'lucide-react'
 
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
+import { ToggleGroup, ToggleGroupItem } from '@newtonschool/koyo-ui/toggle-group'
 
 const ToggleGroup02 = () => {
   return (

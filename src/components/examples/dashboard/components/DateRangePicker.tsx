@@ -11,9 +11,9 @@ import type { DateRange } from 'react-day-picker'
 
 // Component Imports
 import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Calendar } from '@newtonschool/koyo-ui/calendar'
+import { Popover, PopoverContent, PopoverTrigger } from '@newtonschool/koyo-ui/popover'
 
 export function CalendarDateRangePicker({ className }: HTMLAttributes<HTMLDivElement>) {
   const [date, setDate] = useState<DateRange | undefined>({

@@ -1,6 +1,6 @@
-import { Label } from '@/components/ui/label'
-import type { Option } from '@/components/ui/multi-select'
-import MultipleSelector from '@/components/ui/multi-select'
+import { Label } from '@newtonschool/koyo-ui/label'
+import type { Option } from '@newtonschool/koyo-ui/multi-select'
+import MultipleSelector from '@newtonschool/koyo-ui/multi-select'
 
 const categories: Option[] = [
   {

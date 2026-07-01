@@ -7,7 +7,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger
-} from '@/components/ui/navigation-menu'
+} from '@newtonschool/koyo-ui/navigation-menu'
 
 const NavigationMenuDemo = () => {
   return (

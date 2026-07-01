@@ -1,6 +1,6 @@
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent } from '@/components/ui/card'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
+import { Badge } from '@newtonschool/koyo-ui/badge'
+import { Card, CardContent } from '@newtonschool/koyo-ui/card'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@newtonschool/koyo-ui/carousel'
 
 const cohorts = [
   {

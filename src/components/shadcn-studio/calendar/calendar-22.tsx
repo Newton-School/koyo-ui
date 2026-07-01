@@ -4,9 +4,9 @@ import { useState } from 'react'
 
 import { addDays } from 'date-fns'
 
-import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
-import { Card, CardContent, CardFooter } from '@/components/ui/card'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Calendar } from '@newtonschool/koyo-ui/calendar'
+import { Card, CardContent, CardFooter } from '@newtonschool/koyo-ui/card'
 
 const CalendarWithPresetsDemo = () => {
   const [date, setDate] = useState<Date | undefined>(new Date())

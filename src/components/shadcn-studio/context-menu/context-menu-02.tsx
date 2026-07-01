@@ -10,7 +10,7 @@ import {
   ContextMenuRadioItem,
   ContextMenuSeparator,
   ContextMenuTrigger
-} from '@/components/ui/context-menu'
+} from '@newtonschool/koyo-ui/context-menu'
 
 const ContextMenuDemo = () => {
   return (

@@ -11,7 +11,7 @@ import { useMedia } from 'react-use'
 import { Component, Search, Sparkles } from 'lucide-react'
 
 // Component Imports
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 import {
   Command,
   CommandEmpty,
@@ -21,8 +21,8 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut
-} from '@/components/ui/command'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+} from '@newtonschool/koyo-ui/command'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@newtonschool/koyo-ui/dialog'
 
 // Data Imports
 import { searchData } from '@/assets/data/search'

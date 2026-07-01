@@ -2,8 +2,8 @@ import { useId } from 'react'
 
 import { HomeIcon } from 'lucide-react'
 
-import { Textarea } from '@/components/ui/textarea'
-import { Label } from '@/components/ui/label'
+import { Textarea } from '@newtonschool/koyo-ui/textarea'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 const TextareaStartIconDemo = () => {
   const id = useId()

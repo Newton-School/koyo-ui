@@ -3,9 +3,9 @@
 import { TrendingUp } from 'lucide-react'
 import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts'
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import type { ChartConfig } from '@/components/ui/chart'
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
+import type { ChartConfig } from '@newtonschool/koyo-ui/chart'
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@newtonschool/koyo-ui/chart'
 
 export const description = 'A multiple bar chart'
 

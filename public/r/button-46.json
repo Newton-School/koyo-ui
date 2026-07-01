@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/button/button-46.tsx",
-      "content": "import { Button } from '@/components/ui/button'\n\nconst ButtonHeartbeatEffectDemo = () => {\n  return (\n    <Button variant='destructive' className='animate-heartbeat dark:bg-destructive/100 m-9'>\n      Heartbeat Effect\n    </Button>\n  )\n}\n\nexport default ButtonHeartbeatEffectDemo\n",
+      "content": "import { Button } from '@newtonschool/koyo-ui/button'\n\nconst ButtonHeartbeatEffectDemo = () => {\n  return (\n    <Button variant='destructive' className='animate-heartbeat dark:bg-destructive/100 m-9'>\n      Heartbeat Effect\n    </Button>\n  )\n}\n\nexport default ButtonHeartbeatEffectDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/button/button-46.tsx"
     }

@@ -1,8 +1,8 @@
 import { MessageCircleIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { Textarea } from '@/components/ui/textarea'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@newtonschool/koyo-ui/popover'
+import { Textarea } from '@newtonschool/koyo-ui/textarea'
 
 const PopoverFeedbackDemo = () => {
   return (

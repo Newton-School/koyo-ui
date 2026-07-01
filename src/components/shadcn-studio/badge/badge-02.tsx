@@ -1,4 +1,4 @@
-import { Badge } from '@/components/ui/badge'
+import { Badge } from '@newtonschool/koyo-ui/badge'
 
 const BadgeSecondaryDemo = () => {
   return <Badge variant='secondary'>Secondary</Badge>

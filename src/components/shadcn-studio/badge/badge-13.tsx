@@ -4,8 +4,8 @@ import { useState, useId } from 'react'
 
 import { CheckCircleIcon } from 'lucide-react'
 
-import { Badge } from '@/components/ui/badge'
-import { Checkbox } from '@/components/ui/checkbox'
+import { Badge } from '@newtonschool/koyo-ui/badge'
+import { Checkbox } from '@newtonschool/koyo-ui/checkbox'
 
 const BadgeSelectableDemo = () => {
   const [selected, setSelected] = useState(false)

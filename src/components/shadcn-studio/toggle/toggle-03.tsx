@@ -1,6 +1,6 @@
 import { BellIcon } from 'lucide-react'
 
-import { Toggle } from '@/components/ui/toggle'
+import { Toggle } from '@newtonschool/koyo-ui/toggle'
 
 const Toggle03 = () => {
   return (

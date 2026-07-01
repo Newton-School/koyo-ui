@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/switch/switch-03.tsx",
-      "content": "import { Switch } from '@/components/ui/switch'\n\nconst SwitchMiniDemo = () => {\n  return (\n    <Switch\n      aria-label='Mini switch'\n      className='[&_span]:border-input h-3 border-none [&_span]:size-4.5 [&_span]:border'\n    />\n  )\n}\n\nexport default SwitchMiniDemo\n",
+      "content": "import { Switch } from '@newtonschool/koyo-ui/switch'\n\nconst SwitchMiniDemo = () => {\n  return (\n    <Switch\n      aria-label='Mini switch'\n      className='[&_span]:border-input h-3 border-none [&_span]:size-4.5 [&_span]:border'\n    />\n  )\n}\n\nexport default SwitchMiniDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/switch/switch-03.tsx"
     }

@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import { Card, CardContent } from '@/components/ui/card'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
+import { Card, CardContent } from '@newtonschool/koyo-ui/card'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@newtonschool/koyo-ui/carousel'
 
 export function CarouselDemo() {
   return (

@@ -7,8 +7,8 @@ import Link from 'next/link'
 import type { LucideIcon } from 'lucide-react'
 
 // Component Imports
-import { buttonVariants } from '@/components/ui/button'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { buttonVariants } from '@newtonschool/koyo-ui/button'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@newtonschool/koyo-ui/tooltip'
 
 // Util Imports
 import { cn } from '@/lib/utils'

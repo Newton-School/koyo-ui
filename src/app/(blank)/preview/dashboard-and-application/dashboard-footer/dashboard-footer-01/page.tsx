@@ -1,7 +1,7 @@
 import { FacebookIcon, InstagramIcon, LinkedinIcon, TwitterIcon } from 'lucide-react'
 
-import { Card, CardContent } from '@/components/ui/card'
-import { Sidebar, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+import { Card, CardContent } from '@newtonschool/koyo-ui/card'
+import { Sidebar, SidebarProvider, SidebarTrigger } from '@newtonschool/koyo-ui/sidebar'
 
 const Footer = () => {
   return (

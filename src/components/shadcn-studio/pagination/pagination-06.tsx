@@ -5,7 +5,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious
-} from '@/components/ui/pagination'
+} from '@newtonschool/koyo-ui/pagination'
 
 const pages = [1, 2, 3]
 

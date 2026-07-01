@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@newtonschool/koyo-ui/tooltip'
 
 const TooltipDemo = () => {
   return (

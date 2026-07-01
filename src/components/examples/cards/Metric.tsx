@@ -4,11 +4,11 @@
 import { Line, LineChart } from 'recharts'
 
 // Type Imports
-import type { ChartConfig } from '@/components/ui/chart'
+import type { ChartConfig } from '@newtonschool/koyo-ui/chart'
 
 // Component Imports
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@newtonschool/koyo-ui/chart'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
 
 const data = [
   {

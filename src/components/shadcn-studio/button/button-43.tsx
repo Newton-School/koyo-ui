@@ -1,4 +1,4 @@
-import { ShimmerButton } from '@/components/ui/shimmer-button'
+import { ShimmerButton } from '@newtonschool/koyo-ui/shimmer-button'
 
 const ButtonShimmerEffectDemo = () => {
   return <ShimmerButton>Shimmer Button</ShimmerButton>

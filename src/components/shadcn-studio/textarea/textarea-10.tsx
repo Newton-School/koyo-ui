@@ -1,4 +1,4 @@
-import { Textarea } from '@/components/ui/textarea'
+import { Textarea } from '@newtonschool/koyo-ui/textarea'
 
 const TextareaSizesDemo = () => {
   return (

@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react'
 
 import { DownloadIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { Progress } from '@/components/ui/progress'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@newtonschool/koyo-ui/popover'
+import { Progress } from '@newtonschool/koyo-ui/progress'
 
 import { cn } from '@/lib/utils'
 

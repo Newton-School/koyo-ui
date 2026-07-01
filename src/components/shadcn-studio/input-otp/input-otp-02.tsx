@@ -4,8 +4,8 @@ import { useId } from 'react'
 
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp'
 
-import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp'
-import { Label } from '@/components/ui/label'
+import { InputOTP, InputOTPGroup, InputOTPSlot } from '@newtonschool/koyo-ui/input-otp'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 const InputOTPAlphanumericDemo = () => {
   const id = useId()

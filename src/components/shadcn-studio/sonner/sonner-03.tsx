@@ -4,7 +4,7 @@ import { TruckIcon } from 'lucide-react'
 
 import { toast } from 'sonner'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const SonnerWithIconDemo = () => {
   return (

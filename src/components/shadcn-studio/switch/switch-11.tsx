@@ -4,7 +4,7 @@ import { useId, useState } from 'react'
 
 import { MoonIcon, SunIcon } from 'lucide-react'
 
-import { Switch } from '@/components/ui/switch'
+import { Switch } from '@newtonschool/koyo-ui/switch'
 
 const SwitchDualIconLabelDemo = () => {
   const id = useId()

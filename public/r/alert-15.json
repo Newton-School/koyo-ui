@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/alert/alert-15.tsx",
-      "content": "import { TriangleAlertIcon } from 'lucide-react'\n\nimport { Alert, AlertTitle } from '@/components/ui/alert'\n\nconst AlertPureDestructiveDemo = () => {\n  return (\n    <Alert variant='destructive' className='border-destructive'>\n      <TriangleAlertIcon />\n      <AlertTitle>Unable to process your payment.</AlertTitle>\n    </Alert>\n  )\n}\n\nexport default AlertPureDestructiveDemo\n",
+      "content": "import { TriangleAlertIcon } from 'lucide-react'\n\nimport { Alert, AlertTitle } from '@newtonschool/koyo-ui/alert'\n\nconst AlertPureDestructiveDemo = () => {\n  return (\n    <Alert variant='destructive' className='border-destructive'>\n      <TriangleAlertIcon />\n      <AlertTitle>Unable to process your payment.</AlertTitle>\n    </Alert>\n  )\n}\n\nexport default AlertPureDestructiveDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/alert/alert-15.tsx"
     }

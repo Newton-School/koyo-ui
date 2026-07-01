@@ -6,8 +6,8 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious
-} from '@/components/ui/pagination'
-import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+} from '@newtonschool/koyo-ui/pagination'
+import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@newtonschool/koyo-ui/table'
 
 const invoices = [
   {

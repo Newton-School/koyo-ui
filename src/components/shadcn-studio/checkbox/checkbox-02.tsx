@@ -6,7 +6,7 @@ import { CheckIcon, MinusIcon } from 'lucide-react'
 
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
-import { Label } from '@/components/ui/label'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 const Checkbox = (props: ComponentProps<typeof CheckboxPrimitive.Root>) => {
   return (

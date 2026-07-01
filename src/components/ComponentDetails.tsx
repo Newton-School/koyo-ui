@@ -9,7 +9,7 @@ import type { BundledLanguage } from 'shiki/bundle/web'
 import type { ProcessedComponentsData } from '@/types/components'
 
 // Component Imports
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 import {
   Dialog,
   DialogContent,
@@ -17,8 +17,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from '@/components/ui/dialog'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+} from '@newtonschool/koyo-ui/dialog'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@newtonschool/koyo-ui/tooltip'
 import ComponentCli from '@/components/ComponentCli'
 import CopyButton from '@/components/CopyButton'
 import CodeBlock from '@/components/CodeBlock'

@@ -2,7 +2,7 @@ import * as motion from 'motion/react-client'
 
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const ButtonGroupScaleDemo = () => {
   return (

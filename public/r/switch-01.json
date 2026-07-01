@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/switch/switch-01.tsx",
-      "content": "import { Label } from '@/components/ui/label'\nimport { Switch } from '@/components/ui/switch'\n\nconst SwitchDemo = () => {\n  return (\n    <div className='flex items-center space-x-2'>\n      <Switch id='airplane-mode' />\n      <Label htmlFor='airplane-mode'>Airplane Mode</Label>\n    </div>\n  )\n}\n\nexport default SwitchDemo\n",
+      "content": "import { Label } from '@newtonschool/koyo-ui/label'\nimport { Switch } from '@newtonschool/koyo-ui/switch'\n\nconst SwitchDemo = () => {\n  return (\n    <div className='flex items-center space-x-2'>\n      <Switch id='airplane-mode' />\n      <Label htmlFor='airplane-mode'>Airplane Mode</Label>\n    </div>\n  )\n}\n\nexport default SwitchDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/switch/switch-01.tsx"
     }

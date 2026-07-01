@@ -8,7 +8,7 @@ import { Dices, FileCode } from 'lucide-react'
 import type { ThemePreset, ThemeStyleProps } from '@/types/theme'
 
 // Component Imports
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 import {
   Select,
   SelectContent,
@@ -17,8 +17,8 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue
-} from '@/components/ui/select'
-import { Badge } from '@/components/ui/badge'
+} from '@newtonschool/koyo-ui/select'
+import { Badge } from '@newtonschool/koyo-ui/badge'
 import CssImportDialog from './CssImportDialog'
 
 // Config Imports

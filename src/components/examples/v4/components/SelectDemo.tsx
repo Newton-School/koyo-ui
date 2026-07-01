@@ -10,7 +10,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue
-} from '@/components/ui/select'
+} from '@newtonschool/koyo-ui/select'
 
 export function SelectDemo() {
   return (

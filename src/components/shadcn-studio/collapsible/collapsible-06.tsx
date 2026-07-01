@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@newtonschool/koyo-ui/collapsible'
 
 const CollapsibleShowMoreDemo = () => {
   const [isTrackOrderOpen, setIsTrackOrderOpen] = useState(true)

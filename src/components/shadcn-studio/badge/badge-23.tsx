@@ -1,7 +1,7 @@
 import { ShoppingCartIcon } from 'lucide-react'
 
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Badge } from '@/components/ui/badge'
+import { Avatar, AvatarFallback } from '@newtonschool/koyo-ui/avatar'
+import { Badge } from '@newtonschool/koyo-ui/badge'
 
 const BadgeCartDemo = () => {
   return (

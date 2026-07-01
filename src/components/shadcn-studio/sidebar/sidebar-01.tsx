@@ -13,7 +13,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider
-} from '@/components/ui/sidebar'
+} from '@newtonschool/koyo-ui/sidebar'
 
 const items = [
   { title: 'Overview', icon: HomeIcon, active: true },

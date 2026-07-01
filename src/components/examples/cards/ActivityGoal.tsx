@@ -8,12 +8,12 @@ import { Bar, BarChart } from 'recharts'
 import { Minus, Plus } from 'lucide-react'
 
 // Type Imports
-import type { ChartConfig } from '@/components/ui/chart'
+import type { ChartConfig } from '@newtonschool/koyo-ui/chart'
 
 // Component Imports
-import { Button } from '@/components/ui/button'
-import { ChartContainer } from '@/components/ui/chart'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { ChartContainer } from '@newtonschool/koyo-ui/chart'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
 
 const data = [
   {

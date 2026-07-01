@@ -2,9 +2,9 @@
 
 import { Bar, BarChart } from 'recharts'
 
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { type ChartConfig, ChartContainer } from '@/components/ui/chart'
-import { Separator } from '@/components/ui/separator'
+import { Card, CardContent, CardHeader } from '@newtonschool/koyo-ui/card'
+import { type ChartConfig, ChartContainer } from '@newtonschool/koyo-ui/chart'
+import { Separator } from '@newtonschool/koyo-ui/separator'
 
 import { cn } from '@/lib/utils'
 

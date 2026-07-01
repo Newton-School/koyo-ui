@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/button/button-02.tsx",
-      "content": "import { Button } from '@/components/ui/button'\n\nconst ButtonDisabledDemo = () => {\n  return <Button disabled>Verify Email</Button>\n}\n\nexport default ButtonDisabledDemo\n",
+      "content": "import { Button } from '@newtonschool/koyo-ui/button'\n\nconst ButtonDisabledDemo = () => {\n  return <Button disabled>Verify Email</Button>\n}\n\nexport default ButtonDisabledDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/button/button-02.tsx"
     }

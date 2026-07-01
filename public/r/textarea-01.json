@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/textarea/textarea-01.tsx",
-      "content": "import { Textarea } from '@/components/ui/textarea'\n\nconst TextareaDemo = () => {\n  return <Textarea placeholder='Type your message here.' className='w-full max-w-xs' />\n}\n\nexport default TextareaDemo\n",
+      "content": "import { Textarea } from '@newtonschool/koyo-ui/textarea'\n\nconst TextareaDemo = () => {\n  return <Textarea placeholder='Type your message here.' className='w-full max-w-xs' />\n}\n\nexport default TextareaDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/textarea/textarea-01.tsx"
     }

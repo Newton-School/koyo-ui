@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { type DateRange } from 'react-day-picker'
 
-import { Calendar } from '@/components/ui/calendar'
+import { Calendar } from '@newtonschool/koyo-ui/calendar'
 
 const CalendarRangeWithMinimumDaysDemo = () => {
   const [dateRange, setDateRange] = useState<DateRange | undefined>({

@@ -1,4 +1,4 @@
-import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
+import { Table, TableBody, TableCell, TableRow } from '@newtonschool/koyo-ui/table'
 
 const VerticalTableDemo = () => {
   return (

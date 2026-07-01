@@ -1,7 +1,7 @@
 import { FacebookIcon, GithubIcon, InstagramIcon, TwitterIcon } from 'lucide-react'
 
-import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
+import { Badge } from '@newtonschool/koyo-ui/badge'
+import { Separator } from '@newtonschool/koyo-ui/separator'
 
 const Portfolio = ({ images }: { images: string[] }) => {
   return (

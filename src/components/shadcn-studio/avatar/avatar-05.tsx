@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { Avatar, AvatarFallback } from '@newtonschool/koyo-ui/avatar'
 
 const AvatarFallbackDemo = () => {
   return (

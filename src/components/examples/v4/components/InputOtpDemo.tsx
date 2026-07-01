@@ -4,8 +4,8 @@ import * as React from 'react'
 
 import { REGEXP_ONLY_DIGITS } from 'input-otp'
 
-import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from '@/components/ui/input-otp'
-import { Label } from '@/components/ui/label'
+import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from '@newtonschool/koyo-ui/input-otp'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 export function InputOTPDemo() {
   return (

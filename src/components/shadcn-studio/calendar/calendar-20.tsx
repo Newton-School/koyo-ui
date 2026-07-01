@@ -4,10 +4,10 @@ import { useId, useState } from 'react'
 
 import { ClockIcon } from 'lucide-react'
 
-import { Calendar } from '@/components/ui/calendar'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { Calendar } from '@newtonschool/koyo-ui/calendar'
+import { Card, CardContent, CardHeader } from '@newtonschool/koyo-ui/card'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 const CalendarWithTimeInput = () => {
   const id = useId()

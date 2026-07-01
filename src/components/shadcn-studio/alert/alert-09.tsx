@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react'
 
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Progress } from '@/components/ui/progress'
+import { Alert, AlertDescription, AlertTitle } from '@newtonschool/koyo-ui/alert'
+import { Avatar, AvatarFallback, AvatarImage } from '@newtonschool/koyo-ui/avatar'
+import { Progress } from '@newtonschool/koyo-ui/progress'
 
 const AlertTaskDemo = () => {
   const [progress, setProgress] = useState(0)

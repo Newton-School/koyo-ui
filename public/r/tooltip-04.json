@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/tooltip/tooltip-04.tsx",
-      "content": "import { Button } from '@/components/ui/button'\nimport { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'\n\nconst TooltipErrorDemo = () => {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button variant='outline' size='sm'>\n          Error\n        </Button>\n      </TooltipTrigger>\n      <TooltipContent className='bg-destructive [&_svg]:bg-destructive [&_svg]:fill-destructive text-white'>\n        <p>This is an error tooltip</p>\n      </TooltipContent>\n    </Tooltip>\n  )\n}\n\nexport default TooltipErrorDemo\n",
+      "content": "import { Button } from '@newtonschool/koyo-ui/button'\nimport { Tooltip, TooltipContent, TooltipTrigger } from '@newtonschool/koyo-ui/tooltip'\n\nconst TooltipErrorDemo = () => {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button variant='outline' size='sm'>\n          Error\n        </Button>\n      </TooltipTrigger>\n      <TooltipContent className='bg-destructive [&_svg]:bg-destructive [&_svg]:fill-destructive text-white'>\n        <p>This is an error tooltip</p>\n      </TooltipContent>\n    </Tooltip>\n  )\n}\n\nexport default TooltipErrorDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/tooltip/tooltip-04.tsx"
     }

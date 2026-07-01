@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/alert/alert-30.tsx",
-      "content": "import { TriangleAlertIcon } from 'lucide-react'\n\nimport { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'\n\nconst AlertSolidDestructiveDemo = () => {\n  return (\n    <Alert className='bg-destructive dark:bg-destructive/60 border-none text-white'>\n      <TriangleAlertIcon />\n      <AlertTitle>Couldn&apos;t save changes</AlertTitle>\n      <AlertDescription className='text-white/80'>Please try again or reload the page.</AlertDescription>\n    </Alert>\n  )\n}\n\nexport default AlertSolidDestructiveDemo\n",
+      "content": "import { TriangleAlertIcon } from 'lucide-react'\n\nimport { Alert, AlertTitle, AlertDescription } from '@newtonschool/koyo-ui/alert'\n\nconst AlertSolidDestructiveDemo = () => {\n  return (\n    <Alert className='bg-destructive dark:bg-destructive/60 border-none text-white'>\n      <TriangleAlertIcon />\n      <AlertTitle>Couldn&apos;t save changes</AlertTitle>\n      <AlertDescription className='text-white/80'>Please try again or reload the page.</AlertDescription>\n    </Alert>\n  )\n}\n\nexport default AlertSolidDestructiveDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/alert/alert-30.tsx"
     }

@@ -9,7 +9,7 @@ import { Hand, Trash2 } from 'lucide-react'
 import type { ThemePreset, ThemeStyleProps } from '@/types/theme'
 
 // Component Imports
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 import {
   Dialog,
   DialogContent,
@@ -17,8 +17,8 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle
-} from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
+} from '@newtonschool/koyo-ui/dialog'
+import { Input } from '@newtonschool/koyo-ui/input'
 
 // Hook Imports
 import { useSettings } from '@/hooks/useSettings'

@@ -14,8 +14,8 @@ import {
   useReactTable
 } from '@tanstack/react-table'
 
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Checkbox } from '@newtonschool/koyo-ui/checkbox'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -23,9 +23,9 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
-import { Input } from '@/components/ui/input'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+} from '@newtonschool/koyo-ui/dropdown-menu'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@newtonschool/koyo-ui/table'
 
 const data: Payment[] = [
   {

@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { CircleAlertIcon, XIcon } from 'lucide-react'
 
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { Alert, AlertDescription, AlertTitle } from '@newtonschool/koyo-ui/alert'
 
 const AlertClosableDemo = () => {
   const [isActive, setIsActive] = useState(true)

@@ -1,7 +1,7 @@
 import { ArrowRightIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardTitle, CardDescription, CardHeader, CardFooter } from '@/components/ui/card'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Card, CardContent, CardTitle, CardDescription, CardHeader, CardFooter } from '@newtonschool/koyo-ui/card'
 
 type BlogCard = {
   img: string

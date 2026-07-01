@@ -10,10 +10,10 @@ import { CheckIcon, TerminalIcon } from 'lucide-react'
 import type { BlockType, SectionType } from '@/types/blocks'
 
 // Component Imports
-import { Card, CardContent, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { Card, CardContent, CardTitle } from '@newtonschool/koyo-ui/card'
+import { Badge } from '@newtonschool/koyo-ui/badge'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@newtonschool/koyo-ui/tooltip'
 
 // Hook Imports
 import { useCopy } from '@/hooks/useCopy'

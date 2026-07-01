@@ -1,5 +1,5 @@
-import { Label } from '@/components/ui/label'
-import { Switch } from '@/components/ui/switch'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { Switch } from '@newtonschool/koyo-ui/switch'
 
 const SwitchDemo = () => {
   return (

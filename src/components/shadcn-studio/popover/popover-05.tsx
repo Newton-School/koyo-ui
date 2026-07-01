@@ -1,7 +1,7 @@
 import { InfoIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@newtonschool/koyo-ui/popover'
 
 const PopoverAboutDemo = () => {
   return (

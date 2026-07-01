@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 
-import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Calendar } from '@newtonschool/koyo-ui/calendar'
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
 
 const CalendarWithTodayMonthButtonDemo = () => {
   const [date, setDate] = useState<Date | undefined>(new Date(2025, 5, 15))

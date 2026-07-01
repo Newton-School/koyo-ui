@@ -18,7 +18,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger
-} from '@/components/ui/context-menu'
+} from '@newtonschool/koyo-ui/context-menu'
 
 // Util Imports
 import { cn } from '@/lib/utils'

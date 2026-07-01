@@ -4,10 +4,10 @@ import { useState } from 'react'
 
 import { CheckIcon, CopyIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { Separator } from '@/components/ui/separator'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Popover, PopoverContent, PopoverTrigger } from '@newtonschool/koyo-ui/popover'
+import { Separator } from '@newtonschool/koyo-ui/separator'
 
 import { cn } from '@/lib/utils'
 

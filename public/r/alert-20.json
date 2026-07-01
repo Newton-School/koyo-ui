@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/alert/alert-20.tsx",
-      "content": "import { CircleAlertIcon } from 'lucide-react'\n\nimport { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'\n\nconst AlertOutlineWarningDemo = () => {\n  return (\n    <Alert className='border-amber-600 text-amber-600 dark:border-amber-400 dark:text-amber-400'>\n      <CircleAlertIcon />\n      <AlertTitle>Your password is too weak</AlertTitle>\n      <AlertDescription className='text-amber-600/80 dark:text-amber-400/80'>\n        Try using a mix of uppercase letters, numbers, and symbols for better security.\n      </AlertDescription>\n    </Alert>\n  )\n}\n\nexport default AlertOutlineWarningDemo\n",
+      "content": "import { CircleAlertIcon } from 'lucide-react'\n\nimport { Alert, AlertTitle, AlertDescription } from '@newtonschool/koyo-ui/alert'\n\nconst AlertOutlineWarningDemo = () => {\n  return (\n    <Alert className='border-amber-600 text-amber-600 dark:border-amber-400 dark:text-amber-400'>\n      <CircleAlertIcon />\n      <AlertTitle>Your password is too weak</AlertTitle>\n      <AlertDescription className='text-amber-600/80 dark:text-amber-400/80'>\n        Try using a mix of uppercase letters, numbers, and symbols for better security.\n      </AlertDescription>\n    </Alert>\n  )\n}\n\nexport default AlertOutlineWarningDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/alert/alert-20.tsx"
     }

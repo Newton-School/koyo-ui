@@ -1,4 +1,4 @@
-import { AnimatedTooltip } from '@/components/ui/motion-tooltip'
+import { AnimatedTooltip } from '@newtonschool/koyo-ui/motion-tooltip'
 
 const avatars = [
   {

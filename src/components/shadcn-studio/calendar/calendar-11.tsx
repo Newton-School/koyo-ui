@@ -5,9 +5,9 @@ import { useState } from 'react'
 import { formatDateRange } from 'little-date'
 import { PlusIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
-import { Card, CardContent, CardFooter } from '@/components/ui/card'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Calendar } from '@newtonschool/koyo-ui/calendar'
+import { Card, CardContent, CardFooter } from '@newtonschool/koyo-ui/card'
 
 const events = [
   {

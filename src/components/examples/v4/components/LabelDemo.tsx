@@ -1,7 +1,7 @@
-import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
+import { Checkbox } from '@newtonschool/koyo-ui/checkbox'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { Textarea } from '@newtonschool/koyo-ui/textarea'
 
 export function LabelDemo() {
   return (

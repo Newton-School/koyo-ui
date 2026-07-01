@@ -1,6 +1,6 @@
 import { ExternalLinkIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 
 const ButtonGroupPreviewDemo = () => {
   return (

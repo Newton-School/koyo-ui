@@ -2,8 +2,8 @@ import { useId } from 'react'
 
 import { DatabaseIcon } from 'lucide-react'
 
-import { Label } from '@/components/ui/label'
-import { Switch } from '@/components/ui/switch'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { Switch } from '@newtonschool/koyo-ui/switch'
 
 const SwitchCardDemo = () => {
   const id = useId()

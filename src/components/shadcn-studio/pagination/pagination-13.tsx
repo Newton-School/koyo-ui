@@ -1,6 +1,6 @@
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 
-import { Pagination, PaginationContent, PaginationItem, PaginationLink } from '@/components/ui/pagination'
+import { Pagination, PaginationContent, PaginationItem, PaginationLink } from '@newtonschool/koyo-ui/pagination'
 
 const MiniPagination = () => {
   return (

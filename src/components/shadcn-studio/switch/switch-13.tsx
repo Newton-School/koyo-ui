@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { CheckIcon, XIcon } from 'lucide-react'
 
-import { Switch } from '@/components/ui/switch'
+import { Switch } from '@newtonschool/koyo-ui/switch'
 
 const SwitchPermanentIndicatorDemo = () => {
   const [checked, setChecked] = useState<boolean>(true)

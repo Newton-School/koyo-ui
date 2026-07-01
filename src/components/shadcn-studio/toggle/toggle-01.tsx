@@ -1,6 +1,6 @@
 import { BotIcon, MessageSquareIcon } from 'lucide-react'
 
-import { Toggle } from '@/components/ui/toggle'
+import { Toggle } from '@newtonschool/koyo-ui/toggle'
 
 const Toggle01 = () => {
   return (

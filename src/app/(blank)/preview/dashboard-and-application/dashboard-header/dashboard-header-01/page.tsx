@@ -1,10 +1,10 @@
 import { LanguagesIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
-import { Card, CardContent } from '@/components/ui/card'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Sidebar, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Separator } from '@newtonschool/koyo-ui/separator'
+import { Card, CardContent } from '@newtonschool/koyo-ui/card'
+import { Avatar, AvatarFallback, AvatarImage } from '@newtonschool/koyo-ui/avatar'
+import { Sidebar, SidebarProvider, SidebarTrigger } from '@newtonschool/koyo-ui/sidebar'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,7 +12,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator
-} from '@/components/ui/breadcrumb'
+} from '@newtonschool/koyo-ui/breadcrumb'
 
 import LanguageDropdown from '@/components/shadcn-studio/blocks/dropdown-language'
 import ProfileDropdown from '@/components/shadcn-studio/blocks/dropdown-profile'

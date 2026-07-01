@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/alert/alert-01.tsx",
-      "content": "import { CircleAlertIcon } from 'lucide-react'\n\nimport { Alert, AlertTitle } from '@/components/ui/alert'\n\nconst AlertDemo = () => {\n  return (\n    <Alert>\n      <CircleAlertIcon />\n      <AlertTitle>New message!</AlertTitle>\n    </Alert>\n  )\n}\n\nexport default AlertDemo\n",
+      "content": "import { CircleAlertIcon } from 'lucide-react'\n\nimport { Alert, AlertTitle } from '@newtonschool/koyo-ui/alert'\n\nconst AlertDemo = () => {\n  return (\n    <Alert>\n      <CircleAlertIcon />\n      <AlertTitle>New message!</AlertTitle>\n    </Alert>\n  )\n}\n\nexport default AlertDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/alert/alert-01.tsx"
     }

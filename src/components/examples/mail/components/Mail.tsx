@@ -23,10 +23,10 @@ import {
 import type { Mail } from '../Data'
 
 // Component Imports
-import { Input } from '@/components/ui/input'
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
-import { Separator } from '@/components/ui/separator'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Input } from '@newtonschool/koyo-ui/input'
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@newtonschool/koyo-ui/resizable'
+import { Separator } from '@newtonschool/koyo-ui/separator'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@newtonschool/koyo-ui/tabs'
 import { AccountSwitcher } from './AccountSwitcher'
 import { MailDisplay } from './MailDisplay'
 import { MailList } from './MailList'

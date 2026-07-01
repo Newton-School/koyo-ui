@@ -1,13 +1,13 @@
 import { MenuIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@newtonschool/koyo-ui/dropdown-menu'
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList
-} from '@/components/ui/navigation-menu'
+} from '@newtonschool/koyo-ui/navigation-menu'
 
 import { cn } from '@/lib/utils'
 

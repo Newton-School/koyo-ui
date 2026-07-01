@@ -8,7 +8,7 @@ import {
   CommandItem,
   CommandList,
   CommandShortcut
-} from '@/components/ui/command'
+} from '@newtonschool/koyo-ui/command'
 
 const CommandDemo = () => {
   return (

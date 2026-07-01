@@ -1,6 +1,6 @@
 import { UserRoundXIcon } from 'lucide-react'
 
-import { Alert, AlertTitle } from '@/components/ui/alert'
+import { Alert, AlertTitle } from '@newtonschool/koyo-ui/alert'
 
 const AlertIndicatorDestructiveDemo = () => {
   return (

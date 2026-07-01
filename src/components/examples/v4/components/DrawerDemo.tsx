@@ -5,7 +5,7 @@ import * as React from 'react'
 import { Minus, Plus } from 'lucide-react'
 import { Bar, BarChart, ResponsiveContainer } from 'recharts'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 import {
   Drawer,
   DrawerClose,
@@ -15,7 +15,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger
-} from '@/components/ui/drawer'
+} from '@newtonschool/koyo-ui/drawer'
 
 const data = [
   {

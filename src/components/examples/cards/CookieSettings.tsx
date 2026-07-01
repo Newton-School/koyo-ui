@@ -1,8 +1,8 @@
 // Component Imports
-import { Label } from '@/components/ui/label'
-import { Switch } from '@/components/ui/switch'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { Switch } from '@newtonschool/koyo-ui/switch'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@newtonschool/koyo-ui/card'
 
 export function CardsCookieSettings() {
   return (

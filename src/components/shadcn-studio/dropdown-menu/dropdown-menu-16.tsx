@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@newtonschool/koyo-ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,8 +10,8 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
-import { Switch } from '@/components/ui/switch'
+} from '@newtonschool/koyo-ui/dropdown-menu'
+import { Switch } from '@newtonschool/koyo-ui/switch'
 
 const DropdownMenuSlideUpAnimationDemo = () => {
   const [googleSwitch, setGoogleSwitch] = useState(false)

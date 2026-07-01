@@ -1,41 +1,23 @@
 {
-  "name": "koyo-ui",
+  "name": "koyo-ui-docs",
   "version": "0.1.0",
+  "private": true,
   "license": "MIT",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./styles.css": "./dist/styles.css"
-  },
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE.md"
-  ],
-  "sideEffects": [
-    "./dist/styles.css"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
+    "dev": "pnpm --filter @newtonschool/koyo-ui build && next dev --turbopack",
+    "build": "pnpm --filter @newtonschool/koyo-ui build && next build",
     "start": "next start",
-    "build:lib": "tsup && cp src/styles/koyo.css dist/styles.css",
+    "build:lib": "pnpm --filter @newtonschool/koyo-ui build",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,md,mdx}\"",
-    "check-types": "tsc --noEmit",
+    "check-types": "pnpm --filter @newtonschool/koyo-ui build && tsc --noEmit",
     "registry:build": "shadcn build",
     "clean": "rm -rf .next *.tsbuildinfo",
-    "clean:node_modules": "rm -rf .next node_modules *.tsbuildinfo"
+    "clean:node_modules": "rm -rf .next node_modules *.tsbuildinfo",
+    "pack:lib": "pnpm --filter @newtonschool/koyo-ui pack",
+    "publish:lib": "pnpm --filter @newtonschool/koyo-ui publish --access public",
+    "verify:library-boundary": "node scripts/verify-library-boundary.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
@@ -104,7 +86,8 @@
     "use-mask-input": "^3.4.2",
     "vaul": "^1.1.2",
     "xlsx": "^0.18.5",
-    "zod": "^3.25.67"
+    "zod": "^3.25.67",
+    "@newtonschool/koyo-ui": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.10",

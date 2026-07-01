@@ -1,8 +1,8 @@
 import { useId } from 'react'
 
-import { Button } from '@/components/ui/button'
-import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
+import { Button } from '@newtonschool/koyo-ui/button'
+import { Label } from '@newtonschool/koyo-ui/label'
+import { Textarea } from '@newtonschool/koyo-ui/textarea'
 
 const TextareaWithButtonDemo = () => {
   const id = useId()

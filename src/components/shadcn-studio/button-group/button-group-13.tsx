@@ -1,6 +1,6 @@
 import { ArchiveIcon, InboxIcon, SendHorizonalIcon } from 'lucide-react'
 
-import { RippleButton } from '@/components/ui/ripple-button'
+import { RippleButton } from '@newtonschool/koyo-ui/ripple-button'
 
 const ButtonGroupRippleDemo = () => {
   return (

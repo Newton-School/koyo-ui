@@ -15,7 +15,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator
-} from '@/components/ui/breadcrumb'
+} from '@newtonschool/koyo-ui/breadcrumb'
 import BlockPage from './BlockPage'
 
 // Util Imports

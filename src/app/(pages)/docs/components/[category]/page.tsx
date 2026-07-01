@@ -10,7 +10,7 @@ import { InfoIcon } from 'lucide-react'
 import type { ProcessedComponentsData } from '@/types/components'
 
 // Component Imports
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { Alert, AlertDescription, AlertTitle } from '@newtonschool/koyo-ui/alert'
 import ComponentsGrid from '@/components/ComponentsGrid'
 import ComponentDetails from '@/components/ComponentDetails'
 import ComponentCard from '@/components/ComponentCard'

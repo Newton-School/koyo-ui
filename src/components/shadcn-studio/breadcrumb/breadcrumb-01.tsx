@@ -5,7 +5,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator
-} from '@/components/ui/breadcrumb'
+} from '@newtonschool/koyo-ui/breadcrumb'
 
 const BreadcrumbDemo = () => {
   return (

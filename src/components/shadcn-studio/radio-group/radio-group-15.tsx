@@ -2,7 +2,7 @@ import { CircleIcon } from 'lucide-react'
 
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
-import { Label } from '@/components/ui/label'
+import { Label } from '@newtonschool/koyo-ui/label'
 
 const RadioGroupAnimatedInsetDemo = () => {
   return (

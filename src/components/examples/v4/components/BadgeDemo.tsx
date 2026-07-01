@@ -1,6 +1,6 @@
 import { AlertCircleIcon, ArrowRightIcon, CheckIcon } from 'lucide-react'
 
-import { Badge } from '@/components/ui/badge'
+import { Badge } from '@newtonschool/koyo-ui/badge'
 
 export function BadgeDemo() {
   return (

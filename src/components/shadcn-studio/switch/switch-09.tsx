@@ -2,7 +2,7 @@
 
 import { useId, useState } from 'react'
 
-import { Switch } from '@/components/ui/switch'
+import { Switch } from '@newtonschool/koyo-ui/switch'
 
 const SwitchDualToggleLabelDemo = () => {
   const id = useId()
