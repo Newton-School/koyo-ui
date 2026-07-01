@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 
 // Util Imports
 import { cn } from '@/lib/utils'
+import { isInternalPathActive } from '@/utils/pathname'
 
 const NavMenu = () => {
   // Hooks
@@ -16,7 +17,7 @@ const NavMenu = () => {
       <Link
         href='/docs/koyo'
         className={cn('text-muted-foreground hover:text-foreground flex items-center gap-2 text-sm', {
-          'text-primary hover:text-primary/80 font-medium': pathname.startsWith('/docs/koyo')
+          'text-primary hover:text-primary/80 font-medium': isInternalPathActive(pathname, '/docs/koyo')
         })}
       >
         Koyo Docs
@@ -24,7 +25,10 @@ const NavMenu = () => {
       <Link
         href='/docs/getting-started/introduction'
         className={cn('text-muted-foreground hover:text-foreground flex items-center gap-2 text-sm', {
-          'text-primary hover:text-primary/80 font-medium': pathname.startsWith('/docs/getting-started/introduction')
+          'text-primary hover:text-primary/80 font-medium': isInternalPathActive(
+            pathname,
+            '/docs/getting-started/introduction'
+          )
         })}
       >
         Getting Started
@@ -32,7 +36,7 @@ const NavMenu = () => {
       <Link
         href='/blocks'
         className={cn('text-muted-foreground hover:text-foreground flex items-center gap-2 text-sm', {
-          'text-primary hover:text-primary/80 font-medium': pathname.startsWith('/blocks')
+          'text-primary hover:text-primary/80 font-medium': isInternalPathActive(pathname, '/blocks')
         })}
       >
         Blocks

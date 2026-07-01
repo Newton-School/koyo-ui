@@ -15648,6 +15648,515 @@
           "shadow-2xl": "0 1px 3px 0px oklch(0.00 0 0 / 0.25)"
         }
       }
+    },
+    {
+      "name": "carousel-01",
+      "title": "Carousel 1",
+      "description": "Koyo carousel card pattern for rotating cohort summaries.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "carousel",
+        "card",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/carousel/carousel-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/carousel/carousel-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-01",
+      "title": "Chart 1",
+      "description": "Koyo chart pattern for interview and cohort analytics.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "chart",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/chart/chart-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/chart/chart-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-02",
+      "title": "Chart 2",
+      "description": "Koyo chart pattern for interview and cohort analytics.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "chart",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/chart/chart-02.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/chart/chart-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "command-01",
+      "title": "Command 1",
+      "description": "Koyo command palette pattern for candidate and cohort actions.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "command"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/command/command-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/command/command-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "command-02",
+      "title": "Command 2",
+      "description": "Koyo command palette pattern for candidate and cohort actions.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "command"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/command/command-02.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/command/command-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "context-menu-01",
+      "title": "Context Menu 1",
+      "description": "Koyo context menu pattern for candidate and table actions.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "context-menu",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/context-menu/context-menu-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/context-menu/context-menu-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "context-menu-02",
+      "title": "Context Menu 2",
+      "description": "Koyo context menu pattern for candidate and table actions.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "context-menu",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/context-menu/context-menu-02.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/context-menu/context-menu-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "drawer-01",
+      "title": "Drawer 1",
+      "description": "Koyo drawer pattern for focused candidate details.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "drawer",
+        "button",
+        "avatar",
+        "badge",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/drawer/drawer-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/drawer/drawer-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menubar-01",
+      "title": "Menubar 1",
+      "description": "Koyo menubar pattern for workspace actions and view controls.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "menubar"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/menubar/menubar-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/menubar/menubar-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menubar-02",
+      "title": "Menubar 2",
+      "description": "Koyo menubar pattern for workspace actions and view controls.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "menubar"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/menubar/menubar-02.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/menubar/menubar-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu-01",
+      "title": "Navigation Menu 1",
+      "description": "Koyo navigation menu pattern for product sections and hiring flows.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "navigation-menu"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/navigation-menu/navigation-menu-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/navigation-menu/navigation-menu-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu-02",
+      "title": "Navigation Menu 2",
+      "description": "Koyo navigation menu pattern for product sections and hiring flows.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "navigation-menu"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/navigation-menu/navigation-menu-02.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/navigation-menu/navigation-menu-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress-01",
+      "title": "Progress 1",
+      "description": "Koyo progress pattern for interview, learner, and mentor completion states.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "progress"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/progress/progress-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/progress/progress-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress-02",
+      "title": "Progress 2",
+      "description": "Koyo progress pattern for interview, learner, and mentor completion states.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "progress"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/progress/progress-02.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/progress/progress-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress-03",
+      "title": "Progress 3",
+      "description": "Koyo progress pattern for interview, learner, and mentor completion states.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "progress"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/progress/progress-03.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/progress/progress-03.tsx"
+        }
+      ]
+    },
+    {
+      "name": "separator-01",
+      "title": "Separator 1",
+      "description": "Koyo separator pattern for scorecards, metrics, and handoff sections.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/separator/separator-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/separator/separator-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "separator-02",
+      "title": "Separator 2",
+      "description": "Koyo separator pattern for scorecards, metrics, and handoff sections.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/separator/separator-02.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/separator/separator-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "separator-03",
+      "title": "Separator 3",
+      "description": "Koyo separator pattern for scorecards, metrics, and handoff sections.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/separator/separator-03.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/separator/separator-03.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-01",
+      "title": "Sidebar 1",
+      "description": "Koyo sidebar pattern for compact recruiting workspaces.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "sidebar"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/sidebar/sidebar-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/sidebar/sidebar-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "skeleton-01",
+      "title": "Skeleton 1",
+      "description": "Koyo skeleton loading pattern for cards, scorecards, and summaries.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/skeleton/skeleton-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/skeleton/skeleton-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "skeleton-02",
+      "title": "Skeleton 2",
+      "description": "Koyo skeleton loading pattern for cards, scorecards, and summaries.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/skeleton/skeleton-02.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/skeleton/skeleton-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "skeleton-03",
+      "title": "Skeleton 3",
+      "description": "Koyo skeleton loading pattern for cards, scorecards, and summaries.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/skeleton/skeleton-03.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/skeleton/skeleton-03.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slider-01",
+      "title": "Slider 1",
+      "description": "Koyo slider pattern for score bands, difficulty, and allocation controls.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "slider"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/slider/slider-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/slider/slider-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slider-02",
+      "title": "Slider 2",
+      "description": "Koyo slider pattern for score bands, difficulty, and allocation controls.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "slider"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/slider/slider-02.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/slider/slider-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slider-03",
+      "title": "Slider 3",
+      "description": "Koyo slider pattern for score bands, difficulty, and allocation controls.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "slider"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/slider/slider-03.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/slider/slider-03.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-01",
+      "title": "Toggle 1",
+      "description": "Koyo toggle pattern for binary workspace settings.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/toggle/toggle-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/toggle/toggle-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-02",
+      "title": "Toggle 2",
+      "description": "Koyo toggle pattern for binary workspace settings.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/toggle/toggle-02.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/toggle/toggle-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-03",
+      "title": "Toggle 3",
+      "description": "Koyo toggle pattern for binary workspace settings.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/toggle/toggle-03.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/toggle/toggle-03.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group-01",
+      "title": "Toggle Group 1",
+      "description": "Koyo toggle group pattern for segmented workflow controls.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "toggle-group",
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/toggle-group/toggle-group-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/toggle-group/toggle-group-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group-02",
+      "title": "Toggle Group 2",
+      "description": "Koyo toggle group pattern for segmented workflow controls.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "toggle-group",
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/toggle-group/toggle-group-02.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/toggle-group/toggle-group-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group-03",
+      "title": "Toggle Group 3",
+      "description": "Koyo toggle group pattern for segmented workflow controls.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "toggle-group",
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "src/components/shadcn-studio/toggle-group/toggle-group-03.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/toggle-group/toggle-group-03.tsx"
+        }
+      ]
     }
   ]
 }

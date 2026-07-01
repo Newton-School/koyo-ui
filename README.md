@@ -29,6 +29,23 @@ pnpm lint
 pnpm build
 ```
 
+## Library Package
+
+The repo also builds a minimal reusable package entrypoint for Koyo UI primitives:
+
+```bash
+pnpm build:lib
+```
+
+Consumers can import components and the Koyo token stylesheet from the package:
+
+```tsx
+import { Badge, Button } from 'koyo-ui'
+import 'koyo-ui/styles.css'
+```
+
+The package build emits ESM, CommonJS, TypeScript declarations, and `styles.css` into `dist`. The docs catalog and larger example blocks remain source/catalog content rather than packaged components.
+
 ## Attribution
 
 Koyo UI is built on [shadcn/ui](https://ui.shadcn.com/) patterns and adapted from the MIT-licensed [Shadcn Studio](https://github.com/themeselection/shadcn-studio) codebase. Upstream Shadcn Studio is maintained by ThemeSelection.

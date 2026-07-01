@@ -41,6 +41,20 @@ import TableSVG from '@/assets/svg/table'
 import TabsSVG from '@/assets/svg/tabs'
 import TextareaSVG from '@/assets/svg/textarea'
 import TooltipSVG from '@/assets/svg/tooltip'
+import ToggleGroupSVG from '@/assets/svg/toggle-group'
+import ToggleSVG from '@/assets/svg/toggle'
+import SliderSVG from '@/assets/svg/slider'
+import SkeletonSVG from '@/assets/svg/skeleton'
+import SidebarSVG from '@/assets/svg/sidebar'
+import SeparatorSVG from '@/assets/svg/separator'
+import ProgressSVG from '@/assets/svg/progress'
+import NavigationMenuSVG from '@/assets/svg/navigation-menu'
+import MenubarSVG from '@/assets/svg/menubar'
+import DrawerSVG from '@/assets/svg/drawer'
+import ContextMenuSVG from '@/assets/svg/context-menu'
+import CommandSVG from '@/assets/svg/command'
+import ChartSVG from '@/assets/svg/chart'
+import CarouselSVG from '@/assets/svg/carousel'
 
 export type ComponentCategory = {
   slug: string
@@ -1182,73 +1196,114 @@ export const categories: ComponentCategory[] = [
   {
     slug: 'carousel',
     name: 'Carousel',
-    isComingSoon: true
+    svg: CarouselSVG,
+    breakpoints: { md: 1 },
+    components: [{ name: 'carousel-01' }],
+    tags: ['slider', 'slides', 'cohort cards']
   },
   {
     slug: 'chart',
     name: 'Chart',
-    isComingSoon: true
+    svg: ChartSVG,
+    breakpoints: { md: 1 },
+    components: [{ name: 'chart-01' }, { name: 'chart-02' }],
+    tags: ['analytics', 'recharts', 'graph', 'funnel']
   },
   {
     slug: 'command',
     name: 'Command',
-    isComingSoon: true
+    svg: CommandSVG,
+    breakpoints: { md: 2 },
+    components: [{ name: 'command-01' }, { name: 'command-02' }],
+    tags: ['command palette', 'search', 'actions']
   },
   {
     slug: 'context-menu',
     name: 'Context Menu',
-    isComingSoon: true
+    svg: ContextMenuSVG,
+    breakpoints: { md: 2 },
+    components: [{ name: 'context-menu-01' }, { name: 'context-menu-02' }],
+    tags: ['right click', 'menu', 'actions']
   },
   {
     slug: 'drawer',
     name: 'Drawer',
-    isComingSoon: true
+    svg: DrawerSVG,
+    breakpoints: { md: 1 },
+    components: [{ name: 'drawer-01' }],
+    tags: ['panel', 'candidate details', 'sheet']
   },
   {
     slug: 'menubar',
     name: 'Menubar',
-    isComingSoon: true
+    svg: MenubarSVG,
+    breakpoints: { md: 2 },
+    components: [{ name: 'menubar-01' }, { name: 'menubar-02' }],
+    tags: ['menu', 'toolbar', 'workspace']
   },
   {
     slug: 'navigation-menu',
     name: 'Navigation Menu',
-    isComingSoon: true
+    svg: NavigationMenuSVG,
+    breakpoints: { md: 1 },
+    components: [{ name: 'navigation-menu-01' }, { name: 'navigation-menu-02' }],
+    tags: ['navigation', 'product nav', 'mega menu']
   },
   {
     slug: 'progress',
     name: 'Progress',
-    isComingSoon: true
+    svg: ProgressSVG,
+    breakpoints: { md: 2 },
+    components: [{ name: 'progress-01' }, { name: 'progress-02' }, { name: 'progress-03' }],
+    tags: ['completion', 'status', 'meter']
   },
-
   {
     slug: 'separator',
     name: 'Separator',
-    isComingSoon: true
+    svg: SeparatorSVG,
+    breakpoints: { md: 2 },
+    components: [{ name: 'separator-01' }, { name: 'separator-02' }, { name: 'separator-03' }],
+    tags: ['divider', 'section', 'layout']
   },
   {
     slug: 'sidebar',
     name: 'Sidebar',
-    isComingSoon: true
+    svg: SidebarSVG,
+    breakpoints: { md: 1 },
+    components: [{ name: 'sidebar-01' }],
+    tags: ['navigation', 'app shell', 'workspace']
   },
   {
     slug: 'skeleton',
     name: 'Skeleton',
-    isComingSoon: true
+    svg: SkeletonSVG,
+    breakpoints: { md: 2 },
+    components: [{ name: 'skeleton-01' }, { name: 'skeleton-02' }, { name: 'skeleton-03' }],
+    tags: ['loading', 'placeholder', 'shimmer']
   },
   {
     slug: 'slider',
     name: 'Slider',
-    isComingSoon: true
+    svg: SliderSVG,
+    breakpoints: { md: 2 },
+    components: [{ name: 'slider-01' }, { name: 'slider-02' }, { name: 'slider-03' }],
+    tags: ['range', 'control', 'filter']
   },
   {
     slug: 'toggle',
     name: 'Toggle',
-    isComingSoon: true
+    svg: ToggleSVG,
+    breakpoints: { md: 2 },
+    components: [{ name: 'toggle-01' }, { name: 'toggle-02' }, { name: 'toggle-03' }],
+    tags: ['switch', 'pressed', 'button']
   },
   {
     slug: 'toggle-group',
     name: 'Toggle Group',
-    isComingSoon: true
+    svg: ToggleGroupSVG,
+    breakpoints: { md: 2 },
+    components: [{ name: 'toggle-group-01' }, { name: 'toggle-group-02' }, { name: 'toggle-group-03' }],
+    tags: ['segmented control', 'multi select', 'view switcher']
   }
 ]
 

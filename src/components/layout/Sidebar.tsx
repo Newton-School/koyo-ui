@@ -8,15 +8,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 // Third-party Imports
-import {
-  BookOpenText,
-  ChevronRightIcon,
-  Component,
-  Figma,
-  LayoutPanelTop,
-  Menu,
-  X
-} from 'lucide-react'
+import { BookOpenText, ChevronRightIcon, Component, Figma, LayoutPanelTop, Menu, X } from 'lucide-react'
 import { useMedia } from 'react-use'
 
 // Component Imports
@@ -41,6 +33,7 @@ import Logo from '@/components/layout/logo'
 
 // Util Imports
 import { cn } from '@/lib/utils'
+import { isInternalPathActive } from '@/utils/pathname'
 
 // Config Imports
 import { categories } from '@/config/components'
@@ -76,7 +69,7 @@ const CustomSidebarMenuItem = ({ children, href, openInNewTab }: CustomSidebarMe
   const pathname = usePathname()
 
   // Vars
-  const active = href && pathname.startsWith(href)
+  const active = href && isInternalPathActive(pathname, href)
 
   return (
     <SidebarMenuItem>
@@ -119,7 +112,7 @@ const CustomSidebarMenuSubItem = ({
   const pathname = usePathname()
 
   // Vars
-  const active = pathname === href
+  const active = href && isInternalPathActive(pathname, href, true)
 
   return (
     <SidebarMenuSubItem
