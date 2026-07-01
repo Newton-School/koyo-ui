@@ -22,6 +22,8 @@
       "require": "./dist/index.js"
     },
     "./styles.css": "./dist/styles.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./theme.css": "./dist/theme.css",
     "./utils": {
       "types": "./dist/lib/utils.d.ts",
       "import": "./dist/lib/utils.mjs",
@@ -380,7 +382,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsup && node scripts/preserve-use-client.mjs && cp src/styles/koyo.css dist/styles.css",
+    "build": "tsup && node scripts/preserve-use-client.mjs && cp src/styles/koyo.css dist/styles.css && cp src/styles/tokens.css dist/tokens.css && cp src/styles/theme.css dist/theme.css",
     "check-types": "tsc --noEmit",
     "prepack": "pnpm build"
   },
