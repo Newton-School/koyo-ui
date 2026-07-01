@@ -44,6 +44,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.KOYO_UI_PUBLISHING_NPM_TOKEN }}
 
       - name: Publish to npm
-        run: npm publish packages/koyo-ui --access public --provenance
+        run: npm publish ./packages/koyo-ui --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.KOYO_UI_PUBLISHING_NPM_TOKEN }}
