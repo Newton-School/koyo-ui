@@ -44,6 +44,14 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.KOYO_UI_PUBLISHING_NPM_TOKEN }}
 
       - name: Publish to npm
-        run: npm publish ./packages/koyo-ui --access public --provenance
+        run: |
+          VERSION=$(node -p "require('./packages/koyo-ui/package.json').version")
+
+          if npm view "@newtonschool/koyo-ui@$VERSION" version >/dev/null 2>&1; then
+            echo "@newtonschool/koyo-ui@$VERSION is already published; skipping."
+            exit 0
+          fi
+
+          npm publish ./packages/koyo-ui --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.KOYO_UI_PUBLISHING_NPM_TOKEN }}
