@@ -37,6 +37,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const components = getComponentsByNames(category.components.map(item => item.name))
   const componentName = category.name.toLowerCase()
+  const categoryUrl = `/docs/components/${category.slug}`
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL?.replace(/\/$/, '') ?? ''
 
   return {
     title: `Koyo ${category.name}`,
@@ -44,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `Koyo ${category.name}`,
       description: `Browse ${components.length}+ Koyo-owned ${category.name} variants${category.hasAnimation ? ` including animated ${componentName}` : ''} mapped to Koyo Figma tokens and built with React and Tailwind CSS.`,
-      url: `${process.env.NEXT_PUBLIC_APP_URL}/docs/components/${category.slug}`
+      url: `${appUrl}${categoryUrl}`
     },
     twitter: {
       card: 'summary_large_image',
@@ -52,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: `Browse ${components.length}+ Koyo-owned ${category.name} variants${category.hasAnimation ? ` including animated ${componentName}` : ''} mapped to Koyo Figma tokens and built with React and Tailwind CSS.`
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_APP_URL}/docs/components/${category.slug}`
+      canonical: `${appUrl}${categoryUrl}`
     }
   }
 }
@@ -204,18 +206,18 @@ const Page = async ({ params }: { params: Promise<{ category: string }> }) => {
           previousCategory
             ? {
                 name: `Koyo ${previousCategory.name}`,
-                url: `${process.env.NEXT_PUBLIC_APP_URL}/docs/components/${previousCategory.slug}`
+                url: `/docs/components/${previousCategory.slug}`
               }
             : {
                 name: 'Getting Started - Introduction',
-                url: `${process.env.NEXT_PUBLIC_APP_URL}/docs/getting-started/introduction`
+                url: '/docs/getting-started/introduction'
               }
         }
         nextItem={
           nextCategory
             ? {
                 name: `Koyo ${nextCategory.name}`,
-                url: `${process.env.NEXT_PUBLIC_APP_URL}/docs/components/${nextCategory.slug}`
+                url: `/docs/components/${nextCategory.slug}`
               }
             : null
         }
