@@ -32,7 +32,7 @@ const CardWithTabsDemo = () => {
               <TabsTrigger
                 key={tab.value}
                 value={tab.value}
-                className='bg-background data-[state=active]:border-b-koyo-brand data-[state=active]:text-koyo-brand h-full rounded-none border-b-2 border-transparent data-[state=active]:shadow-none'
+                className='bg-background hover:bg-transparent data-[state=active]:border-b-koyo-brand data-[state=active]:bg-transparent data-[state=active]:text-koyo-brand data-[state=active]:hover:bg-transparent h-full rounded-none border-b-2 border-transparent data-[state=active]:shadow-none'
               >
                 {tab.name}
               </TabsTrigger>

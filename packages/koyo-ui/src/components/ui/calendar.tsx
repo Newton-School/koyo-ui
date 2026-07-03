@@ -88,9 +88,9 @@ function Calendar({
             : '[&:first-child[data-selected=true]_button]:rounded-l-md',
           defaultClassNames.day
         ),
-        range_start: cn('rounded-l-md bg-koyo-brand/10', defaultClassNames.range_start),
+        range_start: cn('rounded-l-md bg-muted', defaultClassNames.range_start),
         range_middle: cn('rounded-none', defaultClassNames.range_middle),
-        range_end: cn('rounded-r-md bg-koyo-brand/10', defaultClassNames.range_end),
+        range_end: cn('rounded-r-md bg-muted', defaultClassNames.range_end),
         today: cn(
           'bg-koyo-brand/10 text-koyo-brand rounded-md data-[selected=true]:rounded-none',
           defaultClassNames.today
@@ -152,7 +152,7 @@ function CalendarDayButton({ className, day, modifiers, ...props }: React.Compon
       data-range-end={modifiers.range_end}
       data-range-middle={modifiers.range_middle}
       className={cn(
-        'data-[selected-single=true]:bg-koyo-brand data-[selected-single=true]:text-koyo-button-primary-foreground data-[range-middle=true]:bg-koyo-brand/10 data-[range-middle=true]:text-foreground data-[range-start=true]:bg-koyo-brand data-[range-start=true]:text-koyo-button-primary-foreground data-[range-end=true]:bg-koyo-brand data-[range-end=true]:text-koyo-button-primary-foreground group-data-[focused=true]/day:border-koyo-brand group-data-[focused=true]/day:ring-koyo-brand-ring dark:hover:text-accent-foreground flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-[3px] data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md [&>span]:text-xs [&>span]:opacity-70',
+        'data-[selected-single=true]:bg-koyo-brand data-[selected-single=true]:text-koyo-button-primary-foreground data-[range-middle=true]:bg-muted data-[range-middle=true]:text-foreground data-[range-start=true]:bg-koyo-brand data-[range-start=true]:text-koyo-button-primary-foreground data-[range-end=true]:bg-koyo-brand data-[range-end=true]:text-koyo-button-primary-foreground group-data-[focused=true]/day:border-koyo-brand group-data-[focused=true]/day:ring-koyo-brand-ring dark:hover:text-accent-foreground flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-[3px] data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md [&>span]:text-xs [&>span]:opacity-70',
         defaultClassNames.day,
         className
       )}

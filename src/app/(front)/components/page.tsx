@@ -42,10 +42,10 @@ const previewAccentStyle = createPreviewAccentStyle(
 )
 
 const cardClassName =
-  'group overflow-hidden rounded-xl border border-border bg-background shadow-xs transition-all duration-300 hover:border-koyo-brand/30 hover:shadow-[0_14px_34px_-28px_var(--foreground)] focus-within:border-koyo-brand/45 focus-within:ring-3 focus-within:ring-koyo-brand-ring/50'
+  'group overflow-hidden rounded-xl border border-border bg-background transition-all duration-300 hover:border-koyo-brand/40 hover:shadow-sm focus-within:border-koyo-brand/45 focus-within:ring-3 focus-within:ring-koyo-brand-ring/50'
 
 const previewClassName =
-  'relative flex h-52 items-center justify-center overflow-hidden border-b bg-[radial-gradient(circle_at_50%_38%,var(--preview-glow),transparent_58%),linear-gradient(180deg,var(--preview-bg),var(--background))] transition-colors duration-300 before:absolute before:inset-x-10 before:bottom-0 before:h-px before:bg-linear-to-r before:from-transparent before:via-koyo-brand/18 before:to-transparent'
+  'relative flex h-52 items-center justify-center overflow-hidden border-b bg-muted/50 transition-colors duration-300'
 
 export const metadata: Metadata = {
   title: 'Koyo Components',

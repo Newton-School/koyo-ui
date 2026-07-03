@@ -4,7 +4,7 @@ import { Toggle } from '@newtonschool/koyo-ui/toggle'
 
 const Toggle02 = () => {
   return (
-    <div className='bg-card text-card-foreground w-full max-w-sm rounded-lg border p-4 shadow-xs'>
+    <div className='bg-card text-card-foreground w-full max-w-sm rounded-lg border p-4'>
       <div className='mb-3'>
         <p className='text-sm font-medium'>Blind review</p>
         <p className='text-muted-foreground text-xs'>Hide candidate identity while scoring</p>

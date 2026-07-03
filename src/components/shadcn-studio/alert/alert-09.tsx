@@ -30,11 +30,7 @@ const AlertTaskDemo = () => {
           <AlertTitle>@Rocky</AlertTitle>
           <AlertDescription>this projects task is remaining, deadline is near.</AlertDescription>
         </div>
-        <Progress
-          value={progress}
-          className='bg-amber-600/20 *:bg-amber-600 dark:bg-amber-400/20 dark:*:bg-amber-400'
-          aria-label='Task progress'
-        />
+        <Progress value={progress} aria-label='Task progress' />
       </div>
     </Alert>
   )

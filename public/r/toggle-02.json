@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-02",
+  "type": "registry:component",
+  "title": "Toggle 2",
+  "description": "Koyo toggle pattern for binary workspace settings.",
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "src/components/shadcn-studio/toggle/toggle-02.tsx",
+      "content": "import { EyeIcon } from 'lucide-react'\n\nimport { Toggle } from '@newtonschool/koyo-ui/toggle'\n\nconst Toggle02 = () => {\n  return (\n    <div className='bg-card text-card-foreground w-full max-w-sm rounded-lg border p-4'>\n      <div className='mb-3'>\n        <p className='text-sm font-medium'>Blind review</p>\n        <p className='text-muted-foreground text-xs'>Hide candidate identity while scoring</p>\n      </div>\n      <Toggle defaultPressed aria-label='Toggle blind review' className='w-full justify-start px-3'>\n        <EyeIcon />\n        Identity hidden\n      </Toggle>\n    </div>\n  )\n}\n\nexport default Toggle02\n",
+      "type": "registry:component",
+      "target": "components/shadcn-studio/toggle/toggle-02.tsx"
+    }
+  ]
+}

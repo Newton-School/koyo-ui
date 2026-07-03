@@ -5,6 +5,11 @@ const ButtonDemo = () => {
     <div className='flex max-w-2xl flex-wrap items-center justify-center gap-3'>
       <Button>Koyo</Button>
       <Button variant='brand'>Brand</Button>
+      <Button variant='blue'>Blue</Button>
+      <Button variant='orange'>Orange</Button>
+      <Button variant='orange-soft'>Orange Soft</Button>
+      <Button variant='orange-outline'>Orange Outline</Button>
+      <Button variant='orange-ghost'>Orange Ghost</Button>
       <Button variant='success'>Success</Button>
       <Button variant='yellow'>Yellow</Button>
       <Button variant='purple'>Purple</Button>

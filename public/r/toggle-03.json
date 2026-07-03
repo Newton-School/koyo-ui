@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-03",
+  "type": "registry:component",
+  "title": "Toggle 3",
+  "description": "Koyo toggle pattern for binary workspace settings.",
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "src/components/shadcn-studio/toggle/toggle-03.tsx",
+      "content": "import { BellIcon } from 'lucide-react'\n\nimport { Toggle } from '@newtonschool/koyo-ui/toggle'\n\nconst Toggle03 = () => {\n  return (\n    <div className='bg-card text-card-foreground flex w-full max-w-sm items-center gap-3 rounded-lg border p-4'>\n      <Toggle defaultPressed aria-label='Toggle mentor reminders' size='lg' variant='outline'>\n        <BellIcon />\n      </Toggle>\n      <div>\n        <p className='text-sm font-medium'>Mentor reminders</p>\n        <p className='text-muted-foreground text-xs'>Nudge reviewers before SLA breach</p>\n      </div>\n    </div>\n  )\n}\n\nexport default Toggle03\n",
+      "type": "registry:component",
+      "target": "components/shadcn-studio/toggle/toggle-03.tsx"
+    }
+  ]
+}

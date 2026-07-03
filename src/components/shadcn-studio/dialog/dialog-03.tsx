@@ -37,7 +37,7 @@ const AlertDialogDestructiveDemo = () => {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel className='focus-visible:border-ring focus-visible:ring-ring'>Cancel</AlertDialogCancel>
           <AlertDialogAction className='bg-destructive hover:bg-destructive/90 focus-visible:ring-koyo-focus-error/30 text-white'>
             Delete
           </AlertDialogAction>

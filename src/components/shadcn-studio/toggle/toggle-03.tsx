@@ -4,7 +4,7 @@ import { Toggle } from '@newtonschool/koyo-ui/toggle'
 
 const Toggle03 = () => {
   return (
-    <div className='bg-card text-card-foreground flex w-full max-w-sm items-center gap-3 rounded-lg border p-4 shadow-xs'>
+    <div className='bg-card text-card-foreground flex w-full max-w-sm items-center gap-3 rounded-lg border p-4'>
       <Toggle defaultPressed aria-label='Toggle mentor reminders' size='lg' variant='outline'>
         <BellIcon />
       </Toggle>

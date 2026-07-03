@@ -10,11 +10,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          'bg-koyo-button-primary text-koyo-button-primary-foreground hover:bg-koyo-button-primary-hover focus-visible:ring-koyo-button-primary-ring',
+        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
         black: 'bg-primary text-primary-foreground hover:bg-primary/90',
         brand:
-          'bg-koyo-button-brand hover:bg-koyo-button-brand-hover focus-visible:ring-koyo-button-brand-ring text-white',
+          'bg-koyo-brand hover:bg-koyo-brand-hover focus-visible:ring-koyo-brand-ring text-koyo-button-primary-foreground',
+        blue: 'bg-koyo-button-brand hover:bg-koyo-button-brand-hover focus-visible:ring-koyo-button-brand-ring text-white',
         success:
           'bg-koyo-button-success hover:bg-koyo-button-success-hover focus-visible:ring-koyo-button-success-ring text-white',
         yellow:
@@ -25,10 +25,16 @@ const buttonVariants = cva(
           'bg-koyo-button-error hover:bg-koyo-button-error-hover focus-visible:ring-koyo-button-error-ring text-white',
         destructive: 'bg-destructive hover:bg-destructive/90 focus-visible:ring-koyo-focus-error/30 text-white',
         outline:
-          'border-border bg-background hover:border-koyo-button-primary hover:bg-koyo-button-primary/10 hover:text-foreground dark:bg-input/30 dark:hover:bg-koyo-button-primary/15 border shadow-xs',
+          'border-border bg-background hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:hover:bg-accent border',
         secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        ghost: 'hover:bg-koyo-button-primary/10 hover:text-foreground dark:hover:bg-koyo-button-primary/15',
-        link: 'text-koyo-brand underline-offset-4 hover:underline'
+        ghost: 'hover:bg-[#fdf5ef] hover:text-foreground dark:hover:bg-koyo-button-primary/15',
+        link: 'text-koyo-brand underline-offset-4 hover:underline',
+        orange:
+          'bg-koyo-button-primary text-koyo-button-primary-foreground hover:bg-koyo-button-primary-hover focus-visible:ring-koyo-button-primary-ring',
+        'orange-soft': 'bg-koyo-brand/10 text-koyo-brand hover:bg-koyo-brand/20',
+        'orange-outline':
+          'border-koyo-brand text-koyo-brand hover:bg-koyo-brand/10 dark:bg-input/30 border bg-background',
+        'orange-ghost': 'text-koyo-brand hover:bg-koyo-brand/10'
       },
       size: {
         default: 'h-9 px-4 py-2 has-[>svg]:px-3',

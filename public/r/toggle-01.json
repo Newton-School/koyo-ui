@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-01",
+  "type": "registry:component",
+  "title": "Toggle 1",
+  "description": "Koyo toggle pattern for binary workspace settings.",
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "src/components/shadcn-studio/toggle/toggle-01.tsx",
+      "content": "import { BotIcon, MessageSquareIcon } from 'lucide-react'\n\nimport { Toggle } from '@newtonschool/koyo-ui/toggle'\n\nconst Toggle01 = () => {\n  return (\n    <div className='bg-card text-card-foreground flex w-full max-w-sm items-center justify-between rounded-lg border p-4'>\n      <div>\n        <p className='text-sm font-medium'>AI interviewer</p>\n        <p className='text-muted-foreground text-xs'>Live follow-up prompts enabled</p>\n      </div>\n      <Toggle defaultPressed aria-label='Toggle AI interviewer' variant='outline'>\n        <BotIcon />\n        <MessageSquareIcon />\n      </Toggle>\n    </div>\n  )\n}\n\nexport default Toggle01\n",
+      "type": "registry:component",
+      "target": "components/shadcn-studio/toggle/toggle-01.tsx"
+    }
+  ]
+}

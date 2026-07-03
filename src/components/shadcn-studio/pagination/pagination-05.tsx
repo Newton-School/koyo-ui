@@ -29,8 +29,8 @@ const BorderedPaginationDemo = () => {
                 className={cn(
                   {
                     [buttonVariants({
-                      variant: 'default',
-                      className: 'hover:!text-koyo-button-primary-foreground dark:border-transparent'
+                      variant: 'ghost',
+                      className: 'text-koyo-brand bg-koyo-brand/10 hover:text-koyo-brand hover:bg-koyo-brand/10'
                     })]: isActive
                   },
                   'rounded-none border-none'

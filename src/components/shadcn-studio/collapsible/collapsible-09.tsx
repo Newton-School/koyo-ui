@@ -102,7 +102,7 @@ const CollapsibleFormDemo = () => {
               {items.map(item => (
                 <div
                   key={`${id}-${item.value}`}
-                  className='border-border has-data-[state=checked]:border-koyo-button-primary/50 has-data-[state=checked]:bg-koyo-button-primary-ring/20 relative flex flex-col gap-4 border p-4 outline-none first:rounded-t-md last:rounded-b-md has-data-[state=checked]:z-10'
+                  className='border-border has-data-[state=checked]:border-koyo-button-primary/50 has-data-[state=checked]:bg-[#fdf5ef] relative flex flex-col gap-4 border p-4 outline-none first:rounded-t-md last:rounded-b-md has-data-[state=checked]:z-10'
                 >
                   <div className='flex items-center justify-between gap-1.5'>
                     <div className='flex items-center gap-2'>

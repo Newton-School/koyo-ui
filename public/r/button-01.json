@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/components/shadcn-studio/button/button-01.tsx",
-      "content": "import { Button } from '@newtonschool/koyo-ui/button'\n\nconst ButtonDemo = () => {\n  return <Button>Button</Button>\n}\n\nexport default ButtonDemo\n",
+      "content": "import { Button } from '@newtonschool/koyo-ui/button'\n\nconst ButtonDemo = () => {\n  return (\n    <div className='flex max-w-2xl flex-wrap items-center justify-center gap-3'>\n      <Button>Koyo</Button>\n      <Button variant='brand'>Brand</Button>\n      <Button variant='blue'>Blue</Button>\n      <Button variant='orange'>Orange</Button>\n      <Button variant='orange-soft'>Orange Soft</Button>\n      <Button variant='orange-outline'>Orange Outline</Button>\n      <Button variant='orange-ghost'>Orange Ghost</Button>\n      <Button variant='success'>Success</Button>\n      <Button variant='yellow'>Yellow</Button>\n      <Button variant='purple'>Purple</Button>\n      <Button variant='error'>Error</Button>\n      <Button variant='secondary'>Secondary</Button>\n      <Button variant='black'>Black</Button>\n      <Button variant='outline'>Outline</Button>\n      <Button variant='ghost'>Ghost</Button>\n      <Button variant='destructive'>Destructive</Button>\n      <Button shape='round'>Round</Button>\n      <Button className='ring-koyo-brand-ring ring-[3px]'>Focus</Button>\n      <Button disabled>Disabled</Button>\n    </div>\n  )\n}\n\nexport default ButtonDemo\n",
       "type": "registry:component",
       "target": "components/shadcn-studio/button/button-01.tsx"
     }

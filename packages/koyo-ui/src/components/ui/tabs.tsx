@@ -28,7 +28,7 @@ function TabsTrigger({ className, ...props }: React.ComponentProps<typeof TabsPr
     <TabsPrimitive.Trigger
       data-slot='tabs-trigger'
       className={cn(
-        "text-secondary-foreground hover:bg-koyo-button-primary/10 hover:text-foreground data-[state=active]:border-koyo-button-primary data-[state=active]:bg-koyo-button-primary data-[state=active]:text-koyo-button-primary-foreground data-[state=active]:hover:bg-koyo-button-primary-hover focus-visible:border-koyo-button-primary focus-visible:ring-koyo-button-primary-ring inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-[var(--koyo-button-radius)] border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow,background-color,border-color] outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "text-secondary-foreground hover:bg-background/50 hover:text-foreground data-[state=active]:border-border data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm data-[state=active]:hover:bg-background focus-visible:border-koyo-button-primary focus-visible:ring-koyo-button-primary-ring inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-[var(--koyo-button-radius)] border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow,background-color,border-color] outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}

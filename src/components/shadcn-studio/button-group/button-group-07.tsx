@@ -10,10 +10,11 @@ const ButtonGroupNumberDemo = () => {
   const [value, setValue] = useState(216)
 
   return (
-    <div className='divide-primary-foreground/30 inline-flex w-fit divide-x rounded-md shadow-xs'>
+    <div className='inline-flex w-fit -space-x-px rounded-md shadow-xs rtl:space-x-reverse'>
       <Button
+        variant='outline'
         size='icon'
-        className='rounded-none rounded-l-full focus-visible:z-10'
+        className='rounded-none rounded-l-full shadow-none focus-visible:z-10'
         onClick={() => {
           setValue(value - 1)
         }}
@@ -21,12 +22,13 @@ const ButtonGroupNumberDemo = () => {
         <MinusIcon />
         <span className='sr-only'>Minus</span>
       </Button>
-      <span className='bg-koyo-button-primary text-koyo-button-primary-foreground inline-flex items-center px-3 py-2 text-sm font-medium'>
+      <span className='bg-background inline-flex items-center border px-3 py-2 text-sm font-medium'>
         {`${value}px`}
       </span>
       <Button
+        variant='outline'
         size='icon'
-        className='rounded-none rounded-r-full focus-visible:z-10'
+        className='rounded-none rounded-r-full shadow-none focus-visible:z-10'
         onClick={() => {
           setValue(value + 1)
         }}

@@ -30,7 +30,7 @@ const BreadcrumbTabsOutlineDemo = () => {
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <BreadcrumbPage>
-            <Badge variant='koyo' className='ring-koyo-button-primary-ring/60 ring-[3px]'>
+            <Badge variant='koyo' className='ring-koyo-button-primary-ring/60 bg-[#fdf5ef] text-koyo-brand ring-[3px]'>
               Interview prep
             </Badge>
           </BreadcrumbPage>
