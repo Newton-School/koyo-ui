@@ -26,10 +26,10 @@ const PaginationWithPrimaryButtonDemo = () => {
             isActive
             className={cn(
               buttonVariants({
-                variant: 'default',
+                variant: 'outline',
                 size: 'icon'
               }),
-              'hover:!text-koyo-button-primary-foreground !shadow-none dark:border-transparent'
+              'text-koyo-brand border-koyo-button-primary-ring hover:text-koyo-brand !shadow-none'
             )}
           >
             2

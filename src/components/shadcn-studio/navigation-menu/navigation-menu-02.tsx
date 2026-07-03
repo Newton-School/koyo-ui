@@ -17,7 +17,7 @@ const NavigationMenuDemo = () => {
           <NavigationMenuTrigger>Hiring flow</NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className='w-[360px] space-y-2'>
-              <NavigationMenuLink href='#' className='bg-koyo-brand/10 text-koyo-brand'>
+              <NavigationMenuLink href='#' className='bg-[#fdf5ef] text-foreground'>
                 <div className='flex items-center gap-2 font-medium'>
                   <SparklesIcon />
                   AI shortlist

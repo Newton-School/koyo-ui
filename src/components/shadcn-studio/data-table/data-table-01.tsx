@@ -73,15 +73,15 @@ export type CandidateReview = {
 const stageMeta = {
   screening: {
     label: 'Screening',
-    variant: 'brand' as const
+    variant: 'secondary' as const
   },
   interview: {
     label: 'Interview',
-    variant: 'purple' as const
+    variant: 'secondary' as const
   },
   offer: {
     label: 'Offer',
-    variant: 'success' as const
+    variant: 'secondary' as const
   },
   archived: {
     label: 'Archived',

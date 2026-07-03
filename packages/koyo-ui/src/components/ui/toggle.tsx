@@ -8,7 +8,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const toggleVariants = cva(
-  "hover:bg-koyo-brand/10 hover:text-foreground data-[state=on]:bg-koyo-brand data-[state=on]:text-koyo-button-primary-foreground data-[state=on]:hover:bg-koyo-brand-hover focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring aria-invalid:ring-koyo-focus-error/30 aria-invalid:border-destructive inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium whitespace-nowrap transition-[color,box-shadow,background-color,border-color] outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:border-border disabled:bg-secondary disabled:text-muted-foreground disabled:opacity-70 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "hover:bg-accent hover:text-foreground data-[state=on]:bg-accent data-[state=on]:text-foreground data-[state=on]:[&_svg]:text-koyo-brand data-[state=on]:hover:bg-accent focus-visible:border-koyo-brand focus-visible:ring-koyo-brand-ring aria-invalid:ring-koyo-focus-error/30 aria-invalid:border-destructive inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium whitespace-nowrap transition-[color,box-shadow,background-color,border-color] outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:border-border disabled:bg-secondary disabled:text-muted-foreground disabled:opacity-70 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {

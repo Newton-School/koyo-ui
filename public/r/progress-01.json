@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-01",
+  "type": "registry:component",
+  "title": "Progress 1",
+  "description": "Koyo progress pattern for interview, learner, and mentor completion states.",
+  "registryDependencies": [
+    "progress"
+  ],
+  "files": [
+    {
+      "path": "src/components/shadcn-studio/progress/progress-01.tsx",
+      "content": "import { Progress } from '@newtonschool/koyo-ui/progress'\n\nconst Progress01 = () => {\n  return (\n    <div className='bg-card text-card-foreground w-full max-w-sm space-y-3 rounded-lg border p-4 shadow-xs'>\n      <div className='flex items-center justify-between gap-4'>\n        <div>\n          <p className='text-sm font-medium'>Frontend interview loop</p>\n          <p className='text-muted-foreground text-xs'>3 of 4 interviewers submitted feedback</p>\n        </div>\n        <span className='text-foreground text-sm font-semibold'>75%</span>\n      </div>\n      <Progress value={75} aria-label='Frontend interview loop progress' />\n    </div>\n  )\n}\n\nexport default Progress01\n",
+      "type": "registry:component",
+      "target": "components/shadcn-studio/progress/progress-01.tsx"
+    }
+  ]
+}

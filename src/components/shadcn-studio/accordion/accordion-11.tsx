@@ -25,7 +25,7 @@ const AccordionTabsDemo = () => {
         <AccordionItem
           key={index}
           value={`item-${index + 1}`}
-          className='data-[state=open]:bg-koyo-brand/10 rounded-md border-none px-5 transition-colors duration-200'
+          className='rounded-md border-none px-5 transition-colors duration-200 data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-border'
         >
           <AccordionTrigger>{item.title}</AccordionTrigger>
           <AccordionContent className='text-muted-foreground'>{item.content}</AccordionContent>

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "navigation-menu-02",
+  "type": "registry:component",
+  "title": "Navigation Menu 2",
+  "description": "Koyo navigation menu pattern for product sections and hiring flows.",
+  "registryDependencies": [
+    "navigation-menu"
+  ],
+  "files": [
+    {
+      "path": "src/components/shadcn-studio/navigation-menu/navigation-menu-02.tsx",
+      "content": "import { CalendarDaysIcon, FileCheck2Icon, MessageSquareTextIcon, SparklesIcon } from 'lucide-react'\n\nimport {\n  NavigationMenu,\n  NavigationMenuContent,\n  NavigationMenuItem,\n  NavigationMenuLink,\n  NavigationMenuList,\n  NavigationMenuTrigger\n} from '@newtonschool/koyo-ui/navigation-menu'\n\nconst NavigationMenuDemo = () => {\n  return (\n    <NavigationMenu viewport={false}>\n      <NavigationMenuList>\n        <NavigationMenuItem>\n          <NavigationMenuTrigger>Hiring flow</NavigationMenuTrigger>\n          <NavigationMenuContent>\n            <div className='w-[360px] space-y-2'>\n              <NavigationMenuLink href='#' className='bg-[#fdf5ef] text-foreground'>\n                <div className='flex items-center gap-2 font-medium'>\n                  <SparklesIcon />\n                  AI shortlist\n                </div>\n                <p className='text-muted-foreground text-xs'>Rank candidates by role fit and cohort progress.</p>\n              </NavigationMenuLink>\n              <div className='grid gap-1'>\n                <NavigationMenuLink href='#'>\n                  <FileCheck2Icon />\n                  Scorecards\n                </NavigationMenuLink>\n                <NavigationMenuLink href='#'>\n                  <CalendarDaysIcon />\n                  Interview calendar\n                </NavigationMenuLink>\n                <NavigationMenuLink href='#'>\n                  <MessageSquareTextIcon />\n                  Candidate messaging\n                </NavigationMenuLink>\n              </div>\n            </div>\n          </NavigationMenuContent>\n        </NavigationMenuItem>\n        <NavigationMenuItem>\n          <NavigationMenuLink href='#' active>\n            Reports\n          </NavigationMenuLink>\n        </NavigationMenuItem>\n      </NavigationMenuList>\n    </NavigationMenu>\n  )\n}\n\nexport default NavigationMenuDemo\n",
+      "type": "registry:component",
+      "target": "components/shadcn-studio/navigation-menu/navigation-menu-02.tsx"
+    }
+  ]
+}

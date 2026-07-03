@@ -8,7 +8,7 @@ const Progress01 = () => {
           <p className='text-sm font-medium'>Frontend interview loop</p>
           <p className='text-muted-foreground text-xs'>3 of 4 interviewers submitted feedback</p>
         </div>
-        <span className='text-koyo-brand text-sm font-semibold'>75%</span>
+        <span className='text-foreground text-sm font-semibold'>75%</span>
       </div>
       <Progress value={75} aria-label='Frontend interview loop progress' />
     </div>

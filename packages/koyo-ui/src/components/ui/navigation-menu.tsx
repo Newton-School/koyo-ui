@@ -44,7 +44,7 @@ function NavigationMenuItem({ className, ...props }: React.ComponentProps<typeof
 }
 
 const navigationMenuTriggerStyle = cva(
-  'group bg-background hover:bg-koyo-brand/10 hover:text-foreground focus:bg-koyo-brand/10 focus:text-foreground data-[state=open]:hover:bg-koyo-brand/10 data-[state=open]:text-koyo-brand data-[state=open]:focus:bg-koyo-brand/10 data-[state=open]:bg-koyo-brand/10 focus-visible:ring-koyo-brand-ring inline-flex h-9 w-max items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-[color,box-shadow,background-color] outline-none focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50'
+  'group bg-background hover:bg-[#fdf5ef] hover:text-foreground focus:bg-[#fdf5ef] focus:text-foreground data-[state=open]:hover:bg-[#fdf5ef] data-[state=open]:text-foreground data-[state=open]:focus:bg-[#fdf5ef] data-[state=open]:bg-[#fdf5ef] focus-visible:ring-koyo-brand-ring inline-flex h-9 w-max items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-[color,box-shadow,background-color] outline-none focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50'
 )
 
 function NavigationMenuTrigger({
@@ -104,7 +104,7 @@ function NavigationMenuLink({ className, ...props }: React.ComponentProps<typeof
     <NavigationMenuPrimitive.Link
       data-slot='navigation-menu-link'
       className={cn(
-        "data-[active=true]:focus:bg-koyo-brand/10 data-[active=true]:hover:bg-koyo-brand/10 data-[active=true]:bg-koyo-brand/10 data-[active=true]:text-koyo-brand hover:bg-koyo-brand/10 hover:text-foreground focus:bg-koyo-brand/10 focus:text-foreground focus-visible:ring-koyo-brand-ring [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-md p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
+        "data-[active=true]:focus:bg-[#fdf5ef] data-[active=true]:hover:bg-[#fdf5ef] data-[active=true]:bg-[#fdf5ef] data-[active=true]:text-foreground hover:bg-[#fdf5ef] hover:text-foreground focus:bg-[#fdf5ef] focus:text-foreground focus-visible:ring-koyo-brand-ring [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-md p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}
