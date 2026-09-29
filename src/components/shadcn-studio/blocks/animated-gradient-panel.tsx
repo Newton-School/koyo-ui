@@ -25,20 +25,18 @@ const vertex = /* glsl */ `
   }
 `
 
-// A domain-warped noise field (flowing, silk-like) shaped into a warm crescent that sweeps from the top edge
-// to the bottom-right corner. The pointer swirls the flow, a click sends a shockwave through it, and the
-// crescent fades to transparent so the panel's own background (and theme) shows around it.
+// A soft warm crescent that sweeps from the top edge to the bottom-right corner and slowly breathes and sways.
+// It leans slightly towards the cursor, and fades to transparent so the panel's own background (and theme)
+// shows around it.
 const fragment = /* glsl */ `
   precision highp float;
 
   varying vec2 vUv;
 
   uniform float uTime;
-  uniform vec2 uResolution;
   uniform vec2 uMouse;
   uniform float uHover;
   uniform float uReveal;
-  uniform vec3 uRipple;
 
   // 2D simplex noise, Ian McEwan / Ashima Arts (MIT)
   vec3 permute(vec3 x) { return mod(((x * 34.0) + 1.0) * x, 289.0); }
@@ -66,20 +64,6 @@ const fragment = /* glsl */ `
     return 130.0 * dot(m, g);
   }
 
-  // Only a few octaves: large, soft folds rather than fine turbulence
-  float fbm(vec2 p) {
-    float value = 0.0;
-    float amplitude = 0.55;
-
-    for (int i = 0; i < 3; i++) {
-      value += amplitude * snoise(p);
-      p = p * 1.9 + vec2(17.1, 9.3);
-      amplitude *= 0.4;
-    }
-
-    return value;
-  }
-
   vec3 ramp(float h) {
     vec3 color = mix(vec3(0.992, 0.855, 0.769), vec3(0.969, 0.678, 0.541), smoothstep(0.0, 0.3, h));
     color = mix(color, vec3(0.933, 0.494, 0.294), smoothstep(0.25, 0.55, h));
@@ -90,62 +74,36 @@ const fragment = /* glsl */ `
 
   void main() {
     vec2 uv = vUv;
-    float aspect = uResolution.x / uResolution.y;
-    vec2 p = vec2(uv.x * aspect, uv.y);
-    float t = uTime;
-
-    // Pointer: the flow swirls and swells around the cursor
-    vec2 mouse = vec2(uMouse.x * aspect, uMouse.y);
-    vec2 toMouse = p - mouse;
-    float falloff = exp(-dot(toMouse, toMouse) * 5.0);
-    float angle = uHover * 1.2 * falloff;
-    p = mouse + mat2(cos(angle), -sin(angle), sin(angle), cos(angle)) * toMouse;
-    p -= toMouse * uHover * 0.2 * falloff;
-
-    // Click: a shockwave ring that travels outwards and dies away
-    vec2 fromRipple = p - vec2(uRipple.x * aspect, uRipple.y);
-    float rippleDistance = length(fromRipple);
-    float front = rippleDistance - uRipple.z * 0.75;
-    float wave = sin(front * 26.0) * exp(-front * front * 28.0) * exp(-uRipple.z * 1.3);
-    p += fromRipple / (rippleDistance + 1e-4) * wave * 0.04;
-
-    // Domain warping: noise displaced by noise displaced by noise
-    vec2 s = p * 0.75;
-    vec2 q = vec2(fbm(s + vec2(0.0, t * 0.16)), fbm(s + vec2(5.2, 1.3) - vec2(t * 0.13, 0.0)));
-    vec2 r = vec2(
-      fbm(s + 1.3 * q + vec2(1.7, 9.2) + t * 0.1),
-      fbm(s + 1.3 * q + vec2(8.3, 2.8) - t * 0.08)
-    );
-    float f = fbm(s + 1.5 * r);
-
-    // Crescent: a soft band around a curved centre line, its edges pushed around by the flow
     float y = uv.y;
+    float t = uTime * 0.07;
+
+    // Two slow, low-frequency noise fields: enough to make the shape breathe, never busy
+    float sway = snoise(vec2(y * 1.1, t));
+    float swell = snoise(vec2(uv.x * 0.9 + 3.1, y * 0.9 - t * 0.8));
+
+    // Crescent: a soft band around a curved centre line that sways gently
     float centre = 0.64 - 0.1 * sin(3.14159 * y) + 0.24 * (1.0 - y) * (1.0 - y);
-    centre += r.x * 0.14 + 0.04 * sin(t * 0.35 + y * 3.0);
-    float halfWidth = mix(0.24, 0.44, y);
-    float band = 1.0 - smoothstep(0.0, 1.05, abs(uv.x - centre) / halfWidth + q.y * 0.15);
+    centre += sway * 0.07;
 
-    float heat = band * (0.78 + 0.45 * f);
-    heat += smoothstep(0.35, 1.0, uv.x * 0.8 + (1.0 - y)) * 0.25 * band;
-    heat *= mix(1.0, 0.72, smoothstep(0.55, 1.0, y));
+    // The band leans a little towards the cursor
+    centre += (uMouse.x - centre) * 0.12 * uHover * exp(-pow((y - uMouse.y) * 2.5, 2.0));
 
-    // Intro: blooms out of the bottom-right corner
-    float reach = uReveal * 2.0;
-    heat *= 1.0 - smoothstep(reach - 0.6, reach, length(uv - vec2(1.0, 0.0)));
+    float halfWidth = mix(0.3, 0.48, y) * (1.0 + swell * 0.14);
+    float band = 1.0 - smoothstep(0.0, 1.0, abs(uv.x - centre) / halfWidth);
+
+    float heat = band * (0.86 + 0.14 * swell);
+    heat += smoothstep(0.4, 1.1, uv.x * 0.8 + (1.0 - y)) * 0.28 * band;
+    heat *= mix(1.0, 0.74, smoothstep(0.55, 1.0, y));
     heat = clamp(heat, 0.0, 1.0);
 
     vec3 color = ramp(heat);
-    color = mix(color, vec3(0.933, 0.525, 0.51), smoothstep(0.9, 1.5, uv.x + (1.0 - y) * 0.9) * 0.55);
+    color = mix(color, vec3(0.933, 0.525, 0.51), smoothstep(0.9, 1.5, uv.x + (1.0 - y) * 0.9) * 0.5);
 
-    // Silky highlights riding the flow
-    float sheen = pow(clamp(0.5 + 0.5 * fbm(s * 1.2 + r * 1.4 - t * 0.06), 0.0, 1.0), 4.0);
-    color += sheen * band * 0.22;
-
-    float alpha = smoothstep(0.02, 0.55, heat);
+    float alpha = smoothstep(0.0, 0.6, heat) * uReveal;
 
     // Dither to keep the gradient free of banding
     float noise = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
-    color += (noise - 0.5) / 128.0;
+    color += (noise - 0.5) / 255.0;
 
     gl_FragColor = vec4(color * alpha, alpha);
   }
@@ -177,8 +135,7 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
       if (!panel || !host) return
 
       // Animated values, eased by GSAP and pushed to the shader every frame
-      const state = { time: gsap.utils.random(0, 100), speed: 1, hover: 0, reveal: 0, mx: 0.5, my: 0.5 }
-      const ripple = { x: 0.5, y: 0.5, age: 10 }
+      const state = { time: gsap.utils.random(0, 100), hover: 0, reveal: 0, mx: 0.5, my: 0.5 }
 
       let renderer: Renderer | null = null
       let mesh: Mesh | null = null
@@ -198,11 +155,9 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
           depthTest: false,
           uniforms: {
             uTime: { value: 0 },
-            uResolution: { value: [1, 1] },
             uMouse: { value: [0.5, 0.5] },
             uHover: { value: 0 },
-            uReveal: { value: 0 },
-            uRipple: { value: [0.5, 0.5, 10] }
+            uReveal: { value: 0 }
           }
         })
         mesh = new Mesh(renderer.gl, { geometry: new Triangle(renderer.gl), program })
@@ -227,7 +182,6 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
         uniforms.uMouse.value = [state.mx, state.my]
         uniforms.uHover.value = state.hover
         uniforms.uReveal.value = state.reveal
-        uniforms.uRipple.value = [ripple.x, ripple.y, ripple.age]
         renderer.render({ scene: mesh })
       }
 
@@ -241,7 +195,6 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
         renderer.setSize(width, height)
         canvas.style.width = '100%'
         canvas.style.height = '100%'
-        program.uniforms.uResolution.value = [width, height]
         draw()
       }
 
@@ -266,12 +219,11 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
           const safe = <T extends (event: PointerEvent) => void>(name: string, handler: T) =>
             context.add(name, handler) as T
 
-          // Intro: the gradient blooms out of the corner with a burst of speed, then the content settles in.
+          // Intro: the gradient fades in, then the content settles in.
           // The squiggle stays hidden until it starts drawing, otherwise its round line cap shows as a dot.
           gsap
             .timeline()
-            .fromTo(state, { reveal: 0 }, { reveal: 1, duration: 2.6, ease: 'power2.out' })
-            .fromTo(state, { speed: 5 }, { speed: 1, duration: 3, ease: 'power3.out' }, 0)
+            .fromTo(state, { reveal: 0 }, { reveal: 1, duration: 1.6, ease: 'power2.out' })
             .fromTo(
               '[data-reveal]',
               { autoAlpha: 0, y: 24 },
@@ -305,8 +257,7 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
 
             const dt = Math.min(deltaTime, 50) / 1000
 
-            state.time += dt * state.speed
-            ripple.age += dt
+            state.time += dt
             draw()
           }
 
@@ -317,8 +268,8 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
           intersectionObserver.observe(panel)
           gsap.ticker.add(tick)
 
-          const moveX = gsap.quickTo(state, 'mx', { duration: 1.2, ease: 'power3' })
-          const moveY = gsap.quickTo(state, 'my', { duration: 1.2, ease: 'power3' })
+          const moveX = gsap.quickTo(state, 'mx', { duration: 1.8, ease: 'power3' })
+          const moveY = gsap.quickTo(state, 'my', { duration: 1.8, ease: 'power3' })
 
           const toUv = (event: PointerEvent) => {
             const rect = panel.getBoundingClientRect()
@@ -329,10 +280,10 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
           const onPointerEnter = safe('onPointerEnter', event => {
             const { x, y } = toUv(event)
 
-            // Start the swirl under the cursor instead of sweeping in from the centre
+            // Start under the cursor instead of easing in from the centre
             moveX(x, x)
             moveY(y, y)
-            gsap.to(state, { hover: 1, speed: 1.8, duration: 1.2, ease: 'power2.out', overwrite: 'auto' })
+            gsap.to(state, { hover: 1, duration: 1.2, ease: 'power2.out', overwrite: 'auto' })
           })
 
           const onPointerMove = safe('onPointerMove', event => {
@@ -343,24 +294,12 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
           })
 
           const onPointerLeave = safe('onPointerLeave', () => {
-            gsap.to(state, { hover: 0, speed: 1, duration: 1.6, ease: 'power2.out', overwrite: 'auto' })
-          })
-
-          const onPointerDown = safe('onPointerDown', event => {
-            const { x, y } = toUv(event)
-
-            ripple.x = x
-            ripple.y = y
-            ripple.age = 0
-
-            // The flow surges, then settles back to its hover pace
-            gsap.fromTo(state, { speed: 5 }, { speed: 1.8, duration: 1.8, ease: 'power3.out', overwrite: 'auto' })
+            gsap.to(state, { hover: 0, duration: 1.6, ease: 'power2.out', overwrite: 'auto' })
           })
 
           panel.addEventListener('pointerenter', onPointerEnter)
           panel.addEventListener('pointermove', onPointerMove)
           panel.addEventListener('pointerleave', onPointerLeave)
-          panel.addEventListener('pointerdown', onPointerDown)
 
           return () => {
             gsap.ticker.remove(tick)
@@ -368,7 +307,6 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
             panel.removeEventListener('pointerenter', onPointerEnter)
             panel.removeEventListener('pointermove', onPointerMove)
             panel.removeEventListener('pointerleave', onPointerLeave)
-            panel.removeEventListener('pointerdown', onPointerDown)
           }
         },
         panel
@@ -398,7 +336,7 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
 
         {/* Grain */}
         <div
-          className='absolute inset-0 opacity-[0.2] mix-blend-overlay dark:opacity-[0.1]'
+          className='absolute inset-0 opacity-[0.12] mix-blend-overlay dark:opacity-[0.08]'
           style={{ backgroundImage: GRAIN }}
         />
       </div>

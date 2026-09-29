@@ -11934,7 +11934,7 @@
     {
       "name": "login-page-02",
       "title": "Login 2",
-      "description": "Split-screen sign in with a WebGL (ogl) silk gradient choreographed with GSAP that flows continuously, swirls around the cursor and sends a shockwave on click, beside a Google and email/password form",
+      "description": "Split-screen sign in with a soft WebGL (ogl) brand gradient that slowly sways and leans towards the cursor, animated with GSAP, beside a Google and email/password form",
       "type": "registry:block",
       "dependencies": [
         "@gsap/react",
@@ -12166,7 +12166,7 @@
     {
       "name": "register-02",
       "title": "Register 2",
-      "description": "Split-screen sign up with a WebGL (ogl) silk gradient choreographed with GSAP that flows continuously, swirls around the cursor and sends a shockwave on click, beside a Google and full name, work email and password form",
+      "description": "Split-screen sign up with a soft WebGL (ogl) brand gradient that slowly sways and leans towards the cursor, animated with GSAP, beside a Google and full name, work email and password form",
       "type": "registry:block",
       "dependencies": [
         "@gsap/react",
