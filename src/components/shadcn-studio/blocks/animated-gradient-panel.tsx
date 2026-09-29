@@ -7,48 +7,157 @@ import type { ReactNode } from 'react'
 // Third-party Imports
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
+import { Mesh, Program, Renderer, Triangle } from 'ogl'
 
 // Util Imports
 import { cn } from '@/lib/utils'
 
 gsap.registerPlugin(useGSAP)
 
-type GradientBlob = {
-  color: string
-  opacity?: number
+const vertex = /* glsl */ `
+  attribute vec2 uv;
+  attribute vec2 position;
+  varying vec2 vUv;
 
-  // Resting centre, in % of the panel
-  x: number
-  y: number
+  void main() {
+    vUv = uv;
+    gl_Position = vec4(position, 0.0, 1.0);
+  }
+`
 
-  // Size, in % of the panel width
-  width: number
-  height: number
+// A domain-warped noise field (flowing, silk-like) shaped into a warm crescent that sweeps from the top edge
+// to the bottom-right corner. The pointer swirls the flow, a click sends a shockwave through it, and the
+// crescent fades to transparent so the panel's own background (and theme) shows around it.
+const fragment = /* glsl */ `
+  precision highp float;
 
-  // Pointer parallax travel in px; negative values move against the cursor
-  depth: number
+  varying vec2 vUv;
 
-  // How far the blob wanders, in % of its own size
-  drift: number
-}
+  uniform float uTime;
+  uniform vec2 uResolution;
+  uniform vec2 uMouse;
+  uniform float uHover;
+  uniform float uReveal;
+  uniform vec3 uRipple;
 
-// Solid ellipses under one heavy blur melt into a single mesh gradient; as they drift, stretch and turn,
-// the silhouette keeps reshaping. Laid out as a warm crescent sweeping from the top edge to the bottom-right
-// corner, with the two base-coloured blobs carving its inner and outer edges.
-const BLOBS: GradientBlob[] = [
-  { color: '#f8ba9c', x: 62, y: 8, width: 74, height: 46, depth: 28, drift: 16 },
-  { color: '#ed8252', x: 56, y: 44, width: 62, height: 84, depth: 60, drift: 14 },
-  { color: '#e66636', x: 72, y: 70, width: 50, height: 62, depth: -44, drift: 18 },
-  { color: '#db4c28', x: 84, y: 90, width: 44, height: 40, depth: 90, drift: 20 },
-  { color: '#ee8080', x: 102, y: 104, width: 52, height: 42, depth: -72, drift: 18 },
-  { color: '#ffcc9c', opacity: 0.85, x: 42, y: 28, width: 30, height: 26, depth: -36, drift: 30 },
-  { color: 'var(--gradient-panel-base)', x: 2, y: 64, width: 56, height: 92, depth: 38, drift: 12 },
-  { color: 'var(--gradient-panel-base)', opacity: 0.8, x: 106, y: 22, width: 30, height: 52, depth: -30, drift: 14 }
-]
+  // 2D simplex noise, Ian McEwan / Ashima Arts (MIT)
+  vec3 permute(vec3 x) { return mod(((x * 34.0) + 1.0) * x, 289.0); }
 
-// Fine grain keeps the large gradients from banding and gives them a printed texture
+  float snoise(vec2 v) {
+    const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+    vec2 i = floor(v + dot(v, C.yy));
+    vec2 x0 = v - i + dot(i, C.xx);
+    vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+    vec4 x12 = x0.xyxy + C.xxzz;
+    x12.xy -= i1;
+    i = mod(i, 289.0);
+    vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+    vec3 m = max(0.5 - vec3(dot(x0, x0), dot(x12.xy, x12.xy), dot(x12.zw, x12.zw)), 0.0);
+    m = m * m;
+    m = m * m;
+    vec3 x = 2.0 * fract(p * C.www) - 1.0;
+    vec3 h = abs(x) - 0.5;
+    vec3 ox = floor(x + 0.5);
+    vec3 a0 = x - ox;
+    m *= 1.79284291400159 - 0.85373472095314 * (a0 * a0 + h * h);
+    vec3 g;
+    g.x = a0.x * x0.x + h.x * x0.y;
+    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+    return 130.0 * dot(m, g);
+  }
+
+  // Only a few octaves: large, soft folds rather than fine turbulence
+  float fbm(vec2 p) {
+    float value = 0.0;
+    float amplitude = 0.55;
+
+    for (int i = 0; i < 3; i++) {
+      value += amplitude * snoise(p);
+      p = p * 1.9 + vec2(17.1, 9.3);
+      amplitude *= 0.4;
+    }
+
+    return value;
+  }
+
+  vec3 ramp(float h) {
+    vec3 color = mix(vec3(0.992, 0.855, 0.769), vec3(0.969, 0.678, 0.541), smoothstep(0.0, 0.3, h));
+    color = mix(color, vec3(0.933, 0.494, 0.294), smoothstep(0.25, 0.55, h));
+    color = mix(color, vec3(0.886, 0.365, 0.184), smoothstep(0.55, 0.8, h));
+    color = mix(color, vec3(0.82, 0.259, 0.141), smoothstep(0.82, 1.0, h));
+    return color;
+  }
+
+  void main() {
+    vec2 uv = vUv;
+    float aspect = uResolution.x / uResolution.y;
+    vec2 p = vec2(uv.x * aspect, uv.y);
+    float t = uTime;
+
+    // Pointer: the flow swirls and swells around the cursor
+    vec2 mouse = vec2(uMouse.x * aspect, uMouse.y);
+    vec2 toMouse = p - mouse;
+    float falloff = exp(-dot(toMouse, toMouse) * 5.0);
+    float angle = uHover * 1.2 * falloff;
+    p = mouse + mat2(cos(angle), -sin(angle), sin(angle), cos(angle)) * toMouse;
+    p -= toMouse * uHover * 0.2 * falloff;
+
+    // Click: a shockwave ring that travels outwards and dies away
+    vec2 fromRipple = p - vec2(uRipple.x * aspect, uRipple.y);
+    float rippleDistance = length(fromRipple);
+    float front = rippleDistance - uRipple.z * 0.75;
+    float wave = sin(front * 26.0) * exp(-front * front * 28.0) * exp(-uRipple.z * 1.3);
+    p += fromRipple / (rippleDistance + 1e-4) * wave * 0.04;
+
+    // Domain warping: noise displaced by noise displaced by noise
+    vec2 s = p * 0.75;
+    vec2 q = vec2(fbm(s + vec2(0.0, t * 0.16)), fbm(s + vec2(5.2, 1.3) - vec2(t * 0.13, 0.0)));
+    vec2 r = vec2(
+      fbm(s + 1.3 * q + vec2(1.7, 9.2) + t * 0.1),
+      fbm(s + 1.3 * q + vec2(8.3, 2.8) - t * 0.08)
+    );
+    float f = fbm(s + 1.5 * r);
+
+    // Crescent: a soft band around a curved centre line, its edges pushed around by the flow
+    float y = uv.y;
+    float centre = 0.64 - 0.1 * sin(3.14159 * y) + 0.24 * (1.0 - y) * (1.0 - y);
+    centre += r.x * 0.14 + 0.04 * sin(t * 0.35 + y * 3.0);
+    float halfWidth = mix(0.24, 0.44, y);
+    float band = 1.0 - smoothstep(0.0, 1.05, abs(uv.x - centre) / halfWidth + q.y * 0.15);
+
+    float heat = band * (0.78 + 0.45 * f);
+    heat += smoothstep(0.35, 1.0, uv.x * 0.8 + (1.0 - y)) * 0.25 * band;
+    heat *= mix(1.0, 0.72, smoothstep(0.55, 1.0, y));
+
+    // Intro: blooms out of the bottom-right corner
+    float reach = uReveal * 2.0;
+    heat *= 1.0 - smoothstep(reach - 0.6, reach, length(uv - vec2(1.0, 0.0)));
+    heat = clamp(heat, 0.0, 1.0);
+
+    vec3 color = ramp(heat);
+    color = mix(color, vec3(0.933, 0.525, 0.51), smoothstep(0.9, 1.5, uv.x + (1.0 - y) * 0.9) * 0.55);
+
+    // Silky highlights riding the flow
+    float sheen = pow(clamp(0.5 + 0.5 * fbm(s * 1.2 + r * 1.4 - t * 0.06), 0.0, 1.0), 4.0);
+    color += sheen * band * 0.22;
+
+    float alpha = smoothstep(0.02, 0.55, heat);
+
+    // Dither to keep the gradient free of banding
+    float noise = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
+    color += (noise - 0.5) / 128.0;
+
+    gl_FragColor = vec4(color * alpha, alpha);
+  }
+`
+
+// Fine grain gives the gradient a printed texture
 const GRAIN =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")"
+
+// Shown only when WebGL is unavailable
+const FALLBACK =
+  'radial-gradient(60% 45% at 62% 8%, #f8ba9c, transparent 70%), radial-gradient(48% 42% at 58% 45%, #ed8252, transparent 72%), radial-gradient(40% 32% at 78% 80%, #df5a30, transparent 70%), radial-gradient(35% 25% at 100% 100%, #ee8080, transparent 70%)'
 
 type AnimatedGradientPanelProps = {
   className?: string
@@ -57,38 +166,112 @@ type AnimatedGradientPanelProps = {
 
 const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelProps) => {
   const panelRef = useRef<HTMLDivElement>(null)
+  const canvasHostRef = useRef<HTMLDivElement>(null)
+  const fallbackRef = useRef<HTMLDivElement>(null)
 
   useGSAP(
     () => {
       const panel = panelRef.current
+      const host = canvasHostRef.current
 
-      if (!panel) return
+      if (!panel || !host) return
+
+      // Animated values, eased by GSAP and pushed to the shader every frame
+      const state = { time: gsap.utils.random(0, 100), speed: 1, hover: 0, reveal: 0, mx: 0.5, my: 0.5 }
+      const ripple = { x: 0.5, y: 0.5, age: 10 }
+
+      let renderer: Renderer | null = null
+      let mesh: Mesh | null = null
+      let program: Program | null = null
+
+      try {
+        // The gradient is soft, so it renders at reduced resolution and scales up for free
+        renderer = new Renderer({
+          alpha: true,
+          premultipliedAlpha: true,
+          depth: false,
+          dpr: Math.min(window.devicePixelRatio, 2) * 0.6
+        })
+        program = new Program(renderer.gl, {
+          vertex,
+          fragment,
+          depthTest: false,
+          uniforms: {
+            uTime: { value: 0 },
+            uResolution: { value: [1, 1] },
+            uMouse: { value: [0.5, 0.5] },
+            uHover: { value: 0 },
+            uReveal: { value: 0 },
+            uRipple: { value: [0.5, 0.5, 10] }
+          }
+        })
+        mesh = new Mesh(renderer.gl, { geometry: new Triangle(renderer.gl), program })
+      } catch {
+        renderer = null
+      }
+
+      if (!renderer || !mesh || !program) {
+        gsap.set(fallbackRef.current, { autoAlpha: 1 })
+      }
+
+      const canvas = renderer?.gl.canvas
+
+      if (canvas) host.appendChild(canvas)
+
+      const draw = () => {
+        if (!renderer || !mesh || !program) return
+
+        const { uniforms } = program
+
+        uniforms.uTime.value = state.time
+        uniforms.uMouse.value = [state.mx, state.my]
+        uniforms.uHover.value = state.hover
+        uniforms.uReveal.value = state.reveal
+        uniforms.uRipple.value = [ripple.x, ripple.y, ripple.age]
+        renderer.render({ scene: mesh })
+      }
+
+      const resize = () => {
+        if (!renderer || !program || !canvas) return
+
+        const { width, height } = host.getBoundingClientRect()
+
+        if (!width || !height) return
+
+        renderer.setSize(width, height)
+        canvas.style.width = '100%'
+        canvas.style.height = '100%'
+        program.uniforms.uResolution.value = [width, height]
+        draw()
+      }
+
+      const resizeObserver = new ResizeObserver(resize)
+
+      resizeObserver.observe(host)
 
       const mm = gsap.matchMedia()
 
-      // With reduced motion nothing runs and the panel renders as a still gradient
+      // One of the two conditions always matches, so the callback always runs
       mm.add(
-        '(prefers-reduced-motion: no-preference)',
+        { motion: '(prefers-reduced-motion: no-preference)', reduceMotion: '(prefers-reduced-motion: reduce)' },
         context => {
-          const anchors = gsap.utils.toArray<HTMLElement>('[data-blob-anchor]', panel)
-          const blobs = gsap.utils.toArray<HTMLElement>('[data-blob]', panel)
-          const glow = panel.querySelector<HTMLElement>('[data-glow]')
-          const ripple = panel.querySelector<HTMLElement>('[data-ripple]')
-          const { random } = gsap.utils
+          // Reduced motion: a single still frame, no intro
+          if (context.conditions?.reduceMotion) {
+            state.reveal = 1
+            draw()
 
-          // Handlers created through the context are cleaned up with it
+            return
+          }
+
           const safe = <T extends (event: PointerEvent) => void>(name: string, handler: T) =>
             context.add(name, handler) as T
 
-          // Intro: the gradient blooms outward, then the content settles in. The squiggle stays hidden until it
-          // starts drawing, otherwise its round line cap shows as a dot.
+          // Intro: the gradient blooms out of the corner with a burst of speed, then the content settles in.
+          // The squiggle stays hidden until it starts drawing, otherwise its round line cap shows as a dot.
           gsap
-            .timeline({ defaults: { ease: 'expo.out' } })
-            .fromTo(
-              anchors,
-              { autoAlpha: 0, scale: 0.45 },
-              { autoAlpha: 1, scale: 1, duration: 2.4, stagger: { each: 0.12, from: 'end' } }
-            )
+            .timeline()
+            .fromTo(state, { reveal: 0 }, { reveal: 1, duration: 2.6, ease: 'power2.out' })
+            .fromTo(state, { speed: 5 }, { speed: 1, duration: 3, ease: 'power3.out' }, 0)
             .fromTo(
               '[data-reveal]',
               { autoAlpha: 0, y: 24 },
@@ -114,117 +297,64 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
               1.5
             )
 
-          // Ambient drift: every blob wanders, stretches and turns towards a new random pose on each loop
-          const drifts = blobs.map((blob, index) => {
-            const { drift } = BLOBS[index]
+          // Render loop on GSAP's ticker, skipped while the panel is hidden or scrolled away
+          let visible = true
 
-            return gsap.to(blob, {
-              xPercent: () => random(-drift, drift),
-              yPercent: () => random(-drift, drift),
-              scaleX: () => random(0.82, 1.22),
-              scaleY: () => random(0.82, 1.22),
-              rotation: () => random(-32, 32),
-              duration: random(4.5, 8),
-              ease: 'sine.inOut',
-              repeat: -1,
-              repeatRefresh: true
-            })
+          const tick = (_time: number, deltaTime: number) => {
+            if (!visible) return
+
+            const dt = Math.min(deltaTime, 50) / 1000
+
+            state.time += dt * state.speed
+            ripple.age += dt
+            draw()
+          }
+
+          const intersectionObserver = new IntersectionObserver(([entry]) => {
+            visible = entry.isIntersecting
           })
 
-          // Pause the loop while the panel is hidden or scrolled away
-          const observer = new IntersectionObserver(([entry]) => {
-            drifts.forEach(tween => (entry.isIntersecting ? tween.resume() : tween.pause()))
-          })
+          intersectionObserver.observe(panel)
+          gsap.ticker.add(tick)
 
-          observer.observe(panel)
+          const moveX = gsap.quickTo(state, 'mx', { duration: 1.2, ease: 'power3' })
+          const moveY = gsap.quickTo(state, 'my', { duration: 1.2, ease: 'power3' })
 
-          // Pointer parallax: each layer follows the cursor at its own depth
-          const moveX = anchors.map(anchor => gsap.quickTo(anchor, 'x', { duration: 1.4, ease: 'power3' }))
-          const moveY = anchors.map(anchor => gsap.quickTo(anchor, 'y', { duration: 1.4, ease: 'power3' }))
-          const glowX = glow ? gsap.quickTo(glow, 'x', { duration: 0.9, ease: 'power3' }) : null
-          const glowY = glow ? gsap.quickTo(glow, 'y', { duration: 0.9, ease: 'power3' }) : null
-          const offsets = anchors.map(() => ({ x: 0, y: 0 }))
-          let settle: gsap.core.Tween | undefined
+          const toUv = (event: PointerEvent) => {
+            const rect = panel.getBoundingClientRect()
 
-          const applyOffsets = () => {
-            offsets.forEach((offset, index) => {
-              moveX[index](offset.x)
-              moveY[index](offset.y)
-            })
+            return { x: (event.clientX - rect.left) / rect.width, y: 1 - (event.clientY - rect.top) / rect.height }
           }
 
           const onPointerEnter = safe('onPointerEnter', event => {
-            // The gradient wakes up while you're around
-            gsap.to(drifts, { timeScale: 2.2, duration: 1.2, ease: 'power2.out', overwrite: 'auto' })
+            const { x, y } = toUv(event)
 
-            if (glow) {
-              const rect = panel.getBoundingClientRect()
-              const px = event.clientX - rect.left
-              const py = event.clientY - rect.top
-
-              // Start the glow under the cursor instead of sweeping in from the corner
-              glowX?.(px, px)
-              glowY?.(py, py)
-              gsap.to(glow, { autoAlpha: 0.75, duration: 0.6, overwrite: 'auto' })
-            }
+            // Start the swirl under the cursor instead of sweeping in from the centre
+            moveX(x, x)
+            moveY(y, y)
+            gsap.to(state, { hover: 1, speed: 1.8, duration: 1.2, ease: 'power2.out', overwrite: 'auto' })
           })
 
           const onPointerMove = safe('onPointerMove', event => {
-            const rect = panel.getBoundingClientRect()
-            const px = event.clientX - rect.left
-            const py = event.clientY - rect.top
-            const nx = px / rect.width - 0.5
-            const ny = py / rect.height - 0.5
+            const { x, y } = toUv(event)
 
-            BLOBS.forEach((blob, index) => {
-              offsets[index] = { x: nx * blob.depth * 2, y: ny * blob.depth * 2 }
-            })
-
-            if (!settle?.isActive()) applyOffsets()
-
-            glowX?.(px)
-            glowY?.(py)
+            moveX(x)
+            moveY(y)
           })
 
           const onPointerLeave = safe('onPointerLeave', () => {
-            gsap.to(drifts, { timeScale: 1, duration: 1.6, ease: 'power2.out', overwrite: 'auto' })
-
-            if (glow) gsap.to(glow, { autoAlpha: 0, duration: 0.8, overwrite: 'auto' })
-
-            offsets.forEach(offset => {
-              offset.x = 0
-              offset.y = 0
-            })
-            applyOffsets()
+            gsap.to(state, { hover: 0, speed: 1, duration: 1.6, ease: 'power2.out', overwrite: 'auto' })
           })
 
-          // Click: a soft ripple, and the blobs scatter away from the tap before drifting back
           const onPointerDown = safe('onPointerDown', event => {
-            const rect = panel.getBoundingClientRect()
-            const px = event.clientX - rect.left
-            const py = event.clientY - rect.top
-            const reach = rect.width * 0.9
+            const { x, y } = toUv(event)
 
-            if (ripple) {
-              gsap.fromTo(
-                ripple,
-                { x: px, y: py, scale: 0, autoAlpha: 0.75 },
-                { scale: 1, autoAlpha: 0, duration: 1.4, ease: 'expo.out', overwrite: true }
-              )
-            }
+            ripple.x = x
+            ripple.y = y
+            ripple.age = 0
 
-            BLOBS.forEach((blob, index) => {
-              const dx = (blob.x / 100) * rect.width - px
-              const dy = (blob.y / 100) * rect.height - py
-              const distance = Math.hypot(dx, dy) || 1
-              const force = 110 * Math.max(0, 1 - distance / reach)
-
-              moveX[index](offsets[index].x + (dx / distance) * force)
-              moveY[index](offsets[index].y + (dy / distance) * force)
-            })
-
-            settle?.kill()
-            settle = gsap.delayedCall(0.35, applyOffsets)
+            // The flow surges, then settles back to its hover pace
+            gsap.fromTo(state, { speed: 5 }, { speed: 1.8, duration: 1.8, ease: 'power3.out', overwrite: 'auto' })
           })
 
           panel.addEventListener('pointerenter', onPointerEnter)
@@ -233,7 +363,8 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
           panel.addEventListener('pointerdown', onPointerDown)
 
           return () => {
-            observer.disconnect()
+            gsap.ticker.remove(tick)
+            intersectionObserver.disconnect()
             panel.removeEventListener('pointerenter', onPointerEnter)
             panel.removeEventListener('pointermove', onPointerMove)
             panel.removeEventListener('pointerleave', onPointerLeave)
@@ -243,7 +374,12 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
         panel
       )
 
-      return () => mm.revert()
+      return () => {
+        mm.revert()
+        resizeObserver.disconnect()
+        canvas?.remove()
+        renderer?.gl.getExtension('WEBGL_lose_context')?.loseContext()
+      }
     },
     { scope: panelRef }
   )
@@ -257,44 +393,8 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
       )}
     >
       <div aria-hidden className='pointer-events-none absolute inset-0 -z-10'>
-        <div className='absolute inset-0 transform-gpu blur-[clamp(40px,9cqw,88px)]'>
-          {BLOBS.map((blob, index) => (
-            <div
-              key={index}
-              data-blob-anchor
-              className='absolute size-0 motion-safe:invisible'
-              style={{ left: `${blob.x}%`, top: `${blob.y}%` }}
-            >
-              <div
-                data-blob
-                className='absolute rounded-[50%] will-change-transform'
-                style={{
-                  width: `${blob.width}cqw`,
-                  height: `${blob.height}cqw`,
-                  left: `${-blob.width / 2}cqw`,
-                  top: `${-blob.height / 2}cqw`,
-                  backgroundColor: blob.color,
-                  opacity: blob.opacity
-                }}
-              />
-            </div>
-          ))}
-
-          {/* Cursor glow */}
-          <div data-glow className='invisible absolute top-0 left-0 size-0'>
-            <div className='absolute -top-[12cqw] -left-[12cqw] size-[24cqw] rounded-full bg-[rgb(255_196_162)]' />
-          </div>
-        </div>
-
-        {/* Click ripple */}
-        <div data-ripple className='invisible absolute top-0 left-0 size-0'>
-          <div
-            className='absolute -top-[40cqw] -left-[40cqw] size-[80cqw] rounded-full border border-white/60'
-            style={{
-              background: 'radial-gradient(closest-side, rgb(255 255 255 / 0) 55%, rgb(255 255 255 / 0.4) 100%)'
-            }}
-          />
-        </div>
+        <div ref={fallbackRef} className='invisible absolute inset-0' style={{ background: FALLBACK }} />
+        <div ref={canvasHostRef} className='absolute inset-0' />
 
         {/* Grain */}
         <div

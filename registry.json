@@ -11934,12 +11934,13 @@
     {
       "name": "login-page-02",
       "title": "Login 2",
-      "description": "Split-screen sign in with a GSAP-animated brand gradient that drifts, follows the cursor and ripples on click, beside a Google and email/password form",
+      "description": "Split-screen sign in with a WebGL (ogl) silk gradient choreographed with GSAP that flows continuously, swirls around the cursor and sends a shockwave on click, beside a Google and email/password form",
       "type": "registry:block",
       "dependencies": [
         "@gsap/react",
         "gsap",
-        "lucide-react"
+        "lucide-react",
+        "ogl"
       ],
       "registryDependencies": [
         "button",
@@ -12165,12 +12166,13 @@
     {
       "name": "register-02",
       "title": "Register 2",
-      "description": "Split-screen sign up with a GSAP-animated brand gradient that drifts, follows the cursor and ripples on click, beside a Google and full name, work email and password form",
+      "description": "Split-screen sign up with a WebGL (ogl) silk gradient choreographed with GSAP that flows continuously, swirls around the cursor and sends a shockwave on click, beside a Google and full name, work email and password form",
       "type": "registry:block",
       "dependencies": [
         "@gsap/react",
         "gsap",
-        "lucide-react"
+        "lucide-react",
+        "ogl"
       ],
       "registryDependencies": [
         "button",
