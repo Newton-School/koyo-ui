@@ -80,7 +80,8 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
           const safe = <T extends (event: PointerEvent) => void>(name: string, handler: T) =>
             context.add(name, handler) as T
 
-          // Intro: the gradient blooms outward, then the content settles in
+          // Intro: the gradient blooms outward, then the content settles in. The squiggle stays hidden until it
+          // starts drawing, otherwise its round line cap shows as a dot.
           gsap
             .timeline({ defaults: { ease: 'expo.out' } })
             .fromTo(
@@ -106,7 +107,6 @@ const AnimatedGradientPanel = ({ className, children }: AnimatedGradientPanelPro
               { clipPath: 'inset(-20% 0% -20% 0)', duration: 1, ease: 'power2.inOut' },
               0.9
             )
-            // Hidden until it starts drawing, otherwise the round line cap shows as a dot
             .fromTo(
               '[data-squiggle]',
               { strokeDashoffset: 1, autoAlpha: 0 },
