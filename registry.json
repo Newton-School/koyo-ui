@@ -11932,6 +11932,61 @@
       }
     },
     {
+      "name": "login-page-02",
+      "title": "Login 2",
+      "description": "Split-screen sign in with a GSAP-animated brand gradient that drifts, follows the cursor and ripples on click, beside a Google and email/password form",
+      "type": "registry:block",
+      "dependencies": [
+        "@gsap/react",
+        "gsap",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "separator",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/app/(blank)/preview/marketing-ui/login-page/login-page-02/page.tsx",
+          "type": "registry:page",
+          "target": "app/login-page-02/page.tsx"
+        },
+        {
+          "path": "src/assets/svg/koyo-mark.tsx",
+          "type": "registry:component",
+          "target": "assets/svg/koyo-mark.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/animated-gradient-panel.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/animated-gradient-panel.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/auth-brand-panel.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/auth-brand-panel.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/login-page-02/login-page-02.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/login-page-02/login-page-02.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/login-page-02/login-form.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/login-page-02/login-form.tsx"
+        }
+      ],
+      "meta": {
+        "category": "marketing-ui",
+        "section": "login-page",
+        "isNew": true
+      }
+    },
+    {
       "name": "logo-cloud-01",
       "title": "Logo Cloud 1",
       "description": "Muted background logo cloud with centered card container, underlined text highlight, and flexbox logo grid arrangement with responsive gap spacing and centered alignment",
@@ -12105,6 +12160,61 @@
       "meta": {
         "category": "marketing-ui",
         "section": "register"
+      }
+    },
+    {
+      "name": "register-02",
+      "title": "Register 2",
+      "description": "Split-screen sign up with a GSAP-animated brand gradient that drifts, follows the cursor and ripples on click, beside a Google and full name, work email and password form",
+      "type": "registry:block",
+      "dependencies": [
+        "@gsap/react",
+        "gsap",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "separator",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/app/(blank)/preview/marketing-ui/register/register-02/page.tsx",
+          "type": "registry:page",
+          "target": "app/register-02/page.tsx"
+        },
+        {
+          "path": "src/assets/svg/koyo-mark.tsx",
+          "type": "registry:component",
+          "target": "assets/svg/koyo-mark.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/animated-gradient-panel.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/animated-gradient-panel.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/auth-brand-panel.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/auth-brand-panel.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/register-02/register-02.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/register-02/register-02.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/register-02/register-form.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/register-02/register-form.tsx"
+        }
+      ],
+      "meta": {
+        "category": "marketing-ui",
+        "section": "register",
+        "isNew": true
       }
     },
     {
