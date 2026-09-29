@@ -11,10 +11,9 @@
     <!--
       Template variables:
         {{name}}            Recipient's first name
-        {{otp}}             6-digit one-time code
+        {{otp}}             Full 6-digit code (used in the inbox preview)
+        {{otp_1}}..{{otp_6}} The same code, one digit per box
         {{expiry_minutes}}  Minutes the code stays valid, e.g. 10
-        {{expires_at}}      Expiry time, e.g. 11:45 PM IST on March 20, 2026
-        {{email}}           Address the code was requested for
     -->
     <style>
       body { margin: 0; padding: 0; }
@@ -23,9 +22,9 @@
       @media only screen and (max-width: 620px) {
         .container { width: 100% !important; }
         .px { padding-left: 24px !important; padding-right: 24px !important; }
-        .otp { font-size: 30px !important; letter-spacing: 10px !important; }
-        .card { display: block !important; width: 100% !important; }
-        .card-gap { display: block !important; width: 100% !important; height: 12px !important; }
+        .slot { width: 40px !important; height: 48px !important; font-size: 22px !important; }
+        .slot-gap { width: 6px !important; }
+        .slot-sep { width: 22px !important; }
       }
     </style>
   </head>
@@ -78,114 +77,43 @@
 
             <!-- Body -->
             <tr>
-              <td class="px" style="padding: 36px 32px 8px">
+              <td class="px" style="padding: 36px 32px 0">
                 <p style="margin: 0 0 16px; font-size: 17px; line-height: 26px">Hi <strong>{{name}}</strong>,</p>
-                <p style="margin: 0; font-size: 17px; line-height: 26px; color: #111111">
-                  Use the code below to <strong>verify your email</strong> and sign in to <strong>Koyo</strong>.
-                </p>
+                <p style="margin: 0; font-size: 17px; line-height: 26px">Here's your code to sign in to <strong>Koyo</strong>.</p>
               </td>
             </tr>
 
-            <!-- Code -->
+            <!-- Code: styled like the Koyo "outlined grouped" Input OTP -->
             <tr>
-              <td class="px" style="padding: 24px 32px 0">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+              <td class="px" align="center" style="padding: 32px 32px 0">
+                <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse: separate">
                   <tr>
-                    <td
-                      align="center"
-                      style="padding: 26px 16px 22px; background-color: #fdf5ef; border: 1px solid #f6d9ca; border-radius: 12px"
-                    >
-                      <p style="margin: 0 0 10px; font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 2px; color: #6b6b6b">
-                        YOUR VERIFICATION CODE
-                      </p>
-                      <p
-                        class="otp"
-                        style="margin: 0; font-size: 38px; line-height: 44px; font-weight: 700; letter-spacing: 14px; color: #c4501f; font-family: 'SF Mono', Menlo, Consolas, 'Courier New', monospace"
-                      >
-                        {{otp}}
-                      </p>
+                    <td class="slot" width="48" height="56" align="center" valign="middle" style="width: 48px; height: 56px; background-color: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); font-size: 26px; line-height: 56px; font-weight: 600; color: #111111">{{otp_1}}</td>
+                    <td class="slot-gap" width="8" style="width: 8px; font-size: 0; line-height: 0">&nbsp;</td>
+                    <td class="slot" width="48" height="56" align="center" valign="middle" style="width: 48px; height: 56px; background-color: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); font-size: 26px; line-height: 56px; font-weight: 600; color: #111111">{{otp_2}}</td>
+                    <td class="slot-gap" width="8" style="width: 8px; font-size: 0; line-height: 0">&nbsp;</td>
+                    <td class="slot" width="48" height="56" align="center" valign="middle" style="width: 48px; height: 56px; background-color: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); font-size: 26px; line-height: 56px; font-weight: 600; color: #111111">{{otp_3}}</td>
+                    <td class="slot-sep" width="32" align="center" valign="middle" style="width: 32px">
+                      <div style="width: 14px; height: 2px; background-color: #111111; margin: 0 auto; font-size: 0; line-height: 0">&nbsp;</div>
                     </td>
+                    <td class="slot" width="48" height="56" align="center" valign="middle" style="width: 48px; height: 56px; background-color: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); font-size: 26px; line-height: 56px; font-weight: 600; color: #111111">{{otp_4}}</td>
+                    <td class="slot-gap" width="8" style="width: 8px; font-size: 0; line-height: 0">&nbsp;</td>
+                    <td class="slot" width="48" height="56" align="center" valign="middle" style="width: 48px; height: 56px; background-color: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); font-size: 26px; line-height: 56px; font-weight: 600; color: #111111">{{otp_5}}</td>
+                    <td class="slot-gap" width="8" style="width: 8px; font-size: 0; line-height: 0">&nbsp;</td>
+                    <td class="slot" width="48" height="56" align="center" valign="middle" style="width: 48px; height: 56px; background-color: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); font-size: 26px; line-height: 56px; font-weight: 600; color: #111111">{{otp_6}}</td>
                   </tr>
                 </table>
               </td>
             </tr>
 
-            <!-- Details -->
-            <tr>
-              <td class="px" style="padding: 16px 32px 0">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td class="card" width="38%" valign="top" style="width: 38%; background-color: #f4f5f7; border-radius: 10px">
-                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td width="56" align="center" valign="middle" style="width: 56px; background-color: #fdf0e8; border-radius: 10px 0 0 10px; font-size: 22px; color: #d95a2b">
-                            &#9719;
-                          </td>
-                          <td style="padding: 12px 14px">
-                            <p style="margin: 0; font-size: 11px; line-height: 16px; letter-spacing: 1.5px; color: #555555">VALID FOR</p>
-                            <p style="margin: 2px 0 0; font-size: 16px; line-height: 22px; font-weight: 600">{{expiry_minutes}} minutes</p>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                    <td class="card-gap" width="4%" style="width: 4%; font-size: 0; line-height: 0">&nbsp;</td>
-                    <td class="card" width="58%" valign="top" style="width: 58%; background-color: #f4f5f7; border-radius: 10px">
-                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td width="56" align="center" valign="middle" style="width: 56px; background-color: #fdf0e8; border-radius: 10px 0 0 10px; font-size: 20px; color: #d95a2b">
-                            &#9993;
-                          </td>
-                          <td style="padding: 12px 14px">
-                            <p style="margin: 0; font-size: 11px; line-height: 16px; letter-spacing: 1.5px; color: #555555">SENT TO</p>
-                            <p style="margin: 2px 0 0; font-size: 15px; line-height: 22px; font-weight: 600; word-break: break-word">{{email}}</p>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-
-            <!-- Instructions -->
-            <tr>
-              <td class="px" style="padding: 24px 32px 0">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td style="padding: 18px 22px 14px; background-color: #fffdf8; border: 1px solid #d9d9dd; border-radius: 10px">
-                      <p style="margin: 0 0 12px; font-size: 13px; line-height: 18px; font-weight: 600; letter-spacing: 2px; color: #444444">
-                        KEEP YOUR ACCOUNT SAFE
-                      </p>
-                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size: 15px; line-height: 23px; color: #555555">
-                        <tr>
-                          <td width="20" valign="top" style="width: 20px; padding-bottom: 10px">1.</td>
-                          <td valign="top" style="padding-bottom: 10px">
-                            <strong style="color: #111111">Never share this code</strong> with anyone, including people claiming to be from Koyo.
-                          </td>
-                        </tr>
-                        <tr>
-                          <td width="20" valign="top" style="width: 20px; padding-bottom: 10px">2.</td>
-                          <td valign="top" style="padding-bottom: 10px">
-                            Koyo will <strong style="color: #111111">never ask for your code</strong> over phone, chat or email.
-                          </td>
-                        </tr>
-                        <tr>
-                          <td width="20" valign="top" style="width: 20px; padding-bottom: 4px">3.</td>
-                          <td valign="top" style="padding-bottom: 4px">
-                            Didn't request this? <strong style="color: #111111">You can safely ignore this email</strong>; your account stays secure.
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-
-            <!-- Expiry -->
             <tr>
               <td class="px" align="center" style="padding: 20px 32px 0; font-size: 15px; line-height: 22px; color: #555555">
-                This code expires at <strong style="color: #111111">{{expires_at}}</strong>
+                This code expires in <strong style="color: #111111">{{expiry_minutes}} minutes</strong>.
+              </td>
+            </tr>
+            <tr>
+              <td class="px" align="center" style="padding: 8px 32px 0; font-size: 13px; line-height: 20px; color: #8a8a8a">
+                Didn't request this? You can safely ignore this email.
               </td>
             </tr>
 
