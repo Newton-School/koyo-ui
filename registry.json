@@ -16188,6 +16188,11 @@
           "target": "app/interview-reschedule-01/page.tsx"
         },
         {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/fresh-link-view.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-01/fresh-link-view.tsx"
+        },
+        {
           "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/interview-reschedule-01.tsx",
           "type": "registry:component",
           "target": "components/shadcn-studio/blocks/interview-reschedule-01/interview-reschedule-01.tsx"
@@ -16196,11 +16201,6 @@
           "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/interview-summary.tsx",
           "type": "registry:component",
           "target": "components/shadcn-studio/blocks/interview-reschedule-01/interview-summary.tsx"
-        },
-        {
-          "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/fresh-link-view.tsx",
-          "type": "registry:component",
-          "target": "components/shadcn-studio/blocks/interview-reschedule-01/fresh-link-view.tsx"
         },
         {
           "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/prototype-controls.tsx",
@@ -16218,6 +16218,11 @@
           "target": "components/shadcn-studio/blocks/interview-reschedule-01/reschedule-form.tsx"
         },
         {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/reschedule-hooks.ts",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-01/reschedule-hooks.ts"
+        },
+        {
           "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/reschedule-sidebar.tsx",
           "type": "registry:component",
           "target": "components/shadcn-studio/blocks/interview-reschedule-01/reschedule-sidebar.tsx"
@@ -16231,6 +16236,74 @@
           "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/status-view.tsx",
           "type": "registry:component",
           "target": "components/shadcn-studio/blocks/interview-reschedule-01/status-view.tsx"
+        }
+      ],
+      "meta": {
+        "category": "ai-interview",
+        "section": "interview-rescheduling",
+        "isNew": true
+      }
+    },
+    {
+      "name": "interview-reschedule-02",
+      "title": "Interview Rescheduling 2",
+      "description": "Message review page for the rescheduling journey: a send-sequence timeline of the original-link reminders and every rescheduling message, with WhatsApp phone and email previews, filled or variable view for operational and coding examples, character counts, and the PRD timing and cancellation rules for each message",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "label",
+        "progress",
+        "select",
+        "switch",
+        "toggle-group",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/app/(blank)/preview/ai-interview/interview-rescheduling/interview-reschedule-02/page.tsx",
+          "type": "registry:page",
+          "target": "app/interview-reschedule-02/page.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-02/email-preview.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-02/email-preview.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-02/interview-reschedule-02.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-02/interview-reschedule-02.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-02/koyo-logo.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-02/koyo-logo.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-02/message-meta.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-02/message-meta.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-02/message-sequence.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-02/message-sequence.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-02/message-templates.ts",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-02/message-templates.ts"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-02/rich-text.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-02/rich-text.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-02/whatsapp-preview.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-02/whatsapp-preview.tsx"
         }
       ],
       "meta": {

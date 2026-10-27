@@ -58,15 +58,20 @@ export type FreshLink = {
   expiresAt: string
 }
 
-export type RescheduleStatus =
+/** `serverTime` is the server's clock when it answered; countdowns use it so a wrong device clock can't expire a link early. */
+type ServerStamp = { serverTime?: string }
+
+export type RescheduleStatus = (
   | { state: 'eligible'; interview: InterviewDetails }
   | { state: 'original-link-active'; interview: InterviewDetails; interviewUrl: string }
   | { state: 'fresh-link-active'; interview: InterviewDetails; freshLink: FreshLink }
-  | { state: 'interview-started'; interview: InterviewDetails; startedAt: string; interviewUrl?: string }
+  | { state: 'interview-started'; interview: InterviewDetails; startedAt?: string; interviewUrl?: string }
   | { state: 'interview-completed'; interview: InterviewDetails; completedAt: string }
   | { state: 'final-link-expired'; interview: InterviewDetails; freshLink: FreshLink }
   | { state: 'ineligible'; interview: InterviewDetails }
   | { state: 'invalid-link'; support: SupportContact }
+) &
+  ServerStamp
 
 export type RescheduleState = RescheduleStatus['state']
 
@@ -208,6 +213,9 @@ export const getReadinessItems = (interview: InterviewDetails): ReadinessItem[] 
 const IST_TIME_ZONE = 'Asia/Kolkata'
 
 export const formatIST = (iso: string, { withWeekday = true }: { withWeekday?: boolean } = {}) => {
+  // Never crash the page over one bad timestamp from the API.
+  if (Number.isNaN(new Date(iso).getTime())) return '—'
+
   const parts = Object.fromEntries(
     new Intl.DateTimeFormat('en-IN', {
       timeZone: IST_TIME_ZONE,
@@ -274,6 +282,7 @@ export const formatDurationAdjective = (minutes: number) =>
   minutes % 60 === 0 ? `${minutes / 60}-hour` : `${minutes}-minute`
 
 export const formatRemaining = (ms: number) => {
+  if (!Number.isFinite(ms)) return ''
   if (ms <= 0) return 'Expired'
 
   const totalMinutes = Math.floor(ms / 60_000)
@@ -398,15 +407,19 @@ export const createMockRescheduleApi = (
 
   const interviewWith = (originalLinkExpiresAt: string): InterviewDetails => ({ ...base, originalLinkExpiresAt })
 
-  const now = new Date().toISOString()
+  // Still-active links expire at 11 PM IST today, or tomorrow when less than an hour is left today.
   const todayAt11PM = atIST(0, 23)
-  const originalExpiry = scenario === 'original-link-active' && todayAt11PM > now ? todayAt11PM : atIST(-1, 23)
+  const upcoming11PM = new Date(todayAt11PM).getTime() > Date.now() + HOUR ? todayAt11PM : atIST(1, 23)
+  let originalExpiry = scenario === 'original-link-active' ? upcoming11PM : atIST(-1, 23)
 
   if (scenario === 'fresh-link-active') {
     const issuedAt = new Date(Date.now() - 3.4 * HOUR).toISOString()
 
     issued = { url: mockLinkUrl(code), issuedAt, expiresAt: addHours(issuedAt, base.freshLinkValidityHours) }
+    originalExpiry = addHours(issuedAt, -2)
   }
+
+  const stamp = <T extends RescheduleStatus>(status: T): T => ({ ...status, serverTime: new Date().toISOString() })
 
   const resolveStatus = (): RescheduleStatus => {
     if (issued) {
@@ -461,18 +474,19 @@ export const createMockRescheduleApi = (
         ? new Promise((_, reject) =>
             setTimeout(() => reject(new Error('Network error')), getNetwork().latencyMs ?? 900)
           )
-        : wait(resolveStatus()),
+        : wait(stamp(resolveStatus())),
 
     submit: ({ idempotencyKey }) => {
-      // Retries with the same key return the link that was already issued (PRD FR-09).
-      if (issued && handledKeys.has(idempotencyKey)) {
-        return wait<SubmitResult>({
-          ok: true,
-          status: { state: 'fresh-link-active', interview: interviewWith(originalExpiry), freshLink: issued }
-        })
-      }
+      const current = stamp(resolveStatus())
 
-      const current = resolveStatus()
+      // A retry with the same key gets the outcome of the first request, as it stands now (PRD FR-09).
+      if (handledKeys.has(idempotencyKey)) {
+        return wait<SubmitResult>(
+          current.state === 'fresh-link-active'
+            ? { ok: true, status: current }
+            : { ok: false, code: 'already-used', status: current }
+        )
+      }
 
       if (current.state === 'fresh-link-active' || current.state === 'final-link-expired') {
         return wait<SubmitResult>({ ok: false, code: 'already-used', status: current })
@@ -495,7 +509,7 @@ export const createMockRescheduleApi = (
 
       return wait<SubmitResult>({
         ok: true,
-        status: { state: 'fresh-link-active', interview: interviewWith(originalExpiry), freshLink: issued }
+        status: stamp({ state: 'fresh-link-active', interview: interviewWith(originalExpiry), freshLink: issued })
       })
     }
   }

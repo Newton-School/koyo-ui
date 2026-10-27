@@ -33,7 +33,7 @@ import { cn } from '@/lib/utils'
 import type { FreshLink, InterviewDetails } from './reschedule-data'
 import { formatDuration, formatIST, formatLocal, formatRemaining } from './reschedule-data'
 import { useInAppBrowser, useIsHandheld, useLocalTimeZone, useNow } from './reschedule-hooks'
-import { Callout, IconTile, tint, toneStyle } from './reschedule-ui'
+import { brandAction, brandText, Callout, IconTile, tint, toneStyle } from './reschedule-ui'
 import InterviewSummary from './interview-summary'
 
 const URGENT_MS = 3 * 3_600_000
@@ -88,6 +88,8 @@ const DeadlineCard = ({
       <Progress
         value={percentLeft}
         aria-label='Time left to start the interview'
+        aria-valuenow={Math.round(percentLeft)}
+        aria-valuetext={remaining === null ? undefined : formatRemaining(remaining)}
         className={cn('mt-4 h-1.5', urgent && '[&>[data-slot=progress-indicator]]:bg-koyo-color-amber-orange-500')}
       />
       <p className='text-muted-foreground mt-3 text-xs leading-relaxed'>
@@ -159,7 +161,13 @@ const CopyLink = ({ url, showShare }: { url: string; showShare: boolean }) => {
             className='font-mono text-sm'
           />
           <InputGroupAddon align='inline-end'>
-            <InputGroupButton size='sm' variant='orange-soft' onClick={handleCopy} aria-label='Copy interview link'>
+            <InputGroupButton
+              size='sm'
+              variant='orange-soft'
+              className={brandText}
+              onClick={handleCopy}
+              aria-label='Copy interview link'
+            >
               {copyState === 'copied' ? <CheckIcon aria-hidden='true' /> : <CopyIcon aria-hidden='true' />}
               {copyState === 'copied' ? 'Copied' : 'Copy'}
             </InputGroupButton>
@@ -200,28 +208,41 @@ type Props = {
   alreadyUsedNotice?: boolean
   headingRef?: Ref<HTMLHeadingElement>
 
-  /** Called once when the countdown reaches zero, so the page can re-check the authoritative status. */
-  onExpired?: () => void
+  /** Server time minus device time, in ms, so a wrong device clock can't end the countdown early. */
+  clockOffset?: number
+
+  /** The server re-checked this deadline and said the link still works; trust it over the local countdown. */
+  deadlineConfirmed?: boolean
+
+  /** Called when the countdown reaches zero, so the page can re-check the authoritative status. */
+  onDeadlinePassed?: (deadline: string) => void
 }
 
-const FreshLinkView = ({ interview, freshLink, justIssued, alreadyUsedNotice, headingRef, onExpired }: Props) => {
-  // Refs
-  const expiredRef = useRef(false)
-
+const FreshLinkView = ({
+  interview,
+  freshLink,
+  justIssued,
+  alreadyUsedNotice,
+  headingRef,
+  clockOffset = 0,
+  deadlineConfirmed,
+  onDeadlinePassed
+}: Props) => {
   // Hooks
   const now = useNow()
   const handheld = useIsHandheld()
 
-  const remaining = now === null ? null : new Date(freshLink.expiresAt).getTime() - now
+  const rawRemaining = now === null ? null : new Date(freshLink.expiresAt).getTime() - (now + clockOffset)
+
+  // Once the server has confirmed the link still works, never show it as expired on this page.
+  const remaining = rawRemaining !== null && deadlineConfirmed ? Math.max(rawRemaining, 30_000) : rawRemaining
   const expired = remaining !== null && remaining <= 0
   const urgent = remaining !== null && !expired && remaining < URGENT_MS
   const needsLaptop = interview.kind === 'coding' && handheld
 
   useEffect(() => {
-    if (!expired || expiredRef.current) return
-    expiredRef.current = true
-    onExpired?.()
-  }, [expired, onExpired])
+    if (expired) onDeadlinePassed?.(freshLink.expiresAt)
+  }, [expired, freshLink.expiresAt, onDeadlinePassed])
 
   const notes = [
     {
@@ -285,7 +306,7 @@ const FreshLinkView = ({ interview, freshLink, justIssued, alreadyUsedNotice, he
         <Button
           variant='brand'
           size='xl'
-          className='w-full text-base aria-disabled:pointer-events-none aria-disabled:opacity-60'
+          className={cn(brandAction, 'w-full text-base aria-disabled:pointer-events-none aria-disabled:opacity-60')}
           asChild
         >
           <a href={expired ? undefined : freshLink.url} aria-disabled={expired || undefined}>

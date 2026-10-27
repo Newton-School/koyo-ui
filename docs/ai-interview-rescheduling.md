@@ -71,13 +71,13 @@ type RescheduleApi = {
 }
 ```
 
-- **`getStatus`** returns one of the `RescheduleStatus` variants in `reschedule-data.ts`. If it throws, the page shows `load-error`. The page re-checks the status on tab focus and on back-forward cache restore, and when the countdown reaches zero. A late response never takes the view back to an older state.
+- **`getStatus`** returns one of the `RescheduleStatus` variants in `reschedule-data.ts`, plus an optional `serverTime`. Countdowns use `serverTime` to correct a wrong device clock. If `getStatus` throws, the page shows `load-error`. The page re-checks the status on tab focus, on back-forward cache restore, and once when a deadline passes on screen. If that check says the link still works, the page trusts the server. A late response never takes the view back to an older state.
 - **`submit`** results:
   - `{ ok: true, status }`: the link was issued.
   - `{ ok: false, code: 'already-used' | 'not-eligible', status }`: the page redraws that state.
   - `{ ok: false, code: 'temporary' }`: issuance was rolled back, so the candidate can retry.
   - **Throwing** means the outcome is unknown. The page re-checks the status and never shows success unless a link exists.
-- **Idempotency key.** One key is created per page load and reused on every retry. The server must return the existing link for a repeated key (FR-09).
+- **Idempotency key.** Each request gets a key. If the outcome is unknown (timeout, dropped connection), the retry resends the same request with the same key, and the server must answer with the outcome of the first one (FR-09). After a definite `temporary` failure, nothing was created, so the next attempt is a new request with a new key.
 - **Data the page needs** beyond the PRD §10 model:
 
   - interview `title`, `kind` (coding or operational)
@@ -94,18 +94,25 @@ type RescheduleApi = {
 
 | Scenario                                      | Behaviour                                                                                                                                                                                   |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Double click / Enter during submit            | In-memory lock before the request; button `aria-disabled` with spinner; inputs locked; same idempotency key on every attempt.                                                               |
+| Double click / Enter during submit            | In-memory lock before the request; button `aria-disabled` with spinner; inputs locked; a retry after an unknown outcome reuses the same idempotency key.                                    |
 | Timeout or dropped connection during submit   | Re-check status: link exists → confirmation; still eligible → "couldn't create"; check fails → "couldn't confirm", retry replays the same key.                                              |
 | Second tab / device already submitted         | `already-used` → existing link with "You already have a new link".                                                                                                                          |
 | Tab left open, link used or expired elsewhere | Quiet re-check on focus redraws the current state.                                                                                                                                          |
 | Countdown hits zero on screen                 | Start disabled, "Checking…", status re-fetched; server decides `final-link-expired` vs started.                                                                                             |
-| Candidate outside IST / wrong device clock    | IST first, local time as a second line; the countdown is secondary and never changes state by itself.                                                                                       |
+| Candidate outside IST / wrong device clock    | IST first, local time as a second line; countdowns are corrected with `serverTime` and only ever trigger a re-check.                                                                        |
 | Coding interview opened on a phone            | Laptop warning before submit and on confirmation; Share button to move the link to a computer.                                                                                              |
 | WhatsApp / Instagram in-app browser           | "Open in Chrome" notice; copy falls back to `execCommand`, then "press and hold to copy".                                                                                                   |
 | Offline                                       | Banner; CTA disabled with the reason in text; answers kept.                                                                                                                                 |
 | Link forwarded to someone else                | First name only, plus "Not {name}? Please don't use this link".                                                                                                                             |
 | Screen readers / keyboard                     | Focus moves to the new H1 and the tab title updates on every state change; errors use `role=alert` + `aria-describedby`; radio group with arrow keys; countdown isn't announced every tick. |
 | Light and dark mode                           | Status tints use `color-mix()` with `--background`/`--foreground`, so they follow whichever theme variables are active, with or without a `.dark` class.                                    |
+
+## Koyo design-system follow-ups
+
+The reviews found two issues in shared Koyo components. These blocks work around them locally; the fixes belong in the design system.
+
+- **Brand button contrast.** White text on `--koyo-brand` (`#d95a2b`) is 3.7:1, and the lighter hover colour is 2.7:1. WCAG AA needs 4.5:1 for button-sized text. These blocks use a slightly deeper mix of the same orange (about 5:1) that darkens on hover (`brandAction` in `reschedule-ui.tsx`). Consider darkening the token, or making hover darker instead of lighter.
+- **`Progress` drops its `value`.** The primitive never passes `value` to the Radix root, so every progress bar is announced as indeterminate. The countdown bar here sets `aria-valuenow` and `aria-valuetext` itself.
 
 ## Open questions
 

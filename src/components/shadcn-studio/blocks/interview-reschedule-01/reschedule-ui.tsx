@@ -33,8 +33,18 @@ export const tint = {
     'border-[color-mix(in_oklab,var(--tone)_35%,var(--background))] bg-[color-mix(in_oklab,var(--tone)_9%,var(--background))] text-[color-mix(in_oklab,var(--tone)_22%,var(--foreground))]',
   icon: 'text-[color-mix(in_oklab,var(--tone)_85%,var(--foreground))]',
   tile: 'bg-[color-mix(in_oklab,var(--tone)_12%,var(--background))] text-[color-mix(in_oklab,var(--tone)_85%,var(--foreground))]',
-  chip: 'border-[color-mix(in_oklab,var(--tone)_35%,var(--background))] bg-[color-mix(in_oklab,var(--tone)_10%,var(--background))] text-[color-mix(in_oklab,var(--tone)_70%,var(--foreground))]'
+  chip: 'border-[color-mix(in_oklab,var(--tone)_35%,var(--background))] bg-[color-mix(in_oklab,var(--tone)_10%,var(--background))] text-[color-mix(in_oklab,var(--tone)_60%,var(--foreground))]'
 }
+
+/*
+ * Koyo's brand orange with white text measures 3.7:1, below WCAG AA for button-sized text. Primary
+ * actions here use a slightly deeper mix of the same orange (≈4.7:1) and darken on hover.
+ */
+export const brandAction =
+  'bg-[color-mix(in_oklab,var(--koyo-brand)_86%,black)]! hover:bg-[color-mix(in_oklab,var(--koyo-brand)_76%,black)]!'
+
+/** Small orange text (badges, link buttons) mixed toward the foreground so it stays readable on tints. */
+export const brandText = 'text-[color-mix(in_oklab,var(--koyo-brand)_72%,var(--foreground))]!'
 
 const neutral = {
   surface: 'border-border bg-muted/60 text-foreground',

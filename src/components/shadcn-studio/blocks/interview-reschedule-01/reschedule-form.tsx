@@ -29,7 +29,7 @@ import { cn } from '@/lib/utils'
 import type { InterviewDetails, ReasonId } from './reschedule-data'
 import { EXPLANATION_MAX_LENGTH, formatDuration, formatDurationAdjective, reasons } from './reschedule-data'
 import { useIsHandheld, useOnline } from './reschedule-hooks'
-import { Callout } from './reschedule-ui'
+import { brandAction, Callout } from './reschedule-ui'
 
 export type RescheduleFormValues = { reason: ReasonId; explanation: string }
 
@@ -87,7 +87,10 @@ const RescheduleForm = ({ interview, onSubmit }: Props) => {
 
     if (!reason) {
       setShowReasonError(true)
-      reasonGroupRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      reasonGroupRef.current?.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+        block: 'center'
+      })
       reasonGroupRef.current?.querySelector<HTMLButtonElement>('[role="radio"]')?.focus({ preventScroll: true })
 
       return
@@ -108,7 +111,7 @@ const RescheduleForm = ({ interview, onSubmit }: Props) => {
   }
 
   return (
-    <form noValidate onSubmit={handleSubmit} aria-busy={submitting} className='space-y-8'>
+    <form noValidate onSubmit={handleSubmit} className='space-y-8'>
       <fieldset disabled={submitting} className='space-y-8'>
         <FieldSet>
           <div>
@@ -131,14 +134,16 @@ const RescheduleForm = ({ interview, onSubmit }: Props) => {
             aria-required='true'
             aria-invalid={showReasonError || undefined}
             aria-describedby={showReasonError ? reasonErrorId : undefined}
-            className='grid scroll-mt-24 gap-3 sm:grid-cols-2'
+            className='grid gap-3 sm:grid-cols-2 [&_[role=radio]]:scroll-mt-28'
           >
             {reasons.map(option => (
               <FieldLabel
                 key={option.id}
                 htmlFor={`${id}-${option.id}`}
                 className={cn(
-                  'bg-card hover:border-koyo-brand/50 cursor-pointer rounded-xl! transition-colors',
+                  'bg-card hover:border-koyo-brand/50 cursor-pointer rounded-xl! transition-[color,box-shadow,border-color]',
+                  'has-[[role=radio]:focus-visible]:border-koyo-brand has-[[role=radio]:focus-visible]:ring-koyo-brand-ring has-[[role=radio]:focus-visible]:ring-[3px]',
+                  'has-[[role=radio]:disabled]:hover:border-border has-[[role=radio]:disabled]:cursor-not-allowed has-[[role=radio]:disabled]:opacity-60',
                   option.id === 'other' && 'sm:col-span-2',
                   showReasonError && 'border-destructive/60'
                 )}
@@ -151,10 +156,21 @@ const RescheduleForm = ({ interview, onSubmit }: Props) => {
                     <option.icon className='size-4.5' />
                   </span>
                   <FieldContent>
-                    <FieldTitle className='text-sm leading-snug'>{option.label}</FieldTitle>
-                    <FieldDescription className='text-[13px]'>{option.hint}</FieldDescription>
+                    <FieldTitle id={`${id}-${option.id}-label`} className='text-sm leading-snug'>
+                      {option.label}
+                    </FieldTitle>
+                    <FieldDescription id={`${id}-${option.id}-hint`} className='text-[13px]'>
+                      {option.hint}
+                    </FieldDescription>
                   </FieldContent>
-                  <RadioGroupItem value={option.id} id={`${id}-${option.id}`} className='mt-0.5' />
+                  {/* Named explicitly: the Field wrapper is role="group", which stops Chrome deriving a name from the label. */}
+                  <RadioGroupItem
+                    value={option.id}
+                    id={`${id}-${option.id}`}
+                    aria-labelledby={`${id}-${option.id}-label`}
+                    aria-describedby={`${id}-${option.id}-hint`}
+                    className='border-muted-foreground mt-0.5'
+                  />
                 </Field>
               </FieldLabel>
             ))}
@@ -181,7 +197,7 @@ const RescheduleForm = ({ interview, onSubmit }: Props) => {
             rows={3}
             aria-describedby={explanationHintId}
             placeholder='For example: I was travelling and didn’t have my laptop with me.'
-            className='min-h-24 resize-y'
+            className='min-h-24 resize-y scroll-mt-28'
           />
           <div id={explanationHintId} className='flex items-start justify-between gap-4'>
             <FieldDescription>
@@ -225,7 +241,10 @@ const RescheduleForm = ({ interview, onSubmit }: Props) => {
           variant='brand'
           size='xl'
           aria-disabled={blocked || undefined}
-          className='w-full text-base aria-disabled:cursor-not-allowed aria-disabled:opacity-70'
+          className={cn(
+            brandAction,
+            'w-full scroll-mt-28 text-base aria-disabled:cursor-not-allowed aria-disabled:opacity-70'
+          )}
         >
           {submitting ? (
             <>

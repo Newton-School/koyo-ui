@@ -1,5 +1,8 @@
+'use client'
+
 // React Imports
 import type { ReactNode, Ref } from 'react'
+import { useEffect } from 'react'
 
 // Third-party Imports
 import type { LucideIcon } from 'lucide-react'
@@ -21,10 +24,14 @@ import {
 // Component Imports
 import { Button } from '@newtonschool/koyo-ui/button'
 
+// Util Imports
+import { cn } from '@/lib/utils'
+
 import type { RescheduleStatus, SupportContact } from './reschedule-data'
 import { formatIST } from './reschedule-data'
 import type { Tone } from './reschedule-ui'
-import { IconTile } from './reschedule-ui'
+import { brandAction, IconTile } from './reschedule-ui'
+import { useNow } from './reschedule-hooks'
 import InterviewSummary from './interview-summary'
 import { InAppBrowserNotice } from './fresh-link-view'
 
@@ -59,11 +66,58 @@ const SupportActions = ({ support }: { support: SupportContact }) => (
   </>
 )
 
+/** `clockOffset` is server time minus device time, in ms. */
+type DeadlineOptions = {
+  clockOffset?: number
+
+  /** The server already re-checked this deadline and said the link still works. */
+  deadlineConfirmed?: boolean
+
+  /** Called once the deadline passes on screen, so the page can re-check the authoritative status. */
+  onDeadlinePassed?: (deadline: string) => void
+}
+
+/** Start button for a link that is still active; it stops working the moment the deadline passes. */
+const StartBeforeDeadline = ({
+  url,
+  deadline,
+  clockOffset = 0,
+  deadlineConfirmed,
+  onDeadlinePassed
+}: DeadlineOptions & { url: string; deadline: string }) => {
+  const now = useNow()
+  const passed = now !== null && !deadlineConfirmed && now + clockOffset >= new Date(deadline).getTime()
+
+  useEffect(() => {
+    if (passed) onDeadlinePassed?.(deadline)
+  }, [passed, deadline, onDeadlinePassed])
+
+  return (
+    <Button
+      variant='brand'
+      size='xl'
+      className={cn(
+        brandAction,
+        'w-full text-base aria-disabled:pointer-events-none aria-disabled:opacity-60 sm:w-auto'
+      )}
+      asChild
+    >
+      <a href={passed ? undefined : url} aria-disabled={passed || undefined}>
+        <PlayIcon aria-hidden='true' className='fill-current' />
+        Start Interview
+      </a>
+    </Button>
+  )
+}
+
 const Strong = ({ children }: { children: ReactNode }) => (
   <span className='text-foreground font-medium'>{children}</span>
 )
 
-const getContent = (status: Exclude<RescheduleStatus, { state: 'eligible' | 'fresh-link-active' }>): StatusContent => {
+const getContent = (
+  status: Exclude<RescheduleStatus, { state: 'eligible' | 'fresh-link-active' }>,
+  deadlineOptions: DeadlineOptions
+): StatusContent => {
   switch (status.state) {
     case 'original-link-active':
       return {
@@ -77,12 +131,11 @@ const getContent = (status: Exclude<RescheduleStatus, { state: 'eligible' | 'fre
           </>
         ),
         action: (
-          <Button variant='brand' size='xl' className='w-full text-base sm:w-auto' asChild>
-            <a href={status.interviewUrl}>
-              <PlayIcon aria-hidden='true' className='fill-current' />
-              Start Interview
-            </a>
-          </Button>
+          <StartBeforeDeadline
+            url={status.interviewUrl}
+            deadline={status.interview.originalLinkExpiresAt}
+            {...deadlineOptions}
+          />
         )
       }
     case 'interview-started':
@@ -92,12 +145,18 @@ const getContent = (status: Exclude<RescheduleStatus, { state: 'eligible' | 'fre
         title: "You've already started this interview",
         description: (
           <>
-            You started on <Strong>{formatIST(status.startedAt)}</Strong>, so there&apos;s nothing to reschedule. You
-            can continue under the usual interview rules.
+            {status.startedAt ? (
+              <>
+                You started on <Strong>{formatIST(status.startedAt)}</Strong>, so there&apos;s nothing to reschedule.
+              </>
+            ) : (
+              <>You&apos;ve already started, so there&apos;s nothing to reschedule.</>
+            )}{' '}
+            You can continue under the usual interview rules.
           </>
         ),
         action: status.interviewUrl ? (
-          <Button variant='brand' size='xl' className='w-full text-base sm:w-auto' asChild>
+          <Button variant='brand' size='xl' className={cn(brandAction, 'w-full text-base sm:w-auto')} asChild>
             <a href={status.interviewUrl}>
               Continue interview
               <ArrowRightIcon aria-hidden='true' />
@@ -161,13 +220,13 @@ const getContent = (status: Exclude<RescheduleStatus, { state: 'eligible' | 'fre
   }
 }
 
-type StatusViewProps = {
+type StatusViewProps = DeadlineOptions & {
   status: Exclude<RescheduleStatus, { state: 'eligible' | 'fresh-link-active' }>
   headingRef?: Ref<HTMLHeadingElement>
 }
 
-export const StatusView = ({ status, headingRef }: StatusViewProps) => {
-  const content = getContent(status)
+export const StatusView = ({ status, headingRef, ...deadlineOptions }: StatusViewProps) => {
+  const content = getContent(status, deadlineOptions)
 
   return (
     <div className='space-y-8'>
@@ -209,7 +268,7 @@ export const LoadErrorView = ({
         Check your internet connection and try again. If the problem continues, contact support.
       </p>
     </div>
-    <Button variant='brand' size='lg' onClick={onRetry}>
+    <Button variant='brand' size='lg' className={brandAction} onClick={onRetry}>
       <RefreshCwIcon aria-hidden='true' />
       Try again
     </Button>
