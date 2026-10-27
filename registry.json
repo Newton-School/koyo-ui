@@ -16157,6 +16157,87 @@
           "target": "components/shadcn-studio/toggle-group/toggle-group-03.tsx"
         }
       ]
+    },
+    {
+      "name": "interview-reschedule-01",
+      "title": "Interview Rescheduling 1",
+      "description": "Two-column candidate page for missed AI interviews: one-time reason form with required reason cards and optional note, fresh-link confirmation with exact IST deadline, countdown, Start Interview and copy link, plus every status screen (link still active, started, completed, final expiry, ineligible, invalid link) with a readiness checklist for coding and operational interviews",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "field",
+        "input-group",
+        "label",
+        "popover",
+        "progress",
+        "radio-group",
+        "select",
+        "separator",
+        "skeleton",
+        "spinner",
+        "switch",
+        "textarea",
+        "toggle-group",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/app/(blank)/preview/ai-interview/interview-rescheduling/interview-reschedule-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/interview-reschedule-01/page.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/interview-reschedule-01.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-01/interview-reschedule-01.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/interview-summary.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-01/interview-summary.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/fresh-link-view.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-01/fresh-link-view.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/prototype-controls.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-01/prototype-controls.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/reschedule-data.ts",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-01/reschedule-data.ts"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/reschedule-form.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-01/reschedule-form.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/reschedule-sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-01/reschedule-sidebar.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/reschedule-ui.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-01/reschedule-ui.tsx"
+        },
+        {
+          "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/status-view.tsx",
+          "type": "registry:component",
+          "target": "components/shadcn-studio/blocks/interview-reschedule-01/status-view.tsx"
+        }
+      ],
+      "meta": {
+        "category": "ai-interview",
+        "section": "interview-rescheduling",
+        "isNew": true
+      }
     }
   ]
 }

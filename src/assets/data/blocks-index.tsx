@@ -1,5 +1,5 @@
 // Third-party Imports
-import { ChartColumnBigIcon, LayoutDashboardIcon, ShoppingCartIcon } from 'lucide-react'
+import { CalendarClockIcon, ChartColumnBigIcon, LayoutDashboardIcon, ShoppingCartIcon } from 'lucide-react'
 
 // Type Imports
 import type { CategoriesType } from '@/types/blocks'
@@ -365,6 +365,30 @@ export const blockCategories: CategoriesType[] = [
         imgSrc: 'https://cdn.shadcnstudio.com/ss-assets/landing-page/blocks-pages/ecommerce-ui/product-list.png',
         imgAlt: 'ecommerce Blocks',
         url: '/blocks/ecommerce/product-list'
+      }
+    ]
+  },
+  {
+    slug: 'ai-interview',
+    name: 'AI Interview',
+    title: 'AI Interview Blocks 🎙️',
+    description:
+      'Candidate-facing screens for Koyo AI interviews, built from Koyo components: rescheduling, deadlines and status pages that work on mobile and desktop.',
+    navTitle: 'AI Interview',
+    menuIcon: CalendarClockIcon,
+    imgSrc: `${process.env.NEXT_PUBLIC_APP_URL ?? ''}/images/blocks/ai-interview/interview-rescheduling.png`,
+    imgAlt: 'AI Interview Blocks',
+    isNew: true,
+    sections: [
+      {
+        title: 'Interview Rescheduling',
+        description:
+          'One-time rescheduling for missed AI interviews: reason form, fresh-link confirmation with an exact IST deadline, and every status screen candidates can land on.',
+        slug: 'interview-rescheduling',
+        imgSrc: `${process.env.NEXT_PUBLIC_APP_URL ?? ''}/images/blocks/ai-interview/interview-rescheduling.png`,
+        imgAlt: 'Interview Rescheduling Blocks',
+        url: '/blocks/ai-interview/interview-rescheduling',
+        isNew: 'New'
       }
     ]
   }
