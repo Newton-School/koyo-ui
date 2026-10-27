@@ -1,7 +1,10 @@
 /**
- * Candidate messages on the AI-interview rescheduling path (PRD Appendix A), as WhatsApp and email
- * templates with `{{variables}}`, two fictional filled examples and the timing/cancellation rules
- * that product, ops and design review together.
+ * Candidate messages from PRD Appendix A, from the original-link reminders through the one-time
+ * rescheduling path, as WhatsApp and email templates with `{{variables}}`, two fictional filled
+ * examples and the timing/cancellation rules that product, ops and design review together.
+ *
+ * Before the original link expires nothing mentions rescheduling (§8): reminders only push the
+ * candidate to start, and starting before the deadline is enough to finish later.
  *
  * WhatsApp formatting: `*bold*`, `• ` bullets, blank line between paragraphs. Bodies stay under
  * 1024 characters, no variable sits at the very start or end, and button labels are 25 characters or fewer.
@@ -20,19 +23,24 @@ export type VariableKey =
   | 'role_title'
   | 'company_name'
   | 'original_expiry_ist'
+  | 'original_expiry_short'
   | 'fresh_expiry_ist'
   | 'fresh_expiry_short'
   | 'duration'
   | 'device_requirement'
   | 'support_contact'
+  | 'original_interview_url'
   | 'reschedule_url'
   | 'interview_url'
 
-export type MessageId = 'd1' | 'd2' | 'd7' | 'd3' | 'd4' | 'd5' | 'd6'
+export type MessageId = 'r1' | 'r2' | 'r3' | 'd1' | 'd2' | 'd7' | 'd3' | 'd4' | 'd5' | 'd6'
 
 export type TimingRule = 'sane-hours' | 'campaign' | 'immediate'
 
-export type MessageButton = { label: string; url: Extract<VariableKey, 'reschedule_url' | 'interview_url'> }
+export type MessageButton = {
+  label: string
+  url: Extract<VariableKey, 'original_interview_url' | 'reschedule_url' | 'interview_url'>
+}
 
 /**
  * Example send time. `full` is used in metadata and email headers, `short` in the sequence list,
@@ -69,15 +77,25 @@ export type MessageTemplate = {
   }
 }
 
+export type SequenceEventId = 'original-invited' | 'original-expired' | 'form-submitted'
+
 export type SequenceEvent = {
   type: 'event'
-  id: string
+  id: SequenceEventId
   title: string
   description: string
   time: Pick<SendTime, 'full' | 'short' | 'iso'>
 }
 
 export type SequenceItem = SequenceEvent | { type: 'message'; id: MessageId }
+
+/** A phase of the send sequence. The original-link expiry splits the page into before and after. */
+export type SequenceGroup = {
+  id: 'before-expiry' | 'after-expiry'
+  label: string
+  description: string
+  items: SequenceItem[]
+}
 
 export type Example = {
   kind: ExampleKind
@@ -97,7 +115,7 @@ export const timingRules: Record<TimingRule, { label: string; short: string; des
   campaign: {
     label: 'Campaign-configured time · any hour',
     short: 'Any hour',
-    description: 'Sent at the time set in the campaign, even outside sane hours (§5.3).'
+    description: 'Sent at the time set in the campaign, even outside sane hours (§5.1, §5.3, AC-14).'
   },
   immediate: {
     label: 'Immediately on issuance · any hour',
@@ -111,17 +129,24 @@ export const variableLabels: Record<VariableKey, string> = {
   role_title: 'Role title',
   company_name: 'Hiring company',
   original_expiry_ist: 'Original link expiry (IST)',
+  original_expiry_short: 'Original link expiry, short',
   fresh_expiry_ist: 'Fresh link expiry (IST)',
   fresh_expiry_short: 'Fresh link expiry, short',
   duration: 'Interview duration',
   device_requirement: 'Device requirement',
   support_contact: 'HR / support contact',
+  original_interview_url: 'Original interview URL',
   reschedule_url: 'Rescheduling form URL',
   interview_url: 'Fresh interview URL'
 }
 
 // Static example timeline (strings only, so server and client render the same thing).
 const timeline = {
+  originalInvited: {
+    full: 'Sun, 25 Oct 2026, 11:00 PM IST',
+    short: 'Sun 25 Oct · 11:00 PM',
+    iso: '2026-10-25T23:00+05:30'
+  },
   originalExpiry: {
     full: 'Mon, 26 Oct 2026, 11:00 PM IST',
     short: 'Mon 26 Oct · 11:00 PM',
@@ -132,7 +157,138 @@ const timeline = {
 
 const supportLine = 'Need help? Contact {{support_contact}}.\n' + SIGN_OFF
 
+// Original-link reminders: the candidate only has to START before the deadline (§3.1, AC-09).
+const startRule =
+  'You only need to *start* before this time. Once you start, you can finish under the usual interview rules.'
+
+const originalReminderCancellation =
+  'Cancelled once the interview starts (FR-05, AC-02). Status is re-checked right before sending (FR-04). Never sent after the original link expires: the post-expiry flow takes precedence (§5.1).'
+
+const originalReminderRefs = ['§4.1', '§5.1', 'FR-02', 'FR-04', 'FR-05', 'AC-02', 'AC-14']
+
 export const messages: Record<MessageId, MessageTemplate> = {
+  r1: {
+    id: 'r1',
+    code: 'R1',
+    name: 'Original reminder 1',
+    status: 'prd',
+    summary: 'First of three reminders for the original link. Direct link, exact deadline and a nudge to start early.',
+    trigger:
+      'The original link is still unused at the first campaign-configured reminder time (§4.1 step 2, §5.1, FR-02).',
+    timing: 'campaign',
+    send: {
+      full: 'Mon, 26 Oct 2026, 11:00 AM IST',
+      short: 'Mon 26 Oct · 11:00 AM',
+      clock: '11:00 AM',
+      day: '26 October 2026',
+      iso: '2026-10-26T11:00+05:30',
+      note: 'Example campaign timing: 12 hours before expiry. Each campaign sets its own times; the system never calculates them (§5.1, FR-02).'
+    },
+    cancellation: originalReminderCancellation,
+    prdRefs: originalReminderRefs,
+    whatsapp: {
+      body: [
+        'Hi {{candidate_name}},',
+        'Reminder: your AI interview for *{{role_title}}* at *{{company_name}}* is ready to start.',
+        '*Start before: {{original_expiry_ist}}*',
+        startRule,
+        [
+          'Before you start:',
+          '• The interview takes about {{duration}}.',
+          '• You need {{device_requirement}}, and a stable internet connection.',
+          '• Find a quiet place where no one will disturb you.'
+        ].join('\n'),
+        'Start early so you have time to fix any device or internet problem. When you are ready, tap *Start Interview*.',
+        supportLine
+      ].join('\n\n'),
+      button: { label: 'Start Interview', url: 'original_interview_url' }
+    },
+    email: {
+      subject: 'Reminder: your {{company_name}} AI interview is ready',
+      preheader: 'Start before {{original_expiry_short}}. It takes about {{duration}}.',
+      heading: 'Your AI interview is ready to start',
+      button: { label: 'Start Interview', url: 'original_interview_url' }
+    }
+  },
+  r2: {
+    id: 'r2',
+    code: 'R2',
+    name: 'Original reminder 2',
+    status: 'prd',
+    summary: 'Second original-link reminder. Leads with the exact expiry time and what the candidate needs to start.',
+    trigger:
+      'The original link is still unused at the second campaign-configured reminder time (§4.1 step 2, §5.1, FR-02).',
+    timing: 'campaign',
+    send: {
+      full: 'Mon, 26 Oct 2026, 7:00 PM IST',
+      short: 'Mon 26 Oct · 7:00 PM',
+      clock: '7:00 PM',
+      day: '26 October 2026',
+      iso: '2026-10-26T19:00+05:30',
+      note: 'Example campaign timing: 4 hours before expiry.'
+    },
+    cancellation: originalReminderCancellation,
+    prdRefs: originalReminderRefs,
+    whatsapp: {
+      body: [
+        'Hi {{candidate_name}},',
+        'Your AI interview for *{{role_title}}* at *{{company_name}}* is still waiting for you.',
+        '*Your link expires on {{original_expiry_ist}}.*',
+        startRule,
+        [
+          '• Set aside about {{duration}} with no calls or breaks.',
+          '• You need {{device_requirement}}, and a stable internet connection.'
+        ].join('\n'),
+        supportLine
+      ].join('\n\n'),
+      button: { label: 'Start Interview', url: 'original_interview_url' }
+    },
+    email: {
+      subject: 'Your interview link expires {{original_expiry_short}}',
+      preheader: 'You only need to start before this time.',
+      heading: 'Start your interview before the deadline',
+      button: { label: 'Start Interview', url: 'original_interview_url' }
+    }
+  },
+  r3: {
+    id: 'r3',
+    code: 'R3',
+    name: 'Original reminder 3',
+    status: 'prd',
+    summary:
+      'Last reminder before the original link expires. Deadline emphasis only: rescheduling is never mentioned before expiry (§8).',
+    trigger:
+      'The original link is still unused at the third campaign-configured reminder time (§4.1 step 2, §5.1, FR-02).',
+    timing: 'campaign',
+    send: {
+      full: 'Mon, 26 Oct 2026, 10:00 PM IST',
+      short: 'Mon 26 Oct · 10:00 PM',
+      clock: '10:00 PM',
+      day: '26 October 2026',
+      iso: '2026-10-26T22:00+05:30',
+      note: 'Example campaign timing: 1 hour before expiry. The copy still states the exact time, never "in 1 hour".'
+    },
+    cancellation: originalReminderCancellation,
+    scenarioNote:
+      '10:00 PM is outside sane hours, and that is allowed: original-link reminders follow the campaign timing, not the 9 AM–8 PM window (§5.1, AC-14).',
+    prdRefs: [...originalReminderRefs, 'AC-13'],
+    whatsapp: {
+      body: [
+        'Hi {{candidate_name}},',
+        '*Last reminder:* your AI interview link for *{{role_title}}* at *{{company_name}}* expires on *{{original_expiry_ist}}*.',
+        startRule,
+        'Start now so you are not rushed. The interview takes about {{duration}}, and you need a stable internet connection.',
+        supportLine
+      ].join('\n\n'),
+      button: { label: 'Start Interview', url: 'original_interview_url' }
+    },
+    email: {
+      subject: 'Last reminder: start your interview before {{original_expiry_short}}',
+      preheader: 'Once you start, you can finish under the usual interview rules.',
+      heading: 'Last reminder to start your interview',
+      button: { label: 'Start Interview', url: 'original_interview_url' }
+    }
+  },
   d1: {
     id: 'd1',
     code: 'D1',
@@ -160,7 +316,7 @@ export const messages: Record<MessageId, MessageTemplate> = {
         [
           'Before you tap:',
           '• The new link works for *24 hours* from the moment you get it.',
-          '• This is a *one-time* request. You cannot reschedule again.',
+          '• This is a *one-time* request. You cannot reschedule this interview again.',
           '• The interview takes about {{duration}}.',
           '• You need {{device_requirement}}, and a stable internet connection.'
         ].join('\n'),
@@ -170,7 +326,7 @@ export const messages: Record<MessageId, MessageTemplate> = {
       button: { label: 'Reschedule interview', url: 'reschedule_url' }
     },
     email: {
-      subject: 'Missed your {{company_name}} interview? Get a new link',
+      subject: 'Your {{company_name}} interview link expired – get a new one',
       preheader: 'One-time request. The new link works for 24 hours.',
       heading: 'Get one new interview link',
       howItWorks: [
@@ -209,7 +365,7 @@ export const messages: Record<MessageId, MessageTemplate> = {
         'It takes about 1 minute. Tap the button, pick a reason, and your new link is ready.',
         [
           '• The new link works for *24 hours* from the moment you get it.',
-          '• This is a *one-time* request. You cannot reschedule again.'
+          '• This is a *one-time* request. You cannot reschedule this interview again.'
         ].join('\n'),
         'Only ask for it when you have {{duration}} free in the next 24 hours.',
         supportLine
@@ -247,7 +403,7 @@ export const messages: Record<MessageId, MessageTemplate> = {
         'Hi {{candidate_name}},',
         'Here is your new AI interview link for *{{role_title}}* at *{{company_name}}*.',
         '*Start before: {{fresh_expiry_ist}}*',
-        'This is your final chance. You cannot reschedule again. The interview takes about {{duration}}.',
+        'This is your final chance. You cannot reschedule this interview again. The interview takes about {{duration}}.',
         supportLine
       ].join('\n\n'),
       button: { label: 'Start Interview', url: 'interview_url' }
@@ -285,7 +441,7 @@ export const messages: Record<MessageId, MessageTemplate> = {
         'Hi {{candidate_name}},',
         'Your new AI interview link for *{{role_title}}* at *{{company_name}}* is ready.',
         '*Start before: {{fresh_expiry_ist}}*',
-        'This is your *final chance*. You cannot reschedule again.',
+        'This is your *final chance*. You cannot reschedule this interview again.',
         'The interview takes about {{duration}}. Find a quiet place with a stable internet connection, then tap *Start Interview*.',
         supportLine
       ].join('\n\n'),
@@ -293,7 +449,7 @@ export const messages: Record<MessageId, MessageTemplate> = {
     },
     email: {
       subject: 'Your new interview link – start before {{fresh_expiry_short}}',
-      preheader: "This is your final chance. You can't reschedule again.",
+      preheader: "This is your final chance. You can't reschedule this interview again.",
       heading: 'Your new interview link is ready',
       button: { label: 'Start Interview', url: 'interview_url' }
     }
@@ -322,7 +478,7 @@ export const messages: Record<MessageId, MessageTemplate> = {
         'Hi {{candidate_name}},',
         'You have not started your AI interview for *{{role_title}}* at *{{company_name}}* yet.',
         '*Your link expires on {{fresh_expiry_ist}}.*',
-        'This is your *final chance*. After this link expires, you cannot reschedule again.',
+        'This is your *final chance*. After this link expires, you cannot reschedule this interview again.',
         'Set aside about {{duration}} with no calls or breaks, and keep your internet on.',
         supportLine
       ].join('\n\n'),
@@ -359,7 +515,7 @@ export const messages: Record<MessageId, MessageTemplate> = {
         'Hi {{candidate_name}},',
         '*Last reminder:* your AI interview link for *{{role_title}}* at *{{company_name}}* expires on *{{fresh_expiry_ist}}*.',
         'You only need to *start* before this time. Start now so you are not rushed.',
-        'There are no more chances after this. You cannot reschedule again.',
+        'There are no more chances after this. You cannot reschedule this interview again.',
         supportLine
       ].join('\n\n'),
       button: { label: 'Start Interview', url: 'interview_url' }
@@ -407,34 +563,64 @@ export const messages: Record<MessageId, MessageTemplate> = {
   }
 }
 
-export const sequence: SequenceItem[] = [
+export const sequence: SequenceGroup[] = [
   {
-    type: 'event',
-    id: 'original-expired',
-    title: 'Original link expires',
-    description: 'Candidate never started. Outside sane hours.',
-    time: timeline.originalExpiry
+    id: 'before-expiry',
+    label: 'Before expiry',
+    description: 'Original link',
+    items: [
+      {
+        type: 'event',
+        id: 'original-invited',
+        title: 'Original invitation sent',
+        description: 'Example campaign: link valid for 24 hours.',
+        time: timeline.originalInvited
+      },
+      { type: 'message', id: 'r1' },
+      { type: 'message', id: 'r2' },
+      { type: 'message', id: 'r3' }
+    ]
   },
-  { type: 'message', id: 'd1' },
-  { type: 'message', id: 'd2' },
   {
-    type: 'event',
-    id: 'form-submitted',
-    title: 'Candidate submits form → fresh link issued',
-    description: 'One fresh link, valid for 24 hours.',
-    time: timeline.freshIssued
-  },
-  { type: 'message', id: 'd7' },
-  { type: 'message', id: 'd3' },
-  { type: 'message', id: 'd4' },
-  { type: 'message', id: 'd5' },
-  { type: 'message', id: 'd6' }
+    id: 'after-expiry',
+    label: 'After expiry',
+    description: 'One-time rescheduling',
+    items: [
+      {
+        type: 'event',
+        id: 'original-expired',
+        title: 'Original link expires',
+        description: 'Candidate never started. Outside sane hours.',
+        time: timeline.originalExpiry
+      },
+      { type: 'message', id: 'd1' },
+      { type: 'message', id: 'd2' },
+      {
+        type: 'event',
+        id: 'form-submitted',
+        title: 'Candidate submits form → fresh link issued',
+        description: 'One fresh link, valid for 24 hours.',
+        time: timeline.freshIssued
+      },
+      { type: 'message', id: 'd7' },
+      { type: 'message', id: 'd3' },
+      { type: 'message', id: 'd4' },
+      { type: 'message', id: 'd5' },
+      { type: 'message', id: 'd6' }
+    ]
+  }
 ]
 
-export const messageOrder = sequence.flatMap(item => (item.type === 'message' ? [item.id] : []))
+/** Message ids of a group, in send order (events skipped). */
+export const messagesIn = (group: SequenceGroup) =>
+  group.items.flatMap(item => (item.type === 'message' ? [item.id] : []))
+
+/** Every message in send order. Drives the counter, previous/next, the picker and URL validation. */
+export const messageOrder = sequence.flatMap(messagesIn)
 
 const sharedTimes = {
   original_expiry_ist: timeline.originalExpiry.full,
+  original_expiry_short: '26 Oct, 11:00 PM IST',
   fresh_expiry_ist: 'Wed, 28 Oct 2026, 4:30 PM IST',
   fresh_expiry_short: '28 Oct, 4:30 PM IST'
 }
@@ -454,6 +640,7 @@ export const examples: Record<ExampleKind, Example> = {
       duration: '45 minutes',
       device_requirement: 'a laptop or Android phone with a working camera and mic',
       support_contact: 'Urban Company Hiring Team · hiring-support@example.com · +91 98765 43210',
+      original_interview_url: 'https://interview.example.com/start/UC-5FJW-3MBA',
       reschedule_url: 'https://interview.example.com/r/UC-4M8T-2QZL',
       interview_url: 'https://interview.example.com/start/UC-7HQ2-XK9P'
     }
@@ -471,6 +658,7 @@ export const examples: Record<ExampleKind, Example> = {
       duration: '1 hour',
       device_requirement: 'a laptop or desktop with Chrome, a webcam and mic',
       support_contact: 'Lumen Labs Talent Team · talent@example.com',
+      original_interview_url: 'https://interview.example.com/start/LL-8WQM-2TCJ',
       reschedule_url: 'https://interview.example.com/r/LL-9C2D-5WQN',
       interview_url: 'https://interview.example.com/start/LL-3KDP-8VRA'
     }

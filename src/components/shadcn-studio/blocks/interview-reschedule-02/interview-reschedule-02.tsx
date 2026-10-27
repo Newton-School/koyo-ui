@@ -1,7 +1,7 @@
 'use client'
 
 // React Imports
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 
 // Third-party Imports
@@ -93,11 +93,11 @@ const Legend = () => (
     <ul className='text-muted-foreground space-y-2.5 text-xs leading-relaxed'>
       <li className='space-y-1'>
         <TimingBadge timing='sane-hours' compact className='px-1.5 text-[11px]' />
-        <p>Invitation, follow-up and final expiry wait for 9 AM–8 PM IST (§5.2).</p>
+        <p>Rescheduling invitation, follow-up and final expiry wait for 9 AM–8 PM IST (§5.2).</p>
       </li>
       <li className='space-y-1'>
         <TimingBadge timing='campaign' compact className='px-1.5 text-[11px]' />
-        <p>Fresh-link reminders go out at the campaign&apos;s set times (§5.3).</p>
+        <p>Original and fresh-link reminders go out at the campaign&apos;s set times, day or night (§5.1, §5.3).</p>
       </li>
     </ul>
   </section>
@@ -113,6 +113,9 @@ const InterviewRescheduleMessages = () => {
   const [kind, setKind] = useState<ExampleKind>('operational')
   const [showVariables, setShowVariables] = useState(false)
   const [urlReady, setUrlReady] = useState(false)
+
+  // Refs
+  const sidebarRef = useRef<HTMLDivElement>(null)
 
   // Deep links such as `?message=d6&kind=coding&vars=1` open a specific message.
   useEffect(() => {
@@ -140,6 +143,22 @@ const InterviewRescheduleMessages = () => {
 
     window.history.replaceState(null, '', `${window.location.pathname}?${params.toString()}`)
   }, [urlReady, selectedId, kind, showVariables])
+
+  // The sequence is taller than the viewport, so the sticky sidebar scrolls on its own. Keep the
+  // selected message in view there (deep links, previous/next) without moving the page.
+  useEffect(() => {
+    const scroller = sidebarRef.current
+    const item = scroller?.querySelector<HTMLElement>('[aria-current="true"]')
+
+    if (!scroller || !item) return
+
+    const view = scroller.getBoundingClientRect()
+    const rect = item.getBoundingClientRect()
+    const visibleBottom = Math.min(view.bottom, window.innerHeight)
+
+    if (rect.top < view.top) scroller.scrollTop -= view.top - rect.top + 8
+    else if (rect.bottom > visibleBottom) scroller.scrollTop += rect.bottom - visibleBottom + 8
+  }, [selectedId])
 
   const message = messages[selectedId]
   const example = examples[kind]
@@ -170,11 +189,14 @@ const InterviewRescheduleMessages = () => {
           {/* Title + controls */}
           <div className='flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between'>
             <div className='max-w-2xl space-y-2.5'>
-              <p className='text-koyo-brand text-sm font-medium'>One-time rescheduling · Candidate messages</p>
+              <p className='text-koyo-brand text-sm font-medium'>
+                Reminders & one-time rescheduling · Candidate messages
+              </p>
               <h1 className='text-2xl font-semibold tracking-tight sm:text-3xl'>Rescheduling messages</h1>
               <p className='text-muted-foreground text-base leading-relaxed'>
-                Every WhatsApp and email message a candidate can get after missing an AI interview, in send order, with
-                the PRD timing and cancellation rules next to the copy.
+                Every WhatsApp and email message a candidate can get while they have not started an AI interview: the
+                original-link reminders, the one-time reschedule and the final expiry. In send order, with the PRD
+                timing and cancellation rules next to the copy.
               </p>
             </div>
 
@@ -220,12 +242,14 @@ const InterviewRescheduleMessages = () => {
 
           <div className='grid gap-8 lg:grid-cols-[296px_minmax(0,1fr)] xl:gap-10'>
             <aside className='hidden lg:block'>
-              <div className='sticky top-24 space-y-5'>
+              <div className='sticky top-24 flex max-h-[calc(100dvh-7rem)] flex-col gap-4'>
                 <p className='text-muted-foreground px-3 text-xs font-semibold tracking-wide uppercase'>
                   Send sequence
                 </p>
-                <MessageTimeline selectedId={selectedId} onSelect={setSelectedId} panelId={PANEL_ID} />
-                <Legend />
+                <div ref={sidebarRef} className='-mx-1 min-h-0 space-y-5 overflow-y-auto overscroll-contain px-1 pb-1'>
+                  <MessageTimeline selectedId={selectedId} onSelect={setSelectedId} panelId={PANEL_ID} />
+                  <Legend />
+                </div>
               </div>
             </aside>
 
