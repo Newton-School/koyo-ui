@@ -30,25 +30,27 @@ import { cn } from '@/lib/utils'
 import type { RescheduleStatus, SupportContact } from './reschedule-data'
 import { formatIST } from './reschedule-data'
 import type { Tone } from './reschedule-ui'
-import { brandAction, IconTile } from './reschedule-ui'
+import { Banner, primaryAction } from './reschedule-ui'
 import { useNow } from './reschedule-hooks'
-import InterviewSummary from './interview-summary'
+import InterviewSummary, { PageHeading } from './interview-summary'
 import { InAppBrowserNotice } from './fresh-link-view'
 
 type StatusContent = {
   tone: Tone
   icon: LucideIcon
   title: string
-  description: ReactNode
+  message: ReactNode
   action?: ReactNode
-  closing?: ReactNode
+
+  /** States whose only way forward is the hiring team show their contacts as the actions. */
+  support?: SupportContact
 }
 
-/** The original HR/support contact, repeated in the main column (PRD §5.4, §7.3). */
+/** The original HR/support contact, repeated as the screen's actions (PRD §5.4, §7.3). */
 const SupportActions = ({ support }: { support: SupportContact }) => (
-  <>
+  <div id='help' className='flex scroll-mt-24 flex-col gap-3 sm:flex-row sm:flex-wrap'>
     {support.email && (
-      <Button variant='outline' size='lg' asChild>
+      <Button variant='outline' size='lg' className='h-11' asChild>
         <a href={`mailto:${support.email}`}>
           <MailIcon aria-hidden='true' />
           Email {support.name}
@@ -56,14 +58,14 @@ const SupportActions = ({ support }: { support: SupportContact }) => (
       </Button>
     )}
     {support.phone && (
-      <Button variant='outline' size='lg' asChild>
+      <Button variant='outline' size='lg' className='h-11' asChild>
         <a href={`tel:${support.phone.replace(/\s/g, '')}`}>
           <PhoneIcon aria-hidden='true' />
           Call {support.phone}
         </a>
       </Button>
     )}
-  </>
+  </div>
 )
 
 /** `clockOffset` is server time minus device time, in ms. */
@@ -94,12 +96,9 @@ const StartBeforeDeadline = ({
 
   return (
     <Button
-      variant='brand'
+      variant='blue'
       size='xl'
-      className={cn(
-        brandAction,
-        'w-full text-base aria-disabled:pointer-events-none aria-disabled:opacity-60 sm:w-auto'
-      )}
+      className={cn(primaryAction, 'aria-disabled:pointer-events-none aria-disabled:opacity-60')}
       asChild
     >
       <a href={passed ? undefined : url} aria-disabled={passed || undefined}>
@@ -110,9 +109,9 @@ const StartBeforeDeadline = ({
   )
 }
 
-const Strong = ({ children }: { children: ReactNode }) => (
-  <span className='text-foreground font-medium'>{children}</span>
-)
+const Strong = ({ children }: { children: ReactNode }) => <span className='font-semibold'>{children}</span>
+
+const short = (iso: string) => formatIST(iso, { withYear: false })
 
 const getContent = (
   status: Exclude<RescheduleStatus, { state: 'eligible' | 'fresh-link-active' }>,
@@ -124,10 +123,10 @@ const getContent = (
         tone: 'info',
         icon: CalendarClockIcon,
         title: 'Your interview link is still active',
-        description: (
+        message: (
           <>
-            You can still start your interview before{' '}
-            <Strong>{formatIST(status.interview.originalLinkExpiresAt)}</Strong>. Start now while you have time.
+            You can still start your interview before <Strong>{short(status.interview.originalLinkExpiresAt)}</Strong>.
+            Start now while you have time.
           </>
         ),
         action: (
@@ -143,11 +142,11 @@ const getContent = (
         tone: 'info',
         icon: CirclePlayIcon,
         title: "You've already started this interview",
-        description: (
+        message: (
           <>
             {status.startedAt ? (
               <>
-                You started on <Strong>{formatIST(status.startedAt)}</Strong>, so there&apos;s nothing to reschedule.
+                You started on <Strong>{short(status.startedAt)}</Strong>, so there&apos;s nothing to reschedule.
               </>
             ) : (
               <>You&apos;ve already started, so there&apos;s nothing to reschedule.</>
@@ -156,10 +155,10 @@ const getContent = (
           </>
         ),
         action: status.interviewUrl ? (
-          <Button variant='brand' size='xl' className={cn(brandAction, 'w-full text-base sm:w-auto')} asChild>
+          <Button variant='blue' size='xl' className={primaryAction} asChild>
             <a href={status.interviewUrl}>
               Continue interview
-              <ArrowRightIcon aria-hidden='true' />
+              <ArrowRightIcon aria-hidden='true' className='size-5' />
             </a>
           </Button>
         ) : undefined
@@ -169,10 +168,10 @@ const getContent = (
         tone: 'success',
         icon: BadgeCheckIcon,
         title: "You've completed this interview",
-        description: (
+        message: (
           <>
-            Thanks for completing your interview on <Strong>{formatIST(status.completedAt)}</Strong>. There&apos;s
-            nothing else you need to do on this page.
+            Thanks for completing your interview on <Strong>{short(status.completedAt)}</Strong>. There&apos;s nothing
+            else you need to do on this page.
           </>
         )
       }
@@ -181,44 +180,46 @@ const getContent = (
         tone: 'neutral',
         icon: CalendarX2Icon,
         title: 'Your interview link has expired',
-        description: (
+        message: (
           <>
-            Your new link expired on <Strong>{formatIST(status.freshLink.expiresAt)}</Strong> before the interview was
-            started. You&apos;ve already used your one-time reschedule, so this interview can&apos;t be rescheduled
-            again.
+            Your new link expired on <Strong>{short(status.freshLink.expiresAt)}</Strong> before the interview was
+            started. You&apos;ve already used your one-time reschedule, so it can&apos;t be rescheduled again.
           </>
         ),
-        action: <SupportActions support={status.interview.support} />,
-        closing: `If you need help, please contact the ${status.interview.support.name}. Thank you.`
+        support: status.interview.support
       }
     case 'ineligible':
       return {
         tone: 'neutral',
         icon: BanIcon,
         title: 'Rescheduling isn’t available for this interview',
-        description: (
+        message: (
           <>
             A new link can&apos;t be issued for this interview from this page. Please check your latest WhatsApp or
             email message from {status.interview.company.name}, or contact the hiring team.
           </>
         ),
-        action: <SupportActions support={status.interview.support} />
+        support: status.interview.support
       }
     case 'invalid-link':
       return {
-        tone: 'danger',
+        tone: 'neutral',
         icon: Link2OffIcon,
         title: 'This link isn’t working',
-        description: (
+        message: (
           <>
             It may have expired, be incomplete, or belong to a different interview. Open the link from your latest
             WhatsApp or email message from us. If it still doesn&apos;t work, contact support.
           </>
         ),
-        action: <SupportActions support={status.support} />
+        support: status.support
       }
   }
 }
+
+/** True when the screen shows the support contacts as its actions, so the page can skip its help line. */
+export const showsSupportActions = (status: RescheduleStatus) =>
+  status.state === 'final-link-expired' || status.state === 'ineligible' || status.state === 'invalid-link'
 
 type StatusViewProps = DeadlineOptions & {
   status: Exclude<RescheduleStatus, { state: 'eligible' | 'fresh-link-active' }>
@@ -229,24 +230,21 @@ export const StatusView = ({ status, headingRef, ...deadlineOptions }: StatusVie
   const content = getContent(status, deadlineOptions)
 
   return (
-    <div className='space-y-8'>
-      <div className='space-y-4'>
-        <IconTile tone={content.tone} icon={content.icon} className='size-14 [&_svg]:size-7' />
-        <div className='space-y-2'>
-          <h1 ref={headingRef} tabIndex={-1} className='text-2xl font-semibold tracking-tight outline-none sm:text-3xl'>
-            {content.title}
-          </h1>
-          <p className='text-muted-foreground text-base leading-relaxed'>{content.description}</p>
-        </div>
+    <div className='space-y-6'>
+      <div className='space-y-5'>
+        <PageHeading headingRef={headingRef}>{content.title}</PageHeading>
+        {status.state !== 'invalid-link' && <InterviewSummary interview={status.interview} />}
       </div>
 
-      {status.state !== 'invalid-link' && <InterviewSummary interview={status.interview} />}
+      <Banner tone={content.tone} icon={content.icon}>
+        <p>{content.message}</p>
+      </Banner>
 
       {status.state === 'original-link-active' && <InAppBrowserNotice />}
 
-      {content.action && <div className='flex flex-col gap-3 sm:flex-row sm:flex-wrap'>{content.action}</div>}
+      {content.action}
 
-      {content.closing && <p className='text-muted-foreground text-sm leading-relaxed'>{content.closing}</p>}
+      {content.support && <SupportActions support={content.support} />}
     </div>
   )
 }
@@ -259,16 +257,11 @@ export const LoadErrorView = ({
   headingRef?: Ref<HTMLHeadingElement>
 }) => (
   <div className='space-y-6'>
-    <IconTile tone='neutral' icon={WifiOffIcon} className='size-14 [&_svg]:size-7' />
-    <div className='space-y-2'>
-      <h1 ref={headingRef} tabIndex={-1} className='text-2xl font-semibold tracking-tight outline-none sm:text-3xl'>
-        We couldn&apos;t load your interview details
-      </h1>
-      <p className='text-muted-foreground text-base leading-relaxed'>
-        Check your internet connection and try again. If the problem continues, contact support.
-      </p>
-    </div>
-    <Button variant='brand' size='lg' className={brandAction} onClick={onRetry}>
+    <PageHeading headingRef={headingRef}>We couldn&apos;t load your interview details</PageHeading>
+    <Banner tone='neutral' icon={WifiOffIcon}>
+      <p>Check your internet connection and try again. If the problem continues, contact support.</p>
+    </Banner>
+    <Button variant='blue' size='xl' className={primaryAction} onClick={onRetry}>
       <RefreshCwIcon aria-hidden='true' />
       Try again
     </Button>

@@ -11,6 +11,8 @@ import { Button } from '@newtonschool/koyo-ui/button'
 // Util Imports
 import { cn } from '@/lib/utils'
 
+import type { SupportContact } from './reschedule-data'
+
 export type Tone = 'info' | 'warning' | 'success' | 'danger' | 'neutral'
 
 const toneColors: Record<Exclude<Tone, 'neutral'>, string> = {
@@ -28,30 +30,65 @@ export const toneStyle = (tone: Tone) =>
  * Tints mix the tone with the page's own background and foreground, so they follow whichever theme
  * variables are active, with or without a `.dark` class.
  */
-export const tint = {
-  surface:
-    'border-[color-mix(in_oklab,var(--tone)_35%,var(--background))] bg-[color-mix(in_oklab,var(--tone)_9%,var(--background))] text-[color-mix(in_oklab,var(--tone)_22%,var(--foreground))]',
-  icon: 'text-[color-mix(in_oklab,var(--tone)_85%,var(--foreground))]',
-  tile: 'bg-[color-mix(in_oklab,var(--tone)_12%,var(--background))] text-[color-mix(in_oklab,var(--tone)_85%,var(--foreground))]',
-  chip: 'border-[color-mix(in_oklab,var(--tone)_35%,var(--background))] bg-[color-mix(in_oklab,var(--tone)_10%,var(--background))] text-[color-mix(in_oklab,var(--tone)_60%,var(--foreground))]'
+const tint = {
+  banner:
+    'bg-[color-mix(in_oklab,var(--tone)_9%,var(--background))] text-[color-mix(in_oklab,var(--tone)_25%,var(--foreground))]',
+  callout:
+    'border-[color-mix(in_oklab,var(--tone)_30%,var(--background))] bg-[color-mix(in_oklab,var(--tone)_6%,var(--background))] text-[color-mix(in_oklab,var(--tone)_20%,var(--foreground))]',
+  icon: 'text-[color-mix(in_oklab,var(--tone)_85%,var(--foreground))]'
 }
-
-/*
- * Koyo's brand orange with white text measures 3.7:1, below WCAG AA for button-sized text. Primary
- * actions here use a slightly deeper mix of the same orange (≈4.7:1) and darken on hover.
- */
-export const brandAction =
-  'bg-[color-mix(in_oklab,var(--koyo-brand)_86%,black)]! hover:bg-[color-mix(in_oklab,var(--koyo-brand)_76%,black)]!'
-
-/** Small orange text (badges, link buttons) mixed toward the foreground so it stays readable on tints. */
-export const brandText = 'text-[color-mix(in_oklab,var(--koyo-brand)_72%,var(--foreground))]!'
 
 const neutral = {
-  surface: 'border-border bg-muted/60 text-foreground',
-  icon: 'text-muted-foreground',
-  tile: 'bg-muted text-muted-foreground'
+  banner: 'bg-muted text-foreground',
+  callout: 'border-border bg-muted/50 text-foreground',
+  icon: 'text-muted-foreground'
 }
 
+/** Soft blue fill and blue text for selected controls, readable in light and dark themes. */
+export const blueSelected =
+  'border-koyo-color-brand-500 bg-[color-mix(in_oklab,var(--koyo-color-brand-500)_10%,var(--background))] text-[color-mix(in_oklab,var(--koyo-color-brand-500)_72%,var(--foreground))]'
+
+/** A strong, theme-independent focus ring in Koyo blue. */
+export const blueFocus =
+  'outline-none focus-visible:ring-2 focus-visible:ring-koyo-color-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+
+/*
+ * Primary actions use the Koyo `blue` button (white on #0673f9 ≈ 4.6:1). Its stock hover lightens to
+ * #2989ff (≈ 3.4:1), so hover darkens instead and keeps the label at AA contrast.
+ */
+export const primaryAction = cn('w-full text-base hover:bg-koyo-color-brand-600', blueFocus)
+
+/** A tinted strip carrying a screen's key message, like a reservation page's "We're holding this table…". */
+export const Banner = ({
+  tone = 'info',
+  icon: Icon,
+  children,
+  className,
+  ...props
+}: ComponentProps<'div'> & { tone?: Tone; icon?: LucideIcon }) => {
+  return (
+    <div
+      data-tone={tone}
+      style={toneStyle(tone)}
+      className={cn(
+        'flex gap-3 rounded-lg px-4 py-3 text-sm leading-relaxed sm:text-[15px]',
+        tone === 'neutral' ? neutral.banner : tint.banner,
+        className
+      )}
+      {...props}
+    >
+      {Icon && (
+        <Icon
+          className={cn('mt-[3px] size-4.5 shrink-0', tone === 'neutral' ? neutral.icon : tint.icon)}
+          aria-hidden='true'
+        />
+      )}
+      <div className='min-w-0 flex-1 space-y-1'>{children}</div>
+    </div>
+  )
+}
+
+/** A compact notice: icon, a bold lead-in and one or two sentences. */
 export const Callout = ({
   tone = 'info',
   icon: Icon,
@@ -65,45 +102,62 @@ export const Callout = ({
       data-tone={tone}
       style={toneStyle(tone)}
       className={cn(
-        'flex gap-3 rounded-lg border px-4 py-3.5 text-sm',
-        tone === 'neutral' ? neutral.surface : tint.surface,
+        'flex gap-2.5 rounded-lg border px-3.5 py-2.5 text-sm leading-relaxed',
+        tone === 'neutral' ? neutral.callout : tint.callout,
         className
       )}
       {...props}
     >
       <Icon
-        className={cn('mt-0.5 size-4.5 shrink-0', tone === 'neutral' ? neutral.icon : tint.icon)}
+        className={cn('mt-[3px] size-4 shrink-0', tone === 'neutral' ? neutral.icon : tint.icon)}
         aria-hidden='true'
       />
-      <div className='space-y-1 leading-relaxed'>
-        {title && <p className='font-semibold'>{title}</p>}
-        <div>{children}</div>
-      </div>
+      <p>
+        {title && <span className='font-semibold'>{title} </span>}
+        {children}
+      </p>
     </div>
   )
 }
 
-export const IconTile = ({
-  tone = 'neutral',
-  icon: Icon,
+const linkClassName =
+  'text-foreground rounded-sm font-medium underline decoration-foreground/25 underline-offset-4 hover:decoration-current focus-visible:ring-2 focus-visible:ring-koyo-color-brand-500 focus-visible:outline-none'
+
+/** One quiet line with the hiring team's contacts, e.g. "Need help? Urban Company Hiring Team · email · phone". */
+export const NeedHelpLine = ({
+  support,
+  note,
+  id = 'help',
   className
 }: {
-  tone?: Tone
-  icon: LucideIcon
+  support: SupportContact
+  note?: ReactNode
+  id?: string
   className?: string
 }) => {
   return (
-    <span
-      style={toneStyle(tone)}
-      className={cn(
-        'grid size-12 shrink-0 place-items-center rounded-xl',
-        tone === 'neutral' ? neutral.tile : tint.tile,
-        className
-      )}
-      aria-hidden='true'
-    >
-      <Icon className='size-6' />
-    </span>
+    <div id={id} className={cn('text-muted-foreground scroll-mt-24 space-y-1 text-sm leading-relaxed', className)}>
+      <p>
+        <span className='text-foreground font-medium'>Need help?</span> {support.name}
+        {support.email && (
+          <>
+            {' · '}
+            <a href={`mailto:${support.email}`} className={cn(linkClassName, 'break-all')}>
+              {support.email}
+            </a>
+          </>
+        )}
+        {support.phone && (
+          <>
+            {' · '}
+            <a href={`tel:${support.phone.replace(/\s/g, '')}`} className={cn(linkClassName, 'whitespace-nowrap')}>
+              {support.phone}
+            </a>
+          </>
+        )}
+      </p>
+      {note && <p className='text-xs'>{note}</p>}
+    </div>
   )
 }
 
@@ -149,19 +203,5 @@ export const RescheduleFooter = () => {
         <p>Powered by Koyo AI Interviews · All times in IST (UTC+5:30)</p>
       </div>
     </footer>
-  )
-}
-
-export const SidebarCard = ({
-  title,
-  children,
-  className,
-  ...props
-}: Omit<ComponentProps<'section'>, 'title'> & { title: ReactNode }) => {
-  return (
-    <section className={cn('bg-card rounded-xl border p-5 sm:p-6', className)} {...props}>
-      <h2 className='mb-4 text-base font-semibold'>{title}</h2>
-      {children}
-    </section>
   )
 }

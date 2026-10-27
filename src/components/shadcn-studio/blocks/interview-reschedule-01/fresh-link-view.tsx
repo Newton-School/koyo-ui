@@ -6,7 +6,6 @@ import { useEffect, useId, useRef, useState } from 'react'
 
 // Third-party Imports
 import {
-  BellRingIcon,
   CheckIcon,
   CircleCheckBigIcon,
   CopyIcon,
@@ -16,15 +15,12 @@ import {
   LaptopIcon,
   LinkIcon,
   PlayIcon,
-  Share2Icon,
-  ShieldAlertIcon,
-  TimerIcon
+  Share2Icon
 } from 'lucide-react'
 
 // Component Imports
 import { Button } from '@newtonschool/koyo-ui/button'
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@newtonschool/koyo-ui/input-group'
-import { Progress } from '@newtonschool/koyo-ui/progress'
 import { Spinner } from '@newtonschool/koyo-ui/spinner'
 
 // Util Imports
@@ -33,73 +29,10 @@ import { cn } from '@/lib/utils'
 import type { FreshLink, InterviewDetails } from './reschedule-data'
 import { formatDuration, formatIST, formatLocal, formatRemaining } from './reschedule-data'
 import { useInAppBrowser, useIsHandheld, useLocalTimeZone, useNow } from './reschedule-hooks'
-import { brandAction, brandText, Callout, IconTile, tint, toneStyle } from './reschedule-ui'
-import InterviewSummary from './interview-summary'
+import { Banner, blueFocus, Callout, primaryAction } from './reschedule-ui'
+import InterviewSummary, { PageHeading } from './interview-summary'
 
 const URGENT_MS = 3 * 3_600_000
-
-const DeadlineCard = ({
-  freshLink,
-  validityHours,
-  remaining
-}: {
-  freshLink: FreshLink
-  validityHours: number
-  remaining: number | null
-}) => {
-  // Hooks
-  const localTimeZone = useLocalTimeZone()
-
-  const issuedAt = new Date(freshLink.issuedAt).getTime()
-  const expiresAt = new Date(freshLink.expiresAt).getTime()
-  const percentLeft = remaining === null ? 100 : Math.max(0, Math.min(100, (remaining / (expiresAt - issuedAt)) * 100))
-  const expired = remaining !== null && remaining <= 0
-  const urgent = remaining !== null && !expired && remaining < URGENT_MS
-
-  return (
-    <div className='bg-card rounded-xl border p-4 sm:p-5'>
-      <div className='flex flex-wrap items-start justify-between gap-3'>
-        <div className='space-y-1'>
-          <p className='text-muted-foreground text-xs font-medium tracking-wide uppercase'>Start before</p>
-          <p className='text-lg font-semibold sm:text-xl'>
-            <time dateTime={freshLink.expiresAt}>{formatIST(freshLink.expiresAt)}</time>
-          </p>
-          {localTimeZone && (
-            <p className='text-muted-foreground text-sm'>{formatLocal(freshLink.expiresAt, localTimeZone)} your time</p>
-          )}
-        </div>
-        {remaining !== null && (
-          <span
-            style={expired ? undefined : toneStyle(urgent ? 'warning' : 'success')}
-            className={cn(
-              'inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm font-medium tabular-nums',
-              expired ? 'bg-muted text-muted-foreground border-border' : tint.chip
-            )}
-          >
-            {expired ? (
-              <Spinner className='size-3.5' aria-hidden='true' role='presentation' />
-            ) : (
-              <HourglassIcon className='size-3.5' aria-hidden='true' />
-            )}
-            {expired ? 'Checking…' : formatRemaining(remaining)}
-          </span>
-        )}
-      </div>
-      <Progress
-        value={percentLeft}
-        aria-label='Time left to start the interview'
-        aria-valuenow={Math.round(percentLeft)}
-        aria-valuetext={remaining === null ? undefined : formatRemaining(remaining)}
-        className={cn('mt-4 h-1.5', urgent && '[&>[data-slot=progress-indicator]]:bg-koyo-color-amber-orange-500')}
-      />
-      <p className='text-muted-foreground mt-3 text-xs leading-relaxed'>
-        You only need to <span className='text-foreground font-medium'>start</span> before this time — once you start,
-        you can finish under the usual interview rules. Issued {formatIST(freshLink.issuedAt)} · valid for{' '}
-        {validityHours} hours.
-      </p>
-    </div>
-  )
-}
 
 const CopyLink = ({ url, showShare }: { url: string; showShare: boolean }) => {
   // States
@@ -143,12 +76,12 @@ const CopyLink = ({ url, showShare }: { url: string; showShare: boolean }) => {
   }
 
   return (
-    <div className='space-y-2'>
-      <label htmlFor={inputId} className='text-sm font-medium'>
+    <div className='space-y-1.5'>
+      <label htmlFor={inputId} className='text-muted-foreground text-xs font-medium'>
         Or copy your interview link
       </label>
       <div className='flex gap-2'>
-        <InputGroup className='h-11'>
+        <InputGroup className='has-[[data-slot=input-group-control]:focus-visible]:border-koyo-color-brand-500 h-10 has-[[data-slot=input-group-control]:focus-visible]:ring-[color-mix(in_oklab,var(--koyo-color-brand-500)_25%,transparent)]'>
           <InputGroupAddon>
             <LinkIcon aria-hidden='true' />
           </InputGroupAddon>
@@ -163,8 +96,11 @@ const CopyLink = ({ url, showShare }: { url: string; showShare: boolean }) => {
           <InputGroupAddon align='inline-end'>
             <InputGroupButton
               size='sm'
-              variant='orange-soft'
-              className={brandText}
+              variant='ghost'
+              className={cn(
+                'text-[color-mix(in_oklab,var(--koyo-color-brand-500)_72%,var(--foreground))] hover:bg-[color-mix(in_oklab,var(--koyo-color-brand-500)_10%,var(--background))]',
+                blueFocus
+              )}
               onClick={handleCopy}
               aria-label='Copy interview link'
             >
@@ -174,7 +110,7 @@ const CopyLink = ({ url, showShare }: { url: string; showShare: boolean }) => {
           </InputGroupAddon>
         </InputGroup>
         {showShare && canShare && (
-          <Button variant='outline' size='icon-lg' className='size-11' onClick={handleShare} aria-label='Share link'>
+          <Button variant='outline' size='icon-lg' onClick={handleShare} aria-label='Share link'>
             <Share2Icon aria-hidden='true' />
           </Button>
         )}
@@ -194,7 +130,7 @@ export const InAppBrowserNotice = () => {
   if (!inApp) return null
 
   return (
-    <Callout tone='info' icon={ExternalLinkIcon} title='Open this page in Chrome for your interview'>
+    <Callout tone='info' icon={ExternalLinkIcon} title='Open this page in Chrome.'>
       The browser inside apps like WhatsApp can block your camera and microphone. Copy the link and open it in Chrome
       before you start.
     </Callout>
@@ -231,6 +167,7 @@ const FreshLinkView = ({
   // Hooks
   const now = useNow()
   const handheld = useIsHandheld()
+  const localTimeZone = useLocalTimeZone()
 
   const rawRemaining = now === null ? null : new Date(freshLink.expiresAt).getTime() - (now + clockOffset)
 
@@ -244,57 +181,50 @@ const FreshLinkView = ({
     if (expired) onDeadlinePassed?.(freshLink.expiresAt)
   }, [expired, freshLink.expiresAt, onDeadlinePassed])
 
-  const notes = [
-    {
-      icon: BellRingIcon,
-      title: "We'll remind you before it expires",
-      description: 'Reminders with this link will come on WhatsApp and email.'
-    },
-    {
-      icon: TimerIcon,
-      title: `Set aside about ${formatDuration(interview.durationMinutes)}`,
-      description: 'Find a quiet place with a stable internet connection, and avoid interruptions once you start.'
-    }
-  ]
-
   return (
-    <div className='space-y-8'>
-      <div className='space-y-4'>
-        <IconTile
-          tone='success'
-          icon={CircleCheckBigIcon}
-          className='animate-in fade-in zoom-in-75 size-14 duration-500 motion-reduce:animate-none [&_svg]:size-7'
-        />
-        <div className='space-y-2'>
-          <h1 ref={headingRef} tabIndex={-1} className='text-2xl font-semibold tracking-tight outline-none sm:text-3xl'>
-            {justIssued ? 'Your new interview link is ready' : 'Your new interview link is still active'}
-          </h1>
-          <p className='text-muted-foreground text-base leading-relaxed'>
-            {justIssued ? `${interview.candidateFirstName}, start` : 'Start'} your interview any time before{' '}
-            <span className='text-foreground font-medium'>{formatIST(freshLink.expiresAt)}</span>.
-          </p>
-        </div>
+    <div className='space-y-6'>
+      <div className='space-y-5'>
+        <PageHeading headingRef={headingRef}>
+          {justIssued ? 'Your new interview link is ready' : 'Your new interview link is still active'}
+        </PageHeading>
+        <InterviewSummary interview={interview} />
       </div>
 
+      <Banner
+        tone={expired ? 'neutral' : urgent ? 'warning' : 'success'}
+        icon={urgent ? HourglassIcon : CircleCheckBigIcon}
+      >
+        <p className='flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5'>
+          <span>
+            {urgent ? 'Start soon — before ' : 'Start your interview before '}
+            <time dateTime={freshLink.expiresAt} className='font-semibold'>
+              {formatIST(freshLink.expiresAt, { withYear: false })}
+            </time>
+            {localTimeZone && (
+              <span className='opacity-80'> ({formatLocal(freshLink.expiresAt, localTimeZone)} your time)</span>
+            )}
+          </span>
+          {remaining !== null && (
+            <span className='inline-flex items-center gap-1.5 font-semibold whitespace-nowrap tabular-nums'>
+              {expired && <Spinner className='size-3.5' aria-hidden='true' role='presentation' />}
+              {expired ? 'Checking…' : formatRemaining(remaining)}
+            </span>
+          )}
+        </p>
+        <p className='text-[13px] opacity-85'>
+          No further rescheduling — this was your one-time reschedule for this interview.
+        </p>
+      </Banner>
+
       {alreadyUsedNotice && (
-        <Callout tone='info' icon={InfoIcon} title='You already have a new link'>
-          You&apos;ve already used your one-time reschedule, so we didn&apos;t create another link. Here&apos;s the one
+        <Callout tone='info' icon={InfoIcon} title='You already have a new link.'>
+          You&apos;ve already used your one-time reschedule, so we didn&apos;t create another one. Here&apos;s the link
           you already have.
         </Callout>
       )}
 
-      <InterviewSummary interview={interview} />
-
-      <DeadlineCard freshLink={freshLink} validityHours={interview.freshLinkValidityHours} remaining={remaining} />
-
-      {urgent && (
-        <Callout tone='warning' icon={HourglassIcon} title='Less than 3 hours left to start'>
-          Start soon so you aren&apos;t rushed. You only need to start before {formatIST(freshLink.expiresAt)}.
-        </Callout>
-      )}
-
       {needsLaptop && (
-        <Callout tone='info' icon={LaptopIcon} title='Open this link on a laptop or desktop'>
+        <Callout tone='info' icon={LaptopIcon} title='Open this link on a laptop or desktop.'>
           Coding interviews need a full keyboard, so they don&apos;t work on phones. Copy or share the link below and
           open it in Chrome on your computer.
         </Callout>
@@ -302,11 +232,11 @@ const FreshLinkView = ({
 
       <InAppBrowserNotice />
 
-      <div className='space-y-5'>
+      <div className='space-y-4'>
         <Button
-          variant='brand'
+          variant='blue'
           size='xl'
-          className={cn(brandAction, 'w-full text-base aria-disabled:pointer-events-none aria-disabled:opacity-60')}
+          className={cn(primaryAction, 'aria-disabled:pointer-events-none aria-disabled:opacity-60')}
           asChild
         >
           <a href={expired ? undefined : freshLink.url} aria-disabled={expired || undefined}>
@@ -317,24 +247,10 @@ const FreshLinkView = ({
         <CopyLink url={freshLink.url} showShare={handheld} />
       </div>
 
-      <ul className='space-y-4'>
-        {notes.map(note => (
-          <li key={note.title} className='flex gap-3'>
-            <span className='bg-muted grid size-9 shrink-0 place-items-center rounded-lg' aria-hidden='true'>
-              <note.icon className='text-muted-foreground size-4.5' />
-            </span>
-            <div className='space-y-0.5'>
-              <p className='text-sm font-medium'>{note.title}</p>
-              <p className='text-muted-foreground text-sm leading-relaxed'>{note.description}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-
-      <Callout tone='warning' icon={ShieldAlertIcon} title='No further rescheduling'>
-        This was your one-time reschedule for this interview. If this link expires before you start, you won&apos;t be
-        able to get another one.
-      </Callout>
+      <p className='text-muted-foreground text-xs leading-relaxed'>
+        You only need to <span className='text-foreground font-medium'>start</span> before the deadline · takes about{' '}
+        {formatDuration(interview.durationMinutes)} · we&apos;ll remind you on WhatsApp and email
+      </p>
     </div>
   )
 }

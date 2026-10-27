@@ -3,22 +3,20 @@
 // React Imports
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-// Component Imports
-import { Badge } from '@newtonschool/koyo-ui/badge'
-import { Skeleton } from '@newtonschool/koyo-ui/skeleton'
+// Third-party Imports
+import { CalendarX2Icon } from 'lucide-react'
 
-// Util Imports
-import { cn } from '@/lib/utils'
+// Component Imports
+import { Skeleton } from '@newtonschool/koyo-ui/skeleton'
 
 import type { MockOptions, PrototypeScenario, RescheduleApi, RescheduleStatus } from './reschedule-data'
 import { createMockRescheduleApi, formatIST, platformSupport, prototypeScenarios } from './reschedule-data'
-import { brandText, RescheduleFooter, RescheduleHeader } from './reschedule-ui'
-import { BeforeYouStart, NeedHelp, WhatHappensNext } from './reschedule-sidebar'
+import { NeedHelpLine, RescheduleFooter, RescheduleHeader } from './reschedule-ui'
 import type { RescheduleFormValues, SubmitFailure } from './reschedule-form'
-import RescheduleForm from './reschedule-form'
+import RescheduleForm, { OneTimeBanner } from './reschedule-form'
 import FreshLinkView from './fresh-link-view'
-import { LoadErrorView, StatusView } from './status-view'
-import InterviewSummary from './interview-summary'
+import { LoadErrorView, showsSupportActions, StatusView } from './status-view'
+import InterviewSummary, { PageHeading } from './interview-summary'
 import PrototypeControls from './prototype-controls'
 
 type View =
@@ -37,20 +35,31 @@ type PendingRequest = RescheduleFormValues & { idempotencyKey: string }
 const sameStatus = (a: RescheduleStatus, b: RescheduleStatus) =>
   JSON.stringify({ ...a, serverTime: undefined }) === JSON.stringify({ ...b, serverTime: undefined })
 
+const pillWidths = ['w-72', 'w-56', 'w-52', 'w-96', 'w-20']
+
 const LoadingView = () => (
-  <div className='space-y-8' aria-hidden='true'>
+  <div className='space-y-6' aria-hidden='true'>
+    <div className='space-y-5'>
+      <Skeleton className='h-6 w-56' />
+      <div className='flex items-center gap-4 sm:gap-5'>
+        <Skeleton className='size-14 shrink-0 rounded-2xl sm:size-20' />
+        <div className='flex-1 space-y-3'>
+          <Skeleton className='h-8 w-2/3' />
+          <Skeleton className='h-4 w-1/2' />
+        </div>
+      </div>
+    </div>
+    <Skeleton className='h-12 w-full rounded-lg' />
     <div className='space-y-3'>
-      <Skeleton className='h-5 w-32' />
-      <Skeleton className='h-9 w-3/4' />
-      <Skeleton className='h-5 w-full' />
+      <Skeleton className='h-5 w-64' />
+      <div className='flex flex-wrap gap-2.5'>
+        {pillWidths.map(width => (
+          <Skeleton key={width} className={`h-10 max-w-full rounded-full ${width}`} />
+        ))}
+      </div>
     </div>
-    <Skeleton className='h-36 w-full rounded-xl' />
-    <div className='grid gap-3 sm:grid-cols-2'>
-      {Array.from({ length: 4 }).map((_, index) => (
-        <Skeleton key={index} className='h-20 rounded-xl' />
-      ))}
-    </div>
-    <Skeleton className='h-12 w-full' />
+    <Skeleton className='h-[4.5rem] w-full rounded-lg' />
+    <Skeleton className='h-12 w-full rounded-lg' />
   </div>
 )
 
@@ -245,25 +254,29 @@ export const InterviewReschedule = ({ api }: { api: RescheduleApi }) => {
   } else if (view.phase === 'load-error') {
     main = <LoadErrorView headingRef={headingRef} onRetry={() => load({ moveFocus: true })} />
   } else if (view.status.state === 'eligible') {
+    const { interview: details } = view.status
+
     main = (
-      <div className='space-y-8'>
-        <div className='space-y-3'>
-          <Badge variant='outline' shape='round' className={cn('border-koyo-brand/30 bg-koyo-brand/10', brandText)}>
-            One-time reschedule
-          </Badge>
-          <h1 ref={headingRef} tabIndex={-1} className='text-2xl font-semibold tracking-tight outline-none sm:text-3xl'>
-            Reschedule your interview
-          </h1>
-          <p className='text-muted-foreground text-base leading-relaxed'>
-            Hi {view.status.interview.candidateFirstName}, your interview link expired on{' '}
-            <span className='text-foreground font-medium'>
-              {formatIST(view.status.interview.originalLinkExpiresAt)}
-            </span>{' '}
-            before you could start. Tell us what happened and we&apos;ll give you a new link right away.
-          </p>
+      <div className='space-y-5'>
+        <PageHeading headingRef={headingRef}>Reschedule your interview</PageHeading>
+        <InterviewSummary
+          interview={details}
+          detail={{
+            icon: CalendarX2Icon,
+            label: (
+              <>
+                Link expired{' '}
+                <time dateTime={details.originalLinkExpiresAt}>
+                  {formatIST(details.originalLinkExpiresAt, { withYear: false })}
+                </time>
+              </>
+            )
+          }}
+        />
+        <OneTimeBanner interview={details} />
+        <div className='pt-2'>
+          <RescheduleForm interview={details} onSubmit={handleSubmit} />
         </div>
-        <InterviewSummary interview={view.status.interview} showLinkComparison />
-        <RescheduleForm interview={view.status.interview} onSubmit={handleSubmit} />
       </div>
     )
   } else if (view.status.state === 'fresh-link-active') {
@@ -294,7 +307,7 @@ export const InterviewReschedule = ({ api }: { api: RescheduleApi }) => {
     )
   }
 
-  const showReadiness = !!status && ['eligible', 'fresh-link-active', 'original-link-active'].includes(status.state)
+  const support = interview?.support ?? (status?.state === 'invalid-link' ? status.support : platformSupport)
 
   return (
     <div className='bg-background flex min-h-screen flex-col'>
@@ -306,27 +319,25 @@ export const InterviewReschedule = ({ api }: { api: RescheduleApi }) => {
       </p>
 
       <main className='flex-1'>
-        <div className='mx-auto grid max-w-6xl gap-10 px-4 py-8 sm:px-6 sm:py-12 lg:grid-cols-[minmax(0,1fr)_minmax(320px,380px)] lg:gap-14 lg:px-8 lg:py-14'>
-          <div className='min-w-0 lg:max-w-2xl'>{main}</div>
+        <div className='mx-auto max-w-4xl px-4 pt-6 pb-10 sm:px-6 sm:pt-8 lg:px-8'>
+          <div className='max-w-3xl'>
+            {main}
 
-          <aside aria-label='Interview help' className='space-y-4'>
-            {view.phase === 'loading' ? (
-              <>
-                <Skeleton className='h-80 rounded-xl' aria-hidden='true' />
-                <Skeleton className='h-40 rounded-xl' aria-hidden='true' />
-              </>
-            ) : (
-              <>
-                {showReadiness && interview && <BeforeYouStart interview={interview} />}
-                {status?.state === 'eligible' && (
-                  <WhatHappensNext validityHours={status.interview.freshLinkValidityHours} />
-                )}
-                <NeedHelp
-                  support={interview?.support ?? (status?.state === 'invalid-link' ? status.support : platformSupport)}
-                />
-              </>
+            {view.phase !== 'loading' && !(status && showsSupportActions(status)) && (
+              <NeedHelpLine
+                support={support}
+                className='mt-8 border-t pt-5'
+                note={
+                  status?.state === 'eligible' ? (
+                    <>
+                      Not {status.interview.candidateFirstName}? Please don&apos;t use this link — contact the hiring
+                      team instead.
+                    </>
+                  ) : undefined
+                }
+              />
             )}
-          </aside>
+          </div>
         </div>
       </main>
 

@@ -1,21 +1,3 @@
-// Third-party Imports
-import type { LucideIcon } from 'lucide-react'
-import {
-  BriefcaseBusinessIcon,
-  CameraIcon,
-  CircleEllipsisIcon,
-  CodeXmlIcon,
-  HeartPulseIcon,
-  LanguagesIcon,
-  LaptopIcon,
-  MonitorSmartphoneIcon,
-  SunIcon,
-  TimerIcon,
-  TriangleAlertIcon,
-  WifiIcon,
-  BellRingIcon
-} from 'lucide-react'
-
 /*
  * Types
  * The page renders one of these states. Production code should map the platform's
@@ -95,114 +77,41 @@ export type RescheduleApi = {
 
 /*
  * Reasons
- * Labels are the five agreed options from the PRD (§6.2). Hints help candidates map
- * real-world situations (no laptop, travel, weak Wi-Fi) onto them.
+ * Labels are the five agreed options from the PRD (§6.2). Each placeholder nudges the optional
+ * note towards the details that help the hiring team (no laptop, travel, weak Wi-Fi).
  */
 
-export const reasons: { id: ReasonId; label: string; hint: string; icon: LucideIcon }[] = [
+export const reasons: { id: ReasonId; label: string; placeholder: string }[] = [
   {
     id: 'busy',
     label: "I was busy or didn't have enough time",
-    hint: 'Work, travel or other commitments',
-    icon: BriefcaseBusinessIcon
+    placeholder: 'For example: I was travelling, or had a shift at work that ran late.'
   },
   {
     id: 'forgot',
     label: 'I forgot about the interview',
-    hint: 'Missed the message or the deadline',
-    icon: BellRingIcon
+    placeholder: 'For example: I missed the WhatsApp message with the link.'
   },
   {
     id: 'technical',
     label: 'I faced a technical issue',
-    hint: 'No laptop, weak internet, camera or app problem',
-    icon: TriangleAlertIcon
+    placeholder: "For example: I didn't have a laptop, or my internet kept dropping."
   },
   {
     id: 'emergency',
     label: 'I had an unexpected personal or emergency situation',
-    hint: 'Health, family or another urgent matter',
-    icon: HeartPulseIcon
+    placeholder: "Share only what you're comfortable with."
   },
   {
     id: 'other',
     label: 'Other',
-    hint: 'Tell us more in the box below if you like',
-    icon: CircleEllipsisIcon
+    placeholder: 'Tell us briefly what happened.'
   }
 ]
 
+export const DEFAULT_EXPLANATION_PLACEHOLDER = "For example: I was travelling and didn't have my laptop with me."
+
 export const EXPLANATION_MAX_LENGTH = 500
-
-/*
- * Readiness checklist
- * Shown before the candidate starts. Device and language lines are campaign
- * configuration, not platform rules — confirm them per campaign.
- */
-
-export type ReadinessItem = { icon: LucideIcon; title: string; description: string }
-
-export const getReadinessItems = (interview: InterviewDetails): ReadinessItem[] => {
-  const duration: ReadinessItem = {
-    icon: TimerIcon,
-    title: `Takes about ${formatDuration(interview.durationMinutes)}`,
-    description: 'Keep some extra time free so you are not rushed.'
-  }
-
-  const internet: ReadinessItem = {
-    icon: WifiIcon,
-    title: 'Stable internet connection',
-    description: "Use Wi-Fi or strong 4G. Don't switch networks during the interview."
-  }
-
-  const camera: ReadinessItem = {
-    icon: CameraIcon,
-    title: 'Camera and microphone on',
-    description: 'Allow access when your browser asks. Keep your face clearly visible.'
-  }
-
-  const place: ReadinessItem = {
-    icon: SunIcon,
-    title: 'Quiet, well-lit place',
-    description: 'Sit facing a light, away from noise, so you can finish without interruptions.'
-  }
-
-  if (interview.kind === 'coding') {
-    return [
-      duration,
-      internet,
-      {
-        icon: LaptopIcon,
-        title: 'Laptop or desktop computer',
-        description: 'Use the latest Chrome. Coding questions need a full keyboard, so phones are not supported.'
-      },
-      {
-        icon: CodeXmlIcon,
-        title: 'Built-in code editor',
-        description: 'Write and run code in Python, Java, C++ or JavaScript. Nothing to install.'
-      },
-      camera,
-      place
-    ]
-  }
-
-  return [
-    duration,
-    internet,
-    {
-      icon: MonitorSmartphoneIcon,
-      title: 'Laptop or smartphone',
-      description: 'Use Chrome on a laptop, or on an Android phone with a working front camera.'
-    },
-    {
-      icon: LanguagesIcon,
-      title: `Answer in ${formatList(interview.languages)}`,
-      description: 'Speak clearly in the language you are most comfortable with.'
-    },
-    camera,
-    place
-  ]
-}
 
 /*
  * Formatting
@@ -212,7 +121,10 @@ export const getReadinessItems = (interview: InterviewDetails): ReadinessItem[] 
 
 const IST_TIME_ZONE = 'Asia/Kolkata'
 
-export const formatIST = (iso: string, { withWeekday = true }: { withWeekday?: boolean } = {}) => {
+export const formatIST = (
+  iso: string,
+  { withWeekday = true, withYear = true }: { withWeekday?: boolean; withYear?: boolean } = {}
+) => {
   // Never crash the page over one bad timestamp from the API.
   if (Number.isNaN(new Date(iso).getTime())) return '—'
 
@@ -232,7 +144,7 @@ export const formatIST = (iso: string, { withWeekday = true }: { withWeekday?: b
   )
 
   // e.g. "Wed, 28 Oct 2026, 4:30 PM IST" — assembled by hand so every browser prints the same thing.
-  const day = `${parts.day} ${parts.month} ${parts.year}`
+  const day = `${parts.day} ${parts.month}${withYear ? ` ${parts.year}` : ''}`
   const period = parts.dayPeriod.toUpperCase()
   const time = `${parts.hour}:${parts.minute} ${period} IST`
 
@@ -277,9 +189,15 @@ export const formatDuration = (minutes: number) => {
   return rest ? `${hourLabel} ${rest} minutes` : hourLabel
 }
 
-/** Duration as an adjective, e.g. "45-minute" or "1-hour". */
-export const formatDurationAdjective = (minutes: number) =>
-  minutes % 60 === 0 ? `${minutes / 60}-hour` : `${minutes}-minute`
+/** Compact duration for meta rows, e.g. "45 min" or "1 hr 30 min". */
+export const formatDurationShort = (minutes: number) => {
+  const hours = Math.floor(minutes / 60)
+  const rest = minutes % 60
+
+  if (!hours) return `${rest} min`
+
+  return rest ? `${hours} hr ${rest} min` : `${hours} hr`
+}
 
 export const formatRemaining = (ms: number) => {
   if (!Number.isFinite(ms)) return ''
@@ -296,9 +214,6 @@ export const formatRemaining = (ms: number) => {
 
   return `${hours} h ${minutes.toString().padStart(2, '0')} min left`
 }
-
-export const formatList = (items: string[]) =>
-  items.length > 1 ? `${items.slice(0, -1).join(', ')} or ${items[items.length - 1]}` : (items[0] ?? '')
 
 /*
  * Mock data & API (prototype only)

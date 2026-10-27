@@ -16161,7 +16161,7 @@
     {
       "name": "interview-reschedule-01",
       "title": "Interview Rescheduling 1",
-      "description": "Two-column candidate page for missed AI interviews: one-time reason form with required reason cards and optional note, fresh-link confirmation with exact IST deadline, countdown, Start Interview and copy link, plus every status screen (link still active, started, completed, final expiry, ineligible, invalid link) with a readiness checklist for coding and operational interviews",
+      "description": "Minimal single-column candidate page for missed AI interviews: interview header with square logo and one meta row, one-time 24-hour banner with the exact IST deadline, compact pill-style reason picker, optional note and full-width CTA, plus the new-link confirmation and every status screen",
       "type": "registry:block",
       "registryDependencies": [
         "badge",
@@ -16221,11 +16221,6 @@
           "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/reschedule-hooks.ts",
           "type": "registry:component",
           "target": "components/shadcn-studio/blocks/interview-reschedule-01/reschedule-hooks.ts"
-        },
-        {
-          "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/reschedule-sidebar.tsx",
-          "type": "registry:component",
-          "target": "components/shadcn-studio/blocks/interview-reschedule-01/reschedule-sidebar.tsx"
         },
         {
           "path": "src/components/shadcn-studio/blocks/interview-reschedule-01/reschedule-ui.tsx",
