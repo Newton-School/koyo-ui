@@ -147,6 +147,9 @@ const InterviewRescheduleMessages = () => {
   // The sequence is taller than the viewport, so the sticky sidebar scrolls on its own. Keep the
   // selected message in view there (deep links, previous/next) without moving the page.
   useEffect(() => {
+    // Wait for the deep link, so the default D1 does not scroll the sidebar first.
+    if (!urlReady) return
+
     const scroller = sidebarRef.current
     const item = scroller?.querySelector<HTMLElement>('[aria-current="true"]')
 
@@ -158,7 +161,7 @@ const InterviewRescheduleMessages = () => {
 
     if (rect.top < view.top) scroller.scrollTop -= view.top - rect.top + 8
     else if (rect.bottom > visibleBottom) scroller.scrollTop += rect.bottom - visibleBottom + 8
-  }, [selectedId])
+  }, [urlReady, selectedId])
 
   const message = messages[selectedId]
   const example = examples[kind]
@@ -189,9 +192,7 @@ const InterviewRescheduleMessages = () => {
           {/* Title + controls */}
           <div className='flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between'>
             <div className='max-w-2xl space-y-2.5'>
-              <p className='text-koyo-brand text-sm font-medium'>
-                Reminders & one-time rescheduling · Candidate messages
-              </p>
+              <p className='text-koyo-brand text-sm font-medium'>Reminders & rescheduling · Candidate messages</p>
               <h1 className='text-2xl font-semibold tracking-tight sm:text-3xl'>Rescheduling messages</h1>
               <p className='text-muted-foreground text-base leading-relaxed'>
                 Every WhatsApp and email message a candidate can get while they have not started an AI interview: the
@@ -246,7 +247,10 @@ const InterviewRescheduleMessages = () => {
                 <p className='text-muted-foreground px-3 text-xs font-semibold tracking-wide uppercase'>
                   Send sequence
                 </p>
-                <div ref={sidebarRef} className='-mx-1 min-h-0 space-y-5 overflow-y-auto overscroll-contain px-1 pb-1'>
+                <div
+                  ref={sidebarRef}
+                  className='-mx-1 -mt-3 min-h-0 space-y-5 overflow-y-auto overscroll-contain [mask-image:linear-gradient(to_bottom,transparent,#000_12px,#000_calc(100%-12px),transparent)] px-1 py-3'
+                >
                   <MessageTimeline selectedId={selectedId} onSelect={setSelectedId} panelId={PANEL_ID} />
                   <Legend />
                 </div>

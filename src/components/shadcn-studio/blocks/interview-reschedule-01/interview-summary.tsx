@@ -27,7 +27,7 @@ const MetaItem = ({ icon: Icon, children }: { icon: typeof TimerIcon; children: 
 export const CompanyTile = ({ interview, className }: { interview: InterviewDetails; className?: string }) => (
   <span
     className={cn(
-      'grid size-14 shrink-0 place-items-center rounded-xl text-lg font-semibold tracking-tight',
+      'ring-border grid size-14 shrink-0 place-items-center rounded-xl text-lg font-semibold tracking-tight ring-1',
       interview.company.tileClassName,
       className
     )}
