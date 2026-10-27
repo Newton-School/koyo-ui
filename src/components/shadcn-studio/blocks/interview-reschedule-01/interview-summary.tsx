@@ -3,7 +3,7 @@ import type { ReactNode, Ref } from 'react'
 
 // Third-party Imports
 import type { LucideIcon } from 'lucide-react'
-import { BriefcaseBusinessIcon, ClockIcon } from 'lucide-react'
+import { BriefcaseBusinessIcon, ClockIcon, CodeXmlIcon, VideoIcon } from 'lucide-react'
 
 // Util Imports
 import { cn } from '@/lib/utils'
@@ -47,8 +47,8 @@ const MetaItem = ({ icon: Icon, children }: { icon: LucideIcon; children: ReactN
 )
 
 /**
- * Company logo, role and one meta row (company · duration · an optional state detail such as the
- * expiry), so every state opens with the same recognisable summary of the invitation.
+ * Company logo, role and one meta row: company · duration · a state detail such as the expiry, or else
+ * the interview title (e.g. the round), so every state opens with the same summary of the invitation.
  */
 const InterviewSummary = ({ interview, detail }: { interview: InterviewDetails; detail?: MetaDetail }) => (
   <section
@@ -60,7 +60,11 @@ const InterviewSummary = ({ interview, detail }: { interview: InterviewDetails; 
     <ul className='text-muted-foreground col-span-2 flex flex-wrap gap-x-5 gap-y-1.5 text-sm sm:col-span-1 sm:col-start-2 sm:self-start sm:text-[15px]'>
       <MetaItem icon={BriefcaseBusinessIcon}>{interview.company.name}</MetaItem>
       <MetaItem icon={ClockIcon}>{formatDurationShort(interview.durationMinutes)}</MetaItem>
-      {detail && <MetaItem icon={detail.icon}>{detail.label}</MetaItem>}
+      {detail ? (
+        <MetaItem icon={detail.icon}>{detail.label}</MetaItem>
+      ) : (
+        <MetaItem icon={interview.kind === 'coding' ? CodeXmlIcon : VideoIcon}>{interview.title}</MetaItem>
+      )}
     </ul>
   </section>
 )

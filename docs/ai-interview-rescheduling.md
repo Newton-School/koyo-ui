@@ -1,6 +1,6 @@
 # AI Interview Rescheduling: candidate UI
 
-Candidate-facing screens for **Smart Reminders & Rescheduling for AI Interviews** (PRD v1.0, 26 Oct 2026), built from Koyo UI components. Field notes from the Urban Company calling sheet shaped the copy, the reason hints and the readiness checklist. Every name, link and contact in the mock data is a placeholder.
+Candidate-facing screens for **Smart Reminders & Rescheduling for AI Interviews** (PRD v1.0, 26 Oct 2026), built from Koyo UI components. Field notes from the Urban Company calling sheet shaped the copy and the reason placeholders. Every name, link and contact in the mock data is a placeholder.
 
 ## What's in the repo
 
@@ -18,6 +18,18 @@ Both are listed in the catalog under **Blocks → AI Interview → Interview Res
        interview-completed | final-link-expired | ineligible | invalid-link | load-error
 &kind=operational | coding
 ```
+
+## Design direction
+
+After the first review the page was cut down to match the designer's mockup (OpenTable's "Modify your reservation"):
+
+- One column: a small state heading, the square company logo with the role and one meta row, then a tinted banner that carries the key message.
+- On the form, the blue banner says it's a one-time request valid for 24 hours, with the exact deadline if requested now.
+- Reasons are compact Uber-style pills with no icons, several per row; the optional note and a full-width blue "Get new interview link" button follow.
+- The "What to know before you start" panel, "What happens next" and the original-vs-new link box are gone. Need help is a single line.
+- The whole form fits above the fold at 1280×800; on phones the button is pinned to the bottom.
+
+A matching prototype built with real [Grauity](https://grauity.newtonschool.co) components (`@newtonschool/grauity`: `NSButton`, `NSTextArea`, `NSErrorMessage`, `NSIcon`, `NSTypography`, `NSPill`, Grauity tokens) lives outside this repo, because this repo type-checks every `.tsx` file against its Tailwind setup. It uses the same states, copy and mock API, so either can be handed to engineering.
 
 ## Screens and the PRD
 
@@ -46,7 +58,7 @@ One page renders the state the server returns (PRD §7: "logical screens… not 
 - Offline banner, with the CTA disabled.
 - Under 3 hours left: a warning that says "start", not "finish".
 - Coding interview on a phone: a laptop warning before submit and again on the confirmation.
-- In-app browser (WhatsApp, Instagram…): "Open in Chrome".
+- In-app browser (WhatsApp, Instagram…): "Open in Chrome" on the new-link screen.
 - Local time is shown next to IST when the device isn't in India.
 - "Not {first name}?" line on the form.
 
@@ -54,10 +66,10 @@ One page renders the state the server returns (PRD §7: "logical screens… not 
 
 - **CTA stays "Get New Interview Link"** (PRD §6.1, §7.1, §8), not "Get a demo link". "Demo" sounds like a practice run, and this button uses up the candidate's only reschedule.
 - **The deadline is "Start before {exact IST}".** The PRD only requires a _start_ before expiry; the candidate "may finish afterward under the existing interview-session rules". "Valid for 24 hours" is the explanation, and it appears in the bottom note.
-- **The one-time notice sits right above the CTA**, so it is read before submitting (§6.3). A shorter version repeats under the CTA ("One-time request · valid only for 24 hours", plus stable internet and duration), as requested. The confirmation repeats "No further rescheduling" (§8).
+- **The one-time notice is the blue banner above the reasons**, so it is read before submitting (§6.3). A short line under the CTA repeats it ("One-time request · valid for 24 hours", plus duration and stable internet), as requested. The new-link banner repeats "No further rescheduling" (§8).
 - **The deadline is shown before submit**, as a live "If you request now, start by …" line (§8 guardrail 1).
 - **Dates are always explicit.** Format: `Wed, 28 Oct 2026, 4:30 PM IST`. 12:xx AM gets "(Tuesday night)" and 12:00 PM gets "(noon)". Relative countdowns only ever appear next to the exact time.
-- **Reasons are the five agreed labels, word for word** (§6.2), each with a hint that maps real situations onto them. For example, "No laptop, weak internet, camera or app problem" sits under the technical-issue option. The explanation is always optional.
+- **Reasons are the five agreed labels, word for word** (§6.2), shown as pills. The note's placeholder changes with the chosen reason (technical issue → "I didn't have a laptop, or my internet kept dropping") to help candidates map real situations onto them. The note is always optional.
 - **The copy never implies** HR approval, a booked slot, or that anyone will act on the free text.
 
 ## Wiring it to the real service
@@ -87,7 +99,7 @@ type RescheduleApi = {
 
   Support details already exist in §10.
 
-- **Readiness checklist.** `getReadinessItems()` derives it from `kind`. Move the device and language lines to campaign config once Product confirms them (see Q3).
+- **Device rules.** Coding interviews show a laptop warning to phone users before and after requesting a link. Move device rules to campaign config once Product confirms them (see Q3).
 - **Analytics (§13).** A tap on Start Interview is not a start: the page stays on the link screen until the platform reports one.
 
 ## Edge cases handled in the UI
@@ -135,4 +147,4 @@ The PRD already answers several questions: the 24-hour validity is fixed, the fi
 10. Interview language per campaign (Telugu?), and page language (Hindi/Telugu translations)?
 11. A "test your camera and mic" check that doesn't count as a start, offered on the confirmation screen only? This is where a "demo link" idea could live without competing with the CTA.
 12. Branding and sender: Koyo, Newton School, or the hiring company first? What name do candidates see on WhatsApp?
-13. Mobile: keep the CTA inline right under the one-time notice (current), or add a sticky footer CTA (Airbnb pattern)?
+13. Interview title: the form's meta row drops the round ("Round 1 · AI coding interview") to stay on one line. Is company + role enough to tell invitations apart (AC-11), or should the round show there too?

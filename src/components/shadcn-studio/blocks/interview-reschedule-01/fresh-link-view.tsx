@@ -194,24 +194,22 @@ const FreshLinkView = ({
         tone={expired ? 'neutral' : urgent ? 'warning' : 'success'}
         icon={urgent ? HourglassIcon : CircleCheckBigIcon}
       >
-        <p className='flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5'>
-          <span>
+        <div className='flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5'>
+          <p>
             {urgent ? 'Start soon — before ' : 'Start your interview before '}
-            <time dateTime={freshLink.expiresAt} className='font-semibold'>
+            <time dateTime={freshLink.expiresAt} className='font-semibold whitespace-nowrap'>
               {formatIST(freshLink.expiresAt, { withYear: false })}
             </time>
-            {localTimeZone && (
-              <span className='opacity-80'> ({formatLocal(freshLink.expiresAt, localTimeZone)} your time)</span>
-            )}
-          </span>
+          </p>
           {remaining !== null && (
-            <span className='inline-flex items-center gap-1.5 font-semibold whitespace-nowrap tabular-nums'>
+            <p className='inline-flex items-center gap-1.5 font-semibold whitespace-nowrap tabular-nums'>
               {expired && <Spinner className='size-3.5' aria-hidden='true' role='presentation' />}
               {expired ? 'Checking…' : formatRemaining(remaining)}
-            </span>
+            </p>
           )}
-        </p>
-        <p className='text-[13px] opacity-85'>
+        </div>
+        <p className='text-[13px]'>
+          {localTimeZone && <>That&apos;s {formatLocal(freshLink.expiresAt, localTimeZone)} your time. </>}
           No further rescheduling — this was your one-time reschedule for this interview.
         </p>
       </Banner>

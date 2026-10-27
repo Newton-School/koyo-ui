@@ -319,14 +319,14 @@ export const InterviewReschedule = ({ api }: { api: RescheduleApi }) => {
       </p>
 
       <main className='flex-1'>
-        <div className='mx-auto max-w-4xl px-4 pt-6 pb-10 sm:px-6 sm:pt-8 lg:px-8'>
+        <div className='mx-auto max-w-4xl px-4 pt-6 pb-10 sm:px-6 lg:px-8'>
           <div className='max-w-3xl'>
             {main}
 
             {view.phase !== 'loading' && !(status && showsSupportActions(status)) && (
               <NeedHelpLine
                 support={support}
-                className='mt-8 border-t pt-5'
+                className='mt-6 border-t pt-4'
                 note={
                   status?.state === 'eligible' ? (
                     <>

@@ -32,7 +32,7 @@ export const toneStyle = (tone: Tone) =>
  */
 const tint = {
   banner:
-    'bg-[color-mix(in_oklab,var(--tone)_9%,var(--background))] text-[color-mix(in_oklab,var(--tone)_25%,var(--foreground))]',
+    'bg-[color-mix(in_oklab,var(--tone)_10%,var(--background))] text-[color-mix(in_oklab,var(--tone)_25%,var(--foreground))]',
   callout:
     'border-[color-mix(in_oklab,var(--tone)_30%,var(--background))] bg-[color-mix(in_oklab,var(--tone)_6%,var(--background))] text-[color-mix(in_oklab,var(--tone)_20%,var(--foreground))]',
   icon: 'text-[color-mix(in_oklab,var(--tone)_85%,var(--foreground))]'
@@ -142,7 +142,7 @@ export const NeedHelpLine = ({
         {support.email && (
           <>
             {' · '}
-            <a href={`mailto:${support.email}`} className={cn(linkClassName, 'break-all')}>
+            <a href={`mailto:${support.email}`} className={cn(linkClassName, 'break-words')}>
               {support.email}
             </a>
           </>

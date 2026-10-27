@@ -20,7 +20,10 @@ type Props = {
   onRestart: () => void
 }
 
-/** Preview-only panel for walking through every PRD state. Not part of the candidate experience. */
+/**
+ * Preview-only panel for walking through every PRD state. Not part of the candidate experience. On phones
+ * the trigger is icon-only and sits in the header, clear of the page's pinned action bar.
+ */
 const PrototypeControls = ({ options, onChange, onRestart }: Props) => {
   return (
     <Popover>
@@ -28,11 +31,11 @@ const PrototypeControls = ({ options, onChange, onRestart }: Props) => {
         <Button
           variant='black'
           shape='round'
-          className='fixed right-4 bottom-4 z-50 h-10 px-4 shadow-lg sm:right-6 sm:bottom-6'
+          className='fixed top-3 right-[6.5rem] z-50 size-10 md:top-auto md:right-6 md:bottom-6 md:w-auto md:px-4 md:shadow-lg'
           aria-label='Open prototype controls'
         >
           <SlidersHorizontalIcon aria-hidden='true' />
-          Prototype
+          <span className='max-md:sr-only'>Prototype</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent align='end' side='top' sideOffset={10} className='w-80 space-y-5 p-5'>

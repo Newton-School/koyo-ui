@@ -1,7 +1,7 @@
 'use client'
 
 // React Imports
-import type { FormEvent, KeyboardEvent, RefObject } from 'react'
+import type { FocusEvent, FormEvent, KeyboardEvent, RefObject } from 'react'
 import { useId, useRef, useState } from 'react'
 
 // Third-party Imports
@@ -74,7 +74,7 @@ export const OneTimeBanner = ({ interview }: { interview: InterviewDetails }) =>
           <>
             {' '}
             — if you request now, start by{' '}
-            <time dateTime={projectedExpiry} className='font-semibold'>
+            <time dateTime={projectedExpiry} className='font-semibold whitespace-nowrap'>
               {formatIST(projectedExpiry, { withYear: false })}
             </time>
             .
@@ -144,8 +144,8 @@ const ReasonPills = ({ value, onChange, invalid, labelId, errorId, groupRef }: R
       {reasons.map((reason, index) => {
         const selected = reason.id === value
 
-        // The check (14px + 4px gap) takes the place of 8px of padding on each side, so selecting a pill
-        // never changes its width or reflows the rows.
+        // The check (14px icon + 4px gap) replaces 18px of side padding, so selecting a pill never
+        // changes its width or reflows the rows.
 
         return (
           <button
@@ -188,6 +188,7 @@ const RescheduleForm = ({ interview, onSubmit }: Props) => {
 
   // Refs
   const reasonGroupRef = useRef<HTMLDivElement>(null)
+  const actionBarRef = useRef<HTMLDivElement>(null)
   const submittingRef = useRef(false)
 
   // Hooks
@@ -232,8 +233,23 @@ const RescheduleForm = ({ interview, onSubmit }: Props) => {
     }
   }
 
+  // On phones the action bar is pinned over the bottom of the screen, and browsers only scroll a focused
+  // field into view when it's off-screen. Nudge the page when a field lands behind the bar.
+  const keepClearOfActionBar = (event: FocusEvent<HTMLFormElement>) => {
+    const bar = actionBarRef.current
+    const field = event.target
+
+    if (!bar || bar.contains(field) || getComputedStyle(bar).position !== 'sticky') return
+
+    requestAnimationFrame(() => {
+      const overlap = field.getBoundingClientRect().bottom + 12 - bar.getBoundingClientRect().top
+
+      if (overlap > 0) window.scrollBy({ top: overlap })
+    })
+  }
+
   return (
-    <form noValidate onSubmit={handleSubmit} className='space-y-6'>
+    <form noValidate onSubmit={handleSubmit} onFocus={keepClearOfActionBar} className='space-y-6'>
       <fieldset disabled={submitting} className='space-y-6'>
         <div className='space-y-3'>
           <p id={labelId} className='text-base font-semibold'>
@@ -281,7 +297,7 @@ const RescheduleForm = ({ interview, onSubmit }: Props) => {
             aria-describedby={explanationHintId}
             placeholder={placeholder}
             className={cn(
-              'min-h-[4.5rem] resize-y',
+              'min-h-16 resize-y',
               'focus-visible:border-koyo-color-brand-500 focus-visible:ring-[color-mix(in_oklab,var(--koyo-color-brand-500)_25%,transparent)]',
               clearOfActionBar
             )}
@@ -303,7 +319,10 @@ const RescheduleForm = ({ interview, onSubmit }: Props) => {
       )}
 
       {/* Pinned to the bottom of the screen on phones, so the action is always in reach. */}
-      <div className='bg-background/95 space-y-3 max-md:sticky max-md:bottom-0 max-md:z-10 max-md:-mx-4 max-md:border-t max-md:px-4 max-md:pt-3 max-md:pb-[calc(0.75rem+env(safe-area-inset-bottom))] max-md:backdrop-blur-md sm:max-md:-mx-6 sm:max-md:px-6 md:bg-transparent'>
+      <div
+        ref={actionBarRef}
+        className='bg-background/95 space-y-3 max-md:sticky max-md:bottom-0 max-md:z-10 max-md:-mx-4 max-md:border-t max-md:px-4 max-md:pt-3 max-md:pb-[calc(0.75rem+env(safe-area-inset-bottom))] max-md:backdrop-blur-md sm:max-md:-mx-6 sm:max-md:px-6 md:bg-transparent'
+      >
         {!online && (
           <Callout tone='neutral' icon={WifiOffIcon} title='You’re offline.' role='alert'>
             Reconnect to the internet to get your new link. Your answers on this page are kept.
@@ -341,7 +360,7 @@ const RescheduleForm = ({ interview, onSubmit }: Props) => {
         {submitting ? 'Getting your new link. Please keep this page open.' : ''}
       </p>
 
-      <p className='text-muted-foreground -mt-3 text-center text-xs leading-relaxed text-balance max-md:mt-0'>
+      <p className='text-muted-foreground -mt-3 text-center text-xs leading-relaxed text-balance'>
         One-time request · valid for {interview.freshLinkValidityHours} hours · takes about{' '}
         {formatDuration(interview.durationMinutes)} · needs a stable internet connection
       </p>
